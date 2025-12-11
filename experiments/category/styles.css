@@ -1,0 +1,198 @@
+/**
+ * Category Page Styles - Plum Living
+ */
+
+.main-content {
+  padding-top: var(--navbar-height);
+  min-height: 100vh;
+  background-color: var(--color-white);
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Page Header */
+.page-header {
+  padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+  background-color: var(--color-grey-4);
+}
+
+.page-title {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-asphalte);
+}
+
+.page-description {
+  font-family: 'Blacklist', sans-serif;
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  color: var(--color-grey-1);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
+/* Override btn-cta-text to use h4 typography */
+.btn-cta .btn-cta-text,
+.btn-cta-text {
+  font-family: 'Blacklist', sans-serif !important;
+  font-size: var(--font-size-h4) !important;
+  line-height: var(--line-height-h4) !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: -0.5px !important;
+}
+
+/* Filters Section */
+.filters {
+  padding: var(--spacing-lg) 0;
+  border-bottom: 1px solid var(--color-grey-3);
+  background-color: var(--color-white);
+  position: sticky;
+  top: var(--navbar-height);
+  z-index: 100;
+}
+
+.filters-container {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: none;
+  border: 1px solid var(--color-grey-3);
+  border-radius: var(--radius-full);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  color: var(--color-asphalte);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--color-asphalte);
+  background-color: var(--color-grey-4);
+}
+
+.filter-btn-active {
+  background-color: var(--color-asphalte);
+  color: var(--color-white);
+  border-color: var(--color-asphalte);
+}
+
+.filter-btn-active:hover {
+  background-color: #333;
+}
+
+/* Products Grid */
+.products {
+  padding: var(--spacing-3xl) 0;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-2xl);
+}
+
+/* Product Card */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-grey-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-placeholder {
+  color: var(--color-grey-2);
+  font-size: var(--font-size-m);
+  font-family: var(--font-primary);
+}
+
+.product-info {
+  padding: var(--spacing-lg);
+}
+
+.product-title {
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-asphalte);
+  font-weight: 500;
+}
+
+.product-price {
+  font-size: var(--font-size-l);
+  color: var(--color-grey-1);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+  }
+
+  .page-title {
+    font-size: var(--font-size-h2);
+  }
+
+  .filters {
+    padding: var(--spacing-md) 0;
+  }
+
+  .filters-container {
+    gap: var(--spacing-sm);
+  }
+
+  .filter-btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-s);
+  }
+
+  .products {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .product-info {
+    padding: var(--spacing-md);
+  }
+}
+

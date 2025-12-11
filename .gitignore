@@ -1,0 +1,18 @@
+# Fichiers de configuration sensibles
+mcp-config.local.json
+*.local.json
+
+# Tokens et secrets
+*.token
+*.secret
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+
+
+

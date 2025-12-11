@@ -1,0 +1,160 @@
+/**
+ * Buttons - Design System Plum Living
+ * 
+ * Styles de boutons : Primary, Secondary, Ghost
+ */
+
+/* ============================================
+   BOUTON BASE
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-alt-1); /* 16px - Alt 1 du DS */
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-alt); /* 0.05em */
+  line-height: var(--line-height-alt); /* 140% */
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.btn * {
+  font-family: var(--font-primary) !important;
+  font-size: var(--font-size-alt-1) !important;
+  line-height: var(--line-height-alt) !important;
+  font-weight: 500 !important;
+  letter-spacing: var(--letter-spacing-alt) !important;
+  text-transform: uppercase !important;
+}
+
+/* ============================================
+   TAILLES DE BOUTONS
+   ============================================ */
+
+/* Bouton large (par défaut) */
+.btn-large,
+.btn {
+  padding: var(--spacing-md) var(--spacing-xl); /* 16px top/bottom, 32px left/right */
+  font-size: var(--font-size-alt-1); /* 16px */
+}
+
+.btn-large *,
+.btn * {
+  font-size: var(--font-size-alt-1) !important;
+}
+
+/* Bouton small */
+.btn-small {
+  padding: 8px var(--spacing-sm); /* 8px top/bottom, 12px left/right */
+  font-size: var(--font-size-alt-3); /* 12px */
+}
+
+.btn-small * {
+  font-size: var(--font-size-alt-3) !important;
+}
+
+/* ============================================
+   PRIMARY BUTTON - Fill avec couleur
+   ============================================ */
+
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
+  border-color: var(--btn-primary-border);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Variante dark (pour fond clair) */
+.btn-primary-dark {
+  background-color: var(--btn-primary-dark-bg);
+  color: var(--btn-primary-dark-color);
+  border-color: var(--btn-primary-dark-border);
+}
+
+.btn-primary-dark:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   SECONDARY BUTTON - No fill, stroke
+   ============================================ */
+
+.btn-secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-color);
+  border-color: var(--btn-secondary-border);
+}
+
+.btn-secondary:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Variante dark (pour fond clair) */
+.btn-secondary-dark {
+  background-color: var(--btn-secondary-dark-bg);
+  color: var(--btn-secondary-dark-color);
+  border-color: var(--btn-secondary-dark-border);
+}
+
+.btn-secondary-dark:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   GHOST BUTTON - No fill ni stroke, juste texte
+   ============================================ */
+
+.btn-ghost {
+  background-color: var(--btn-ghost-bg);
+  color: var(--btn-ghost-color);
+  border-color: var(--btn-ghost-border);
+}
+
+.btn-ghost:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.btn-ghost:active {
+  transform: translateY(0);
+}
+
+/* Variante dark (pour fond clair) */
+.btn-ghost-dark {
+  background-color: var(--btn-ghost-dark-bg);
+  color: var(--btn-ghost-dark-color);
+  border-color: var(--btn-ghost-dark-border);
+}
+
+.btn-ghost-dark:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+

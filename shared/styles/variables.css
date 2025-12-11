@@ -1,0 +1,137 @@
+/**
+ * Variables CSS - Design System Plum Living
+ * 
+ * Variables globales pour les couleurs, typographie, espacements
+ */
+
+:root {
+  /* ============================================
+     COULEURS - Palette Basics
+     ============================================ */
+  
+  /* Neutres */
+  --color-asphalte: #222;
+  --color-black: #000;
+  --color-grey-1: #666;
+  --color-grey-2: #999;
+  --color-grey-3: #ccc;
+  --color-grey-4: #f5f5f5;
+  --color-blanc-casse: #fafafa;
+  --color-white: #ffffff;
+  
+  /* Couleurs fonctionnelles */
+  --color-success: #8dc572;
+  --color-error: #be6464;
+  --color-warning: #f0ad4e;
+  --color-info: #337ab7;
+  
+  /* ============================================
+     TYPOGRAPHIE
+     ============================================ */
+  
+  --font-primary: 'Cera Pro', sans-serif;
+  --font-heading: 'Blacklist', sans-serif;
+  
+  /* Tailles de police - Body (Cera Pro) */
+  --font-size-xl: 20px;
+  --font-size-l: 16px;
+  --font-size-m: 14px;
+  --font-size-s: 12px;
+  --font-size-xs: 10px;
+  
+  /* Styles alternatifs (Cera Pro) */
+  /* IMPORTANT : Les styles Alt 1, 2, 3 sont des styles complets du DS.
+   * Quand on utilise un style Alt, on doit utiliser TOUTES ses propriétés
+   * (font-size, line-height, ET letter-spacing) car elles font partie intégrante du style. */
+  --font-size-alt-1: 16px;
+  --font-size-alt-2: 14px;
+  --font-size-alt-3: 12px;
+  --line-height-alt: 140%;
+  --letter-spacing-alt: 0.05em; /* 5% de la taille de police = 0.05em - FAIT PARTIE INTÉGRANTE DU DS Alt 1, 2, 3. À utiliser UNIQUEMENT avec ces styles. */
+  
+  /* Tailles de police - Headings (Blacklist) */
+  --font-size-h1: 80px;
+  --font-size-h2: 54px;
+  --font-size-h3: 42px;
+  --font-size-h4: 32px;
+  --font-size-h5: 24px;
+  
+  /* Line heights */
+  --line-height-body: 140%;
+  --line-height-h1: 90%;
+  --line-height-h2: 120%;
+  --line-height-h3: 120%;
+  --line-height-h4: 120%;
+  --line-height-h5: 120%;
+  
+  /* ============================================
+     ESPACEMENTS
+     ============================================ */
+  
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 40px;
+  --spacing-3xl: 48px;
+  --spacing-4xl: 64px;
+  
+  /* ============================================
+     LAYOUT
+     ============================================ */
+  
+  --navbar-height: 110px;
+  --container-max-width: 1200px;
+  --container-padding: 40px;
+  
+  /* ============================================
+     TRANSITIONS
+     ============================================ */
+  
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+  
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  
+  /* ============================================
+     BOUTONS - Design System
+     ============================================ */
+  
+  /* Primary Button - Fill avec couleur */
+  --btn-primary-bg: var(--color-asphalte);
+  --btn-primary-color: var(--color-white);
+  --btn-primary-border: var(--color-asphalte);
+  
+  /* Secondary Button - No fill, stroke */
+  --btn-secondary-bg: transparent;
+  --btn-secondary-color: var(--color-white);
+  --btn-secondary-border: var(--color-white);
+  
+  /* Ghost Button - No fill ni stroke, juste texte */
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: var(--color-white);
+  --btn-ghost-border: transparent;
+  
+  /* Variantes dark (pour fond clair) */
+  --btn-primary-dark-bg: var(--color-asphalte);
+  --btn-primary-dark-color: var(--color-white);
+  --btn-primary-dark-border: var(--color-asphalte);
+  
+  --btn-secondary-dark-bg: transparent;
+  --btn-secondary-dark-color: var(--color-asphalte);
+  --btn-secondary-dark-border: var(--color-asphalte);
+  
+  --btn-ghost-dark-bg: transparent;
+  --btn-ghost-dark-color: var(--color-asphalte);
+  --btn-ghost-dark-border: transparent;
+}
+

@@ -1,0 +1,239 @@
+/**
+ * Polices Plum Living
+ * 
+ * Ce fichier contient les déclarations @font-face pour les polices
+ * utilisées dans le design system Plum Living.
+ * 
+ * Design System utilise uniquement :
+ * - Cera Pro (police principale pour body et contenu)
+ * - Blacklist (police pour titres et éléments visuels)
+ * 
+ * À compléter une fois les fichiers de polices téléchargés et extraits.
+ */
+
+/* ============================================
+   CERA PRO - Police principale
+   ============================================ */
+
+@font-face {
+  font-family: 'Cera Pro';
+  src: url('./cera/cera-pro-light.woff2') format('woff2'),
+       url('./cera/cera-pro-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular (400) mappe vers Medium (500) car pas de fichier Regular disponible */
+@font-face {
+  font-family: 'Cera Pro';
+  src: url('./cera/cera-pro-medium.woff2') format('woff2'),
+       url('./cera/cera-pro-medium.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cera Pro';
+  src: url('./cera/cera-pro-medium.woff2') format('woff2'),
+       url('./cera/cera-pro-medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cera Pro';
+  src: url('./cera/cera-pro-bold.woff2') format('woff2'),
+       url('./cera/cera-pro-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   BLACKLIST - Titres et éléments visuels
+   Great Studio - Blacklist Complete Family
+   ============================================ */
+
+/* Polices variables (Variable Fonts) */
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist Variable Thin.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist Variable Thin Italic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Polices statiques - Thin (100) */
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-ThinItalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Polices statiques - ExtraLight (200) */
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-ExtraLightItalic.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Polices statiques - Light (300) */
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Polices statiques - Regular (400) */
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Polices statiques - Medium (500) */
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Polices statiques - SemiBold (600) */
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-SemiBoldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Polices statiques - Bold (700) */
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Polices statiques - ExtraBold (800) */
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-ExtraBoldItalic.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Polices statiques - Black (900) */
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blacklist';
+  src: url('./blacklist/Great Studio - Blacklist-BlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+/* ============================================
+   Variables CSS pour utilisation
+   ============================================ */
+
+:root {
+  --font-primary: 'Cera Pro', sans-serif;
+  --font-heading: 'Blacklist', sans-serif;
+}
+

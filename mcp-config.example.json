@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "figma": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-figma"
+      ],
+      "env": {
+        "FIGMA_ACCESS_TOKEN": "VOTRE_TOKEN_FIGMA_ICI"
+      }
+    },
+    "local-server-example": {
+      "command": "node",
+      "args": ["/chemin/vers/votre/serveur-mcp.js"],
+      "env": {}
+    },
+    "local-server-http-example": {
+      "url": "http://localhost:3000",
+      "transport": "http"
+    }
+  }
+}
+
+
+
+
+

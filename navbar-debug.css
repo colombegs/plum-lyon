@@ -1,0 +1,188 @@
+/**
+ * DEBUG NAVBAR - Fichier de diagnostic
+ * 
+ * Ce fichier ajoute des styles de debug très visibles pour identifier
+ * pourquoi les textes ne s'affichent pas dans les dropdowns CUISINE/MAISON
+ */
+
+/* ============================================
+   DEBUG 1: Voir TOUS les dropdowns
+   ============================================ */
+.dropdown-menu {
+  /* FORCER la visibilité pour debug */
+  border: 5px solid red !important;
+  background-color: rgba(255, 0, 0, 0.1) !important;
+}
+
+.dropdown-content {
+  /* FORCER la visibilité pour debug */
+  border: 5px solid blue !important;
+  background-color: rgba(0, 0, 255, 0.1) !important;
+  /* FORCER l'affichage */
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+  pointer-events: auto !important;
+}
+
+.dropdown-columns {
+  border: 3px solid green !important;
+  background-color: rgba(0, 255, 0, 0.1) !important;
+}
+
+.dropdown-column {
+  border: 3px solid orange !important;
+  background-color: rgba(255, 165, 0, 0.1) !important;
+}
+
+/* ============================================
+   DEBUG 2: Voir TOUS les textes
+   ============================================ */
+.dropdown-link {
+  /* FORCER l'affichage du texte */
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  pointer-events: auto !important;
+  /* FORCER les styles de texte */
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  color: #ff0000 !important; /* ROUGE pour voir */
+  background-color: yellow !important;
+  padding: 5px !important;
+  border: 2px solid purple !important;
+  /* FORCER la position */
+  position: relative !important;
+  z-index: 99999 !important;
+  transform: translateY(0) !important;
+}
+
+.dropdown-section-title {
+  /* FORCER l'affichage du texte */
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  pointer-events: auto !important;
+  /* FORCER les styles de texte */
+  font-size: 24px !important;
+  line-height: 1.2 !important;
+  color: #00ff00 !important; /* VERT pour voir */
+  background-color: cyan !important;
+  padding: 5px !important;
+  border: 2px solid magenta !important;
+  /* FORCER la position */
+  position: relative !important;
+  z-index: 99999 !important;
+  transform: translateY(0) !important;
+}
+
+/* ============================================
+   DEBUG 3: Voir les media
+   ============================================ */
+.dropdown-media {
+  border: 5px solid pink !important;
+  background-color: rgba(255, 192, 203, 0.3) !important;
+}
+
+.dropdown-media-content {
+  border: 3px solid lime !important;
+  background-color: rgba(0, 255, 0, 0.3) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 99999 !important;
+}
+
+.dropdown-media-title {
+  font-size: 36px !important;
+  line-height: 1.2 !important;
+  color: #ffffff !important;
+  background-color: rgba(255, 0, 0, 0.5) !important;
+  padding: 10px !important;
+  border: 3px solid white !important;
+}
+
+/* ============================================
+   DEBUG 4: Annuler TOUTES les règles qui cachent
+   ============================================ */
+.nav-item-dropdown:not(.is-hovered) .dropdown-content,
+.nav-item-dropdown:not(.is-hovered) .dropdown-content * {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  display: block !important;
+}
+
+.nav-item-dropdown .dropdown-content,
+.nav-item-dropdown .dropdown-content * {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* ============================================
+   DEBUG 5: Vérifier les z-index
+   ============================================ */
+.dropdown-menu {
+  z-index: 99999 !important;
+}
+
+.dropdown-content {
+  z-index: 99999 !important;
+}
+
+.dropdown-link,
+.dropdown-section-title {
+  z-index: 99999 !important;
+}
+
+/* ============================================
+   DEBUG 6: Vérifier les font-size et line-height hérités
+   ============================================ */
+.dropdown-menu * {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.dropdown-content {
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+}
+
+.dropdown-columns {
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+}
+
+.dropdown-column {
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+}
+
+/* ============================================
+   DEBUG 7: Vérifier les overflow et clip
+   ============================================ */
+.dropdown-menu,
+.dropdown-content,
+.dropdown-columns,
+.dropdown-column {
+  overflow: visible !important;
+  clip: auto !important;
+  clip-path: none !important;
+}
+
+/* ============================================
+   DEBUG 8: Vérifier les dimensions
+   ============================================ */
+.dropdown-content {
+  min-height: 300px !important;
+  height: auto !important;
+}
+
+.dropdown-column {
+  min-height: 200px !important;
+  height: auto !important;
+}
+
+
+
+
