@@ -68,7 +68,7 @@ if [ "$EXTERNAL" = true ]; then
     echo ""
     
     # Créer un script temporaire pour le terminal externe
-    TEMP_SCRIPT=$(mktemp /tmp/plum-server-XXXXXX.sh)
+    TEMP_SCRIPT=$(mktemp -t plum-server-XXXXXX.sh 2>/dev/null || echo "/tmp/plum-server-$$.sh")
     cat > "$TEMP_SCRIPT" << EOF
 #!/bin/bash
 cd "$PROJECT_DIR"

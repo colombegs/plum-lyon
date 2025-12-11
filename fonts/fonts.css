@@ -14,7 +14,14 @@
 /* ============================================
    CERA PRO - Police principale
    ============================================ */
+   
+/* NOTE: Les fichiers Cera Pro ne sont pas encore extraits.
+ * Les déclarations @font-face sont commentées jusqu'à ce que
+ * les fichiers soient disponibles dans fonts/cera/
+ * Le fallback système (sans-serif) sera utilisé en attendant.
+ */
 
+/*
 @font-face {
   font-family: 'Cera Pro';
   src: url('./cera/cera-pro-light.woff2') format('woff2'),
@@ -24,7 +31,6 @@
   font-display: swap;
 }
 
-/* Regular (400) mappe vers Medium (500) car pas de fichier Regular disponible */
 @font-face {
   font-family: 'Cera Pro';
   src: url('./cera/cera-pro-medium.woff2') format('woff2'),
@@ -51,6 +57,7 @@
   font-style: normal;
   font-display: swap;
 }
+*/
 
 /* ============================================
    BLACKLIST - Titres et éléments visuels
@@ -58,6 +65,8 @@
    ============================================ */
 
 /* Polices variables (Variable Fonts) */
+/* NOTE: Les fichiers variables peuvent ne pas exister, commentés pour éviter les 404 */
+/*
 @font-face {
   font-family: 'Blacklist';
   src: url('./blacklist/Great Studio - Blacklist Variable Thin.ttf') format('truetype');
@@ -73,6 +82,7 @@
   font-style: italic;
   font-display: swap;
 }
+*/
 
 /* Polices statiques - Thin (100) */
 @font-face {

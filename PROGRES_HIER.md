@@ -378,3 +378,4 @@ Maintenant, seul le Design System est utilisé :
 ---
 
 *Document créé le 2 décembre 2025 - Synthèse des progrès du 1er décembre 2025*
+
