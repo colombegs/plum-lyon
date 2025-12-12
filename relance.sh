@@ -87,3 +87,4 @@ echo "✅ Terminal externe ouvert avec le serveur"
 echo "📍 URL: http://localhost:$PORT"
 echo ""
 echo "💡 Pour arrêter le serveur, fermez le terminal ou appuyez sur Ctrl+C dans le terminal du serveur"
+

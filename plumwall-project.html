@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plum Spark - Plum Living</title>
+    <title>Projet - Plum Wall - Plum Living</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🟣</text></svg>">
     
     <!-- Fonts -->
@@ -13,32 +13,32 @@
     <link rel="stylesheet" href="shared/styles/variables.css">
     <link rel="stylesheet" href="shared/styles/reset.css">
     <link rel="stylesheet" href="shared/components/navbar.css">
-    <link rel="stylesheet" href="shared/styles/fade-transitions.css">
+    <!-- fade-transitions.css désactivé pour cette page -->
     <link rel="stylesheet" href="navbar.css">
     
     <!-- Page Styles -->
-    <link rel="stylesheet" href="plum-spark/styles.css">
-    <link rel="stylesheet" href="plum-spark/project-transition.css">
-    <script src="shared/scripts/fade-navigation.js"></script>
-    <script>
-        // Désactiver le fade pour cette page
-        (function() {
-            if (sessionStorage.getItem('fadeNavigation') === 'true') {
-                sessionStorage.removeItem('fadeNavigation');
-            }
-            // S'assurer que le body est visible immédiatement
-            document.documentElement.style.opacity = '1';
-            if (document.body) {
-                document.body.style.opacity = '1';
-                document.body.classList.add('page-loaded');
-            } else {
-                document.addEventListener('DOMContentLoaded', function() {
-                    document.body.style.opacity = '1';
-                    document.body.classList.add('page-loaded');
-                });
-            }
-        })();
-    </script>
+    <link rel="stylesheet" href="plum-plumwall/styles.css">
+    <link rel="stylesheet" href="plum-plumwall/project-page.css">
+    <link rel="stylesheet" href="plum-plumwall/project-transition.css">
+    <!-- fade-navigation.js désactivé pour cette page -->
+    <style>
+        /* Désactiver complètement toutes les transitions et overlays */
+        html, body {
+            opacity: 1 !important;
+            transition: none !important;
+            animation: none !important;
+        }
+        body::before,
+        body::after,
+        html::before,
+        html::after {
+            display: none !important;
+            content: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            animation: none !important;
+        }
+    </style>
 </head>
 <body class="page-loaded">
     <!-- Navbar -->
@@ -239,44 +239,48 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <!-- Header Section -->
-        <section class="spark-header">
+    <main class="main-content project-page">
+        <!-- Featured Project Section -->
+        <section class="project-featured">
             <div class="container">
-                <h2 class="spark-title">Vos projets</h2>
-                <p class="spark-subtitle">Vos projets en cours pensés par vous, réalisés par nos Plum Planners, réalisés en 3D par nos artistes</p>
-            </div>
-        </section>
-
-        <!-- Filters Section -->
-        <section class="spark-filters">
-            <div class="container">
-                <div class="filters-nav">
-                    <button class="filter-btn filter-btn-dropdown">
-                        <span>Couleur</span>
-                        <svg class="filter-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="6 9 12 15 18 9"></polyline>
+                <!-- Back Button -->
+                <div class="project-back-button-wrapper">
+                    <a href="plumwall.html" class="project-back-button" aria-label="Retour">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
                         </svg>
-                    </button>
-                    <button class="filter-btn filter-btn-dropdown">
-                        <span>Design</span>
-                        <svg class="filter-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <button class="filter-btn">Cuisines</button>
-                    <button class="filter-btn">Dressings</button>
-                    <button class="filter-btn">3D</button>
-                    <button class="filter-btn">Home Tour</button>
+                    </a>
+                </div>
+                <div class="project-featured-layout">
+                    <!-- Colonnes 1-2 : Image principale + Titre -->
+                    <div class="project-featured-main">
+                        <div class="project-featured-image-wrapper">
+                            <img id="featuredProjectImage" class="project-featured-image" src="" alt="">
+                            <div class="project-featured-overlay">
+                                <div class="project-featured-info">
+                                    <h1 id="featuredProjectTitle" class="project-featured-title"></h1>
+                                    <p id="featuredProjectSubtitle" class="project-featured-subtitle"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Colonne 3 : Autres projets (sidebar) -->
+                    <div class="project-featured-sidebar">
+                        <div class="plumwall-grid plumwall-grid-sidebar" id="sidebarProjectsGrid">
+                            <!-- Les projets seront chargés dynamiquement -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pinterest Grid -->
-        <section class="spark-grid-section">
+        <!-- Other Projects Section - Grille avec infinite scroll -->
+        <section class="project-grid-section">
             <div class="container">
-                <div class="spark-grid" id="sparkGrid">
-                    <!-- Les images seront chargées dynamiquement -->
+                <div class="plumwall-grid" id="otherProjectsGrid">
+                    <!-- Les projets seront chargés dynamiquement -->
                 </div>
                 <div class="loading-indicator" id="loadingIndicator" style="display: none;">
                     <div class="loading-spinner"></div>
@@ -307,7 +311,6 @@
                 }
                 
                 dropdownItem.classList.add('is-hovered');
-                // Sur la page spark, la navbar reste toujours blanche
                 navbar.classList.add('navbar-white');
                 navbar.classList.add('navbar-has-hover');
                 currentHoveredItem = dropdownItem;
@@ -323,11 +326,6 @@
                         currentHoveredItem.classList.remove('is-hovered');
                         currentHoveredItem = null;
                     }
-                    
-                    // Sur la page spark, on garde toujours navbar-white et navbar-has-hover
-                    // Ne pas retirer ces classes pour garder la navbar blanche par défaut
-                    // navbar.classList.remove('navbar-white');
-                    // navbar.classList.remove('navbar-has-hover');
                     closeTimeout = null;
                 }, 100);
             };
@@ -389,8 +387,9 @@
             });
         });
     </script>
-    <script src="plum-spark/infinite-scroll.js"></script>
-    <script src="plum-spark/project-transition.js"></script>
-    <script src="shared/scripts/logo-fade.js"></script>
+    <script src="plum-plumwall/project-page.js"></script>
+    <script src="plum-plumwall/project-transition.js"></script>
+    <!-- logo-fade.js désactivé pour cette page -->
 </body>
 </html>
+

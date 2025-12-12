@@ -3,52 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plum Spark - Plum Living</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🟣</text></svg>">
+    <title>Plum Wall - Plum Living</title>
     
     <!-- Fonts -->
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
     
     <!-- Shared Styles -->
-    <link rel="stylesheet" href="shared/styles/variables.css">
-    <link rel="stylesheet" href="shared/styles/reset.css">
-    <link rel="stylesheet" href="shared/components/navbar.css">
-    <link rel="stylesheet" href="shared/styles/fade-transitions.css">
-    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="../shared/styles/variables.css">
+    <link rel="stylesheet" href="../shared/styles/reset.css">
+    <link rel="stylesheet" href="../shared/components/navbar.css">
+    <link rel="stylesheet" href="../shared/styles/fade-transitions.css">
+    <link rel="stylesheet" href="../navbar.css">
     
     <!-- Page Styles -->
-    <link rel="stylesheet" href="plum-spark/styles.css">
-    <link rel="stylesheet" href="plum-spark/project-transition.css">
-    <script src="shared/scripts/fade-navigation.js"></script>
-    <script>
-        // Désactiver le fade pour cette page
-        (function() {
-            if (sessionStorage.getItem('fadeNavigation') === 'true') {
-                sessionStorage.removeItem('fadeNavigation');
-            }
-            // S'assurer que le body est visible immédiatement
-            document.documentElement.style.opacity = '1';
-            if (document.body) {
-                document.body.style.opacity = '1';
-                document.body.classList.add('page-loaded');
-            } else {
-                document.addEventListener('DOMContentLoaded', function() {
-                    document.body.style.opacity = '1';
-                    document.body.classList.add('page-loaded');
-                });
-            }
-        })();
-    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../shared/scripts/fade-navigation.js"></script>
 </head>
-<body class="page-loaded">
+<body>
     <!-- Navbar -->
-    <nav class="navbar navbar-white navbar-has-hover">
+    <nav class="navbar">
         <div class="navbar-container">
             <!-- Logo -->
             <div class="navbar-logo">
-                <a href="home.html" class="logo-link">
-                    <img src="images/logo.png" alt="plum living" class="logo-image logo-white" style="display: none;">
-                    <img src="images/logo-black.png" alt="plum living" class="logo-image logo-black">
+                <a href="../home.html" class="logo-link">
+                    <img src="../images/logo.png" alt="plum living" class="logo-image logo-white">
+                    <img src="../images/logo-black.png" alt="plum living" class="logo-image logo-black" style="display: none;">
                 </a>
             </div>
 
@@ -84,7 +63,7 @@
                             </div>
                             <div class="dropdown-media">
                                 <div class="dropdown-media-image">
-                                    <img src="images/pk_20251008_ateliercvd070_hd.jpg" alt="Chez Caroline Debono">
+                                    <img src="../images/pk_20251008_ateliercvd070_hd.jpg" alt="Chez Caroline Debono">
                                     <div class="dropdown-media-overlay">
                                         <div class="dropdown-media-content">
                                             <h5 class="dropdown-media-title">Chez Caroline Debono, fondatrice d'Atelier CVD</h5>
@@ -127,7 +106,7 @@
                             </div>
                             <div class="dropdown-media">
                                 <div class="dropdown-media-image">
-                                    <img src="images/pk_20251013_showroom026_hd.jpg" alt="Les grandes tendances de la salle de bain 2026">
+                                    <img src="../images/pk_20251013_showroom026_hd.jpg" alt="Les grandes tendances de la salle de bain 2026">
                                     <div class="dropdown-media-overlay">
                                         <div class="dropdown-media-content">
                                             <h5 class="dropdown-media-title">Les grandes tendances de la salle de bain 2026</h5>
@@ -161,7 +140,7 @@
                             <div class="dropdown-media-group">
                                 <div class="dropdown-media">
                                     <div class="dropdown-media-image">
-                                        <img src="images/couleur.jpg" alt="Nos couleurs">
+                                        <img src="../images/couleur.jpg" alt="Nos couleurs">
                                         <div class="dropdown-media-overlay">
                                             <div class="dropdown-media-content">
                                                 <h5 class="dropdown-media-title">Nos couleurs</h5>
@@ -171,7 +150,7 @@
                                 </div>
                                 <div class="dropdown-media">
                                     <div class="dropdown-media-image">
-                                        <img src="images/showroom.jpg" alt="Le Showroom">
+                                        <img src="../images/showroom.jpg" alt="Le Showroom">
                                         <div class="dropdown-media-overlay">
                                             <div class="dropdown-media-content">
                                                 <h5 class="dropdown-media-title">Le Showroom</h5>
@@ -184,7 +163,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="experiments/media/index.html" class="nav-link">MEDIA</a>
+                    <a href="../experiments/media/index.html" class="nav-link">MEDIA</a>
                 </li>
             </ul>
 
@@ -241,15 +220,15 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Header Section -->
-        <section class="spark-header">
+        <section class="plumwall-header">
             <div class="container">
-                <h2 class="spark-title">Vos projets</h2>
-                <p class="spark-subtitle">Vos projets en cours pensés par vous, réalisés par nos Plum Planners, réalisés en 3D par nos artistes</p>
+                <h1 class="plumwall-title">Vos projets</h1>
+                <p class="plumwall-subtitle">Vos projets en cours pensés par vous, réalisés par nos Plum Planners, réalisés en 3D par nos artistes</p>
             </div>
         </section>
 
         <!-- Filters Section -->
-        <section class="spark-filters">
+        <section class="plumwall-filters">
             <div class="container">
                 <div class="filters-nav">
                     <button class="filter-btn filter-btn-dropdown">
@@ -273,9 +252,9 @@
         </section>
 
         <!-- Pinterest Grid -->
-        <section class="spark-grid-section">
+        <section class="plumwall-grid-section">
             <div class="container">
-                <div class="spark-grid" id="sparkGrid">
+                <div class="plumwall-grid" id="plumwallGrid">
                     <!-- Les images seront chargées dynamiquement -->
                 </div>
                 <div class="loading-indicator" id="loadingIndicator" style="display: none;">
@@ -285,6 +264,30 @@
             </div>
         </section>
     </main>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <div class="image-modal-backdrop" id="modalBackdrop"></div>
+        <div class="image-modal-content">
+            <button class="image-modal-close" id="modalClose" aria-label="Fermer">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="image-modal-image-wrapper" id="modalImageWrapper">
+                <img class="image-modal-image" id="modalImage" src="" alt="">
+            </div>
+        </div>
+        <!-- Grille Pinterest en dessous -->
+        <div class="image-modal-grid-section">
+            <div class="container">
+                <div class="plumwall-grid" id="modalGrid">
+                    <!-- Les images seront chargées dynamiquement -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script>
@@ -307,7 +310,6 @@
                 }
                 
                 dropdownItem.classList.add('is-hovered');
-                // Sur la page spark, la navbar reste toujours blanche
                 navbar.classList.add('navbar-white');
                 navbar.classList.add('navbar-has-hover');
                 currentHoveredItem = dropdownItem;
@@ -324,10 +326,8 @@
                         currentHoveredItem = null;
                     }
                     
-                    // Sur la page spark, on garde toujours navbar-white et navbar-has-hover
-                    // Ne pas retirer ces classes pour garder la navbar blanche par défaut
-                    // navbar.classList.remove('navbar-white');
-                    // navbar.classList.remove('navbar-has-hover');
+                    navbar.classList.remove('navbar-white');
+                    navbar.classList.remove('navbar-has-hover');
                     closeTimeout = null;
                 }, 100);
             };
@@ -389,8 +389,7 @@
             });
         });
     </script>
-    <script src="plum-spark/infinite-scroll.js"></script>
-    <script src="plum-spark/project-transition.js"></script>
-    <script src="shared/scripts/logo-fade.js"></script>
+    <script src="infinite-scroll.js"></script>
+    <script src="../shared/scripts/logo-fade.js"></script>
 </body>
 </html>

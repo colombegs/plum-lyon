@@ -1,0 +1,206 @@
+/**
+ * Project Page Styles - Page individuelle pour un projet
+ * Format Pinterest : image principale 2 colonnes, sidebar 1 colonne, puis grille 3 colonnes
+ */
+
+.main-content.project-page {
+  padding-top: 0;
+}
+
+.project-page {
+  background-color: var(--color-white);
+  min-height: 100vh;
+}
+
+/* ============================================
+   FEATURED PROJECT SECTION - Layout Pinterest
+   ============================================ */
+
+.project-featured {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-white);
+}
+
+.project-featured .container {
+  max-width: var(--container-max-width);
+  padding: 0 var(--spacing-lg);
+}
+
+.project-featured-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.project-featured-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.project-featured-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: var(--color-grey-4);
+}
+
+.project-featured-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.project-featured-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  align-items: flex-start;
+  padding-top: var(--spacing-lg);
+}
+
+.project-featured-title {
+  font-family: var(--font-heading, 'Blacklist', sans-serif);
+  font-size: var(--font-size-h2); /* 54px - XL comme demandé */
+  font-weight: 400;
+  line-height: var(--line-height-h2); /* 120% */
+  color: var(--color-asphalte);
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+
+.project-featured-subtitle {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-l); /* 16px */
+  line-height: var(--line-height-body); /* 140% */
+  color: var(--color-grey-1);
+  margin: 0;
+}
+
+/* Sidebar avec projets */
+.project-featured-sidebar {
+  height: 100%;
+}
+
+.spark-grid-sidebar {
+  column-count: 1;
+  column-gap: 10px;
+  width: 100%;
+}
+
+/* ============================================
+   OTHER PROJECTS GRID SECTION - Grille 3 colonnes
+   ============================================ */
+
+.project-grid-section {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-grey-4);
+}
+
+.project-grid-section .container {
+  max-width: var(--container-max-width);
+  padding: 0 var(--spacing-lg);
+}
+
+.project-grid-section .spark-grid {
+  column-count: 3;
+  column-gap: 10px;
+  width: 100%;
+}
+
+.project-grid-section .grid-item {
+  cursor: pointer;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Tablette */
+@media (max-width: 1024px) {
+  .project-featured {
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .project-featured-layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .project-featured-sidebar {
+    order: -1; /* Mettre la sidebar en premier sur mobile */
+  }
+
+  .spark-grid-sidebar {
+    column-count: 2;
+  }
+
+  .project-featured-title {
+    font-size: var(--font-size-h3); /* 42px */
+  }
+
+  .project-grid-section .spark-grid {
+    column-count: 2;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .project-featured {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .project-featured .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .project-featured-layout {
+    gap: var(--spacing-lg);
+  }
+
+  .project-featured-main {
+    gap: var(--spacing-lg);
+  }
+
+  .spark-grid-sidebar {
+    column-count: 1;
+  }
+
+  .project-featured-title {
+    font-size: var(--font-size-h4); /* 32px */
+  }
+
+  .project-featured-subtitle {
+    font-size: var(--font-size-m); /* 14px */
+  }
+
+  .project-grid-section {
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .project-grid-section .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .project-grid-section .spark-grid {
+    column-count: 1;
+  }
+}
+
+/* Petits écrans */
+@media (max-width: 480px) {
+  .project-featured-title {
+    font-size: var(--font-size-h5); /* 24px */
+  }
+
+  .project-featured-image {
+    max-height: 60vh;
+  }
+}
+

@@ -1,0 +1,432 @@
+/**
+ * Project Page Styles - Page individuelle pour un projet
+ * Format Pinterest : image principale 2 colonnes, sidebar 1 colonne, puis grille 3 colonnes
+ */
+
+/* Désactiver complètement toutes les transitions et overlays */
+html,
+body {
+  opacity: 1 !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+html::before,
+html::after,
+body::before,
+body::after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  animation: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+body.fade-in,
+body.fade-out,
+html.fade-in,
+html.fade-out {
+  opacity: 1 !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.main-content.project-page {
+  padding-top: 0;
+}
+
+.project-page {
+  background-color: var(--color-white);
+  min-height: 100vh;
+}
+
+/* ============================================
+   BACK BUTTON
+   ============================================ */
+
+.project-back-button-wrapper {
+  display: inline-block;
+  margin-bottom: var(--spacing-lg);
+}
+
+.project-back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: var(--color-asphalte);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: none;
+}
+
+.project-back-button:hover {
+  background-color: transparent;
+  transform: translateX(-2px);
+  box-shadow: none;
+}
+
+.project-back-button:active {
+  transform: translateX(-2px) scale(0.95);
+}
+
+.project-back-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ============================================
+   FEATURED PROJECT SECTION - Layout 2 colonnes + sidebar
+   ============================================ */
+
+.project-featured {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+.project-featured .container {
+  max-width: 100%; /* Permettre la croissance au-delà de 1400px comme plumwall */
+  padding: 0 var(--spacing-lg);
+}
+
+.project-featured-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  align-items: start;
+  margin-bottom: 0; /* Pas de marge en bas pour enchaîner avec la grille */
+}
+
+/* Pour les images portrait, aligner la sidebar en haut et lui donner la même hauteur que l'image principale */
+.project-featured-layout:not(.landscape-image) {
+  align-items: stretch; /* Étirer la sidebar à la hauteur de l'image principale */
+}
+
+/* Si l'image est en format paysage, elle prend 3 colonnes (toute la largeur) */
+.project-featured-layout.landscape-image {
+  grid-template-columns: 1fr; /* L'image prend toute la largeur (3 colonnes sur 3) */
+}
+
+.project-featured-layout.landscape-image .project-featured-sidebar {
+  display: none; /* Cacher la sidebar quand l'image est paysage */
+}
+
+.project-featured-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.project-featured-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-grey-4);
+  border-radius: 12px;
+  position: relative;
+}
+
+.project-featured-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  transition: filter 0.3s ease;
+}
+
+/* Filtres de couleur supprimés - images affichées telles quelles */
+
+/* Overlay gradient noir très discret sur l'image principale (comme au hover plum wall) */
+.project-featured-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--spacing-lg);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.08) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 12px;
+}
+
+.project-featured-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  align-items: flex-start;
+}
+
+/* Sidebar avec projets */
+.project-featured-sidebar {
+  height: fit-content; /* S'adapter au contenu plutôt que 100% */
+  align-self: start; /* Aligner en haut */
+}
+
+/* Quand l'image principale est en portrait, la sidebar doit remplir toute la hauteur */
+.project-featured-layout:not(.landscape-image) .project-featured-sidebar {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch; /* Étirer pour correspondre à la hauteur de l'image principale */
+}
+
+.plumwall-grid-sidebar {
+  column-count: 1;
+  column-gap: 10px;
+  width: 100%;
+}
+
+/* Pour les images portrait : toujours 2 images dans la sidebar qui remplissent la hauteur */
+.project-featured-layout:not(.landscape-image) .plumwall-grid-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  column-count: 1; /* Désactiver column-count pour utiliser flexbox */
+}
+
+.project-featured-layout:not(.landscape-image) .plumwall-grid-sidebar .grid-item {
+  flex: 1 1 0; /* Chaque image prend 50% de la hauteur disponible */
+  min-height: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-featured-layout:not(.landscape-image) .plumwall-grid-sidebar .grid-item-link {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.project-featured-layout:not(.landscape-image) .plumwall-grid-sidebar .grid-item-image {
+  flex: 1;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  position: relative; /* Conserver position relative pour l'overlay */
+}
+
+.project-featured-layout:not(.landscape-image) .plumwall-grid-sidebar .grid-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  flex: 1;
+}
+
+.project-featured-title {
+  font-family: var(--font-primary, 'Cera Pro', sans-serif);
+  font-size: var(--font-size-xl); /* 20px - XL */
+  font-weight: 400;
+  line-height: var(--line-height-body); /* 140% */
+  color: var(--color-white);
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.project-featured-subtitle {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-m); /* 14px */
+  line-height: var(--line-height-body); /* 140% */
+  color: var(--color-white);
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ============================================
+   OTHER PROJECTS GRID SECTION - Grille 3 colonnes avec infinite scroll
+   ============================================ */
+
+.project-grid-section {
+  padding: 10px 0 var(--spacing-4xl) 0;
+  background-color: var(--color-white);
+  margin-top: 0; /* Pas de marge en haut pour enchaîner avec la section featured */
+}
+
+.project-grid-section .container {
+  max-width: 100%;
+  padding: 0 var(--spacing-lg);
+}
+
+.project-grid-section .plumwall-grid {
+  column-count: 3;
+  column-gap: 10px;
+  width: 100%;
+}
+
+.project-grid-section .grid-item {
+  cursor: pointer;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Rendre les éléments de la sidebar visibles aussi */
+.project-featured-sidebar .grid-item,
+.plumwall-grid-sidebar .grid-item,
+.project-featured-sidebar .grid-item .grid-item-img,
+.plumwall-grid-sidebar .grid-item .grid-item-img {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* S'assurer que les images sont visibles immédiatement */
+.project-featured-sidebar .grid-item-img,
+.plumwall-grid-sidebar .grid-item-img {
+  opacity: 1 !important;
+}
+
+/* Loading Indicator */
+.loading-indicator {
+  text-align: center;
+  padding: var(--spacing-4xl) 0;
+  color: var(--color-grey-1);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-grey-3);
+  border-top-color: var(--color-asphalte);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto var(--spacing-md);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-indicator p {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-m);
+  color: var(--color-grey-1);
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Grands écrans - Permettre la croissance au-delà de 1400px comme plumwall */
+@media (min-width: 1400px) {
+  .project-featured .container {
+    max-width: 100%;
+    padding: 0 var(--spacing-xl); /* Padding plus grand sur grands écrans */
+  }
+
+  .project-grid-section .container {
+    padding: 0 var(--spacing-xl); /* Padding cohérent avec la section featured */
+  }
+}
+
+/* Tablette */
+@media (max-width: 1024px) {
+  .project-featured {
+    padding: var(--spacing-3xl) 0 0 0;
+  }
+
+  .project-featured .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .project-featured-layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .project-featured-sidebar {
+    order: -1; /* Mettre la sidebar en premier sur mobile */
+  }
+
+  .plumwall-grid-sidebar {
+    column-count: 2;
+  }
+
+  .project-grid-section .plumwall-grid {
+    column-count: 2;
+  }
+
+  .project-grid-section .container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .project-back-button {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .project-back-button:hover {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .project-back-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .project-featured {
+    padding: var(--spacing-2xl) 0 0 0;
+  }
+
+  .project-featured-main {
+    gap: var(--spacing-lg);
+  }
+
+  .project-featured-layout {
+    gap: var(--spacing-lg);
+  }
+
+  .plumwall-grid-sidebar {
+    column-count: 1;
+  }
+
+  .project-featured-subtitle {
+    font-size: var(--font-size-m); /* 14px */
+  }
+
+  .project-grid-section {
+    padding: var(--spacing-lg) 0 var(--spacing-3xl) 0;
+  }
+
+  .project-grid-section .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .project-grid-section .plumwall-grid {
+    column-count: 1;
+  }
+}
+
+/* Petits écrans */
+@media (max-width: 480px) {
+  .project-featured-image {
+    max-height: 60vh;
+  }
+}
+
+

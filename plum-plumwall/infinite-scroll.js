@@ -1,5 +1,5 @@
 /**
- * Infinite Scroll Script pour Plum Spark
+ * Infinite Scroll Script pour Plum Wall
  * Charge dynamiquement plus d'images au scroll
  */
 
@@ -56,7 +56,7 @@
     
     function getDOMElements() {
         if (!grid) {
-            grid = document.getElementById('sparkGrid');
+            grid = document.getElementById('plumwallGrid');
         }
         if (!loadingIndicator) {
             loadingIndicator = document.getElementById('loadingIndicator');
@@ -136,7 +136,7 @@
         const finalIndex = poolIndex >= 0 ? poolIndex : (index % IMAGE_POOL.length);
 
         const link = document.createElement('a');
-        link.href = `spark-project.html?index=${finalIndex}&src=${encodeURIComponent(imageData.src)}&title=${encodeURIComponent(imageData.title || '')}`;
+        link.href = `plumwall-project.html?index=${finalIndex}&src=${encodeURIComponent(imageData.src)}&title=${encodeURIComponent(imageData.title || '')}`;
         link.className = 'grid-item-link';
 
         const imageWrapper = document.createElement('div');
@@ -199,16 +199,16 @@
      */
     function loadImages(count = CONFIG.itemsPerLoad) {
         if (!grid) {
-            console.error('Plum Spark: Grid not available');
+            console.error('Plum Wall: Grid not available');
             return;
         }
         
         if (isLoading) {
-            console.log('Plum Spark: loadImages skipped - isLoading:', isLoading);
+            console.log('Plum Wall: loadImages skipped - isLoading:', isLoading);
             return;
         }
 
-        console.log('Plum Spark: Chargement de', count, 'images, index:', currentIndex);
+        console.log('Plum Wall: Chargement de', count, 'images, index:', currentIndex);
         isLoading = true;
         if (loadingIndicator) {
             loadingIndicator.style.display = 'block';
@@ -219,7 +219,7 @@
             const itemsToLoad = [];
             const totalImages = IMAGE_POOL.length;
 
-            console.log('Plum Spark: Création des items de', currentIndex, 'à', currentIndex + count);
+            console.log('Plum Wall: Création des items de', currentIndex, 'à', currentIndex + count);
 
             // Charger les images en boucle infinie
             for (let i = 0; i < count; i++) {
@@ -242,7 +242,7 @@
                 }, index * CONFIG.animationDelay);
             });
 
-            console.log('Plum Spark:', itemsToLoad.length, 'items ajoutés au DOM');
+            console.log('Plum Wall:', itemsToLoad.length, 'items ajoutés au DOM');
 
             // Incrémenter l'index (peut dépasser la taille du pool, le modulo gère la boucle)
             currentIndex += count;
@@ -314,17 +314,17 @@
      * Initialisation
      */
     function init() {
-        console.log('Plum Spark: Initialisation...');
+        console.log('Plum Wall: Initialisation...');
         
         // Récupérer les éléments DOM
         if (!getDOMElements()) {
-            console.error('Plum Spark: Grid element not found! Retrying...');
+            console.error('Plum Wall: Grid element not found! Retrying...');
             setTimeout(init, 100);
             return;
         }
         
-        console.log('Plum Spark: Grid element found:', grid);
-        console.log('Plum Spark: Image pool size:', IMAGE_POOL.length);
+        console.log('Plum Wall: Grid element found:', grid);
+        console.log('Plum Wall: Image pool size:', IMAGE_POOL.length);
         
         // Charger le premier batch d'images
         loadImages();
@@ -541,7 +541,7 @@
             container.className = 'container';
             
             const grid = document.createElement('div');
-            grid.className = 'spark-grid';
+            grid.className = 'plumwall-grid';
             grid.id = 'modalGrid';
             
             container.appendChild(grid);
@@ -659,7 +659,7 @@
     waitForDOM();
 
     // Exposer pour debug
-    window.plumSpark = {
+    window.plumPlumwall = {
         loadImages,
         currentIndex,
         IMAGE_POOL,
