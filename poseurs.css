@@ -1,0 +1,502 @@
+/**
+ * Page Poseurs - Plum Living
+ * 
+ * Styles pour la page de présentation des poseurs certifiés
+ */
+
+/* ============================================
+   LAYOUT PRINCIPAL
+   ============================================ */
+
+/* Navbar en position relative sur cette page */
+/* La navbar est un frère du main, pas un enfant, donc on la cible directement */
+body .navbar {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: 1 !important;
+}
+
+/* Empêcher le crop blanc sur body/html */
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.poseurs-main {
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+}
+
+.poseurs-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: var(--color-white);
+}
+
+.poseurs-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.poseurs-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.poseurs-header {
+    text-align: center;
+    margin-bottom: var(--spacing-4xl);
+    color: var(--color-asphalte);
+}
+
+.poseurs-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: 400;
+    color: var(--color-asphalte);
+    margin-bottom: var(--spacing-md);
+}
+
+.poseurs-subtitle {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-l);
+    line-height: var(--line-height-body);
+    color: var(--color-asphalte);
+    font-weight: 400;
+}
+
+/* ============================================
+   LAYOUT CARTE + SIDEBAR
+   ============================================ */
+
+.poseurs-layout {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 0;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 1200px) {
+    .poseurs-layout {
+        grid-template-columns: 350px 1fr;
+        gap: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .poseurs-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+
+.poseurs-sidebar {
+    background: var(--color-white);
+    border-radius: 0;
+    padding: 20px;
+    box-shadow: none;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    margin-bottom: var(--spacing-md);
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.sidebar-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h5);
+    line-height: var(--line-height-h5);
+    font-weight: 400;
+    color: var(--color-asphalte);
+    margin-bottom: var(--spacing-xs);
+}
+
+.sidebar-subtitle {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-body);
+    color: var(--color-grey-1);
+    font-weight: 400;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.sidebar-empty {
+    text-align: center;
+    padding: var(--spacing-4xl) var(--spacing-lg);
+    color: var(--color-grey-2);
+}
+
+.sidebar-empty svg {
+    margin-bottom: var(--spacing-md);
+    opacity: 0.5;
+}
+
+.sidebar-empty p {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-body);
+    color: var(--color-grey-2);
+}
+
+/* ============================================
+   CARTE DE FRANCE
+   ============================================ */
+
+.poseurs-map-container {
+    background: var(--color-grey-4);
+    border-radius: 0;
+    padding: var(--spacing-2xl);
+    box-shadow: none;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.france-map-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.france-map {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    /* Le SVG utilisera preserveAspectRatio pour s'adapter correctement */
+}
+
+.france-map object {
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+}
+
+/* Styles des régions */
+.region-path {
+    transition: fill var(--transition-base);
+    fill: var(--color-white);
+    stroke: none;
+    stroke-width: 0;
+    cursor: default; /* Par défaut, pas de pointeur - sera changé en 'pointer' par JS uniquement pour les régions avec pin */
+    pointer-events: auto; /* S'assurer que les paths peuvent recevoir les événements */
+}
+
+/* Pas de style hover par défaut - géré uniquement par JavaScript pour les régions avec pin */
+
+.region-path.active {
+    fill: var(--color-grey-3);
+    stroke: none;
+    stroke-width: 0;
+    opacity: 1;
+}
+
+/* Marqueurs de région */
+.region-marker-group {
+    pointer-events: none; /* Désactiver les interactions sur les pins - seules les régions sont cliquables */
+}
+
+.region-marker-pin {
+    pointer-events: none; /* Désactiver les interactions sur les pins */
+    transition: transform var(--transition-base);
+}
+
+.region-marker-pin path {
+    transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+/* Pas de hover sur les pins - ils ne sont plus interactifs */
+
+.region-marker-pin.active path {
+    fill: var(--color-asphalte);
+    opacity: 1;
+}
+
+.region-marker-number {
+    pointer-events: none;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    user-select: none;
+}
+
+/* ============================================
+   CARTES POSEURS
+   ============================================ */
+
+.poseur-card {
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    position: relative;
+}
+
+.poseur-card::before {
+    display: none;
+}
+
+.poseur-card:hover {
+    transform: translateY(-2px);
+}
+
+.poseur-card.expanded {
+    height: 500px;
+    transform: translateY(0);
+}
+
+.poseur-card-header {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.poseur-card-image,
+.poseur-card-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: opacity 0.3s ease;
+}
+
+.poseur-card-image {
+    opacity: 1;
+}
+
+.poseur-card-video {
+    display: none;
+    opacity: 0;
+}
+
+.poseur-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+    border-radius: var(--radius-md);
+    z-index: 1;
+}
+
+.poseur-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100%;
+    gap: 0;
+}
+
+.poseur-card-name {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h5);
+    line-height: var(--line-height-h5);
+    font-weight: 400;
+    color: var(--color-white);
+    margin-bottom: 4px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(0);
+}
+
+.poseur-card:hover .poseur-card-name {
+    transform: translateY(-140px);
+}
+
+.poseur-card-contact {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-alt-2);
+    line-height: var(--line-height-alt);
+    letter-spacing: var(--letter-spacing-alt);
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    opacity: 1;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(0);
+    display: block;
+}
+
+.poseur-card:hover .poseur-card-contact {
+    transform: translateY(-140px);
+}
+
+.poseur-card-body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    padding: 0;
+    gap: 0;
+    width: 100%;
+    margin: 0;
+    margin-top: 0;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), height 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    justify-content: flex-end;
+    flex-grow: 0;
+    transform: translateY(0);
+    pointer-events: none;
+}
+
+.poseur-card:hover .poseur-card-body {
+    opacity: 1;
+    height: auto;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.poseur-card-description {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-body);
+    color: var(--color-white);
+    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.poseur-card-details {
+    display: none;
+}
+
+.poseur-card-detail-item {
+    display: none;
+}
+
+.poseur-card-detail-item svg {
+    display: none;
+}
+
+.poseur-card-instagram {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--color-asphalte);
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-body);
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color var(--transition-fast);
+}
+
+.poseur-card:hover .poseur-card-instagram {
+    opacity: 1;
+}
+
+.poseur-card-instagram:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.poseur-card-instagram svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .poseurs-container {
+        padding: 0;
+    }
+
+    .poseurs-title {
+        font-size: var(--font-size-h3);
+    }
+
+    .poseurs-subtitle {
+        font-size: var(--font-size-m);
+    }
+
+    .poseurs-sidebar {
+        position: relative;
+        top: 0;
+        max-height: none;
+    }
+
+    .poseurs-map-container {
+        min-height: 400px;
+        padding: var(--spacing-md);
+    }
+}

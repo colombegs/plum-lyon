@@ -16,6 +16,8 @@ body {
 
 /* Navbar blanche avec texte noir par défaut sur la page plumwall */
 body .navbar {
+  position: relative !important;
+  z-index: 1 !important;
   background-color: var(--color-white) !important;
   border-bottom: 1px solid var(--color-grey-4) !important;
 }
@@ -251,6 +253,7 @@ body .navbar .logo-black {
   justify-content: flex-end;
   transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   border-radius: 12px;
+  pointer-events: none; /* Ne pas bloquer les événements hover */
 }
 
 .grid-item:hover .grid-item-overlay {
@@ -344,7 +347,7 @@ body .navbar .logo-black {
    ============================================ */
 
 /* Tablette */
-@media (max-width: 1024px) {
+@media (max-width: 600px) {
   .plumwall-header {
     padding: 0;
   }
@@ -363,7 +366,7 @@ body .navbar .logo-black {
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .plumwall-header {
     padding: 0;
   }
@@ -549,7 +552,7 @@ body .navbar .logo-black {
 }
 
 /* Responsive pour la modal */
-@media (max-width: 1024px) {
+@media (max-width: 600px) {
   .image-modal-content {
     padding: var(--spacing-3xl) var(--spacing-md);
   }
@@ -559,7 +562,7 @@ body .navbar .logo-black {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .image-modal-content {
     padding: var(--spacing-2xl) var(--spacing-sm);
   }

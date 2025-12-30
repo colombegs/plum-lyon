@@ -14,34 +14,17 @@
         animationDelay: 40 // Délai entre chaque animation d'image (ms)
     };
 
-    // Pool d'images avec données réelles
+    // Pool d'images avec données réelles - Utilisation des images du dossier styler
+    // Nomenclature: X.jpg = image par défaut, X-2.jpg = hover sur 1ère vignette, X-3.jpg = hover sur 2e vignette, etc.
     const IMAGE_POOL = [
-        { src: 'media/chez vous/CORRECTION_REQUEST_80_1546_Frédérique Gobert_1.jpg', title: 'Chez Frédérique Gobert', arrangement: 'Cuisine', color: 'Clay', firstName: 'Frédérique' },
-        { src: 'media/chez vous/PP_REQUEST_1197_WILLAERT_3.jpg', title: 'Chez Willaert', arrangement: 'Dressing', color: 'Argile', firstName: 'Willaert' },
-        { src: 'media/chez vous/PP_REQUEST_1254_matteo Piccolomini_2.jpg', title: 'Chez Matteo Piccolomini', arrangement: 'Cuisine', color: 'Blanc', firstName: 'Matteo' },
-        { src: 'media/chez vous/PP_REQUEST_1254_matteo Piccolomini_4.jpg', title: 'Chez Matteo Piccolomini', arrangement: 'Meuble salle de bain', color: 'Gris', firstName: 'Matteo' },
-        { src: 'media/chez vous/PP_REQUEST_1549_NAJIA_1.jpg', title: 'Chez Najia', arrangement: 'Buffet', color: 'Noir', firstName: 'Najia' },
-        { src: 'media/chez vous/PP_REQUEST_1699_Ludmila JURCIK_3.jpg', title: 'Chez Ludmila Jurcik', arrangement: 'Pont de lit', color: 'Taupe', firstName: 'Ludmila' },
-        { src: 'media/chez vous/PP_REQUEST_2231_zivkovic_4.jpg', title: 'Chez Zivkovic', arrangement: 'Rangement', color: 'Beige', firstName: 'Zivkovic' },
-        { src: 'media/chez vous/PP_REQUEST_2315_7.jpg', title: 'Projet personnalisé', arrangement: 'Cuisine', color: 'Clay', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/PP_REQUEST_639_Lorien Alecki_4.jpg', title: 'Chez Lorien Alecki', arrangement: 'Dressing', color: 'Argile', firstName: 'Lorien' },
-        { src: 'media/chez vous/PP_REQUEST_648_CHANUT - (Chanel)_3.jpg', title: 'Chez Chanut', arrangement: 'Buffet', color: 'Blanc', firstName: 'Chanut' },
-        { src: 'media/chez vous/PP_REQUEST_656_Delemotte_4.jpg', title: 'Chez Delemotte', arrangement: 'Meuble salle de bain', color: 'Gris', firstName: 'Delemotte' },
-        { src: 'media/chez vous/image 1.jpg', title: 'Projet personnalisé', arrangement: 'Cuisine', color: 'Noir', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/image 2.jpg', title: 'Projet personnalisé', arrangement: 'Dressing', color: 'Taupe', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/image 3.jpg', title: 'Projet personnalisé', arrangement: 'Pont de lit', color: 'Beige', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/image 4.jpg', title: 'Projet personnalisé', arrangement: 'Rangement', color: 'Clay', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/image 5.jpg', title: 'Projet personnalisé', arrangement: 'Buffet', color: 'Argile', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/image 6.jpg', title: 'Projet personnalisé', arrangement: 'Cuisine', color: 'Blanc', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/image 7.jpg', title: 'Projet personnalisé', arrangement: 'Meuble salle de bain', color: 'Gris', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/image 8.jpg', title: 'Projet personnalisé', arrangement: 'Dressing', color: 'Noir', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/image 9.jpg', title: 'Projet personnalisé', arrangement: 'Pont de lit', color: 'Taupe', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/image 10.jpg', title: 'Projet personnalisé', arrangement: 'Rangement', color: 'Beige', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/image 11.jpg', title: 'Projet personnalisé', arrangement: 'Buffet', color: 'Clay', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/image 12.jpg', title: 'Projet personnalisé', arrangement: 'Cuisine', color: 'Argile', firstName: 'Plum Planner' },
-        { src: 'media/chez vous/PP_REQUEST_1959_Mechrezia Chebbi_4.jpg', title: 'Chez Mechrezia Chebbi', arrangement: 'Dressing', color: 'Blanc', firstName: 'Mechrezia' },
-        { src: 'media/chez vous/PP_REQUEST_639_Lorien Alecki_1.jpg', title: 'Chez Lorien Alecki', arrangement: 'Meuble salle de bain', color: 'Gris', firstName: 'Lorien' },
-        { src: 'media/chez vous/PP_REQUEST_648_CHANUT - (Chanel)_1.jpg', title: 'Chez Chanut', arrangement: 'Buffet', color: 'Noir', firstName: 'Chanut' },
+        { src: 'styler/1.jpg', title: 'Projet 1', arrangement: 'Cuisine', color: 'Clay', firstName: 'Plum Planner' },
+        { src: 'styler/2.jpg', title: 'Projet 2', arrangement: 'Dressing', color: 'Argile', firstName: 'Plum Planner' },
+        { src: 'styler/3.jpg', title: 'Projet 3', arrangement: 'Cuisine', color: 'Blanc', firstName: 'Plum Planner' },
+        { src: 'styler/4.jpg', title: 'Projet 4', arrangement: 'Meuble salle de bain', color: 'Gris', firstName: 'Plum Planner' },
+        { src: 'styler/5.jpg', title: 'Projet 5', arrangement: 'Buffet', color: 'Noir', firstName: 'Plum Planner' },
+        { src: 'styler/6.jpg', title: 'Projet 6', arrangement: 'Pont de lit', color: 'Taupe', firstName: 'Plum Planner' },
+        { src: 'styler/7.jpg', title: 'Projet 7', arrangement: 'Rangement', color: 'Beige', firstName: 'Plum Planner' },
+        { src: 'styler/8.jpg', title: 'Projet 8', arrangement: 'Cuisine', color: 'Clay', firstName: 'Plum Planner' },
     ];
 
     // État
@@ -154,14 +137,22 @@
         featuredProjectSubtitle.textContent = `Réalisé par ${projectInfo.firstName}`;
 
         // Détecter si l'image est en format paysage et ajuster le layout
+        // MAIS seulement en dessous de 600px - au-dessus, toujours garder 2 colonnes
         featuredProjectImage.onload = function() {
             const isLandscape = this.naturalWidth > this.naturalHeight;
             const layoutElement = document.querySelector('.project-featured-layout');
             if (layoutElement) {
-                if (isLandscape) {
+                // Vérifier la largeur de la fenêtre
+                const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+                
+                if (windowWidth <= 600 && isLandscape) {
+                    // Seulement appliquer le layout paysage en dessous de 600px
                     layoutElement.classList.add('landscape-image');
                 } else {
+                    // Au-dessus de 600px, toujours garder 2 colonnes
                     layoutElement.classList.remove('landscape-image');
+                    layoutElement.style.gridTemplateColumns = '2fr 1fr';
+                    layoutElement.style.display = 'grid';
                     // Pour les images portrait, s'assurer que la sidebar est visible
                     const sidebar = document.querySelector('.project-featured-sidebar');
                     if (sidebar) {
@@ -170,11 +161,33 @@
                 }
             }
         };
+        
+        // Aussi écouter le resize pour réajuster si nécessaire
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                const layoutElement = document.querySelector('.project-featured-layout');
+                if (layoutElement) {
+                    const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+                    if (windowWidth > 600) {
+                        // Au-dessus de 600px, forcer 2 colonnes
+                        layoutElement.classList.remove('landscape-image');
+                        layoutElement.style.gridTemplateColumns = '2fr 1fr';
+                        layoutElement.style.display = 'grid';
+                        const sidebar = document.querySelector('.project-featured-sidebar');
+                        if (sidebar) {
+                            sidebar.style.display = 'flex';
+                        }
+                    }
+                }
+            }, 250);
+        });
 
         // Gestion des erreurs d'image
         featuredProjectImage.onerror = function() {
             console.warn('Failed to load featured image:', imagePath);
-            this.src = CONFIG.imageBasePath + 'media/1.jpg';
+            this.src = CONFIG.imageBasePath + 'styler/1.jpg';
         };
     }
 
@@ -196,8 +209,11 @@
 
     /**
      * Crée un élément de grille avec une image
+     * @param {Object} imageData - Données de l'image
+     * @param {number} index - Index global dans le pool
+     * @param {number} positionInGrid - Position dans la grille (0 = première vignette, 1 = deuxième, etc.) pour déterminer l'image hover
      */
-    function createGridItem(imageData, index) {
+    function createGridItem(imageData, index, positionInGrid = 0) {
         const item = document.createElement('div');
         item.className = 'grid-item';
         item.dataset.index = index;
@@ -210,6 +226,10 @@
         // Trouver l'index du projet dans le pool IMAGE_POOL original
         const poolIndex = IMAGE_POOL.findIndex(img => img.src === imageData.src);
         const finalIndex = poolIndex >= 0 ? poolIndex : 0;
+
+        // Extraire le numéro du projet depuis le chemin (ex: "styler/1.jpg" -> 1)
+        const projectNumber = imageData.src.match(/\/(\d+)\.jpg$/);
+        const projectNum = projectNumber ? parseInt(projectNumber[1], 10) : 1;
 
         const link = document.createElement('a');
         // plumwall-project.html est à la racine, donc le chemin est relatif à cette page
@@ -225,15 +245,42 @@
         img.alt = imageData.title || 'Rendu 3D';
         img.className = 'grid-item-img';
         img.loading = 'lazy';
+        img.dataset.defaultSrc = imagePath; // Stocker l'image par défaut
+
+        // Calculer l'image hover selon la position : positionInGrid 0 = X-2.jpg, 1 = X-3.jpg, 2 = X-4.jpg, etc.
+        // positionInGrid 0 -> X-2.jpg, positionInGrid 1 -> X-3.jpg, positionInGrid 2 -> X-4.jpg
+        const hoverSuffix = positionInGrid + 2; // 0 -> 2, 1 -> 3, 2 -> 4
+        const hoverImagePath = CONFIG.imageBasePath + `styler/${projectNum}-${hoverSuffix}.jpg`;
+        img.dataset.hoverSrc = hoverImagePath;
+
+        // Précharger l'image hover dès maintenant pour un changement instantané
+        const hoverImgPreload = new Image();
+        item.dataset.hoverImageExists = 'false'; // Sera mis à jour par le callback
+        
+        // Mettre à jour le flag quand l'image hover est chargée
+        hoverImgPreload.onload = function() {
+            item.dataset.hoverImageExists = 'true';
+        };
+        hoverImgPreload.onerror = function() {
+            console.warn('Hover image not found:', hoverImagePath);
+            item.dataset.hoverImageExists = 'false';
+        };
+        hoverImgPreload.src = hoverImagePath;
 
         img.onerror = function() {
             console.warn('Failed to load image:', imagePath);
-            this.src = CONFIG.imageBasePath + 'media/1.jpg';
+            this.src = CONFIG.imageBasePath + 'styler/1.jpg';
         };
         img.onload = function() {
             // Ajouter la classe loaded pour rendre l'image visible
             this.classList.add('loaded');
         };
+
+        // Stocker les données hover dans les data-attributes de l'item pour la délégation d'événements
+        item.dataset.projectNum = projectNum;
+        item.dataset.positionInGrid = positionInGrid;
+        item.dataset.hoverSrc = hoverImagePath;
+        item.dataset.defaultSrc = imagePath;
 
         // Créer l'overlay avec texte
         const overlay = document.createElement('div');
@@ -373,7 +420,8 @@
         
         sidebarProjects.forEach((imageData, idx) => {
             const originalIndex = IMAGE_POOL.findIndex(img => img.src === imageData.src);
-            const item = createGridItem(imageData, originalIndex >= 0 ? originalIndex : idx);
+            // idx est la position dans la sidebar (0 = première vignette, 1 = deuxième, etc.)
+            const item = createGridItem(imageData, originalIndex >= 0 ? originalIndex : idx, idx);
             
             setTimeout(() => {
                 sidebarProjectsGrid.appendChild(item);
@@ -429,7 +477,10 @@
                 const imageData = availableProjects[poolIndex];
                 // Utiliser un index unique pour chaque item
                 const uniqueIndex = startIndex + i;
-                const item = createGridItem(imageData, uniqueIndex);
+                // positionInGrid = i % 3 pour alterner entre les 3 premières positions (0, 1, 2)
+                // Cela permet d'utiliser les images hover 1-2, 1-3, 1-4 de manière cyclique
+                const positionInGrid = i % 3;
+                const item = createGridItem(imageData, uniqueIndex, positionInGrid);
                 itemsToLoad.push(item);
             }
 
@@ -536,6 +587,68 @@
         window.addEventListener('resize', () => {
             checkScrollPosition();
         }, { passive: true });
+
+        // Délégation d'événements pour le hover sur les images
+        function setupHoverDelegation() {
+            let currentHoveredItem = null;
+            
+            // Fonction pour gérer le hover
+            function handleGridItemHover(e) {
+                const item = e.target.closest('.grid-item');
+                if (!item || item === currentHoveredItem) return;
+                
+                currentHoveredItem = item;
+                const img = item.querySelector('.grid-item-img');
+                if (!img) return;
+                
+                const hoverSrc = item.dataset.hoverSrc;
+                const hoverImageExists = item.dataset.hoverImageExists === 'true';
+                
+                if (hoverSrc && hoverImageExists) {
+                    console.log('Hover ENTER - project:', item.dataset.projectNum, 'position:', item.dataset.positionInGrid, 'hoverSrc:', hoverSrc);
+                    img.src = hoverSrc;
+                } else {
+                    console.log('Hover ENTER - project:', item.dataset.projectNum, 'but hover image does not exist');
+                }
+            }
+            
+            function handleGridItemLeave(e) {
+                const item = e.target.closest('.grid-item');
+                if (!item || item !== currentHoveredItem) return;
+                
+                // Vérifier si on quitte vraiment l'item (pas juste un enfant)
+                const relatedTarget = e.relatedTarget;
+                if (relatedTarget && item.contains(relatedTarget)) {
+                    return; // On est toujours dans l'item
+                }
+                
+                currentHoveredItem = null;
+                const img = item.querySelector('.grid-item-img');
+                if (!img) return;
+                
+                const defaultSrc = item.dataset.defaultSrc;
+                console.log('Hover LEAVE - reverting to:', defaultSrc);
+                if (defaultSrc) {
+                    img.src = defaultSrc;
+                }
+            }
+            
+            // Utiliser mouseover/mouseout qui se propagent, avec vérification
+            if (sidebarProjectsGrid) {
+                sidebarProjectsGrid.addEventListener('mouseover', handleGridItemHover);
+                sidebarProjectsGrid.addEventListener('mouseout', handleGridItemLeave);
+            }
+            
+            if (otherProjectsGrid) {
+                otherProjectsGrid.addEventListener('mouseover', handleGridItemHover);
+                otherProjectsGrid.addEventListener('mouseout', handleGridItemLeave);
+            }
+            
+            console.log('Hover delegation setup complete for sidebar and grid');
+        }
+        
+        // Configurer la délégation d'événements après un court délai pour que les éléments soient dans le DOM
+        setTimeout(setupHoverDelegation, 1000);
     }
 
     // Attendre que le DOM soit complètement chargé

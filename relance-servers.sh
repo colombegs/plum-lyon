@@ -163,3 +163,5 @@ echo "📍 Frontend: http://localhost:$FRONTEND_PORT"
 echo ""
 echo "💡 Pour arrêter les serveurs, fermez les terminaux ou appuyez sur Ctrl+C dans chaque terminal"
 
+
+

@@ -38,6 +38,26 @@
             visibility: hidden !important;
             animation: none !important;
         }
+        
+        /* Forcer le layout avec sidebar largeur fixe au-dessus de 600px */
+        @media (min-width: 601px) {
+            .project-featured .container .project-featured-layout,
+            section.project-featured .container .project-featured-layout,
+            .project-featured-layout {
+                grid-template-columns: 1fr 400px !important;
+                display: grid !important;
+            }
+            .project-featured .container .project-featured-layout.landscape-image,
+            section.project-featured .container .project-featured-layout.landscape-image,
+            .project-featured-layout.landscape-image {
+                grid-template-columns: 1fr 400px !important;
+                display: grid !important;
+            }
+            .project-featured .container .project-featured-sidebar,
+            .project-featured-sidebar {
+                display: flex !important;
+            }
+        }
     </style>
 </head>
 <body class="page-loaded">
@@ -61,7 +81,7 @@
                             <div class="dropdown-columns">
                                 <div class="dropdown-column">
                                     <div class="dropdown-section-title">Découvrir</div>
-                                    <a href="#" class="dropdown-link">Styler 3D</a>
+                                    <a href="styler.html" class="dropdown-link">Styler 3D</a>
                                     <a href="#" class="dropdown-link">Nos cuisines chez vous</a>
                                     <a href="#" class="dropdown-link">Rendez-vous conception</a>
                                     <a href="#" class="dropdown-link">Estimation en 2min</a>
@@ -156,6 +176,7 @@
                                     <a href="#" class="dropdown-link">Showroom</a>
                                     <a href="#" class="dropdown-link">Conception au showroom</a>
                                     <a href="#" class="dropdown-link">Club Pro</a>
+                                    <a href="poseurs.html" class="dropdown-link">Trouver un poseur</a>
                                 </div>
                             </div>
                             <div class="dropdown-media-group">
@@ -252,7 +273,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="project-featured-layout">
+                <div class="project-featured-layout" style="grid-template-columns: 1fr 400px !important; display: grid !important;">
                     <!-- Colonnes 1-2 : Image principale + Titre -->
                     <div class="project-featured-main">
                         <div class="project-featured-image-wrapper">
