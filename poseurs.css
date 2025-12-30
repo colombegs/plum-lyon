@@ -362,11 +362,12 @@ body {
     position: relative;
     z-index: 2;
     transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    --translation-distance: 154px; /* Valeur par défaut, sera remplacée dynamiquement */
 }
 
-/* Bloc 1 monte de 154px au hover */
+/* Bloc 1 monte de la hauteur calculée dynamiquement au hover */
 .poseur-card:hover .poseur-card-bloc-1 {
-    transform: translateY(-154px); /* Monte de 154px */
+    transform: translateY(calc(-1 * var(--translation-distance, 154px))); /* Monte de la distance calculée */
 }
 
 /* Ligne de séparation entre bloc 1 et bloc 2 au hover */
@@ -423,16 +424,20 @@ body {
     transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     justify-content: flex-end;
     flex-grow: 0;
-    /* Positionné sous le bloc 1 : bloc 1 fait 90px de haut, donc bloc 2 à +90px + espace + ligne + marge supplémentaire = environ +160px */
-    transform: translateY(calc(90px + var(--spacing-xs) + 1px + 20px + 40px)); /* Positionné encore plus bas sous le bloc 1 par défaut (valeur positive = en dessous) */
+    /* Variables dynamiques calculées en JavaScript */
+    --bloc1-height: 90px; /* Valeur par défaut */
+    --bloc2-initial-position: 160px; /* Valeur par défaut */
+    --translation-distance: 154px; /* Valeur par défaut */
+    /* Positionné sous le bloc 1 avec position calculée dynamiquement */
+    transform: translateY(var(--bloc2-initial-position, 160px)); /* Positionné sous le bloc 1 par défaut */
     pointer-events: none;
 }
 
-/* Bloc 2 monte de 154px depuis sa position (comme le bloc 1) */
+/* Bloc 2 monte de la distance calculée dynamiquement depuis sa position (comme le bloc 1) */
 .poseur-card:hover .poseur-card-body {
     opacity: 1; /* Apparaît au hover */
-    /* Monte de 154px depuis sa position initiale : 160px - 154px = 6px */
-    transform: translateY(calc(90px + var(--spacing-xs) + 1px + 20px + 40px - 154px)); /* Monte de 154px */
+    /* Monte de la distance calculée depuis sa position initiale */
+    transform: translateY(calc(var(--bloc2-initial-position, 160px) - var(--translation-distance, 154px))); /* Monte de la distance calculée */
     pointer-events: auto;
 }
 

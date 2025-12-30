@@ -1093,6 +1093,59 @@ function createPoseurCard(poseur) {
 
     card.appendChild(header);
 
+    // Calculer dynamiquement les hauteurs et ajuster les animations
+    // Fonction pour calculer et appliquer les hauteurs
+    const calculateHeights = () => {
+        const bloc1Height = bloc1.offsetHeight;
+        
+        // Temporairement rendre le bloc 2 visible pour mesurer sa hauteur réelle
+        const originalOpacity = body.style.opacity;
+        const originalPointerEvents = body.style.pointerEvents;
+        const originalTransform = body.style.transform;
+        body.style.opacity = '1';
+        body.style.pointerEvents = 'auto';
+        body.style.transform = 'translateY(0)';
+        body.style.visibility = 'visible';
+        
+        // Forcer le reflow pour s'assurer que les dimensions sont calculées
+        void body.offsetHeight;
+        
+        const bloc2Height = body.offsetHeight;
+        
+        // Restaurer les styles originaux
+        body.style.opacity = originalOpacity || '';
+        body.style.pointerEvents = originalPointerEvents || '';
+        body.style.transform = originalTransform || '';
+        body.style.visibility = '';
+        
+        // Espacement entre les blocs
+        const spacing = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--spacing-xs')) || 8;
+        const lineHeight = 1;
+        const extraMargin = 20 + 40; // Marges supplémentaires
+        
+        // La distance de translation = hauteur du bloc 2 + espacement + ligne + marges
+        const translationDistance = bloc2Height + spacing + lineHeight + extraMargin;
+        
+        // Position initiale du bloc 2 = hauteur du bloc 1 + espacement + ligne + marges
+        const bloc2InitialPosition = bloc1Height + spacing + lineHeight + extraMargin;
+        
+        // Appliquer les valeurs dynamiquement via des variables CSS
+        bloc1.style.setProperty('--translation-distance', `${translationDistance}px`);
+        body.style.setProperty('--bloc2-initial-position', `${bloc2InitialPosition}px`);
+        body.style.setProperty('--translation-distance', `${translationDistance}px`);
+    };
+    
+    // Attendre que le DOM soit rendu et que les images soient chargées
+    if (image.complete) {
+        setTimeout(calculateHeights, 100);
+    } else {
+        image.addEventListener('load', () => {
+            setTimeout(calculateHeights, 100);
+        }, { once: true });
+        // Timeout de sécurité
+        setTimeout(calculateHeights, 500);
+    }
+
     // Ajouter l'événement de clic pour expand/collapse
     card.addEventListener('click', () => togglePoseurCard(card, poseur.id));
 
