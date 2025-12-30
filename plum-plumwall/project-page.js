@@ -137,22 +137,14 @@
         featuredProjectSubtitle.textContent = `Réalisé par ${projectInfo.firstName}`;
 
         // Détecter si l'image est en format paysage et ajuster le layout
-        // MAIS seulement en dessous de 600px - au-dessus, toujours garder 2 colonnes
         featuredProjectImage.onload = function() {
             const isLandscape = this.naturalWidth > this.naturalHeight;
             const layoutElement = document.querySelector('.project-featured-layout');
             if (layoutElement) {
-                // Vérifier la largeur de la fenêtre
-                const windowWidth = window.innerWidth || document.documentElement.clientWidth;
-                
-                if (windowWidth <= 600 && isLandscape) {
-                    // Seulement appliquer le layout paysage en dessous de 600px
+                if (isLandscape) {
                     layoutElement.classList.add('landscape-image');
                 } else {
-                    // Au-dessus de 600px, toujours garder 2 colonnes
                     layoutElement.classList.remove('landscape-image');
-                    layoutElement.style.gridTemplateColumns = '2fr 1fr';
-                    layoutElement.style.display = 'grid';
                     // Pour les images portrait, s'assurer que la sidebar est visible
                     const sidebar = document.querySelector('.project-featured-sidebar');
                     if (sidebar) {
@@ -161,28 +153,6 @@
                 }
             }
         };
-        
-        // Aussi écouter le resize pour réajuster si nécessaire
-        let resizeTimeout;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(function() {
-                const layoutElement = document.querySelector('.project-featured-layout');
-                if (layoutElement) {
-                    const windowWidth = window.innerWidth || document.documentElement.clientWidth;
-                    if (windowWidth > 600) {
-                        // Au-dessus de 600px, forcer 2 colonnes
-                        layoutElement.classList.remove('landscape-image');
-                        layoutElement.style.gridTemplateColumns = '2fr 1fr';
-                        layoutElement.style.display = 'grid';
-                        const sidebar = document.querySelector('.project-featured-sidebar');
-                        if (sidebar) {
-                            sidebar.style.display = 'flex';
-                        }
-                    }
-                }
-            }, 250);
-        });
 
         // Gestion des erreurs d'image
         featuredProjectImage.onerror = function() {

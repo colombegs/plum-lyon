@@ -1045,15 +1045,21 @@ function createPoseurCard(poseur) {
     const content = document.createElement('div');
     content.className = 'poseur-card-content';
 
+    // Bloc 1 : titre + contact
+    const bloc1 = document.createElement('div');
+    bloc1.className = 'poseur-card-bloc-1';
+
     const name = document.createElement('h3');
     name.className = 'poseur-card-name';
     name.textContent = poseur.name;
-    content.appendChild(name);
+    bloc1.appendChild(name);
 
     const contact = document.createElement('div');
     contact.className = 'poseur-card-contact';
     contact.textContent = `${poseur.phone} · ${poseur.email}`;
-    content.appendChild(contact);
+    bloc1.appendChild(contact);
+
+    content.appendChild(bloc1);
 
     // Body avec description et instagram
     const body = document.createElement('div');

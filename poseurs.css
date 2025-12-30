@@ -348,7 +348,39 @@ body {
     justify-content: flex-end;
     align-items: flex-start;
     height: 100%;
-    gap: 0;
+    gap: var(--spacing-xs);
+}
+
+/* Bloc 1 : titre + contact - Positionné en bas de la card par défaut */
+.poseur-card-bloc-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transform: translateY(0); /* En bas de la card par défaut */
+    width: 100%;
+    margin-top: auto; /* Pousse le bloc 1 en bas */
+    position: relative;
+    z-index: 2;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Bloc 1 monte de 154px au hover */
+.poseur-card:hover .poseur-card-bloc-1 {
+    transform: translateY(-154px); /* Monte de 154px */
+}
+
+/* Ligne de séparation entre bloc 1 et bloc 2 au hover */
+.poseur-card-bloc-1::after {
+    content: '';
+    display: none;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-top: var(--spacing-xs);
+}
+
+.poseur-card:hover .poseur-card-bloc-1::after {
+    display: block;
 }
 
 .poseur-card-name {
@@ -357,14 +389,8 @@ body {
     line-height: var(--line-height-h5);
     font-weight: 400;
     color: var(--color-white);
-    margin-bottom: 4px;
+    margin: 0;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    transform: translateY(0);
-}
-
-.poseur-card:hover .poseur-card-name {
-    transform: translateY(-140px);
 }
 
 .poseur-card-contact {
@@ -374,43 +400,39 @@ body {
     letter-spacing: var(--letter-spacing-alt);
     color: rgba(255, 255, 255, 0.95);
     margin: 0;
-    margin-bottom: 0;
-    padding-bottom: 0;
     text-transform: uppercase;
     opacity: 1;
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    transform: translateY(0);
     display: block;
 }
 
-.poseur-card:hover .poseur-card-contact {
-    transform: translateY(-140px);
-}
-
+/* Bloc 2 : description + instagram - Positionné sous le bloc 1 */
 .poseur-card-body {
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: absolute; /* Positionné de manière absolue pour ne pas affecter le bloc 1 */
+    bottom: 20px; /* En bas de la card, même position de base que le bloc 1 */
+    left: 20px;
+    right: 20px;
     z-index: 1;
     padding: 0;
-    gap: 0;
-    width: 100%;
+    gap: var(--spacing-xs);
+    width: auto;
     margin: 0;
-    margin-top: 0;
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), height 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0; /* Masqué par défaut */
+    overflow: visible; /* Permettre la translation */
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     justify-content: flex-end;
     flex-grow: 0;
-    transform: translateY(0);
+    /* Positionné sous le bloc 1 : bloc 1 fait 90px de haut, donc bloc 2 à +90px + espace + ligne + marge supplémentaire = environ +160px */
+    transform: translateY(calc(90px + var(--spacing-xs) + 1px + 20px + 40px)); /* Positionné encore plus bas sous le bloc 1 par défaut (valeur positive = en dessous) */
     pointer-events: none;
 }
 
+/* Bloc 2 monte de 154px depuis sa position (comme le bloc 1) */
 .poseur-card:hover .poseur-card-body {
-    opacity: 1;
-    height: auto;
-    transform: translateY(0);
+    opacity: 1; /* Apparaît au hover */
+    /* Monte de 154px depuis sa position initiale : 160px - 154px = 6px */
+    transform: translateY(calc(90px + var(--spacing-xs) + 1px + 20px + 40px - 154px)); /* Monte de 154px */
     pointer-events: auto;
 }
 
