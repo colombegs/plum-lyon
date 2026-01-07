@@ -92,23 +92,4 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .hero {
-    min-height: auto;
-    padding: var(--spacing-2xl) var(--container-padding);
-  }
-
-  .hero-title {
-    font-size: var(--font-size-h2);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-size-l);
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-  }
-}
 

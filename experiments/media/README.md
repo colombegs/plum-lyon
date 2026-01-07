@@ -13,18 +13,18 @@ Page media pixel perfect basée sur le design de référence.
 Les images doivent être téléchargées depuis le Dropbox et placées dans le dossier `images/`.
 
 ### Hero
-- Image principale: `pk_20251008_ateliercvd070_hd.jpg` (Caroline Debono)
+- Image principale: `media/1.jpg` (Caroline Debono)
 
-### Articles (à ajuster selon les images disponibles dans le Dropbox)
-1. Salle de bain - "5 sols qui changent tout dans la salle de bain"
-2. Cuisine - "Une cuisine grenat et ciel voilé"
-3. Portrait - "Chez Julie, de Gabrielle Paris"
-4. Portrait - "Chez Marion, fondatrice d'Orta"
-5. Portrait - "Carte blanche à Valentine Richardson"
-6. Détail meuble - "Pauline Borgia x Plum Living"
-7. Fenêtre - "Banc Window"
-8. Bibliothèque - "Une enfilade pour bas de"
-9. Cheminée - "Chez Julie, de Gabrielle Paris"
+### Articles (nommés selon leur placement)
+1. `media/2.jpg` - "5 sols qui changent tout dans la salle de bain"
+2. `media/3.jpg` - "Une cuisine grenat et ciel voilé"
+3. `media/4.jpg` - "Chez Julie, de Gabrielle Paris"
+4. `media/5.jpg` - "Chez Marion, fondatrice d'Orta"
+5. `media/6.jpg` - "Carte blanche à Valentine Richardson"
+6. `media/7.jpg` - "Pauline Borgia x Plum Living"
+7. `media/8.jpg` - "Une enfilade pour bas de bibliothèque"
+8. `media/9.jpg` - "Banc Window"
+9. `media/10.jpg` - "Chez Julie, de Gabrielle Paris"
 
 ## Styles
 

@@ -1,0 +1,1138 @@
+/**
+ * Dressing Page Styles
+ * Hero immersif + Grid de grandes images verticales avec effets hover
+ */
+
+/* ============================================
+   NAVBAR TRANSPARENTE SUR HERO
+   ============================================ */
+
+.navbar-over-hero {
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
+    transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-over-hero.scrolled {
+    background-color: var(--color-white);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar-over-hero .nav-link {
+    color: var(--color-white);
+}
+
+.navbar-over-hero.scrolled .nav-link {
+    color: var(--color-asphalte);
+}
+
+.navbar-over-hero .icon-button {
+    color: var(--color-white);
+}
+
+.navbar-over-hero.scrolled .icon-button {
+    color: var(--color-asphalte);
+}
+
+.navbar-over-hero .btn-cta {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.navbar-over-hero.scrolled .btn-cta {
+    background-color: transparent;
+    color: var(--color-asphalte);
+    border-color: var(--color-asphalte);
+}
+
+/* ============================================
+   MAIN LAYOUT
+   ============================================ */
+
+.dressing-main {
+    background-color: var(--color-white);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* ============================================
+   HERO SECTION - Immersif comme homepage
+   ============================================ */
+
+.dressing-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.dressing-hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.dressing-hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000; /* Fond noir pour éviter de voir le fond bleu pendant les transitions */
+}
+
+.dressing-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: scale(1.1);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.dressing-hero-image-current {
+    opacity: 1;
+    z-index: 2;
+    animation: heroImageZoom 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity, transform;
+}
+
+.dressing-hero-image-next {
+    opacity: 0;
+    z-index: 3;
+    transform: scale(1.1);
+    will-change: opacity, transform;
+}
+
+.dressing-hero-image.initialized {
+    animation: none;
+    transform: scale(1);
+}
+
+/* Crossfade : l'image suivante devient visible */
+.dressing-hero-image-next.crossfade-in {
+    opacity: 1 !important;
+    transform: scale(1);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* L'image actuelle devient invisible */
+.dressing-hero-image-current.crossfade-out {
+    opacity: 0 !important;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Après le crossfade, échanger les rôles */
+.dressing-hero-image-current.swap-to-next {
+    opacity: 0;
+    z-index: 1;
+}
+
+.dressing-hero-image-next.swap-to-current {
+    opacity: 1;
+    z-index: 1;
+    transform: scale(1);
+}
+
+.dressing-hero-image.loading {
+    opacity: 0;
+}
+
+.dressing-hero-image.loaded {
+    opacity: 1;
+}
+
+@keyframes heroImageZoom {
+    from {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.dressing-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15); /* Overlay noir uniforme à 15% d'opacité */
+    z-index: 4; /* Au-dessus des images (z-index 2 et 3) */
+    pointer-events: none; /* Ne pas bloquer les interactions */
+}
+
+.dressing-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+}
+
+.dressing-hero-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: center;
+}
+
+.dressing-hero-text {
+    max-width: 90%;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.dressing-hero-title {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h1); /* 80px */
+    font-weight: 400;
+    line-height: var(--line-height-h1); /* 90% */
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
+    color: var(--color-white);
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroTitleSlideUp 2.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dressing-hero-title.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dressing-hero-title.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+@keyframes heroTitleSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Transition pour les pastilles de couleurs */
+.dressing-hero-colors {
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dressing-hero-title-line {
+    display: block;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.dressing-hero-subtitle {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-xl); /* 20px */
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: var(--line-height-body); /* 140% */
+    margin: 0 auto var(--spacing-3xl);
+    color: rgba(255, 255, 255, 0.95);
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+    max-width: 560px;
+    text-align: center;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dressing-hero-subtitle.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dressing-hero-subtitle.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pastilles de couleurs dans le hero */
+.dressing-hero-colors {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dressing-hero-colors.fade-out {
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dressing-hero-colors.fade-in {
+    opacity: 1;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.dressing-hero-color-swatch {
+    width: 25.6px;
+    height: 25.6px;
+    border-radius: var(--radius-full);
+    border: 2px solid transparent;
+    background-color: var(--color-grey-1);
+    cursor: pointer;
+    transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0;
+    outline: none;
+    position: relative;
+}
+
+.dressing-hero-color-swatch:hover {
+    border-color: var(--color-white);
+}
+
+.dressing-hero-color-swatch:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+.dressing-hero-color-swatch.active {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--color-white);
+}
+
+/* Navigation buttons */
+.dressing-hero-navigation {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing-2xl);
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.2s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dressing-hero-nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: var(--radius-full);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0;
+    outline: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    pointer-events: auto;
+    position: relative;
+}
+
+.dressing-hero-nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.dressing-hero-nav-button:active {
+    transform: scale(0.95);
+}
+
+.dressing-hero-nav-button:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+.dressing-hero-nav-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ============================================
+   GALLERY SECTION - Avec marges
+   ============================================ */
+
+.dressing-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 30px; /* Desktop: 30px de padding sur tous les côtés */
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ============================================
+   GALLERY GRID
+   ============================================ */
+
+.dressing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px; /* Desktop: 30px de gap entre les images */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Variation : ligne de 3 colonnes dans une grille 6 colonnes */
+.dressing-grid-with-trio {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+/* Items standard : prennent 3 colonnes sur 6 = 50% (équivalent à 2 colonnes) */
+.dressing-grid-with-trio .dressing-item {
+    grid-column: span 3;
+}
+
+/* Items en trio : prennent 2 colonnes sur 6 = 33.33% (3 items par ligne) */
+.dressing-grid-with-trio .dressing-item-trio {
+    grid-column: span 2;
+}
+
+/* ============================================
+   GALLERY ITEM
+   ============================================ */
+
+.dressing-item {
+    position: relative;
+    width: 100%;
+    min-width: 0; /* CRITIQUE : Permet aux colonnes 1fr de se rétrécir correctement */
+    overflow: visible; /* Permet au contenu sous l'image d'être visible */
+    cursor: pointer;
+    transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bloc de contenu sous l'image - visible sur desktop et mobile */
+.dressing-content-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: var(--spacing-md) 0 0 0;
+    width: 100%;
+}
+
+/* Titre = Alt 3 (Design System) - dans le bloc sous l'image */
+.dressing-content-mobile .dressing-scene-name {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-alt-3); /* 12px */
+    font-weight: 500; /* Medium - pour un texte plus épais selon DS */
+    line-height: var(--line-height-alt); /* 140% */
+    letter-spacing: var(--letter-spacing-alt); /* 5% - FAIT PARTIE DU DS */
+    color: var(--color-black);
+    margin: 0;
+    text-align: left;
+    text-transform: uppercase; /* Majuscules hors de l'image (mobile) */
+}
+
+/* Description 1 = Body S (Design System) - dans le bloc sous l'image */
+.dressing-content-mobile .dressing-description {
+    display: block;
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-s); /* 12px */
+    font-weight: 400; /* Regular - conforme au DS Body S */
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px - conforme au DS Body S */
+    color: var(--color-grey-1);
+    margin: 0;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Description 2 - cachée dans le bloc sous l'image */
+.dressing-content-mobile .dressing-subtitle-2 {
+    display: none;
+}
+
+/* Cacher le contenu mobile pour les éléments vidéo */
+.dressing-item-video .dressing-content-mobile {
+    display: none;
+}
+
+.dressing-item:hover {
+    transform: translateY(-4px);
+}
+
+.dressing-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Plus vertical que styler (4/3) */
+    overflow: hidden;
+    background-color: var(--color-grey-4);
+    flex-shrink: 0; /* Empêche le wrapper de rétrécir */
+    isolation: isolate; /* Crée un nouveau contexte d'empilement */
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dressing-item:hover .dressing-image-wrapper {
+    transform: translateY(4px); /* Compense le translateY(-4px) de l'item pour que l'image reste fixe */
+}
+
+.dressing-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(1) translateZ(0);
+    transform-origin: 50% 50%;
+    will-change: transform;
+    opacity: 1;
+}
+
+/* Image de hover - cachée par défaut, positionnée en absolu par-dessus */
+.dressing-image-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(1) translateZ(0);
+    transform-origin: 50% 50%;
+    will-change: transform;
+    pointer-events: none;
+}
+
+/* Au hover : cacher l'image principale seulement s'il y a une image hover */
+.dressing-item:hover .dressing-image-wrapper:has(.dressing-image-hover) .dressing-image:not(.dressing-image-hover) {
+    opacity: 0;
+}
+
+.dressing-item:hover .dressing-image-hover {
+    opacity: 1;
+    transform: scale(1.05) translateZ(0);
+}
+
+/* Si pas d'image hover, garder le zoom sur l'image principale */
+.dressing-item:hover .dressing-image-wrapper:not(:has(.dressing-image-hover)) .dressing-image {
+    transform: scale(1.05) translateZ(0);
+}
+
+/* EXCEPTION : Pas de zoom sur les items avec pastilles de couleur (le changement d'image gère la transition) */
+.dressing-item-with-colors:hover .dressing-image-wrapper .dressing-image {
+    transform: scale(1) translateZ(0);
+}
+
+.dressing-item-with-colors .dressing-image {
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Seulement opacity, pas de transform */
+}
+
+/* ============================================
+   VIDEO STYLING
+   ============================================ */
+
+.dressing-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(1) translateZ(0);
+    transform-origin: 50% 50%;
+    will-change: transform;
+}
+
+.dressing-item:hover .dressing-video {
+    transform: scale(1.05) translateZ(0);
+}
+
+/* ============================================
+   OVERLAY (apparaît au hover)
+   ============================================ */
+
+.dressing-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-3xl);
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+.dressing-item:hover .dressing-overlay {
+    opacity: 1;
+}
+
+/* Cacher l'overlay (titre et description) pour les éléments vidéo */
+.dressing-item-video:hover .dressing-overlay {
+    opacity: 0;
+}
+
+.dressing-content {
+    width: 100%;
+    color: var(--color-white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(10px);
+    transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    z-index: 2;
+}
+
+.dressing-item:hover .dressing-content {
+    transform: translateY(0);
+}
+
+.dressing-scene-name {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h3); /* 42px */
+    font-weight: 400;
+    line-height: var(--line-height-h3); /* 120% */
+    color: var(--color-white);
+    margin: 0;
+    letter-spacing: -0.2px;
+    text-align: center;
+    text-transform: none; /* Pas de majuscules dans l'overlay (hover) */
+}
+
+.dressing-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-l); /* 16px */
+    line-height: var(--line-height-body); /* 140% */
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.dressing-subtitle-2 {
+    display: none; /* Caché par défaut */
+}
+
+/* Afficher la description 2 sous le titre dans l'overlay au hover */
+.dressing-overlay .dressing-subtitle-2 {
+    display: block;
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-l); /* 16px */
+    line-height: var(--line-height-body); /* 140% */
+    color: rgba(255, 255, 255, 0.9);
+    margin: var(--spacing-md) 0 0 0;
+    text-align: center;
+}
+
+/* ============================================
+   COLOR SWATCHES (Pastilles de couleurs)
+   Uniquement pour les items avec la classe .dressing-item-with-colors
+   ============================================ */
+
+.dressing-colors {
+    display: flex;
+	gap: var(--spacing-md);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.color-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-full);
+    border: 2px solid transparent;
+    background-color: var(--color-grey-1);
+    cursor: pointer;
+    transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), transform 2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0;
+    outline: none;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Animation en cascade pour les pastilles avec belle décélération */
+.dressing-item-with-colors:hover .color-swatch {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dressing-item-with-colors:hover .color-swatch:nth-of-type(1) {
+    transition-delay: 0.05s;
+}
+
+.dressing-item-with-colors:hover .color-swatch:nth-of-type(2) {
+    transition-delay: 0.1s;
+}
+
+.dressing-item-with-colors:hover .color-swatch:nth-of-type(3) {
+    transition-delay: 0.15s;
+}
+
+.dressing-item-with-colors:hover .color-swatch:nth-of-type(4) {
+    transition-delay: 0.2s;
+}
+
+.dressing-item-with-colors:hover .color-swatch:nth-of-type(5) {
+    transition-delay: 0.25s;
+}
+
+.color-swatch:hover {
+    border-color: var(--color-white);
+}
+
+.color-swatch:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+.color-swatch.active {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-white);
+}
+
+/* ============================================
+   DÉSACTIVER HOVER SUR MOBILE
+   ============================================ */
+
+/* Désactiver tous les effets hover sur les appareils tactiles */
+@media (hover: none) and (pointer: coarse) {
+    .dressing-item:hover {
+        transform: none !important;
+    }
+
+    .dressing-item:hover .dressing-image-wrapper {
+        transform: none !important;
+    }
+
+    .dressing-item:hover .dressing-image {
+        transform: scale(1) !important;
+    }
+
+    .dressing-item:hover .dressing-image-hover {
+        opacity: 0 !important;
+        transform: scale(1) !important;
+    }
+
+    .dressing-item:hover .dressing-image-wrapper:has(.dressing-image-hover) .dressing-image:not(.dressing-image-hover) {
+        opacity: 1 !important;
+    }
+
+    .dressing-item:hover .dressing-video {
+        transform: scale(1) !important;
+    }
+
+    .dressing-item:hover .dressing-overlay {
+        opacity: 0 !important;
+    }
+
+    .dressing-item:hover .dressing-content {
+        transform: translateY(10px) !important;
+    }
+
+    .dressing-item-with-colors:hover .color-swatch {
+        opacity: 0 !important;
+        transform: translateY(20px) !important;
+    }
+
+    .dressing-hero-color-swatch:hover {
+        border-color: transparent !important;
+    }
+
+    .color-swatch:hover {
+        border-color: transparent !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Tablette - Grid avec trio reste en 6 colonnes mais items trio passent à 3 colonnes */
+@media (max-width: 1024px) {
+    .dressing-grid-with-trio .dressing-item-trio {
+        grid-column: span 3; /* Repasse à 2 colonnes visuelles */
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    /* Empêcher le dépassement horizontal - FORCER strictement à 100vw */
+    html {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .dressing-main {
+        padding-top: 0; /* Pas de padding car le hero est plein écran */
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    /* Hero responsive sur mobile */
+    .dressing-hero {
+        height: 600px;
+        min-height: 600px;
+    }
+
+    .dressing-hero-container {
+        padding: 0 var(--spacing-lg);
+    }
+
+    .dressing-hero-text {
+        max-width: 100%;
+    }
+
+    .dressing-hero-title {
+        font-size: var(--font-size-h2); /* 54px */
+        line-height: var(--line-height-h2);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .dressing-hero-subtitle {
+        font-size: var(--font-size-l); /* 16px */
+        margin-bottom: var(--spacing-2xl);
+        max-width: 60%;
+    }
+
+    .dressing-hero-color-swatch {
+        width: 22.4px;
+        height: 22.4px;
+    }
+
+    .dressing-hero-color-swatch.active {
+        width: 28px;
+        height: 28px;
+    }
+
+    .dressing-hero-navigation {
+        padding: 0 var(--spacing-lg);
+    }
+
+    .dressing-hero-nav-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .dressing-hero-nav-button svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .dressing-container {
+        padding: var(--spacing-3xl) var(--spacing-sm);
+        padding-top: 12px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        margin: 0;
+        position: relative;
+    }
+
+    /* Grille mobile : 2 colonnes par défaut - doit s'adapter au container avec padding */
+    .dressing-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+        column-gap: 4px;
+        row-gap: 30px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Grid avec trio sur mobile : repasse à grille simple 2 colonnes */
+    .dressing-grid-with-trio {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+    }
+
+    .dressing-grid-with-trio .dressing-item,
+    .dressing-grid-with-trio .dressing-item-trio {
+        grid-column: span 1;
+    }
+
+    /* Possibilité d'avoir une colonne pour certains items */
+    .dressing-item.dressing-item-full-width {
+        grid-column: 1 / -1; /* Prend toute la largeur (2 colonnes) */
+    }
+
+    /* Article 6 en full width sur mobile */
+    .dressing-grid .dressing-item:nth-child(5) {
+        grid-column: 1 / -1; /* Prend toute la largeur (2 colonnes) */
+    }
+
+    /* Sur mobile, les items contiennent l'image + texte en dessous */
+    .dressing-item {
+        display: flex;
+        flex-direction: column;
+        aspect-ratio: auto;
+        overflow: visible;
+        cursor: default;
+        width: 100%;
+        min-width: 0; /* CRITIQUE : Permet aux colonnes 1fr de se rétrécir correctement */
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .dressing-image-wrapper {
+        position: relative;
+        width: 100%;
+        min-width: 0; /* CRITIQUE : Permet aux images de se rétrécir avec leur parent */
+        max-width: 100%;
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+        margin-bottom: 0;
+        box-sizing: border-box;
+    }
+
+    .dressing-image,
+    .dressing-video {
+        width: 100%;
+        min-width: 0; /* CRITIQUE : Permet aux images de se rétrécir */
+        height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Cacher l'overlay sur mobile */
+    .dressing-overlay {
+        display: none !important;
+    }
+
+    /* Sur mobile, ajuster le padding du bloc de texte */
+    .dressing-content-mobile {
+        padding: var(--spacing-xs) 0 0 0;
+    }
+
+    /* Icône edit sur les 2 premières images */
+    .dressing-item:nth-child(1) .dressing-image-wrapper::after,
+    .dressing-item:nth-child(2) .dressing-image-wrapper::after {
+        content: '';
+        position: absolute;
+        top: var(--spacing-xs);
+        right: var(--spacing-xs);
+        width: 24px;
+        height: 24px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
+        background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7'%3E%3C/path%3E%3Cpath d='M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z'%3E%3C/path%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 14px 14px;
+    }
+
+    /* Pas de hover sur mobile - Désactiver tous les effets hover */
+    .dressing-item:hover {
+        transform: none;
+    }
+
+    .dressing-item:hover .dressing-image-wrapper {
+        transform: none;
+    }
+
+    .dressing-item:hover .dressing-image {
+        transform: scale(1) !important;
+    }
+
+    .dressing-item:hover .dressing-image-hover {
+        opacity: 0 !important;
+        transform: scale(1) !important;
+    }
+
+    .dressing-item:hover .dressing-image-wrapper:has(.dressing-image-hover) .dressing-image:not(.dressing-image-hover) {
+        opacity: 1 !important;
+    }
+
+    .dressing-item:hover .dressing-video {
+        transform: scale(1) !important;
+    }
+
+    .dressing-item:hover .dressing-overlay {
+        opacity: 0 !important;
+    }
+
+    .dressing-item:hover .dressing-content {
+        transform: translateY(10px) !important;
+    }
+
+    .dressing-item-with-colors:hover .color-swatch {
+        opacity: 0 !important;
+        transform: translateY(20px) !important;
+    }
+
+    .dressing-hero-color-swatch:hover {
+        border-color: transparent !important;
+    }
+
+    .color-swatch:hover {
+        border-color: transparent !important;
+    }
+
+    /* Cacher les pastilles de couleurs sur mobile */
+    .dressing-colors {
+        display: none;
+    }
+
+    .color-swatch {
+        display: none;
+    }
+}
+
+/* Petit mobile */
+@media (max-width: 480px) {
+    .dressing-container {
+        padding: var(--spacing-md) var(--spacing-sm);
+        padding-top: 12px;
+        max-width: 100vw;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    /* Garde 2 colonnes même sur petit mobile */
+    .dressing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+        column-gap: 4px;
+        row-gap: 30px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .dressing-grid-with-trio {
+        row-gap: 30px;
+    }
+
+    .dressing-overlay {
+        padding: var(--spacing-sm) var(--spacing-xs);
+    }
+
+    .dressing-scene-name {
+        font-size: 14px;
+    }
+
+    .dressing-description {
+        font-size: 10px;
+    }
+
+    .color-swatch {
+        width: 14.4px;
+        height: 14.4px;
+    }
+
+    .color-swatch.active {
+        width: 18px;
+        height: 18px;
+    }
+}

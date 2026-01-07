@@ -994,6 +994,15 @@ function createPoseurCard(poseur) {
     image.style.display = 'block';
     header.appendChild(image);
     
+    // Créer le contenu avant le bloc vidéo pour qu'il soit accessible dans les gestionnaires d'événements
+    const overlay = document.createElement('div');
+    overlay.className = 'poseur-card-overlay';
+    header.appendChild(overlay);
+
+    // Contenu dans l'overlay
+    const content = document.createElement('div');
+    content.className = 'poseur-card-content';
+    
     // Vidéo (si disponible)
     if (poseur.video) {
         const video = document.createElement('video');
@@ -1015,13 +1024,20 @@ function createPoseurCard(poseur) {
         card.addEventListener('mouseenter', () => {
             image.style.opacity = '0';
             video.style.display = 'block';
+            // Cacher le contenu (titre et description) quand la vidéo est affichée
+            if (content) {
+                content.style.opacity = '0';
+            }
             setTimeout(() => {
                 video.style.opacity = '1';
                 video.play().catch(err => {
                     console.warn('Erreur lors de la lecture de la vidéo:', err);
-                    // En cas d'erreur, réafficher l'image
+                    // En cas d'erreur, réafficher l'image et le contenu
                     video.style.display = 'none';
                     image.style.opacity = '1';
+                    if (content) {
+                        content.style.opacity = '1';
+                    }
                 });
             }, 50);
         });
@@ -1034,16 +1050,12 @@ function createPoseurCard(poseur) {
                 video.style.display = 'none';
             }, 300);
             image.style.opacity = '1';
+            // Réafficher le contenu (titre et description) quand on quitte le hover
+            if (content) {
+                content.style.opacity = '1';
+            }
         });
     }
-    
-    const overlay = document.createElement('div');
-    overlay.className = 'poseur-card-overlay';
-    header.appendChild(overlay);
-
-    // Contenu dans l'overlay
-    const content = document.createElement('div');
-    content.className = 'poseur-card-content';
 
     // Bloc 1 : titre + contact
     const bloc1 = document.createElement('div');

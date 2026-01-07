@@ -111,12 +111,32 @@
     <!-- Navbar -->
     <nav class="navbar navbar-over-hero">
         <div class="navbar-container">
-            <!-- Logo -->
-            <div class="navbar-logo">
-                <a href="../../home.html" class="logo-link">
-                    <img src="../../images/logo.png" alt="plum living" class="logo-image logo-white">
-                    <img src="../../images/logo-black.png" alt="plum living" class="logo-image logo-black" style="display: none;">
-                </a>
+            <!-- Groupe Burger + Logo -->
+            <div class="navbar-left">
+                <!-- Bouton Burger (Mobile) -->
+                <button class="burger-button icon-button" id="burgerButton" aria-label="Menu" aria-expanded="false">
+                    <svg class="burger-icon icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Paths burger (3 lignes) -->
+                        <g class="burger-paths">
+                            <path d="M2 5H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M2 10H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M2 15H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </g>
+                        <!-- Paths close (X) -->
+                        <g class="close-paths">
+                            <path d="M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </g>
+                    </svg>
+                </button>
+                
+                <!-- Logo -->
+                <div class="navbar-logo">
+                    <a href="../../home.html" class="logo-link">
+                        <img src="../../images/logo.png" alt="plum living" class="logo-image logo-white">
+                        <img src="../../images/logo-black.png" alt="plum living" class="logo-image logo-black" style="display: none;">
+                    </a>
+                </div>
             </div>
 
             <!-- Navigation principale -->
@@ -132,6 +152,7 @@
                                     <a href="#" class="dropdown-link">Nos cuisines chez vous</a>
                                     <a href="#" class="dropdown-link">Rendez-vous conception</a>
                                     <a href="#" class="dropdown-link">Estimation en 2min</a>
+                                    <a href="../../plumwall.html" class="dropdown-link">Inspiration</a>
                                 </div>
                                 <div class="dropdown-column">
                                     <div class="dropdown-section-title">Shop</div>
@@ -171,10 +192,11 @@
                             <div class="dropdown-columns">
                                 <div class="dropdown-column">
                                     <div class="dropdown-section-title">Catégories</div>
-                                    <a href="#" class="dropdown-link">Dressings</a>
+                                    <a href="../../dressing.html" class="dropdown-link">Dressings</a>
                                     <a href="#" class="dropdown-link">Ponts de lits</a>
                                     <a href="#" class="dropdown-link">Buffets</a>
                                     <a href="#" class="dropdown-link">Rangements</a>
+                                    <a href="../../plumwall.html" class="dropdown-link">Inspiration</a>
                                 </div>
                                 <div class="dropdown-column">
                                     <div class="dropdown-section-title hidden-title">Placeholder</div>
@@ -252,33 +274,35 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a href="#" class="nav-link">SHOWROOM</a>
+                </li>
+                <li class="nav-item">
                     <a href="index.html" class="nav-link">MEDIA</a>
                 </li>
             </ul>
 
             <!-- Actions utilisateur -->
             <div class="navbar-actions">
-                <!-- Barre de recherche -->
-                <div class="search-container">
-                    <button class="icon-button search-toggle" id="searchToggle" aria-label="Rechercher">
-                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                    </button>
-                    <div class="search-bar" id="searchBar">
-                        <input type="text" class="search-input" id="searchInput" placeholder="Rechercher..." aria-label="Rechercher">
-                        <button class="search-close" id="searchClose" aria-label="Fermer la recherche">
-                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
                 <!-- Icônes -->
                 <div class="navbar-icons">
+                    <!-- Barre de recherche -->
+                    <div class="search-container">
+                        <button class="icon-button search-toggle" id="searchToggle" aria-label="Rechercher">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                        <div class="search-bar" id="searchBar">
+                            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher..." aria-label="Rechercher">
+                            <button class="search-close" id="searchClose" aria-label="Fermer la recherche">
+                                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                     <button class="icon-button" aria-label="Mon compte">
                         <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -304,6 +328,241 @@
                 </a>
             </div>
         </div>
+
+        <!-- Menu Mobile -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-menu-nav">
+                <!-- Vue principale du menu -->
+                <div class="mobile-menu-view mobile-menu-view-main" data-menu-view="main">
+                    <ul class="mobile-menu-list mobile-menu-main">
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link" data-menu-trigger="cuisine">
+                                Cuisine
+                                <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link" data-menu-trigger="maison">
+                                Maison
+                                <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link" data-menu-trigger="concept">
+                                Concept
+                                <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">
+                                Showroom
+                            </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="index.html" class="mobile-menu-link">
+                                Media
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="mobile-menu-divider"></div>
+                    
+                    <ul class="mobile-menu-list mobile-menu-alt">
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Mon compte</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Suivre ma livraison</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Aide & Contact</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Club Pro</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sous-menu Cuisine -->
+                <div class="mobile-menu-view mobile-menu-view-submenu" data-menu-view="cuisine">
+                    <div class="mobile-menu-submenu-header">
+                        <button class="mobile-menu-back" aria-label="Retour">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </button>
+                        <h3 class="mobile-menu-submenu-title">Cuisine</h3>
+                    </div>
+                    <div class="mobile-menu-drawer-sections">
+                        <div class="mobile-menu-drawer-section">
+                            <h4 class="mobile-menu-drawer-section-title">Découvrir</h4>
+                            <ul class="mobile-menu-list mobile-menu-submenu-list">
+                                <li class="mobile-menu-item">
+                                    <a href="../../styler.html" class="mobile-menu-link">Styler 3D</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Nos cuisines chez vous</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Rendez-vous conception</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Estimation en 2min</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="../../plumwall.html" class="mobile-menu-link">Inspiration</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mobile-menu-drawer-section">
+                            <h4 class="mobile-menu-drawer-section-title">Shop</h4>
+                            <ul class="mobile-menu-list mobile-menu-submenu-list">
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Façades Metod</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Plans de travail</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Meubles ouverts</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Poignées</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Mitigeurs</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Eviers</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Peinture</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sous-menu Maison -->
+                <div class="mobile-menu-view mobile-menu-view-submenu" data-menu-view="maison">
+                    <div class="mobile-menu-submenu-header">
+                        <button class="mobile-menu-back" aria-label="Retour">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </button>
+                        <h3 class="mobile-menu-submenu-title">Maison</h3>
+                    </div>
+                    <div class="mobile-menu-drawer-sections">
+                        <div class="mobile-menu-drawer-section">
+                            <h4 class="mobile-menu-drawer-section-title">Catégories</h4>
+                            <ul class="mobile-menu-list mobile-menu-submenu-list">
+                                <li class="mobile-menu-item">
+                                    <a href="../../dressing.html" class="mobile-menu-link">Dressings</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Ponts de lits</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Buffets & Rangements</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Banquettes</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Salle de bain</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Bureaux</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Kids</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="../../plumwall.html" class="mobile-menu-link">Inspiration</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mobile-menu-drawer-section">
+                            <h4 class="mobile-menu-drawer-section-title">Shop</h4>
+                            <ul class="mobile-menu-list mobile-menu-submenu-list">
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Façades Pax</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Façades Metod</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Meubles ouverts</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Étagères</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Poignées</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Peinture</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sous-menu Concept -->
+                <div class="mobile-menu-view mobile-menu-view-submenu" data-menu-view="concept">
+                    <div class="mobile-menu-submenu-header">
+                        <button class="mobile-menu-back" aria-label="Retour">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </button>
+                        <h3 class="mobile-menu-submenu-title">Concept</h3>
+                    </div>
+                    <ul class="mobile-menu-list mobile-menu-submenu-list">
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Le concept Plum Living</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Nos couleurs</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Nos engagement</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">FAQ</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Échantillons</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Showroom</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Conception au showroom</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Club Pro</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Overlay pour fermer le menu -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
     </nav>
 
     <!-- Hero Section -->
@@ -604,6 +863,7 @@
         if (navbar && dropdownItems.length > 0) {
             let closeTimeout = null;
             let currentHoveredItem = null;
+            let isHoveringNavbar = false;
             
             // Fonction pour ouvrir un menu
             const openMenu = (dropdownItem) => {
@@ -623,6 +883,7 @@
                 navbar.classList.add('navbar-white');
                 navbar.classList.add('navbar-has-hover');
                 currentHoveredItem = dropdownItem;
+                isHoveringNavbar = true;
             };
             
             // Fonction pour fermer le menu
@@ -633,13 +894,13 @@
                 
                 closeTimeout = setTimeout(() => {
                     // Fermer seulement si on n'est plus sur aucun menu
-                    if (currentHoveredItem) {
+                    if (currentHoveredItem && !isHoveringNavbar) {
                         currentHoveredItem.classList.remove('is-hovered');
                         currentHoveredItem = null;
+                        
+                        navbar.classList.remove('navbar-white');
+                        navbar.classList.remove('navbar-has-hover');
                     }
-                    
-                    navbar.classList.remove('navbar-white');
-                    navbar.classList.remove('navbar-has-hover');
                     closeTimeout = null;
                 }, 100); // Délai court pour permettre le passage entre menus
             };
@@ -650,12 +911,71 @@
                 
                 if (dropdownMenu) {
                     // Ouvrir au survol
-                    dropdownItem.addEventListener('mouseenter', () => openMenu(dropdownItem));
-                    dropdownMenu.addEventListener('mouseenter', () => openMenu(dropdownItem));
+                    dropdownItem.addEventListener('mouseenter', () => {
+                        isHoveringNavbar = true;
+                        openMenu(dropdownItem);
+                    });
+                    dropdownMenu.addEventListener('mouseenter', () => {
+                        isHoveringNavbar = true;
+                        openMenu(dropdownItem);
+                    });
                     
                     // Fermer quand on quitte
-                    dropdownItem.addEventListener('mouseleave', closeMenu);
-                    dropdownMenu.addEventListener('mouseleave', closeMenu);
+                    dropdownItem.addEventListener('mouseleave', (e) => {
+                        // Vérifier si on passe vers le dropdown-menu
+                        const relatedTarget = e.relatedTarget;
+                        if (!relatedTarget || (!dropdownMenu.contains(relatedTarget) && !navbar.contains(relatedTarget))) {
+                            isHoveringNavbar = false;
+                            closeMenu();
+                        }
+                    });
+                    dropdownMenu.addEventListener('mouseleave', (e) => {
+                        // Vérifier si on passe vers le nav-item ou la navbar
+                        const relatedTarget = e.relatedTarget;
+                        if (!relatedTarget || (!dropdownItem.contains(relatedTarget) && !navbar.contains(relatedTarget))) {
+                            isHoveringNavbar = false;
+                            // Fermeture immédiate quand on quitte le dropdown-menu
+                            if (closeTimeout) {
+                                clearTimeout(closeTimeout);
+                                closeTimeout = null;
+                            }
+                            
+                            if (currentHoveredItem) {
+                                currentHoveredItem.classList.remove('is-hovered');
+                                currentHoveredItem = null;
+                            }
+                            
+                            navbar.classList.remove('navbar-white');
+                            navbar.classList.remove('navbar-has-hover');
+                        }
+                    });
+                }
+            });
+            
+            // Gérer le hover sur la navbar elle-même (hors dropdowns)
+            // Si on quitte complètement la navbar, retirer les classes immédiatement
+            navbar.addEventListener('mouseleave', (e) => {
+                // Vérifier qu'on ne passe pas vers un dropdown-menu (qui est en position fixed)
+                const relatedTarget = e.relatedTarget;
+                const isMovingToDropdown = relatedTarget && (
+                    relatedTarget.closest('.dropdown-menu') !== null
+                );
+                
+                if (!isMovingToDropdown) {
+                    // On a complètement quitté la navbar
+                    isHoveringNavbar = false;
+                    if (closeTimeout) {
+                        clearTimeout(closeTimeout);
+                        closeTimeout = null;
+                    }
+                    
+                    if (currentHoveredItem) {
+                        currentHoveredItem.classList.remove('is-hovered');
+                        currentHoveredItem = null;
+                    }
+                    
+                    navbar.classList.remove('navbar-white');
+                    navbar.classList.remove('navbar-has-hover');
                 }
             });
         }
@@ -744,5 +1064,6 @@
         });
     </script>
     <script src="../../shared/scripts/logo-fade.js"></script>
+    <script src="../../shared/scripts/mobile-menu.js"></script>
 </body>
 </html>

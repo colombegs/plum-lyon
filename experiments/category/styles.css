@@ -153,14 +153,7 @@
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: var(--spacing-lg);
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .page-header {
     padding: var(--spacing-2xl) 0 var(--spacing-lg);
   }

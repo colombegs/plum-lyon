@@ -64,6 +64,9 @@
   --line-height-h4: 120%;
   --line-height-h5: 120%;
   
+  /* Letter spacing */
+  --letter-spacing-body: -0.5px; /* Letter-spacing pour les tailles body standard (XL, L, M, S, XS) - Cera Pro */
+  
   /* ============================================
      ESPACEMENTS
      ============================================ */

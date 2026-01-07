@@ -349,6 +349,7 @@ body {
     align-items: flex-start;
     height: 100%;
     gap: var(--spacing-xs);
+    transition: opacity 0.3s ease;
 }
 
 /* Bloc 1 : titre + contact - Positionné en bas de la card par défaut */
@@ -443,7 +444,7 @@ body {
 
 .poseur-card-description {
     font-family: var(--font-primary);
-    font-size: var(--font-size-m);
+    font-size: var(--font-size-l);
     line-height: var(--line-height-body);
     color: var(--color-white);
     margin: 0;
@@ -502,28 +503,3 @@ body {
 /* ============================================
    RESPONSIVE
    ============================================ */
-
-@media (max-width: 768px) {
-    .poseurs-container {
-        padding: 0;
-    }
-
-    .poseurs-title {
-        font-size: var(--font-size-h3);
-    }
-
-    .poseurs-subtitle {
-        font-size: var(--font-size-m);
-    }
-
-    .poseurs-sidebar {
-        position: relative;
-        top: 0;
-        max-height: none;
-    }
-
-    .poseurs-map-container {
-        min-height: 400px;
-        padding: var(--spacing-md);
-    }
-}

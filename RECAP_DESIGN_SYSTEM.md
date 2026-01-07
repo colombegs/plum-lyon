@@ -21,16 +21,16 @@
 
 ### Body - Cera Pro (Regular 400)
 
-| Taille | Variable CSS | Font-size | Line-height | Usage |
-|--------|-------------|-----------|-------------|-------|
-| **XL** | `--font-size-xl` | **20px** | **140%** | Grand texte de corps |
-| **L** | `--font-size-l` | **16px** | **140%** | Texte de corps standard |
-| **M** | `--font-size-m` | **14px** | **140%** | Texte moyen |
-| **S** | `--font-size-s` | **12px** | **140%** | Petit texte |
-| **XS** | `--font-size-xs` | **10px** | **140%** | Très petit texte |
+| Taille | Variable CSS | Font-size | Line-height | Letter-spacing | Usage |
+|--------|-------------|-----------|-------------|----------------|-------|
+| **XL** | `--font-size-xl` | **20px** | **140%** | **-0.5px** (`--letter-spacing-body`) | Grand texte de corps |
+| **L** | `--font-size-l` | **16px** | **140%** | **-0.5px** (`--letter-spacing-body`) | Texte de corps standard |
+| **M** | `--font-size-m` | **14px** | **140%** | **-0.5px** (`--letter-spacing-body`) | Texte moyen |
+| **S** | `--font-size-s` | **12px** | **140%** | **-0.5px** (`--letter-spacing-body`) | Petit texte |
+| **XS** | `--font-size-xs` | **10px** | **140%** | **-0.5px** (`--letter-spacing-body`) | Très petit texte |
 
 **Caractéristiques Cera Pro :**
-- Letter-spacing : `-0.5px` (généralement)
+- Letter-spacing : `-0.5px` (`--letter-spacing-body`) pour toutes les tailles body standard (XL, L, M, S, XS)
 - Font-weight : `400` (Regular) ou `500` (Medium) pour les liens/navigation
 - Font-family : `'Cera Pro', sans-serif`
 

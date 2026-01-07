@@ -122,36 +122,8 @@
    RESPONSIVE
    ============================================ */
 
-/* Tablette */
-@media (max-width: 1024px) {
-  .project-featured {
-    padding: var(--spacing-3xl) 0;
-  }
-
-  .project-featured-layout {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-  }
-
-  .project-featured-sidebar {
-    order: -1; /* Mettre la sidebar en premier sur mobile */
-  }
-
-  .spark-grid-sidebar {
-    column-count: 2;
-  }
-
-  .project-featured-title {
-    font-size: var(--font-size-h3); /* 42px */
-  }
-
-  .project-grid-section .spark-grid {
-    column-count: 2;
-  }
-}
-
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .project-featured {
     padding: var(--spacing-2xl) 0;
   }

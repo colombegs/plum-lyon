@@ -363,6 +363,7 @@ body.media-transition.animation-complete::after {
   object-position: center;
   display: block;
   transform: scale(1.1);
+  transform-origin: center center;
   animation: heroImageZoom 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -463,28 +464,8 @@ body.media-transition.animation-complete::after {
    RESPONSIVE
    ============================================ */
 
-/* Tablette */
-@media (max-width: 1024px) {
-  .media-hero {
-    height: 70vh;
-    min-height: 500px;
-  }
-
-  .hero-title {
-    font-size: var(--font-size-xl); /* 20px - XL du DS */
-  }
-
-  .articles-grid {
-    column-count: 2;
-  }
-
-  .categories-nav {
-    gap: var(--spacing-2xl);
-  }
-}
-
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .media-hero {
     height: 60vh;
     min-height: 400px;
