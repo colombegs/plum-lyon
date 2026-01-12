@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre cuisine Plum Living - Plum Living</title>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="shared/styles/variables.css">
+    <link rel="stylesheet" href="shared/styles/buttons.css">
+    <link rel="stylesheet" href="shared/components/navbar.css">
+    <link rel="stylesheet" href="shared/styles/fade-transitions.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="hero.css">
+    <link rel="stylesheet" href="lpcuisine.css">
+    <script>
+        // Script inline pour éviter le flash de contenu lors du fade-in
+        (function() {
+            if (sessionStorage.getItem('fadeNavigation') === 'true') {
+                document.documentElement.style.opacity = '0';
+            }
+        })();
+    </script>
+    <script src="shared/scripts/fade-navigation.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-over-hero">
+        <div class="navbar-container">
+            <!-- Groupe Burger + Logo -->
+            <div class="navbar-left">
+                <!-- Bouton Burger (Mobile) -->
+                <button class="burger-button icon-button" id="burgerButton" aria-label="Menu" aria-expanded="false">
+                    <svg class="burger-icon icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g class="burger-paths">
+                            <path d="M2 5H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M2 10H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M2 15H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </g>
+                        <g class="close-paths">
+                            <path d="M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </g>
+                    </svg>
+                </button>
+                
+                <!-- Logo -->
+                <div class="navbar-logo">
+                    <a href="home.html" class="logo-link">
+                        <img src="images/logo.png" alt="plum living" class="logo-image logo-white">
+                        <img src="images/logo-black.png" alt="plum living" class="logo-image logo-black" style="display: none;">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Navigation principale -->
+            <ul class="navbar-nav">
+                <li class="nav-item nav-item-dropdown">
+                    <a href="#" class="nav-link">CUISINE</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">Découvrir</div>
+                                    <a href="styler.html" class="dropdown-link">Styler 3D</a>
+                                    <a href="#" class="dropdown-link">Nos cuisines chez vous</a>
+                                    <a href="#" class="dropdown-link">Rendez-vous conception</a>
+                                    <a href="#" class="dropdown-link">Estimation en 2min</a>
+                                    <a href="plumwall.html" class="dropdown-link">Inspiration</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">Shop</div>
+                                    <a href="#" class="dropdown-link">Façades Metod</a>
+                                    <a href="#" class="dropdown-link">Meubles ouverts</a>
+                                    <a href="#" class="dropdown-link">Étagères</a>
+                                    <a href="#" class="dropdown-link">Poignées</a>
+                                    <a href="#" class="dropdown-link">Peinture</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title hidden-title">Shop</div>
+                                    <a href="#" class="dropdown-link">Mitigeurs</a>
+                                    <a href="#" class="dropdown-link">Carreaux</a>
+                                    <a href="#" class="dropdown-link">Plans de travail</a>
+                                    <a href="#" class="dropdown-link">Eviers</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-media">
+                                <div class="dropdown-media-image">
+                                    <img src="images/pk_20251008_ateliercvd070_hd.jpg" alt="Chez Caroline Debono">
+                                    <div class="dropdown-media-overlay">
+                                        <div class="dropdown-media-content">
+                                            <h5 class="dropdown-media-title">Chez Caroline Debono, fondatrice d'Atelier CVD</h5>
+                                            <p class="dropdown-media-subtitle">Debono, fondatrice</p>
+                                            <p class="dropdown-media-description">d'Atelier CVD</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item nav-item-dropdown">
+                    <a href="#" class="nav-link">MAISON</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">Catégories</div>
+                                    <a href="dressing.html" class="dropdown-link">Dressings</a>
+                                    <a href="#" class="dropdown-link">Ponts de lits</a>
+                                    <a href="#" class="dropdown-link">Buffets</a>
+                                    <a href="#" class="dropdown-link">Rangements</a>
+                                    <a href="plumwall.html" class="dropdown-link">Inspiration</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title hidden-title">Placeholder</div>
+                                    <a href="#" class="dropdown-link">Salle de bain</a>
+                                    <a href="#" class="dropdown-link">Bureaux</a>
+                                    <a href="#" class="dropdown-link">Kids</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">Shop</div>
+                                    <a href="#" class="dropdown-link">Façades Pax</a>
+                                    <a href="#" class="dropdown-link">Façades Metod</a>
+                                    <a href="#" class="dropdown-link">Meubles ouverts</a>
+                                    <a href="#" class="dropdown-link">Étagères</a>
+                                    <a href="#" class="dropdown-link">Poignées</a>
+                                    <a href="#" class="dropdown-link">Peinture</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-media">
+                                <div class="dropdown-media-image">
+                                    <img src="images/pk_20251013_showroom026_hd.jpg" alt="Les grandes tendances de la salle de bain 2026">
+                                    <div class="dropdown-media-overlay">
+                                        <div class="dropdown-media-content">
+                                            <h5 class="dropdown-media-title">Les grandes tendances de la salle de bain 2026</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item nav-item-dropdown">
+                    <a href="#" class="nav-link">CONCEPT</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">Découvrir</div>
+                                    <a href="#" class="dropdown-link">Le concept Plum Living</a>
+                                    <a href="#" class="dropdown-link">Nos couleurs</a>
+                                    <a href="#" class="dropdown-link">Nos engagement</a>
+                                    <a href="#" class="dropdown-link">FAQ</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">Je commence</div>
+                                    <a href="#" class="dropdown-link">Échantillons</a>
+                                    <a href="#" class="dropdown-link">Showroom</a>
+                                    <a href="#" class="dropdown-link">Conception au showroom</a>
+                                    <a href="#" class="dropdown-link">Club Pro</a>
+                                    <a href="poseurs.html" class="dropdown-link">Trouver un poseur</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-media-group">
+                                <div class="dropdown-media">
+                                    <div class="dropdown-media-image">
+                                        <img src="images/couleur.jpg" alt="Nos couleurs">
+                                        <div class="dropdown-media-overlay">
+                                            <div class="dropdown-media-content">
+                                                <h5 class="dropdown-media-title">Nos couleurs</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-media">
+                                    <div class="dropdown-media-image">
+                                        <img src="images/showroom.jpg" alt="Le Showroom">
+                                        <div class="dropdown-media-overlay">
+                                            <div class="dropdown-media-content">
+                                                <h5 class="dropdown-media-title">Le Showroom</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">SHOWROOM</a>
+                </li>
+                <li class="nav-item">
+                    <a href="experiments/media/index.html" class="nav-link">MEDIA</a>
+                </li>
+            </ul>
+
+            <!-- Actions utilisateur -->
+            <div class="navbar-actions">
+                <!-- Icônes -->
+                <div class="navbar-icons">
+                    <!-- Barre de recherche -->
+                    <div class="search-container">
+                        <button class="icon-button search-toggle" id="searchToggle" aria-label="Rechercher">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                        <div class="search-bar" id="searchBar">
+                            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher..." aria-label="Rechercher">
+                            <button class="search-close" id="searchClose" aria-label="Fermer la recherche">
+                                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="icon-button" aria-label="Mon compte">
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </button>
+                    <button class="icon-button" aria-label="Panier">
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Bouton CTA -->
+                <a href="#" class="btn-cta">
+                    <svg class="btn-cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                    <span class="btn-cta-text">JE COMMENCE</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-menu-nav">
+                <!-- Vue principale du menu -->
+                <div class="mobile-menu-view mobile-menu-view-main" data-menu-view="main">
+                    <ul class="mobile-menu-list mobile-menu-main">
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link" data-menu-trigger="cuisine">
+                                Cuisine
+                                <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link" data-menu-trigger="maison">
+                                Maison
+                                <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link" data-menu-trigger="concept">
+                                Concept
+                                <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">
+                                Showroom
+                            </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="experiments/media/index.html" class="mobile-menu-link">
+                                Media
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="mobile-menu-divider"></div>
+                    
+                    <ul class="mobile-menu-list mobile-menu-alt">
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Mon compte</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Suivre ma livraison</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Aide & Contact</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Club Pro</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sous-menu Cuisine -->
+                <div class="mobile-menu-view mobile-menu-view-submenu" data-menu-view="cuisine">
+                    <div class="mobile-menu-submenu-header">
+                        <button class="mobile-menu-back" aria-label="Retour">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </button>
+                        <h3 class="mobile-menu-submenu-title">Cuisine</h3>
+                    </div>
+                    <div class="mobile-menu-drawer-sections">
+                        <div class="mobile-menu-drawer-section">
+                            <h4 class="mobile-menu-drawer-section-title">Découvrir</h4>
+                            <ul class="mobile-menu-list mobile-menu-submenu-list">
+                                <li class="mobile-menu-item">
+                                    <a href="styler.html" class="mobile-menu-link">Styler 3D</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Nos cuisines chez vous</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Rendez-vous conception</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Estimation en 2min</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="plumwall.html" class="mobile-menu-link">Inspiration</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mobile-menu-drawer-section">
+                            <h4 class="mobile-menu-drawer-section-title">Shop</h4>
+                            <ul class="mobile-menu-list mobile-menu-submenu-list">
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Façades Metod</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Plans de travail</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Meubles ouverts</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Poignées</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Mitigeurs</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Eviers</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Peinture</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sous-menu Maison -->
+                <div class="mobile-menu-view mobile-menu-view-submenu" data-menu-view="maison">
+                    <div class="mobile-menu-submenu-header">
+                        <button class="mobile-menu-back" aria-label="Retour">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </button>
+                        <h3 class="mobile-menu-submenu-title">Maison</h3>
+                    </div>
+                    <div class="mobile-menu-drawer-sections">
+                        <div class="mobile-menu-drawer-section">
+                            <h4 class="mobile-menu-drawer-section-title">Catégories</h4>
+                            <ul class="mobile-menu-list mobile-menu-submenu-list">
+                                <li class="mobile-menu-item">
+                                    <a href="dressing.html" class="mobile-menu-link">Dressings</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Ponts de lits</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Buffets & Rangements</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Banquettes</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Salle de bain</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Bureaux</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Kids</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="plumwall.html" class="mobile-menu-link">Inspiration</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mobile-menu-drawer-section">
+                            <h4 class="mobile-menu-drawer-section-title">Shop</h4>
+                            <ul class="mobile-menu-list mobile-menu-submenu-list">
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Façades Pax</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Façades Metod</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Meubles ouverts</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Étagères</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Poignées</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Peinture</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sous-menu Concept -->
+                <div class="mobile-menu-view mobile-menu-view-submenu" data-menu-view="concept">
+                    <div class="mobile-menu-submenu-header">
+                        <button class="mobile-menu-back" aria-label="Retour">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </button>
+                        <h3 class="mobile-menu-submenu-title">Concept</h3>
+                    </div>
+                    <ul class="mobile-menu-list mobile-menu-submenu-list">
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Le concept Plum Living</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Nos couleurs</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Nos engagement</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">FAQ</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Échantillons</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Showroom</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Conception au showroom</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Club Pro</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Overlay pour fermer le menu -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-cuisine">
+        <div class="hero-background">
+            <div class="hero-image-wrapper">
+                <img src="images/lpcuisine/hero.jpg" alt="Cuisine Plum Living" class="hero-image">
+            </div>
+        </div>
+        
+        <div class="hero-content hero-content-cuisine">
+            <div class="hero-container">
+                <div class="hero-cuisine-box">
+                    <h1 class="hero-cuisine-title">Votre cuisine Plum Living</h1>
+                    <p class="hero-cuisine-subtitle">Créez votre projet cuisine étape par étape</p>
+                    <ol class="hero-cuisine-steps">
+                        <li>Le concept Plum Living</li>
+                        <li>Trouvez l'inspiration pour votre cuisine</li>
+                        <li>Choisissez vos couleurs et designs</li>
+                        <li>Estimez votre cuisine</li>
+                        <li>Configurez votre cuisine</li>
+                        <li>Finalisez votre projet</li>
+                    </ol>
+                    <a href="#" class="btn btn-primary-dark hero-cuisine-btn">
+                        <span>JE COMMENCE</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="concept-section">
+        <div class="concept-container">
+            <div class="concept-image">
+                <img src="images/lpcuisine/concept.png" alt="Composants de cuisine" class="concept-img">
+            </div>
+            <div class="concept-content">
+                <h3 class="concept-label">LE CONCEPT PLUM LIVING</h3>
+                <h2 class="concept-title">Personnalisez votre cuisine Ikea</h2>
+                <p class="concept-description">
+                    Plum Living vous permet de concevoir une cuisine unique et esthétique sur la base de caissons Ikea Metod. Avec nos façades, poignées, plans de travail, peintures et accessoires, vous pouvez créer un espace qui reflète votre style.
+                </p>
+                <a href="#" class="btn btn-secondary-dark concept-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                    <span>NOTRE CONCEPT</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspiration Section -->
+    <section class="inspiration-section">
+        <div class="inspiration-container">
+            <h2 class="inspiration-title">Trouvez l'inspiration pour votre cuisine</h2>
+            
+            <div class="inspiration-carousel-wrapper">
+                <button class="carousel-button carousel-button-prev" id="carouselPrev" aria-label="Image précédente">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                
+                <div class="inspiration-carousel" id="inspirationCarousel">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">
+                            <div class="carousel-image-wrapper">
+                                <img src="images/lpcuisine/inspi1.jpg" alt="Une cuisine Ivoire & Stone" class="carousel-image">
+                            </div>
+                            <h3 class="carousel-slide-title">Une cuisine Ivoire & Stone</h3>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="carousel-image-wrapper">
+                                <img src="images/lpcuisine/inspi2.jpg" alt="Une cuisine Olive" class="carousel-image">
+                            </div>
+                            <h3 class="carousel-slide-title">Une cuisine Olive</h3>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="carousel-image-wrapper">
+                                <img src="images/lpcuisine/inspi3.jpg" alt="Une cuisine Intercalaire Chêne" class="carousel-image">
+                            </div>
+                            <h3 class="carousel-slide-title">Une cuisine Intercalaire Chêne</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-button carousel-button-next" id="carouselNext" aria-label="Image suivante">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+            
+            <a href="plumwall.html" class="btn btn-secondary-dark inspiration-cta">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+                <span>DÉCOUVRIR PLUS D'INSPIRATIONS</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Bloc Couleurs Section -->
+    <section class="colors-section">
+        <div class="colors-container">
+            <div class="colors-image">
+                <img src="images/lpcuisine/palette.jpg" alt="Cuisine avec façades Plum" class="colors-img">
+            </div>
+            <div class="colors-content">
+                <h2 class="colors-title">Choisissez vos couleurs et design pour votre cuisine</h2>
+                <p class="colors-description">
+                    Se projeter chez soi passe par le choix des bonnes couleurs cuisine et des façades Plum adaptées à son style. Notre palette se compose de 30 teintes subtiles et 2 bois naturels. Consultez ici nos couleurs disponibles en livraison express.
+                </p>
+                
+                <div class="colors-palette" id="colorsPalette">
+                    <!-- Les pastilles de couleur seront générées par JavaScript -->
+                </div>
+                
+                <div class="colors-selected">
+                    <h3 class="colors-selected-name" id="selectedColorName">Amandier grisé</h3>
+                    <p class="colors-selected-description" id="selectedColorDescription">
+                        Subtil et intemporel, notre Amandier grisé est un gris réveillé d'une touche de vert, qui se révèle très doux et lumineux.
+                    </p>
+                </div>
+                
+                <div class="colors-cta">
+                    <a href="#" class="btn btn-primary-dark colors-cta-primary">
+                        <span>→ 3 ÉCHANTILLONS OFFERTS</span>
+                    </a>
+                    <a href="#" class="btn btn-secondary-dark colors-cta-secondary">
+                        <span>→ DÉCOUVRIR LES COULEURS EN 3D</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estimation Section -->
+    <section class="estimation-section">
+        <div class="estimation-container">
+            <div class="estimation-content">
+                <h2 class="estimation-title">Estimez votre cuisine en quelques clics</h2>
+                <p class="estimation-description">
+                    Le budget de votre projet avec façades, structure Ikea et accessoires. En quelques clics, obtenez une première estimation claire et transparente. Pas besoin de plan détaillé, juste vos envies.
+                </p>
+                <a href="#" class="btn btn-secondary-dark estimation-btn">
+                    <span>→ JE COMMENCE MON ESTIMATION</span>
+                </a>
+            </div>
+            <div class="estimation-image">
+                <img src="images/lpcuisine/estimez.jpg" alt="Estimation de cuisine" class="estimation-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- RDV Section -->
+    <section class="rdv-section">
+        <div class="rdv-container">
+            <div class="rdv-image">
+                <img src="images/lpcuisine/configurez.png" alt="Configuration de cuisine" class="rdv-img">
+            </div>
+            <div class="rdv-content">
+                <h2 class="rdv-title">Configurez votre cuisine : seul ou accompagné</h2>
+                <p class="rdv-description">
+                    Besoin d'aide pour réaliser le projet dont vous rêvez ? Nos experts de l'agencement vous accompagnent dans votre projet de A à Z. Laissez vous guider par un expert ou concevez vous même votre cuisine Plum Living.
+                </p>
+                <div class="rdv-cta">
+                    <a href="#" class="btn btn-primary-dark rdv-btn-primary">
+                        <span>JE PRENDS RENDEZ-VOUS</span>
+                    </a>
+                    <a href="#" class="btn btn-secondary-dark rdv-btn-secondary">
+                        <span>JE FAIS MON PROJET MOI-MÊME</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showroom & Pose Section -->
+    <section class="showroom-pose-section">
+        <div class="showroom-pose-container">
+            <!-- Showroom Block -->
+            <div class="showroom-block">
+                <div class="showroom-image">
+                    <img src="images/lpcuisine/showroom.jpg" alt="Le Showroom Plum Living" class="showroom-img">
+                </div>
+                <div class="showroom-content">
+                    <h3 class="showroom-label">LE SHOWROOM</h3>
+                    <h2 class="showroom-title">Visitez notre showroom</h2>
+                    <p class="showroom-description">
+                        Découvrez nos cuisines en vrai dans notre showroom. Touchez les matériaux, explorez nos couleurs et façades, et laissez-vous inspirer par nos réalisations. Nos experts sont à votre disposition pour vous accompagner dans votre projet.
+                    </p>
+                    <a href="#" class="btn btn-secondary-dark showroom-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                        <span>RÉSERVER UNE VISITE</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Pose Block -->
+            <div class="pose-block">
+                <div class="pose-image">
+                    <img src="images/lpcuisine/pose.jpg" alt="Pose de cuisine Plum Living" class="pose-img">
+                </div>
+                <div class="pose-content">
+                    <h3 class="pose-label">LA POSE</h3>
+                    <h2 class="pose-title">Trouvez un poseur certifié</h2>
+                    <p class="pose-description">
+                        Pour garantir une installation parfaite de votre cuisine Plum Living, faites appel à l'un de nos poseurs certifiés. Ils connaissent parfaitement nos produits et sauront mettre en valeur votre projet avec professionnalisme.
+                    </p>
+                    <a href="poseurs.html" class="btn btn-secondary-dark pose-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                        <span>TROUVER UN POSEUR</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="instagram-section">
+        <div class="instagram-container">
+            <div class="instagram-header">
+                <h2 class="instagram-title">Suivez-nous sur Instagram</h2>
+                <p class="instagram-subtitle">NOUVEAUTES, CONSEILS, CONCOURS SUR @PLUM.LIVING</p>
+            </div>
+            
+            <div class="instagram-carousel-wrapper">
+                <button class="instagram-carousel-button instagram-carousel-button-prev" id="instagramCarouselPrev" aria-label="Image précédente">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                
+                <div class="instagram-carousel" id="instagramCarousel">
+                    <div class="instagram-carousel-track" id="instagramCarouselTrack">
+                        <div class="instagram-carousel-slide">
+                            <div class="instagram-image-wrapper">
+                                <img src="images/lpcuisine/insta1.jpg" alt="Instagram Plum Living" class="instagram-image">
+                            </div>
+                        </div>
+                        
+                        <div class="instagram-carousel-slide">
+                            <div class="instagram-image-wrapper">
+                                <img src="images/lpcuisine/insta2.jpg.jpg" alt="Instagram Plum Living" class="instagram-image">
+                            </div>
+                        </div>
+                        
+                        <div class="instagram-carousel-slide">
+                            <div class="instagram-image-wrapper">
+                                <img src="images/lpcuisine/insta3.jpg" alt="Instagram Plum Living" class="instagram-image">
+                            </div>
+                        </div>
+                        
+                        <div class="instagram-carousel-slide">
+                            <div class="instagram-image-wrapper">
+                                <img src="images/lpcuisine/insta4.jpg" alt="Instagram Plum Living" class="instagram-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="instagram-carousel-button instagram-carousel-button-next" id="instagramCarouselNext" aria-label="Image suivante">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Gestion simplifiée du hover sur les dropdowns
+        const navbar = document.querySelector('.navbar');
+        const dropdownItems = document.querySelectorAll('.nav-item-dropdown');
+        
+        if (navbar && dropdownItems.length > 0) {
+            let closeTimeout = null;
+            let currentHoveredItem = null;
+            
+            const openMenu = (dropdownItem) => {
+                if (closeTimeout) {
+                    clearTimeout(closeTimeout);
+                    closeTimeout = null;
+                }
+                
+                if (currentHoveredItem && currentHoveredItem !== dropdownItem) {
+                    currentHoveredItem.classList.remove('is-hovered');
+                }
+                
+                dropdownItem.classList.add('is-hovered');
+                navbar.classList.add('navbar-white');
+                navbar.classList.add('navbar-has-hover');
+                currentHoveredItem = dropdownItem;
+            };
+            
+            const closeMenu = () => {
+                if (closeTimeout) {
+                    clearTimeout(closeTimeout);
+                }
+                
+                closeTimeout = setTimeout(() => {
+                    if (currentHoveredItem) {
+                        currentHoveredItem.classList.remove('is-hovered');
+                        currentHoveredItem = null;
+                    }
+                    
+                    navbar.classList.remove('navbar-white');
+                    navbar.classList.remove('navbar-has-hover');
+                    closeTimeout = null;
+                }, 100);
+            };
+            
+            dropdownItems.forEach(dropdownItem => {
+                const dropdownMenu = dropdownItem.querySelector('.dropdown-menu');
+                
+                if (dropdownMenu) {
+                    dropdownItem.addEventListener('mouseenter', () => openMenu(dropdownItem));
+                    dropdownMenu.addEventListener('mouseenter', () => openMenu(dropdownItem));
+                    
+                    dropdownItem.addEventListener('mouseleave', closeMenu);
+                    dropdownMenu.addEventListener('mouseleave', closeMenu);
+                }
+            });
+        }
+
+        // Gestion de la barre de recherche
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchContainer = document.querySelector('.search-container');
+            const searchBar = document.getElementById('searchBar');
+            const searchInput = document.getElementById('searchInput');
+            const searchClose = document.getElementById('searchClose');
+            const searchToggle = document.getElementById('searchToggle');
+
+            if (!searchContainer || !searchBar || !searchInput) {
+                return;
+            }
+
+            function openSearchBar() {
+                searchBar.classList.add('search-bar-active');
+                setTimeout(() => {
+                    searchInput.focus();
+                }, 300);
+            }
+
+            function closeSearchBar() {
+                searchBar.classList.remove('search-bar-active');
+            }
+
+            searchContainer.addEventListener('mouseenter', openSearchBar);
+            searchContainer.addEventListener('mouseleave', closeSearchBar);
+            searchBar.addEventListener('mouseleave', closeSearchBar);
+
+            if (searchClose) {
+                searchClose.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    closeSearchBar();
+                    searchInput.value = '';
+                    searchInput.blur();
+                });
+            }
+
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeSearchBar();
+                    searchInput.value = '';
+                    searchInput.blur();
+                }
+            });
+        });
+
+        // Gestion du slider horizontal d'inspiration
+        (function() {
+            const carousel = document.getElementById('inspirationCarousel');
+            const track = document.getElementById('carouselTrack');
+            const prevButton = document.getElementById('carouselPrev');
+            const nextButton = document.getElementById('carouselNext');
+            const slides = track ? track.querySelectorAll('.carousel-slide') : [];
+            
+            if (!carousel || !track || slides.length === 0) {
+                return;
+            }
+            
+            let scrollPosition = 0;
+            let visibleSlides = 3;
+            let slideWidth = 0;
+            let maxScroll = 0;
+            
+            function getVisibleSlides() {
+                const width = window.innerWidth;
+                if (width <= 768) {
+                    return 1.5; // Sur mobile, on montre 1.5 slides
+                } else if (width <= 1024) {
+                    return 2; // Sur tablette, on montre 2 slides
+                }
+                return 3; // Sur desktop, on montre 3 slides
+            }
+            
+            function calculateDimensions() {
+                visibleSlides = getVisibleSlides();
+                slideWidth = slides[0] ? slides[0].offsetWidth + parseInt(getComputedStyle(track).gap) : 0;
+                maxScroll = Math.max(0, (slides.length - visibleSlides) * slideWidth);
+            }
+            
+            function updateSlider() {
+                track.style.transform = `translateX(-${scrollPosition}px)`;
+                
+                // Mise à jour de l'état des boutons
+                if (prevButton) {
+                    prevButton.disabled = scrollPosition <= 0;
+                    prevButton.classList.toggle('disabled', scrollPosition <= 0);
+                }
+                if (nextButton) {
+                    nextButton.disabled = scrollPosition >= maxScroll;
+                    nextButton.classList.toggle('disabled', scrollPosition >= maxScroll);
+                }
+            }
+            
+            function scrollNext() {
+                const newPosition = scrollPosition + slideWidth;
+                scrollPosition = Math.min(newPosition, maxScroll);
+                updateSlider();
+            }
+            
+            function scrollPrev() {
+                const newPosition = scrollPosition - slideWidth;
+                scrollPosition = Math.max(newPosition, 0);
+                updateSlider();
+            }
+            
+            if (nextButton) {
+                nextButton.addEventListener('click', scrollNext);
+            }
+            
+            if (prevButton) {
+                prevButton.addEventListener('click', scrollPrev);
+            }
+            
+            window.addEventListener('resize', () => {
+                calculateDimensions();
+                scrollPosition = Math.min(scrollPosition, maxScroll);
+                updateSlider();
+            });
+            
+            // Initialisation
+            calculateDimensions();
+            updateSlider();
+        })();
+
+        // Gestion du carousel Instagram
+        (function() {
+            const instagramCarousel = document.getElementById('instagramCarousel');
+            const instagramTrack = document.getElementById('instagramCarouselTrack');
+            const instagramPrevButton = document.getElementById('instagramCarouselPrev');
+            const instagramNextButton = document.getElementById('instagramCarouselNext');
+            const instagramSlides = instagramTrack ? instagramTrack.querySelectorAll('.instagram-carousel-slide') : [];
+            
+            if (!instagramCarousel || !instagramTrack || instagramSlides.length === 0) {
+                return;
+            }
+            
+            let currentInstagramIndex = 0;
+            const totalInstagramSlides = instagramSlides.length;
+            
+            function getSlidesToShow() {
+                return window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 1;
+            }
+            
+            function updateInstagramCarousel() {
+                const slidesToShow = getSlidesToShow();
+                const slideWidth = 100 / slidesToShow;
+                const translateX = -currentInstagramIndex * slideWidth;
+                instagramTrack.style.transform = `translateX(${translateX}%)`;
+                
+                // Mise à jour de l'état des boutons
+                if (instagramPrevButton) {
+                    instagramPrevButton.disabled = currentInstagramIndex === 0;
+                    instagramPrevButton.classList.toggle('disabled', currentInstagramIndex === 0);
+                }
+                if (instagramNextButton) {
+                    const maxIndex = Math.max(0, totalInstagramSlides - slidesToShow);
+                    instagramNextButton.disabled = currentInstagramIndex >= maxIndex;
+                    instagramNextButton.classList.toggle('disabled', currentInstagramIndex >= maxIndex);
+                }
+            }
+            
+            function goToNextInstagram() {
+                const slidesToShow = getSlidesToShow();
+                const maxIndex = Math.max(0, totalInstagramSlides - slidesToShow);
+                if (currentInstagramIndex < maxIndex) {
+                    currentInstagramIndex++;
+                    updateInstagramCarousel();
+                }
+            }
+            
+            function goToPrevInstagram() {
+                if (currentInstagramIndex > 0) {
+                    currentInstagramIndex--;
+                    updateInstagramCarousel();
+                }
+            }
+            
+            if (instagramNextButton) {
+                instagramNextButton.addEventListener('click', goToNextInstagram);
+            }
+            
+            if (instagramPrevButton) {
+                instagramPrevButton.addEventListener('click', goToPrevInstagram);
+            }
+            
+            // Gérer le redimensionnement
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    const slidesToShow = getSlidesToShow();
+                    const maxIndex = Math.max(0, totalInstagramSlides - slidesToShow);
+                    if (currentInstagramIndex > maxIndex) {
+                        currentInstagramIndex = maxIndex;
+                    }
+                    updateInstagramCarousel();
+                }, 250);
+            });
+            
+            // Initialisation
+            updateInstagramCarousel();
+        })();
+
+        // Gestion de la palette de couleurs
+        (function() {
+            const paletteContainer = document.getElementById('colorsPalette');
+            const selectedColorName = document.getElementById('selectedColorName');
+            const selectedColorDescription = document.getElementById('selectedColorDescription');
+            
+            if (!paletteContainer || !selectedColorName || !selectedColorDescription) {
+                return;
+            }
+
+            // Palette de couleurs Plum Living (30+ teintes)
+            const colors = [
+                // Bois naturels
+                { name: 'Chêne naturel', hex: '#D4A574', description: 'Un bois naturel chaleureux qui apporte une touche organique à votre cuisine.' },
+                { name: 'Chêne miel', hex: '#C9A961', description: 'Un chêne aux tons miel, doux et lumineux.' },
+                { name: 'Noyer naturel', hex: '#5C4033', description: 'Un noyer aux nuances profondes et élégantes.' },
+                
+                // Bleus
+                { name: 'Bleu lagon', hex: '#4A9E9E', description: 'Un bleu lagon rafraîchissant et apaisant.' },
+                { name: 'Bleu nuit', hex: '#2D3748', description: 'Un bleu nuit profond et sophistiqué.' },
+                { name: 'Bleu gris', hex: '#6B7A8F', description: 'Un bleu gris subtil et moderne.' },
+                { name: 'Ciel voilé', hex: '#A8C5D0', description: 'Un bleu ciel doux et aérien.' },
+                { name: 'Baltic', hex: '#4A6FA5', description: 'Un bleu balte intense et maritime.' },
+                { name: 'Givre', hex: '#B8D4E3', description: 'Un bleu givré frais et lumineux.' },
+                
+                // Verts
+                { name: 'Amandier grisé', hex: '#9CAF88', description: 'Subtil et intemporel, notre Amandier grisé est un gris réveillé d\'une touche de vert, qui se révèle très doux et lumineux.' },
+                { name: 'Sombre forest', hex: '#3D5A3D', description: 'Un vert forestier profond et naturel.' },
+                { name: 'Vert de gris', hex: '#7A8B7A', description: 'Un vert grisé subtil et apaisant.' },
+                { name: 'Stone', hex: '#8B8B7A', description: 'Un gris-vert pierre, sobre et élégant.' },
+                { name: 'Olive', hex: '#6B7A4A', description: 'Un vert olive doux et naturel.' },
+                { name: 'Clay', hex: '#A89B7A', description: 'Un beige-vert argile, chaleureux et terreux.' },
+                { name: 'Moss', hex: '#5A6B4A', description: 'Un vert mousse profond et organique.' },
+                { name: 'Canopée', hex: '#4A5A3D', description: 'Un vert canopée riche et naturel.' },
+                
+                // Neutres
+                { name: 'Blanc pur', hex: '#FFFFFF', description: 'Un blanc pur et immaculé pour une cuisine lumineuse.' },
+                { name: 'Asphalte', hex: '#222222', description: 'Un gris asphalte profond et moderne.' },
+                { name: 'Smoke', hex: '#E2E8F0', description: 'Un gris smoke doux et aérien.' },
+                { name: 'Beige rosé', hex: '#E8D5C4', description: 'Un beige aux reflets rosés, doux et chaleureux.' },
+                { name: 'Sable', hex: '#D4C5A0', description: 'Un beige sable naturel et apaisant.' },
+                { name: 'Moka', hex: '#8B7355', description: 'Un beige moka chaleureux et terreux.' },
+                { name: 'Lin', hex: '#E5DCC5', description: 'Un beige lin doux et naturel.' },
+                { name: 'Ivoire', hex: '#F5F0E8', description: 'Un ivoire doux et lumineux.' },
+                { name: 'Galet', hex: '#C4B5A0', description: 'Un beige galet naturel et apaisant.' },
+                { name: 'Milk', hex: '#FAF8F3', description: 'Un blanc lait doux et crémeux.' },
+                
+                // Tons chauds
+                { name: 'India', hex: '#C97A5A', description: 'Un orange indien chaleureux et exotique.' },
+                { name: 'Argile', hex: '#B89B7A', description: 'Un beige argile terreux et naturel.' },
+                { name: 'Blush', hex: '#E8C5B5', description: 'Un rose blush doux et délicat.' },
+                { name: 'Fauve', hex: '#A87A5A', description: 'Un beige fauve chaleureux et naturel.' },
+                { name: 'Piment', hex: '#C95A4A', description: 'Un rouge piment vif et énergique.' },
+                { name: 'Blossom', hex: '#E8B5C5', description: 'Un rose blossom doux et romantique.' },
+                { name: 'Caramel', hex: '#B87A5A', description: 'Un beige caramel chaleureux et gourmand.' },
+                { name: 'Grenat', hex: '#8B4A4A', description: 'Un rouge grenat profond et élégant.' },
+                
+                // Collection Pauline Borgia
+                { name: 'Vert lavé', hex: '#7A9B8B', description: 'Un vert lavé doux et apaisant de la collection Pauline Borgia.' },
+                { name: 'Jaune voilé', hex: '#E8D5A0', description: 'Un jaune voilé doux et lumineux de la collection Pauline Borgia.' },
+                { name: 'Ciment', hex: '#9B9B8B', description: 'Un gris ciment sobre et moderne de la collection Pauline Borgia.' }
+            ];
+
+            // Générer les pastilles de couleur
+            colors.forEach((color, index) => {
+                const swatch = document.createElement('button');
+                swatch.className = 'color-swatch';
+                swatch.style.backgroundColor = color.hex;
+                swatch.setAttribute('aria-label', `Couleur ${color.name}`);
+                swatch.setAttribute('data-color-index', index);
+                swatch.setAttribute('data-color-name', color.name);
+                swatch.setAttribute('data-color-description', color.description);
+                
+                // Marquer "Amandier grisé" comme sélectionné par défaut
+                if (color.name === 'Amandier grisé') {
+                    swatch.classList.add('active');
+                }
+                
+                swatch.addEventListener('click', function() {
+                    // Retirer la classe active de tous les swatches
+                    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+                    
+                    // Ajouter la classe active au swatch cliqué
+                    this.classList.add('active');
+                    
+                    // Mettre à jour le nom et la description
+                    selectedColorName.textContent = color.name;
+                    selectedColorDescription.textContent = color.description;
+                });
+                
+                paletteContainer.appendChild(swatch);
+            });
+        })();
+    </script>
+    <script src="shared/scripts/logo-fade.js"></script>
+    <script src="shared/scripts/mobile-menu.js"></script>
+    <script>
+        // Déclencher l'animation du fade blanc vers la page au chargement
+        (function() {
+            function triggerFade() {
+                requestAnimationFrame(function() {
+                    requestAnimationFrame(function() {
+                        void document.body.offsetHeight;
+                        setTimeout(function() {
+                            document.body.classList.add('page-loaded');
+                        }, 200);
+                    });
+                });
+            }
+            
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                triggerFade();
+            } else {
+                document.addEventListener('DOMContentLoaded', triggerFade);
+            }
+        })();
+    </script>
+</body>
+</html>

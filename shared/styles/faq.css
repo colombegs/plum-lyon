@@ -1,0 +1,221 @@
+/**
+ * FAQ Component - Design System Plum Living
+ * 
+ * Composant FAQ avec expanders à tiroir (accordéon)
+ */
+
+/* ============================================
+   CONTAINER FAQ
+   ============================================ */
+
+.faq-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.faq-section {
+    margin: var(--spacing-4xl) 0;
+}
+
+.faq-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h3);
+    font-weight: 500;
+    line-height: var(--line-height-h3);
+    letter-spacing: -0.5px;
+    color: var(--color-asphalte);
+    margin-bottom: var(--spacing-3xl);
+    text-align: center;
+}
+
+/* ============================================
+   ITEM FAQ
+   ============================================ */
+
+.faq-item {
+    border-bottom: 1px solid var(--color-grey-3);
+    transition: all var(--transition-base);
+}
+
+.faq-item:first-child {
+    border-top: 1px solid var(--color-grey-3);
+}
+
+.faq-item:hover {
+    background-color: var(--color-grey-4);
+}
+
+/* ============================================
+   HEADER FAQ (Question)
+   ============================================ */
+
+.faq-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-xl) var(--spacing-md);
+    cursor: pointer;
+    user-select: none;
+    gap: var(--spacing-md);
+    transition: all var(--transition-base);
+}
+
+.faq-header:hover {
+    background-color: transparent;
+}
+
+.faq-item:hover .faq-header {
+    background-color: transparent;
+}
+
+.faq-question {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-l);
+    font-weight: 500;
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
+    color: var(--color-asphalte);
+    flex: 1;
+    text-align: left;
+}
+
+/* ============================================
+   ICON EXPAND/COLLAPSE
+   ============================================ */
+
+.faq-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-base);
+    color: var(--color-asphalte);
+}
+
+.faq-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.faq-item.is-open .faq-icon {
+    transform: rotate(180deg);
+}
+
+/* ============================================
+   CONTENT FAQ (Réponse)
+   ============================================ */
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow) ease, padding var(--transition-base) ease;
+    padding: 0 var(--spacing-md);
+}
+
+.faq-item.is-open .faq-content {
+    max-height: 1000px; /* Ajustez selon vos besoins */
+    padding: 0 var(--spacing-md) var(--spacing-xl) var(--spacing-md);
+}
+
+.faq-answer {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-m);
+    font-weight: 400;
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
+    color: var(--color-grey-1);
+    padding-top: var(--spacing-md);
+}
+
+.faq-answer p {
+    margin: 0 0 var(--spacing-md) 0;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   VARIANTES
+   ============================================ */
+
+/* Variante avec fond clair */
+.faq-section.faq-light {
+    background-color: var(--color-blanc-casse);
+    padding: var(--spacing-4xl) var(--container-padding);
+    border-radius: var(--radius-lg);
+}
+
+/* Variante avec fond sombre */
+.faq-section.faq-dark {
+    background-color: var(--color-asphalte);
+    padding: var(--spacing-4xl) var(--container-padding);
+    border-radius: var(--radius-lg);
+}
+
+.faq-section.faq-dark .faq-title {
+    color: var(--color-white);
+}
+
+.faq-section.faq-dark .faq-item {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.faq-section.faq-dark .faq-question {
+    color: var(--color-white);
+}
+
+.faq-section.faq-dark .faq-icon {
+    color: var(--color-white);
+}
+
+.faq-section.faq-dark .faq-answer {
+    color: var(--color-grey-2);
+}
+
+.faq-section.faq-dark .faq-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .faq-container {
+        padding: 0 var(--spacing-lg);
+    }
+
+    .faq-section {
+        margin: var(--spacing-3xl) 0;
+    }
+
+    .faq-title {
+        font-size: var(--font-size-h4);
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .faq-header {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .faq-question {
+        font-size: var(--font-size-m);
+    }
+
+    .faq-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .faq-item.is-open .faq-content {
+        padding: 0 var(--spacing-md) var(--spacing-lg) var(--spacing-md);
+    }
+}

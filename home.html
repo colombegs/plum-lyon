@@ -504,6 +504,18 @@
                         </a>
                     </div>
                 </div>
+                <!-- Hero Box avec étapes cliquables -->
+                <div class="hero-box">
+                    <h2 class="hero-box-title">Découvrez nos produits</h2>
+                    <ol class="hero-box-steps">
+                        <li><a href="#facades" class="hero-box-step-link">Façades</a></li>
+                        <li><a href="#plans-de-travail" class="hero-box-step-link">Plans de travail</a></li>
+                        <li><a href="#poignees" class="hero-box-step-link">Poignées</a></li>
+                        <li><a href="#etageres" class="hero-box-step-link">Étagères</a></li>
+                        <li><a href="#meubles-ouverts" class="hero-box-step-link">Meubles ouverts</a></li>
+                        <li><a href="#dressings" class="hero-box-step-link">Dressings</a></li>
+                    </ol>
+                </div>
             </div>
         </div>
 
@@ -521,19 +533,19 @@
     <section class="categories-grid">
         <div class="categories-container">
             <!-- Category 1: Façades -->
-            <a href="#" class="category-card">
+            <a href="#" class="category-card" id="facades">
                 <img src="images/categories/facades.jpg" alt="Façades" class="category-img">
                 <h3 class="category-label">Façades</h3>
             </a>
 
             <!-- Category 2: Plans de travail -->
-            <a href="#" class="category-card">
+            <a href="#" class="category-card" id="plans-de-travail">
                 <img src="images/categories/plans%20de%20travail.jpg" alt="Plans de travail" class="category-img">
                 <h3 class="category-label">Plans de travail</h3>
             </a>
 
             <!-- Category 3: Poignées -->
-            <a href="#" class="category-card">
+            <a href="#" class="category-card" id="poignees">
                 <img src="images/categories/poignees.jpg" alt="Poignées" class="category-img">
                 <h3 class="category-label">Poignées</h3>
             </a>
@@ -635,19 +647,19 @@
     <section class="categories-grid">
         <div class="categories-container">
             <!-- Category 4: Étagères -->
-            <a href="#" class="category-card">
+            <a href="#" class="category-card" id="etageres">
                 <img src="images/categories/etageres.jpg" alt="Étagères" class="category-img">
                 <h3 class="category-label">Étagères</h3>
             </a>
 
             <!-- Category 5: Meubles ouverts -->
-            <a href="#" class="category-card">
+            <a href="#" class="category-card" id="meubles-ouverts">
                 <img src="images/categories/meubles-ouverts.jpg" alt="Meubles ouverts" class="category-img">
                 <h3 class="category-label">Meubles ouverts</h3>
             </a>
 
             <!-- Category 6: Dressings -->
-            <a href="#" class="category-card">
+            <a href="#" class="category-card" id="dressings">
                 <img src="images/categories/dressings.jpg" alt="Dressings" class="category-img">
                 <h3 class="category-label">Dressings</h3>
             </a>
@@ -917,6 +929,23 @@
                 if (!isUserInteracting) {
                     startAutoRotate();
                 }
+            });
+        });
+    </script>
+    <script>
+        // Vérifier que les liens de la hero box fonctionnent
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroBoxLinks = document.querySelectorAll('.hero-box-step-link');
+            console.log('Nombre de liens trouvés:', heroBoxLinks.length);
+            
+            heroBoxLinks.forEach((link, index) => {
+                console.log(`Lien ${index + 1}:`, link.href, link.textContent);
+                
+                // S'assurer que les liens sont cliquables
+                link.addEventListener('click', (e) => {
+                    console.log('Clic sur:', link.textContent, 'href:', link.getAttribute('href'));
+                    // Le comportement par défaut devrait fonctionner avec scroll-behavior: smooth
+                });
             });
         });
     </script>

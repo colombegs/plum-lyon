@@ -15,7 +15,7 @@
   gap: var(--spacing-sm);
   padding: var(--spacing-md) var(--spacing-xl);
   font-family: var(--font-primary);
-  font-size: var(--font-size-alt-1); /* 16px - Alt 1 du DS */
+  font-size: var(--font-size-alt-2); /* 14px - Alt 2 du DS (M) */
   font-weight: 500;
   letter-spacing: var(--letter-spacing-alt); /* 0.05em */
   line-height: var(--line-height-alt); /* 140% */
@@ -32,7 +32,7 @@
 
 .btn * {
   font-family: var(--font-primary) !important;
-  font-size: var(--font-size-alt-1) !important;
+  font-size: var(--font-size-alt-2) !important;
   line-height: var(--line-height-alt) !important;
   font-weight: 500 !important;
   letter-spacing: var(--letter-spacing-alt) !important;
@@ -43,16 +43,16 @@
    TAILLES DE BOUTONS
    ============================================ */
 
-/* Bouton large (par défaut) */
+/* Bouton large (par défaut) - Maintenant en taille M */
 .btn-large,
 .btn {
   padding: var(--spacing-md) var(--spacing-xl); /* 16px top/bottom, 32px left/right */
-  font-size: var(--font-size-alt-1); /* 16px */
+  font-size: var(--font-size-alt-2); /* 14px - Alt 2 (M) */
 }
 
 .btn-large *,
 .btn * {
-  font-size: var(--font-size-alt-1) !important;
+  font-size: var(--font-size-alt-2) !important;
 }
 
 /* Bouton small */
