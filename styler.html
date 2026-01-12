@@ -489,180 +489,158 @@
             });
         });
 
-        // Gestion des pastilles de couleurs avec hover pour changer l'image
+        // Gestion des pastilles de couleurs avec crossfade pour changer l'image
         document.addEventListener('DOMContentLoaded', () => {
             const colorSwatches = document.querySelectorAll('.color-swatch');
             
-            // Map pour stocker les images préchargées
-            const preloadedImages = new Map();
-            
-            // Fonction pour précharger une image
-            const preloadImage = (src) => {
-                if (preloadedImages.has(src)) {
-                    // #region agent log
-                    fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:preloadImage',message:'Image already preloaded',data:{src:src},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-                    // #endregion
-                    return Promise.resolve(preloadedImages.get(src));
-                }
+            // Créer la deuxième image pour le crossfade pour chaque styler-item
+            const stylerItems = document.querySelectorAll('.styler-item');
+            stylerItems.forEach((stylerItem, index) => {
+                const imageWrapper = stylerItem.querySelector('.styler-image-wrapper');
+                const mainImage = stylerItem.querySelector('.styler-image');
+                
+                if (!imageWrapper || !mainImage) return;
                 
                 // #region agent log
-                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:preloadImage',message:'Starting preload',data:{src:src},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:initCrossfade',message:'Creating crossfade images',data:{itemIndex:index,mainImageSrc:mainImage.src,mainImageOpacity:window.getComputedStyle(mainImage).opacity},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'A'})}).catch(()=>{});
                 // #endregion
                 
-                return new Promise((resolve, reject) => {
-                    const img = new Image();
-                    const startTime = Date.now();
-                    img.onload = () => {
-                        const loadTime = Date.now() - startTime;
-                        preloadedImages.set(src, img);
-                        // #region agent log
-                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:preloadImage:onload',message:'Preload success',data:{src:src,loadTime:loadTime,complete:img.complete,naturalWidth:img.naturalWidth,naturalHeight:img.naturalHeight},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-                        // #endregion
-                        resolve(img);
-                    };
-                    img.onerror = () => {
-                        // #region agent log
-                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:preloadImage:onerror',message:'Preload failed',data:{src:src},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-                        // #endregion
-                        reject(new Error(`Failed to load image: ${src}`));
-                    };
-                    img.src = src;
-                });
-            };
-            
-            // Précharger toutes les images des pastilles
-            const preloadStartTime = Date.now();
-            let preloadCount = 0;
-            colorSwatches.forEach(swatch => {
-                const imageSrc = swatch.getAttribute('data-image');
-                if (imageSrc) {
-                    preloadCount++;
-                    preloadImage(imageSrc).then(() => {
-                        preloadCount--;
-                        if (preloadCount === 0) {
-                            // #region agent log
-                            fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:preloadAll',message:'All preloads complete',data:{totalTime:Date.now()-preloadStartTime,preloadedCount:preloadedImages.size},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-                            // #endregion
-                        }
-                    }).catch(() => {
-                        preloadCount--;
-                        // Silently fail - image will load on demand
-                    });
-                }
+                // Créer la deuxième image pour le crossfade
+                const nextImage = document.createElement('img');
+                nextImage.className = 'styler-image styler-image-next';
+                nextImage.src = mainImage.src;
+                nextImage.alt = mainImage.alt;
+                imageWrapper.insertBefore(nextImage, mainImage);
+                
+                // #region agent log
+                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:initCrossfade',message:'Next image created',data:{itemIndex:index,nextImageSrc:nextImage.src,nextImageOpacity:window.getComputedStyle(nextImage).opacity,nextImageZIndex:window.getComputedStyle(nextImage).zIndex},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'B'})}).catch(()=>{});
+                // #endregion
+                
+                // Stocker les références
+                stylerItem.dataset.mainImage = '0'; // 0 = mainImage, 1 = nextImage
+                stylerItem._mainImage = mainImage;
+                stylerItem._nextImage = nextImage;
             });
             
-            // Détecter si on est sur un appareil tactile
-            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-            
-            colorSwatches.forEach(swatch => {
-                // Trouver l'image associée à cette pastille (dans le même styler-item)
-                const stylerItem = swatch.closest('.styler-item');
-                const imageWrapper = stylerItem ? stylerItem.querySelector('.styler-image-wrapper') : null;
-                const image = stylerItem ? stylerItem.querySelector('.styler-image') : null;
+            // Fonction pour changer d'image avec crossfade
+            const changeImageWithCrossfade = (stylerItem, newSrc) => {
+                if (!newSrc) return;
                 
-                if (!image || !imageWrapper) return;
+                const changeStartTime = Date.now();
+                const mainImage = stylerItem._mainImage;
+                const nextImage = stylerItem._nextImage;
+                const currentMain = stylerItem.dataset.mainImage === '0' ? mainImage : nextImage;
+                const currentNext = stylerItem.dataset.mainImage === '0' ? nextImage : mainImage;
                 
-                // Stocker l'image par défaut si ce n'est pas déjà fait
-                if (!image.dataset.defaultSrc) {
-                    image.dataset.defaultSrc = image.src;
-                }
+                // #region agent log
+                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImageWithCrossfade',message:'Change image called',data:{newSrc:newSrc,currentMainSrc:currentMain.src,currentMainOpacity:window.getComputedStyle(currentMain).opacity,currentNextOpacity:window.getComputedStyle(currentNext).opacity,currentMainZIndex:window.getComputedStyle(currentMain).zIndex,currentNextZIndex:window.getComputedStyle(currentNext).zIndex},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'C'})}).catch(()=>{});
+                // #endregion
                 
-                // Flag pour éviter les doubles déclenchements sur mobile
-                let isTouching = false;
-                let touchTimeout = null;
+                // Si c'est la même image, ne rien faire
+                const currentSrc = currentMain.src.split('/').pop();
+                const newSrcFile = newSrc.split('/').pop();
+                if (currentSrc === newSrcFile) return;
                 
-                // Fonction pour changer l'image de manière fluide
-                const changeImage = (newSrc) => {
-                    if (!newSrc || newSrc === image.src) return;
-                    
-                    const oldSrc = image.src;
-                    const changeStartTime = Date.now();
-                    
-                    // Vérifier si l'image est déjà préchargée et complètement chargée
-                    const preloadedImg = preloadedImages.get(newSrc);
-                    const hasPreloaded = !!preloadedImg;
-                    const isComplete = preloadedImg && preloadedImg.complete;
-                    const hasDimensions = preloadedImg && preloadedImg.naturalWidth > 0;
+                // Charger la nouvelle image dans l'image inactive
+                currentNext.src = newSrc;
+                
+                // #region agent log
+                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImageWithCrossfade',message:'New image src set',data:{currentNextSrc:currentNext.src,currentNextComplete:currentNext.complete,currentNextNaturalWidth:currentNext.naturalWidth},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'D'})}).catch(()=>{});
+                // #endregion
+                
+                // Fonction pour faire le crossfade
+                const doCrossfade = () => {
+                    const beforeOpacity = {
+                        main: window.getComputedStyle(currentMain).opacity,
+                        next: window.getComputedStyle(currentNext).opacity
+                    };
                     
                     // #region agent log
-                    fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImage',message:'Change image called',data:{oldSrc:oldSrc,newSrc:newSrc,hasPreloaded:hasPreloaded,isComplete:isComplete,hasDimensions:hasDimensions,preloadedCount:preloadedImages.size},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+                    fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:doCrossfade',message:'Starting crossfade',data:{beforeOpacity:beforeOpacity,currentNextComplete:currentNext.complete,currentNextNaturalWidth:currentNext.naturalWidth,timeSinceChange:Date.now()-changeStartTime},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'E'})}).catch(()=>{});
                     // #endregion
                     
-                    if (preloadedImg && preloadedImg.complete && preloadedImg.naturalWidth > 0) {
-                        // Image déjà chargée et valide, changer immédiatement
-                        image.src = newSrc;
-                        // #region agent log
-                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImage',message:'Changed src immediately (preloaded)',data:{newSrc:newSrc,changeTime:Date.now()-changeStartTime},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-                        // #endregion
-                    } else {
-                        // Image pas encore préchargée ou pas complète, essayer de la précharger
-                        // mais changer quand même (le navigateur la chargera, et le préchargement aidera)
-                        // #region agent log
-                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImage',message:'Changing without preloaded image',data:{newSrc:newSrc,hasPreloaded:hasPreloaded,isComplete:isComplete},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
-                        // #endregion
-                        preloadImage(newSrc).catch(() => {
-                            // Ignorer les erreurs de préchargement
-                        });
-                        // Changer l'image - si elle est préchargée elle sera instantanée,
-                        // sinon le navigateur la chargera (mais le préchargement devrait avoir aidé)
-                        image.src = newSrc;
-                        // #region agent log
-                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImage',message:'Changed src (not preloaded)',data:{newSrc:newSrc,changeTime:Date.now()-changeStartTime},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
-                        // #endregion
-                    }
+                    currentNext.classList.add('fade-in');
+                    currentMain.classList.add('fade-out');
                     
-                    // Vérifier l'état de l'image après changement
-                    setTimeout(() => {
+                    // Vérifier l'état immédiatement après
+                    requestAnimationFrame(() => {
+                        const afterOpacity = {
+                            main: window.getComputedStyle(currentMain).opacity,
+                            next: window.getComputedStyle(currentNext).opacity
+                        };
                         // #region agent log
-                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImage:after',message:'Image state after change',data:{currentSrc:image.src,complete:image.complete,naturalWidth:image.naturalWidth,naturalHeight:image.naturalHeight,timeSinceChange:Date.now()-changeStartTime},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
+                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:doCrossfade',message:'After adding classes',data:{afterOpacity:afterOpacity,currentMainHasFadeOut:currentMain.classList.contains('fade-out'),currentNextHasFadeIn:currentNext.classList.contains('fade-in')},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'E'})}).catch(()=>{});
                         // #endregion
-                    }, 10);
+                    });
+                    
+                    // Après la transition, réinitialiser
+                    setTimeout(() => {
+                        const finalOpacity = {
+                            main: window.getComputedStyle(currentMain).opacity,
+                            next: window.getComputedStyle(currentNext).opacity
+                        };
+                        // #region agent log
+                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:doCrossfade',message:'Before cleanup',data:{finalOpacity:finalOpacity},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'E'})}).catch(()=>{});
+                        // #endregion
+                        
+                        currentNext.classList.remove('fade-in');
+                        currentMain.classList.remove('fade-out');
+                        currentMain.style.opacity = '';
+                        currentNext.style.opacity = '';
+                        // Échanger les rôles
+                        stylerItem.dataset.mainImage = stylerItem.dataset.mainImage === '0' ? '1' : '0';
+                    }, 100);
                 };
                 
-                // Changement d'image au hover sur pastille (désactivé sur mobile)
-                if (!isTouchDevice) {
-                    swatch.addEventListener('mouseenter', (e) => {
-                        e.stopPropagation();
-                        const imageSrc = swatch.getAttribute('data-image');
-                        if (imageSrc) {
-                            changeImage(imageSrc);
-                        }
-                    });
-                    
-                    // Retour à l'image par défaut quand on quitte la pastille
-                    swatch.addEventListener('mouseleave', (e) => {
-                        e.stopPropagation();
-                        if (image && image.dataset.defaultSrc) {
-                            changeImage(image.dataset.defaultSrc);
-                        }
-                    });
+                // Si l'image est déjà chargée (en cache), faire le crossfade immédiatement
+                if (currentNext.complete && currentNext.naturalWidth > 0) {
+                    // #region agent log
+                    fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImageWithCrossfade',message:'Image already loaded, doing crossfade immediately',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'F'})}).catch(()=>{});
+                    // #endregion
+                    doCrossfade();
+                } else {
+                    // #region agent log
+                    fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImageWithCrossfade',message:'Waiting for image load',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'F'})}).catch(()=>{});
+                    // #endregion
+                    // Sinon attendre le chargement
+                    currentNext.onload = doCrossfade;
+                }
+            };
+            
+            // Gestion des événements pour chaque pastille
+            colorSwatches.forEach(swatch => {
+                const stylerItem = swatch.closest('.styler-item');
+                if (!stylerItem) return;
+                
+                // Stocker l'image par défaut
+                const mainImage = stylerItem._mainImage;
+                if (mainImage && !mainImage.dataset.defaultSrc) {
+                    mainImage.dataset.defaultSrc = mainImage.src;
                 }
                 
-                // Gestion du touch pour mobile
-                swatch.addEventListener('touchstart', (e) => {
+                // Changement d'image au hover/touch
+                const handleChange = (e) => {
                     e.stopPropagation();
-                    isTouching = true;
                     const imageSrc = swatch.getAttribute('data-image');
                     if (imageSrc) {
-                        changeImage(imageSrc);
-                        // Annuler le timeout précédent si existe
-                        if (touchTimeout) {
-                            clearTimeout(touchTimeout);
-                            touchTimeout = null;
-                        }
+                        changeImageWithCrossfade(stylerItem, imageSrc);
                     }
-                }, { passive: true });
+                };
                 
+                const handleReset = (e) => {
+                    e.stopPropagation();
+                    if (mainImage && mainImage.dataset.defaultSrc) {
+                        changeImageWithCrossfade(stylerItem, mainImage.dataset.defaultSrc);
+                    }
+                };
+                
+                swatch.addEventListener('mouseenter', handleChange);
+                swatch.addEventListener('touchstart', handleChange, { passive: true });
+                
+                swatch.addEventListener('mouseleave', handleReset);
                 swatch.addEventListener('touchend', (e) => {
                     e.stopPropagation();
-                    isTouching = false;
-                    // Retour à l'image par défaut après un délai
-                    touchTimeout = setTimeout(() => {
-                        if (image && image.dataset.defaultSrc && !isTouching) {
-                            changeImage(image.dataset.defaultSrc);
-                        }
-                        touchTimeout = null;
-                    }, 800);
+                    setTimeout(handleReset, 800);
                 }, { passive: true });
                 
                 // Gestion du click (feedback visuel)
