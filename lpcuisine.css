@@ -14,6 +14,18 @@
     overflow: hidden;
 }
 
+.hero-cuisine .hero-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    pointer-events: none;
+}
+
 .hero-content-cuisine {
     align-items: center;
     justify-content: flex-start;
@@ -39,7 +51,7 @@
     line-height: var(--line-height-h2); /* 120% */
     letter-spacing: -0.02em;
     color: var(--color-asphalte);
-    margin: 0 0 var(--spacing-md) 0;
+    margin: 0;
 }
 
 .hero-cuisine-subtitle {
@@ -49,14 +61,14 @@
     line-height: var(--line-height-body); /* 140% */
     letter-spacing: var(--letter-spacing-body); /* -0.5px */
     color: var(--color-grey-1);
-    margin: 0 0 var(--spacing-xl) 0;
+    margin: 0 0 var(--spacing-md) 0;
 }
 
 .hero-cuisine-steps {
     list-style: none;
     counter-reset: step-counter;
     padding: 0;
-    margin: 0 0 var(--spacing-xl) 0;
+    margin: 0 0 var(--spacing-md) 0;
 }
 
 .hero-cuisine-steps li {
@@ -84,6 +96,25 @@
     color: var(--color-asphalte);
 }
 
+.hero-cuisine-step-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    transition: opacity var(--transition-base);
+}
+
+.hero-cuisine-step-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+.hero-cuisine-step-link:focus {
+    outline: 2px solid var(--color-asphalte);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
 .hero-cuisine-btn {
     margin-top: var(--spacing-lg);
     padding-top: var(--spacing-sm); /* 12px */
@@ -95,6 +126,7 @@
     width: 100%;
     padding: 0;
     background-color: var(--color-white);
+    scroll-margin-top: 80px; /* Offset pour la navbar lors du scroll */
 }
 
 .concept-container {
@@ -125,7 +157,7 @@
 .concept-content {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-sm);
     padding: var(--spacing-xl) 0;
 }
 
@@ -184,8 +216,9 @@
 /* Inspiration Section */
 .inspiration-section {
     width: 100%;
-    padding: var(--spacing-4xl) 0;
+    padding: 0 0 var(--spacing-4xl) 0;
     background-color: var(--color-white);
+    scroll-margin-top: 80px; /* Offset pour la navbar lors du scroll */
 }
 
 .inspiration-container {
@@ -213,7 +246,7 @@
 .inspiration-carousel-wrapper {
     position: relative;
     width: 100vw;
-    margin-left: calc(-1 * var(--container-padding));
+    margin-left: 0;
     padding-right: 0;
     overflow: visible;
 }
@@ -337,6 +370,7 @@
     width: 100%;
     padding: 0;
     background-color: var(--color-blanc-casse);
+    scroll-margin-top: 80px; /* Offset pour la navbar lors du scroll */
 }
 
 .colors-container {
@@ -368,7 +402,7 @@
 .colors-content {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-md);
     padding: var(--spacing-xl) 0;
 }
 
@@ -394,7 +428,7 @@
 
 .colors-palette {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(14, 1fr);
     gap: var(--spacing-sm);
     margin: var(--spacing-lg) 0;
 }
@@ -478,8 +512,9 @@
 /* Estimation Section */
 .estimation-section {
     width: 100%;
-    padding: var(--spacing-4xl) 0;
+    padding: 0;
     background-color: var(--color-white);
+    scroll-margin-top: 80px; /* Offset pour la navbar lors du scroll */
 }
 
 .estimation-container {
@@ -547,14 +582,15 @@
 /* RDV Section */
 .rdv-section {
     width: 100%;
-    padding: var(--spacing-4xl) 0;
+    padding: 0;
     background-color: var(--color-white);
+    scroll-margin-top: 80px; /* Offset pour la navbar lors du scroll */
 }
 
 .rdv-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 120px;
+    padding: 60px 120px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-3xl);
@@ -623,14 +659,15 @@
 /* Showroom & Pose Section - 2 Columns Layout */
 .showroom-pose-section {
     width: 100%;
-    padding: var(--spacing-4xl) 0;
+    padding: 0;
     background-color: var(--color-white);
+    scroll-margin-top: 80px; /* Offset pour la navbar lors du scroll */
 }
 
 .showroom-pose-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 120px;
+    padding: 60px 120px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-3xl);
@@ -646,10 +683,10 @@
 
 .showroom-image {
     width: 100%;
-    height: 100%;
-    min-height: 400px;
+    height: 300px;
     overflow: hidden;
     background-color: var(--color-grey-4);
+    border-radius: var(--radius-md);
 }
 
 .showroom-img {
@@ -658,6 +695,7 @@
     object-fit: cover;
     object-position: center;
     display: block;
+    border-radius: var(--radius-md);
 }
 
 .showroom-content {
@@ -680,10 +718,10 @@
 
 .showroom-title {
     font-family: var(--font-heading, 'Blacklist', sans-serif);
-    font-size: var(--font-size-h2); /* 54px */
+    font-size: var(--font-size-h4); /* 32px */
     font-weight: 400;
-    line-height: var(--line-height-h2); /* 120% */
-    letter-spacing: -0.02em;
+    line-height: var(--line-height-h4); /* 120% */
+    letter-spacing: -0.5px;
     color: var(--color-asphalte);
     margin: 0;
 }
@@ -701,15 +739,12 @@
 
 .showroom-link {
     margin-top: var(--spacing-md);
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-sm);
 }
 
 .showroom-link svg {
     width: 16px;
     height: 16px;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform var(--transition-base);
 }
 
 .showroom-link:hover svg {
@@ -725,10 +760,10 @@
 
 .pose-image {
     width: 100%;
-    height: 100%;
-    min-height: 400px;
+    height: 300px;
     overflow: hidden;
     background-color: var(--color-grey-4);
+    border-radius: var(--radius-md);
 }
 
 .pose-img {
@@ -737,6 +772,7 @@
     object-fit: cover;
     object-position: center;
     display: block;
+    border-radius: var(--radius-md);
 }
 
 .pose-content {
@@ -759,10 +795,10 @@
 
 .pose-title {
     font-family: var(--font-heading, 'Blacklist', sans-serif);
-    font-size: var(--font-size-h2); /* 54px */
+    font-size: var(--font-size-h4); /* 32px */
     font-weight: 400;
-    line-height: var(--line-height-h2); /* 120% */
-    letter-spacing: -0.02em;
+    line-height: var(--line-height-h4); /* 120% */
+    letter-spacing: -0.5px;
     color: var(--color-asphalte);
     margin: 0;
 }
@@ -780,15 +816,12 @@
 
 .pose-link {
     margin-top: var(--spacing-md);
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-sm);
 }
 
 .pose-link svg {
     width: 16px;
     height: 16px;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform var(--transition-base);
 }
 
 .pose-link:hover svg {
@@ -833,7 +866,7 @@
     }
 
     .inspiration-section {
-        padding: var(--spacing-3xl) 0;
+        padding: 0 0 var(--spacing-3xl) 0;
     }
 
     .inspiration-container {
@@ -841,7 +874,7 @@
     }
 
     .inspiration-carousel-wrapper {
-        margin-left: calc(-1 * var(--spacing-lg));
+        margin-left: 0;
     }
 
     .inspiration-title {
@@ -936,21 +969,21 @@
     }
 
     .showroom-image {
-        min-height: 300px;
+        height: 300px;
     }
 
     .showroom-title {
-        font-size: var(--font-size-h3); /* 42px */
-        line-height: var(--line-height-h3); /* 120% */
+        font-size: var(--font-size-h4); /* 32px */
+        line-height: var(--line-height-h4); /* 120% */
     }
 
     .pose-image {
-        min-height: 300px;
+        height: 300px;
     }
 
     .pose-title {
-        font-size: var(--font-size-h3); /* 42px */
-        line-height: var(--line-height-h3); /* 120% */
+        font-size: var(--font-size-h4); /* 32px */
+        line-height: var(--line-height-h4); /* 120% */
     }
 
     .colors-section {
@@ -1000,12 +1033,12 @@
     }
 
     .showroom-image {
-        min-height: 250px;
+        height: 300px;
     }
 
     .showroom-title {
-        font-size: var(--font-size-h3); /* 42px */
-        line-height: var(--line-height-h3); /* 120% */
+        font-size: var(--font-size-h4); /* 32px */
+        line-height: var(--line-height-h4); /* 120% */
     }
 
     .showroom-description {
@@ -1014,12 +1047,12 @@
 
 
     .pose-image {
-        min-height: 250px;
+        height: 300px;
     }
 
     .pose-title {
-        font-size: var(--font-size-h3); /* 42px */
-        line-height: var(--line-height-h3); /* 120% */
+        font-size: var(--font-size-h4); /* 32px */
+        line-height: var(--line-height-h4); /* 120% */
     }
 
     .pose-description {
@@ -1064,7 +1097,7 @@
     }
 
     .rdv-container {
-        padding: 0 var(--spacing-lg);
+        padding: 0 120px;
         grid-template-columns: 1fr;
         gap: var(--spacing-xl);
     }
@@ -1092,7 +1125,7 @@
 @media (max-width: 768px) {
     .hero-cuisine {
         height: auto;
-        min-height: 100vh;
+        min-height: 88vh;
         padding-top: 72px;
     }
 
@@ -1104,18 +1137,17 @@
     }
 
     .hero-cuisine-box {
-        max-width: calc(100% - 120px);
+        max-width: calc(100% - 48px);
         padding: var(--spacing-xl) var(--spacing-lg);
         margin: 0;
-        left: 60px;
-        right: 60px;
+        left: var(--spacing-lg);
+        right: var(--spacing-lg);
         transform: translateY(-50%);
     }
 
     .hero-cuisine-title {
         font-size: var(--font-size-h3); /* 42px */
         line-height: var(--line-height-h3); /* 120% */
-        margin-bottom: var(--spacing-sm);
     }
 
     .hero-cuisine-subtitle {
@@ -1161,7 +1193,7 @@
     }
 
     .inspiration-section {
-        padding: var(--spacing-2xl) 0;
+        padding: 0 0 80px 0;
     }
 
     .inspiration-container {
@@ -1170,7 +1202,7 @@
     }
 
     .inspiration-carousel-wrapper {
-        margin-left: calc(-1 * var(--spacing-lg));
+        margin-left: 0;
     }
 
     .inspiration-title {
@@ -1181,10 +1213,6 @@
     .carousel-slide-title {
         font-size: var(--font-size-l); /* 16px */
         line-height: var(--line-height-body); /* 140% */
-    }
-
-    .inspiration-carousel-wrapper {
-        margin: 0;
     }
 
     .carousel-button {
@@ -1247,7 +1275,7 @@
     }
 
     .colors-palette {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(12, 1fr);
         gap: var(--spacing-xs);
     }
 
@@ -1270,12 +1298,12 @@
     }
 
     .showroom-image {
-        min-height: 250px;
+        height: 300px;
     }
 
     .showroom-title {
-        font-size: var(--font-size-h3); /* 42px */
-        line-height: var(--line-height-h3); /* 120% */
+        font-size: var(--font-size-h4); /* 32px */
+        line-height: var(--line-height-h4); /* 120% */
     }
 
     .showroom-description {
@@ -1284,12 +1312,12 @@
 
 
     .pose-image {
-        min-height: 250px;
+        height: 300px;
     }
 
     .pose-title {
-        font-size: var(--font-size-h3); /* 42px */
-        line-height: var(--line-height-h3); /* 120% */
+        font-size: var(--font-size-h4); /* 32px */
+        line-height: var(--line-height-h4); /* 120% */
     }
 
     .pose-description {
@@ -1363,8 +1391,12 @@
     }
 
     .instagram-container {
-        padding: 0 var(--spacing-lg);
+        padding: 0;
         gap: var(--spacing-2xl);
+    }
+
+    .instagram-header {
+        padding: 0 var(--spacing-lg);
     }
 
     .instagram-title {
@@ -1374,6 +1406,12 @@
 
     .instagram-subtitle {
         font-size: var(--font-size-alt-3); /* 12px */
+    }
+
+    .instagram-carousel-wrapper {
+        width: 100vw;
+        max-width: none;
+        margin-left: calc(-50vw + 50%);
     }
 
     .instagram-carousel-slide {
@@ -1562,5 +1600,224 @@
 
     .instagram-carousel-button-next {
         right: var(--spacing-sm);
+    }
+}
+
+/* ============================================
+   LA TOUCHE PLUM SECTION
+   ============================================ */
+
+.touche-plum-section {
+    width: 100%;
+    padding: var(--spacing-4xl) 0;
+    background-color: #1e3a5f;
+}
+
+.touche-plum-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+.touche-plum-title {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h2); /* 54px */
+    font-weight: 400;
+    line-height: var(--line-height-h2); /* 120% */
+    letter-spacing: -0.02em;
+    color: var(--color-white);
+    margin: 0;
+    text-align: center;
+}
+
+.touche-plum-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-3xl);
+    width: 100%;
+}
+
+.touche-plum-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.touche-plum-icon {
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.touche-plum-icon svg {
+    width: 48px;
+    height: 48px;
+}
+
+.touche-plum-heading {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h5); /* 24px */
+    font-weight: 400;
+    line-height: var(--line-height-h5); /* 120% */
+    letter-spacing: -0.5px;
+    color: var(--color-white);
+    margin: 0;
+}
+
+.touche-plum-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-l); /* 16px */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-white);
+    margin: 0;
+}
+
+.touche-plum-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--spacing-xl);
+}
+
+.touche-plum-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.touche-plum-btn svg {
+    width: 16px;
+    height: 16px;
+    transition: transform var(--transition-base);
+}
+
+.touche-plum-btn:hover svg {
+    transform: translateX(4px);
+}
+
+/* Responsive - La touche Plum Section */
+@media (max-width: 1024px) {
+    .touche-plum-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-2xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .touche-plum-section {
+        padding: var(--spacing-3xl) 0;
+    }
+
+    .touche-plum-container {
+        padding: 0 var(--spacing-lg);
+        gap: var(--spacing-3xl);
+    }
+
+    .touche-plum-title {
+        font-size: var(--font-size-h3); /* 42px */
+        line-height: var(--line-height-h3); /* 120% */
+    }
+
+    .touche-plum-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+    }
+}
+
+/* ============================================
+   FAQ SECTION WITH IMAGE LAYOUT
+   ============================================ */
+
+.faq-section-with-image {
+    margin: var(--spacing-4xl) 0;
+    padding: var(--spacing-4xl) 0;
+}
+
+.faq-container-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4xl);
+    align-items: start;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.faq-content-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-section-with-image .faq-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h2);
+    font-weight: 400;
+    line-height: var(--line-height-h2);
+    letter-spacing: -0.3px;
+    color: var(--color-asphalte);
+    margin-bottom: var(--spacing-3xl);
+    text-align: left;
+}
+
+.faq-image-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    overflow: hidden;
+    border-radius: 0;
+    position: sticky;
+    top: var(--spacing-xl);
+}
+
+.faq-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .faq-container-layout {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-3xl);
+    }
+    
+    .faq-image-wrapper {
+        min-height: 400px;
+        position: relative;
+        top: 0;
+    }
+    
+    .faq-section-with-image .faq-title {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .faq-section-with-image {
+        margin: var(--spacing-3xl) 0;
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    .faq-container-layout {
+        gap: var(--spacing-2xl);
+    }
+    
+    .faq-section-with-image .faq-title {
+        font-size: var(--font-size-h3);
+        margin-bottom: var(--spacing-2xl);
+    }
+    
+    .faq-image-wrapper {
+        min-height: 300px;
     }
 }

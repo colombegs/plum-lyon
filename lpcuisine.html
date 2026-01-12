@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="shared/styles/buttons.css">
     <link rel="stylesheet" href="shared/components/navbar.css">
     <link rel="stylesheet" href="shared/styles/fade-transitions.css">
+    <link rel="stylesheet" href="shared/styles/faq.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="hero.css">
     <link rel="stylesheet" href="lpcuisine.css">
@@ -492,12 +493,12 @@
                     <h1 class="hero-cuisine-title">Votre cuisine Plum Living</h1>
                     <p class="hero-cuisine-subtitle">Créez votre projet cuisine étape par étape</p>
                     <ol class="hero-cuisine-steps">
-                        <li>Le concept Plum Living</li>
-                        <li>Trouvez l'inspiration pour votre cuisine</li>
-                        <li>Choisissez vos couleurs et designs</li>
-                        <li>Estimez votre cuisine</li>
-                        <li>Configurez votre cuisine</li>
-                        <li>Finalisez votre projet</li>
+                        <li><a href="#concept" class="hero-cuisine-step-link">Le concept Plum Living</a></li>
+                        <li><a href="#inspiration" class="hero-cuisine-step-link">Trouvez l'inspiration pour votre cuisine</a></li>
+                        <li><a href="#couleurs" class="hero-cuisine-step-link">Choisissez vos couleurs et designs</a></li>
+                        <li><a href="#estimation" class="hero-cuisine-step-link">Estimez votre cuisine</a></li>
+                        <li><a href="#configuration" class="hero-cuisine-step-link">Configurez votre cuisine</a></li>
+                        <li><a href="#finalisation" class="hero-cuisine-step-link">Finalisez votre projet</a></li>
                     </ol>
                     <a href="#" class="btn btn-primary-dark hero-cuisine-btn">
                         <span>JE COMMENCE</span>
@@ -508,10 +509,10 @@
     </section>
 
     <!-- Concept Section -->
-    <section class="concept-section">
+    <section id="concept" class="concept-section">
         <div class="concept-container">
             <div class="concept-image">
-                <img src="images/lpcuisine/concept.png" alt="Composants de cuisine" class="concept-img">
+                <img src="images/lpcuisine/concept.webp" alt="Composants de cuisine" class="concept-img">
             </div>
             <div class="concept-content">
                 <h3 class="concept-label">LE CONCEPT PLUM LIVING</h3>
@@ -531,7 +532,7 @@
     </section>
 
     <!-- Inspiration Section -->
-    <section class="inspiration-section">
+    <section id="inspiration" class="inspiration-section">
         <div class="inspiration-container">
             <h2 class="inspiration-title">Trouvez l'inspiration pour votre cuisine</h2>
             
@@ -547,23 +548,51 @@
                     <div class="carousel-track" id="carouselTrack">
                         <div class="carousel-slide">
                             <div class="carousel-image-wrapper">
-                                <img src="images/lpcuisine/inspi1.jpg" alt="Une cuisine Ivoire & Stone" class="carousel-image">
+                                <img src="images/lpcuisine/cuisine0.jpg" alt="Une cuisine Ivoire & Stone" class="carousel-image">
                             </div>
                             <h3 class="carousel-slide-title">Une cuisine Ivoire & Stone</h3>
                         </div>
                         
                         <div class="carousel-slide">
                             <div class="carousel-image-wrapper">
-                                <img src="images/lpcuisine/inspi2.jpg" alt="Une cuisine Olive" class="carousel-image">
+                                <img src="images/lpcuisine/cuisine1.jpg" alt="Une cuisine Olive" class="carousel-image">
                             </div>
                             <h3 class="carousel-slide-title">Une cuisine Olive</h3>
                         </div>
                         
                         <div class="carousel-slide">
                             <div class="carousel-image-wrapper">
-                                <img src="images/lpcuisine/inspi3.jpg" alt="Une cuisine Intercalaire Chêne" class="carousel-image">
+                                <img src="images/lpcuisine/cuisine2.jpg" alt="Une cuisine Intercalaire Chêne" class="carousel-image">
                             </div>
                             <h3 class="carousel-slide-title">Une cuisine Intercalaire Chêne</h3>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="carousel-image-wrapper">
+                                <img src="images/lpcuisine/cuisine3.jpg" alt="Inspiration cuisine" class="carousel-image">
+                            </div>
+                            <h3 class="carousel-slide-title">Inspiration cuisine</h3>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="carousel-image-wrapper">
+                                <img src="images/lpcuisine/cuisine4.jpg" alt="Inspiration cuisine" class="carousel-image">
+                            </div>
+                            <h3 class="carousel-slide-title">Inspiration cuisine</h3>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="carousel-image-wrapper">
+                                <img src="images/lpcuisine/cuisine5.jpg" alt="Inspiration cuisine" class="carousel-image">
+                            </div>
+                            <h3 class="carousel-slide-title">Inspiration cuisine</h3>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="carousel-image-wrapper">
+                                <img src="images/lpcuisine/cuisine6.jpg" alt="Inspiration cuisine" class="carousel-image">
+                            </div>
+                            <h3 class="carousel-slide-title">Inspiration cuisine</h3>
                         </div>
                     </div>
                 </div>
@@ -587,7 +616,7 @@
     </section>
 
     <!-- Bloc Couleurs Section -->
-    <section class="colors-section">
+    <section id="couleurs" class="colors-section">
         <div class="colors-container">
             <div class="colors-image">
                 <img src="images/lpcuisine/palette.jpg" alt="Cuisine avec façades Plum" class="colors-img">
@@ -622,7 +651,7 @@
     </section>
 
     <!-- Estimation Section -->
-    <section class="estimation-section">
+    <section id="estimation" class="estimation-section">
         <div class="estimation-container">
             <div class="estimation-content">
                 <h2 class="estimation-title">Estimez votre cuisine en quelques clics</h2>
@@ -640,7 +669,7 @@
     </section>
 
     <!-- RDV Section -->
-    <section class="rdv-section">
+    <section id="configuration" class="rdv-section">
         <div class="rdv-container">
             <div class="rdv-image">
                 <img src="images/lpcuisine/configurez.png" alt="Configuration de cuisine" class="rdv-img">
@@ -663,7 +692,7 @@
     </section>
 
     <!-- Showroom & Pose Section -->
-    <section class="showroom-pose-section">
+    <section id="finalisation" class="showroom-pose-section">
         <div class="showroom-pose-container">
             <!-- Showroom Block -->
             <div class="showroom-block">
@@ -671,17 +700,16 @@
                     <img src="images/lpcuisine/showroom.jpg" alt="Le Showroom Plum Living" class="showroom-img">
                 </div>
                 <div class="showroom-content">
-                    <h3 class="showroom-label">LE SHOWROOM</h3>
-                    <h2 class="showroom-title">Visitez notre showroom</h2>
+                    <h2 class="showroom-title">Découvrez nos produits au showroom</h2>
                     <p class="showroom-description">
-                        Découvrez nos cuisines en vrai dans notre showroom. Touchez les matériaux, explorez nos couleurs et façades, et laissez-vous inspirer par nos réalisations. Nos experts sont à votre disposition pour vous accompagner dans votre projet.
+                        En plein coeur de Paris, venez découvrir nos produits et faites-vous accompagner dans votre projet. Explorez notre gamme complète de couleurs et finitions, associez-les selon vos envies, et visualisez nos agencements en grandeur réelle. Repartez avec 3 échantillons offerts de votre choix.
                     </p>
                     <a href="#" class="btn btn-secondary-dark showroom-link">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
-                        <span>RÉSERVER UNE VISITE</span>
+                        <span>PRENDRE RDV AU SHOWROOM</span>
                     </a>
                 </div>
             </div>
@@ -692,17 +720,16 @@
                     <img src="images/lpcuisine/pose.jpg" alt="Pose de cuisine Plum Living" class="pose-img">
                 </div>
                 <div class="pose-content">
-                    <h3 class="pose-label">LA POSE</h3>
-                    <h2 class="pose-title">Trouvez un poseur certifié</h2>
+                    <h2 class="pose-title">Livraison et pose : comment ça se passe ?</h2>
                     <p class="pose-description">
-                        Pour garantir une installation parfaite de votre cuisine Plum Living, faites appel à l'un de nos poseurs certifiés. Ils connaissent parfaitement nos produits et sauront mettre en valeur votre projet avec professionnalisme.
+                        La livraison des façades a lieu sur rendez-vous. Les accessoires (poignées, éviers, mitigeurs..) sont expédiés séparément par Colis Privé ou Colissimo, sans prise de rendez-vous. Pour vous ou votre poseur, découvrez notre guide d'installation complet: notices Ikea, tutos vidéo et instructions claires et simples pour chaque étape de votre pose.
                     </p>
-                    <a href="poseurs.html" class="btn btn-secondary-dark pose-link">
+                    <a href="#" class="btn btn-secondary-dark pose-link">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
-                        <span>TROUVER UN POSEUR</span>
+                        <span>EN SAVOIR PLUS</span>
                     </a>
                 </div>
             </div>
@@ -759,6 +786,175 @@
                         <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                 </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- La touche Plum Section -->
+    <section class="touche-plum-section">
+        <div class="touche-plum-container">
+            <h2 class="touche-plum-title">La touche Plum</h2>
+            
+            <div class="touche-plum-grid">
+                <!-- Column 1: Unique -->
+                <div class="touche-plum-column">
+                    <div class="touche-plum-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3 class="touche-plum-heading">Unique</h3>
+                    <p class="touche-plum-description">Des centaines de combinaisons feront de votre intérieur un lieu à part</p>
+                </div>
+
+                <!-- Column 2: Haut-de-gamme -->
+                <div class="touche-plum-column">
+                    <div class="touche-plum-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="touche-plum-heading">Haut-de-gamme</h3>
+                    <p class="touche-plum-description">Fait en France et au Portugal par des fabricants au savoir faire exceptionnel.</p>
+                </div>
+
+                <!-- Column 3: Accessible -->
+                <div class="touche-plum-column">
+                    <div class="touche-plum-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="touche-plum-heading">Accessible</h3>
+                    <p class="touche-plum-description">Deux à trois fois moins onéreux que chez un cuisiniste.</p>
+                </div>
+
+                <!-- Column 4: L'expertise -->
+                <div class="touche-plum-column">
+                    <div class="touche-plum-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 00-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 010 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="touche-plum-heading">L'expertise</h3>
+                    <p class="touche-plum-description">Nos professionnels de l'agencement la pour vous accompagner</p>
+                </div>
+            </div>
+
+            <div class="touche-plum-cta">
+                <a href="#" class="btn btn-secondary touche-plum-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                    <span>DÉCOUVRIR NOS ENGAGEMENTS</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section faq-section-with-image">
+        <div class="faq-container faq-container-layout">
+            <div class="faq-content-wrapper">
+                <h2 class="faq-title">Toutes vos questions fréquentes</h2>
+                
+                <div class="faq-list">
+                    <!-- Item FAQ 1 -->
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <div class="faq-question">Comment fonctionne Plum ?</div>
+                            <div class="faq-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-content">
+                            <div class="faq-answer">
+                                <p>Plum Living vous permet de personnaliser votre cuisine Ikea avec nos façades sur mesure, poignées, plans de travail et accessoires. Vous achetez les caissons chez Ikea, et nous vous fournissons tout le reste pour créer une cuisine unique et esthétique.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item FAQ 2 -->
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <div class="faq-question">Quelles pièces dois-je acheter chez Ikea ? Chez Plum ?</div>
+                            <div class="faq-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-content">
+                            <div class="faq-answer">
+                                <p>Chez Ikea, vous achetez uniquement les caissons (structure) des gammes Metod, Pax ou Besta. Chez Plum, vous achetez les façades, poignées, plans de travail, peintures et tous les accessoires pour personnaliser votre cuisine.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item FAQ 3 -->
+                    <div class="faq-item is-open">
+                        <div class="faq-header">
+                            <div class="faq-question">Quels structures de meuble Ikea puis-je utiliser ?</div>
+                            <div class="faq-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-content">
+                            <div class="faq-answer">
+                                <p>Nos façades sont conçues pour s'adapter aux caissons Ikea des gammes Metod, Pax et Besta uniquement. Elles ne s'adaptent pas aux autres gammes de caissons Ikea (Platsa, Billy, Eket, Kallax, Godmorgon, Faktum...), ni aux caissons provenant d'autres enseignes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item FAQ 4 -->
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <div class="faq-question">Vos façades ont-elles les mêmes dimensions que les façades d'Ikea ?</div>
+                            <div class="faq-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-content">
+                            <div class="faq-answer">
+                                <p>Oui, nos façades sont conçues pour avoir exactement les mêmes dimensions que les façades Ikea correspondantes, pour garantir une compatibilité parfaite avec les caissons Ikea.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item FAQ 5 -->
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <div class="faq-question">Où sont fabriqués vos produits ?</div>
+                            <div class="faq-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-content">
+                            <div class="faq-answer">
+                                <p>Nos produits sont fabriqués en France et au Portugal par des fabricants au savoir-faire exceptionnel, garantissant une qualité haut-de-gamme pour tous nos clients.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-image-wrapper">
+                <img src="images/lpcuisine/questions/questions.png" alt="Détails de fabrication Plum Living" class="faq-image">
             </div>
         </div>
     </section>
@@ -1116,6 +1312,7 @@
     </script>
     <script src="shared/scripts/logo-fade.js"></script>
     <script src="shared/scripts/mobile-menu.js"></script>
+    <script src="shared/scripts/faq.js"></script>
     <script>
         // Déclencher l'animation du fade blanc vers la page au chargement
         (function() {
