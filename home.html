@@ -537,7 +537,102 @@
                 <img src="images/categories/poignees.jpg" alt="Poignées" class="category-img">
                 <h3 class="category-label">Poignées</h3>
             </a>
+        </div>
+    </section>
 
+    <!-- Styler Section - À afficher après le bloc Slide -->
+    <section class="styler-section">
+        <div class="styler-section-container">
+            <div class="styler-section-image">
+                <img src="images/styler/1.jpg" alt="Styler 3D" class="styler-section-img" id="stylerSectionImage">
+                <!-- Overlay pour mobile uniquement -->
+                <div class="styler-section-overlay">
+                    <h3 class="styler-section-title">STYLER 3D</h3>
+                    <div class="styler-section-content-mobile">
+                        <h2 class="styler-section-name-mobile">Classic</h2>
+                        <p class="styler-section-description-mobile">Notre dressing iconique au design simple et intemporel</p>
+                        <a href="styler.html" class="styler-section-link-mobile">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                            <span>PERSONNALISER</span>
+                        </a>
+                    </div>
+                    <div class="styler-section-colors-mobile">
+                        <button class="styler-section-swatch active" 
+                                data-image="images/styler/1.jpg" 
+                                style="background-color: #F5F1EB;"
+                                aria-label="Couleur Beige">
+                        </button>
+                        <button class="styler-section-swatch" 
+                                data-image="images/styler/1-2.jpg" 
+                                style="background-color: #8B7355;"
+                                aria-label="Couleur Bois clair">
+                        </button>
+                        <button class="styler-section-swatch" 
+                                data-image="images/styler/1-3.jpg" 
+                                style="background-color: #4A5568;"
+                                aria-label="Couleur Gris">
+                        </button>
+                        <button class="styler-section-swatch" 
+                                data-image="images/styler/2.jpg" 
+                                style="background-color: #A0AEC0;"
+                                aria-label="Couleur Sage">
+                        </button>
+                        <button class="styler-section-swatch" 
+                                data-image="images/styler/2-2.jpg" 
+                                style="background-color: #E8D5C4;"
+                                aria-label="Couleur Rose">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="styler-section-content">
+                <h3 class="styler-section-title">STYLER 3D</h3>
+                <h2 class="styler-section-name">Classic</h2>
+                <p class="styler-section-description">Notre dressing iconique au design simple et intemporel. Personnalisez-le dans les moindres détails.</p>
+                <div class="styler-section-colors">
+                    <button class="styler-section-swatch active" 
+                            data-image="images/styler/1.jpg" 
+                            style="background-color: #F5F1EB;"
+                            aria-label="Couleur Beige">
+                    </button>
+                    <button class="styler-section-swatch" 
+                            data-image="images/styler/1-2.jpg" 
+                            style="background-color: #8B7355;"
+                            aria-label="Couleur Bois clair">
+                    </button>
+                    <button class="styler-section-swatch" 
+                            data-image="images/styler/1-3.jpg" 
+                            style="background-color: #4A5568;"
+                            aria-label="Couleur Gris">
+                    </button>
+                    <button class="styler-section-swatch" 
+                            data-image="images/styler/2.jpg" 
+                            style="background-color: #A0AEC0;"
+                            aria-label="Couleur Sage">
+                    </button>
+                    <button class="styler-section-swatch" 
+                            data-image="images/styler/2-2.jpg" 
+                            style="background-color: #E8D5C4;"
+                            aria-label="Couleur Rose">
+                    </button>
+                </div>
+                <a href="styler.html" class="styler-section-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                    <span>PERSONNALISER</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Grid Section - Reste des catégories -->
+    <section class="categories-grid">
+        <div class="categories-container">
             <!-- Category 4: Étagères -->
             <a href="#" class="category-card">
                 <img src="images/categories/etageres.jpg" alt="Étagères" class="category-img">
@@ -725,6 +820,105 @@
                 document.addEventListener('DOMContentLoaded', triggerFade);
             }
         })();
+    </script>
+    <script>
+        // Gestion du bloc styler avec rotation automatique
+        document.addEventListener('DOMContentLoaded', () => {
+            const stylerSection = document.querySelector('.styler-section');
+            if (!stylerSection) return;
+
+            const image = document.getElementById('stylerSectionImage');
+            const swatches = stylerSection.querySelectorAll('.styler-section-swatch');
+            
+            if (!image || swatches.length === 0) return;
+
+            let currentIndex = 0;
+            let autoRotateInterval = null;
+            let isUserInteracting = false;
+
+            // Fonction pour changer l'image et la pastille active
+            function switchToIndex(index) {
+                if (index < 0 || index >= swatches.length) return;
+
+                // Retirer la classe active de toutes les pastilles
+                swatches.forEach(swatch => swatch.classList.remove('active'));
+
+                // Ajouter la classe active à la pastille sélectionnée
+                const activeSwatch = swatches[index];
+                activeSwatch.classList.add('active');
+
+                // Changer l'image avec transition
+                const imageSrc = activeSwatch.getAttribute('data-image');
+                if (imageSrc) {
+                    image.style.opacity = '0';
+                    setTimeout(() => {
+                        image.src = imageSrc;
+                        image.style.opacity = '1';
+                    }, 300);
+                }
+
+                currentIndex = index;
+            }
+
+            // Fonction pour passer à la suivante
+            function nextSwatch() {
+                if (isUserInteracting) return;
+                const nextIndex = (currentIndex + 1) % swatches.length;
+                switchToIndex(nextIndex);
+            }
+
+            // Démarrer la rotation automatique
+            function startAutoRotate() {
+                if (autoRotateInterval) return;
+                autoRotateInterval = setInterval(nextSwatch, 2000); // 2 secondes
+            }
+
+            // Arrêter la rotation automatique
+            function stopAutoRotate() {
+                if (autoRotateInterval) {
+                    clearInterval(autoRotateInterval);
+                    autoRotateInterval = null;
+                }
+            }
+
+            // Gestion du clic sur les pastilles
+            swatches.forEach((swatch, index) => {
+                swatch.addEventListener('click', () => {
+                    isUserInteracting = true;
+                    switchToIndex(index);
+                    stopAutoRotate();
+                    // Reprendre après 5 secondes d'inactivité
+                    setTimeout(() => {
+                        isUserInteracting = false;
+                        startAutoRotate();
+                    }, 5000);
+                });
+
+                swatch.addEventListener('mouseenter', () => {
+                    isUserInteracting = true;
+                    stopAutoRotate();
+                });
+
+                swatch.addEventListener('mouseleave', () => {
+                    isUserInteracting = false;
+                    startAutoRotate();
+                });
+            });
+
+            // Démarrer la rotation automatique au chargement
+            startAutoRotate();
+
+            // Pause au survol de la section
+            stylerSection.addEventListener('mouseenter', () => {
+                stopAutoRotate();
+            });
+
+            stylerSection.addEventListener('mouseleave', () => {
+                if (!isUserInteracting) {
+                    startAutoRotate();
+                }
+            });
+        });
     </script>
 </body>
 </html>

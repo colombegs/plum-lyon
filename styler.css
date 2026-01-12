@@ -301,6 +301,15 @@
         width: 36px;
         height: 36px;
     }
+
+    /* Correction de l'ordre des items 5 et 6 sur mobile */
+    .styler-item:nth-child(5) {
+        order: 6;
+    }
+
+    .styler-item:nth-child(6) {
+        order: 5;
+    }
 }
 
 /* Petit mobile */

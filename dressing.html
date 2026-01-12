@@ -17,16 +17,17 @@
     
     <!-- Page Styles -->
     <link rel="stylesheet" href="dressing.css">
+    <link rel="stylesheet" href="hero.css">
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-over-hero">
+    <nav class="navbar navbar-white navbar-has-hover">
         <div class="navbar-container">
             <!-- Logo -->
                 <div class="navbar-logo">
                     <a href="home.html" class="logo-link">
-                        <img src="images/logo.png" alt="plum living" class="logo-image logo-white">
-                        <img src="images/logo-black.png" alt="plum living" class="logo-image logo-black" style="display: none;">
+                        <img src="images/logo.png" alt="plum living" class="logo-image logo-white" style="display: none;">
+                        <img src="images/logo-black.png" alt="plum living" class="logo-image logo-black">
                     </a>
                 </div>
 
@@ -219,203 +220,16 @@
 
     <!-- Main Content -->
     <main class="dressing-main">
-        <!-- Hero Section -->
-        <section class="dressing-hero">
-            <div class="dressing-hero-background">
-                <div class="dressing-hero-image-wrapper">
-                    <img src="" alt="Dressing Plum Living" class="dressing-hero-image dressing-hero-image-current" id="heroImageCurrent">
-                    <img src="" alt="Dressing Plum Living" class="dressing-hero-image dressing-hero-image-next" id="heroImageNext">
-                </div>
-                <div class="dressing-hero-overlay"></div>
-            </div>
-            <div class="dressing-hero-content">
-                <div class="dressing-hero-container">
-                    <div class="dressing-hero-text">
-                        <h1 class="dressing-hero-title">
-                            <span class="dressing-hero-title-line" id="heroTitle">Classic</span>
-                        </h1>
-                        <p class="dressing-hero-subtitle" id="heroSubtitle">Notre dressing iconique au design simple et intemporel</p>
-                        <div class="dressing-hero-colors" id="heroColors">
-                            <!-- Les pastilles seront générées dynamiquement -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Navigation buttons -->
-            <div class="dressing-hero-navigation">
-                <button class="dressing-hero-nav-button dressing-hero-nav-prev" id="heroNavPrev" aria-label="Précédent">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </button>
-                <button class="dressing-hero-nav-button dressing-hero-nav-next" id="heroNavNext" aria-label="Suivant">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
-            </div>
-        </section>
-
         <!-- Gallery Section -->
         <div class="dressing-container">
+            <h2 class="dressing-page-title">Dressings</h2>
             <!-- Gallery Grid - Avec une ligne de 3 colonnes -->
             <div class="dressing-grid dressing-grid-with-trio">
-                <!-- Gallery Item 2 - Gallery -->
+                <!-- Gallery Item 1 - SLIDE BY PAULINE BORGIA -->
                 <div class="dressing-item">
                     <div class="dressing-image-wrapper">
-                        <img src="images/dressing/2.1.jpg" alt="Dressing 2" class="dressing-image" data-default-src="images/dressing/2.1.jpg">
-                        <img src="images/dressing/2.2.jpg" alt="Dressing 2" class="dressing-image dressing-image-hover">
-                        <div class="dressing-overlay">
-                            <div class="dressing-content">
-                                <h2 class="dressing-scene-name">Gallery</h2>
-                                <p class="dressing-subtitle-2">Double dressing réalisé avec des caissons Pax et avec nos façades design Edge</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dressing-content-mobile">
-                        <h2 class="dressing-scene-name">GALLERY</h2>
-                        <p class="dressing-description">Dressing avec niches ouvertes 143cm</p>
-                        <p class="dressing-subtitle-2">Double dressing réalisé avec des caissons Pax et avec nos façades design Edge</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 3 - Classic sans pastilles -->
-                <div class="dressing-item">
-                    <div class="dressing-image-wrapper">
-                        <img src="images/dressing/3.jpg" alt="Dressing 3" class="dressing-image">
-                        <img src="images/dressing/3.2.jpg" alt="Dressing 3" class="dressing-image dressing-image-hover">
-                        <div class="dressing-overlay">
-                            <div class="dressing-content">
-                                <h2 class="dressing-scene-name">Classic</h2>
-                                <p class="dressing-subtitle-2">Avec son tressage délicat, ce dressing en cannage fait partie de nos réalisations favorites.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dressing-content-mobile">
-                        <h2 class="dressing-scene-name">CLASSIC</h2>
-                        <p class="dressing-description">Dressing en cannage arche 100 à 300cm</p>
-                        <p class="dressing-subtitle-2">Avec son tressage délicat, ce dressing en cannage fait partie de nos réalisations favorites.</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 4 - Vidéo (TRIO) -->
-                <div class="dressing-item dressing-item-video dressing-item-trio">
-                    <div class="dressing-image-wrapper">
-                        <video class="dressing-video" autoplay muted loop playsinline>
-                            <source src="images/dressing/video.mp4" type="video/mp4">
-                            Votre navigateur ne supporte pas la vidéo.
-                        </video>
-                        <div class="dressing-overlay">
-                            <div class="dressing-content">
-                                <h2 class="dressing-scene-name">Video</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dressing-content-mobile">
-                        <h2 class="dressing-scene-name">VIDEO</h2>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 5 - Sans pastilles (TRIO) -->
-                <div class="dressing-item dressing-item-trio">
-                    <div class="dressing-image-wrapper">
-                        <img src="images/dressing/5.1.jpg" alt="Dressing 5" class="dressing-image">
-                        <img src="images/dressing/5.2.jpg" alt="Dressing 5" class="dressing-image dressing-image-hover">
-                        <div class="dressing-overlay">
-                            <div class="dressing-content">
-                                <h2 class="dressing-scene-name">Slide</h2>
-                                <p class="dressing-subtitle-2">Composé de portes en noyer naturel design Edge et de meubles ouverts Curved et Square, ce dressing s'invite fièrement dans le salon</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dressing-content-mobile">
-                        <h2 class="dressing-scene-name">SLIDE</h2>
-                        <p class="dressing-description">Dressing avec niches ouvertes 179cm</p>
-                        <p class="dressing-subtitle-2">Composé de portes en noyer naturel design Edge et de meubles ouverts Curved et Square, ce dressing s'invite fièrement dans le salon</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 6 - Sans pastilles (TRIO) -->
-                <div class="dressing-item dressing-item-trio">
-                    <div class="dressing-image-wrapper">
-                        <img src="images/dressing/6.1.jpg" alt="Dressing 6" class="dressing-image">
-                        <img src="images/dressing/6.2.jpg" alt="Dressing 6" class="dressing-image dressing-image-hover">
-                        <div class="dressing-overlay">
-                            <div class="dressing-content">
-                                <h2 class="dressing-scene-name">Display</h2>
-                                <p class="dressing-subtitle-2">Habillé d'un Lin subtil, ce dressing s'élève en aplomb tandis qu'une niche en Chêne miel en révèle la profondeur.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dressing-content-mobile">
-                        <h2 class="dressing-scene-name">DISPLAY</h2>
-                        <p class="dressing-description">Dressing de 220cm avec grande niche en Chêne miel</p>
-                        <p class="dressing-subtitle-2">Habillé d'un Lin subtil, ce dressing s'élève en aplomb tandis qu'une niche en Chêne miel en révèle la profondeur.</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 7 - Sans pastilles -->
-                <div class="dressing-item">
-                    <div class="dressing-image-wrapper">
-                        <img src="images/dressing/7.jpg" alt="Dressing 7" class="dressing-image">
-                        <img src="images/dressing/7.2.jpg" alt="Dressing 7" class="dressing-image dressing-image-hover">
-                        <div class="dressing-overlay">
-                            <div class="dressing-content">
-                                <h2 class="dressing-scene-name">Nest by Papermint</h2>
-                                <p class="dressing-subtitle-2">Douceur, délicatesse et couleur : il ne nous en fallait pas plus pour tomber sous le charme des Jolies Marguerites de Papermint, surtout dans cette version Olive et Jaune.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dressing-content-mobile">
-                        <h2 class="dressing-scene-name">NEST BY PAPERMINT</h2>
-                        <p class="dressing-description">Dressing banquette 164cm</p>
-                        <p class="dressing-subtitle-2">Douceur, délicatesse et couleur : il ne nous en fallait pas plus pour tomber sous le charme des Jolies Marguerites de Papermint, surtout dans cette version Olive et Jaune.</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 8 - Sans pastilles -->
-                <div class="dressing-item">
-                    <div class="dressing-image-wrapper">
-                        <img src="images/dressing/8.jpg" alt="Dressing 8" class="dressing-image">
-                        <img src="images/dressing/8.2.jpg" alt="Dressing 8" class="dressing-image dressing-image-hover">
-                        <div class="dressing-overlay">
-                            <div class="dressing-content">
-                                <h2 class="dressing-scene-name">Nest by Julie Gachet</h2>
-                                <p class="dressing-subtitle-2">Dans sa chambre, Lisa Gachet a imaginé une arche inversée née d'un mix de caissons Pax et Metod, et de façades Plum Living en cannage et chêne naturel.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dressing-content-mobile">
-                        <h2 class="dressing-scene-name">NEST BY JULIE GACHET</h2>
-                        <p class="dressing-description">Dressing avec banquette 220cm</p>
-                        <p class="dressing-subtitle-2">Dans sa chambre, Lisa Gachet a imaginé une arche inversée née d'un mix de caissons Pax et Metod, et de façades Plum Living en cannage et chêne naturel.</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 9 - Sans pastilles -->
-                <div class="dressing-item">
-                    <div class="dressing-image-wrapper">
-                        <img src="images/dressing/9.jpg" alt="Dressing 9" class="dressing-image">
-                        <img src="images/dressing/9.2.jpg" alt="Dressing 9" class="dressing-image dressing-image-hover">
-                        <div class="dressing-overlay">
-                            <div class="dressing-content">
-                                <h2 class="dressing-scene-name">Script</h2>
-                                <p class="dressing-subtitle-2">Let the sunshine in ! Marié avec des poignées et un caisson ouvert en Chêne miel, India révèle toute son intensité sur des portes de dressing.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dressing-content-mobile">
-                        <h2 class="dressing-scene-name">SCRIPT</h2>
-                        <p class="dressing-description">Dressing avec bureau attenant</p>
-                        <p class="dressing-subtitle-2">Let the sunshine in ! Marié avec des poignées et un caisson ouvert en Chêne miel, India révèle toute son intensité sur des portes de dressing.</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 10 - Sans pastilles -->
-                <div class="dressing-item">
-                    <div class="dressing-image-wrapper">
-                        <img src="images/dressing/10.jpg" alt="Dressing 10" class="dressing-image">
-                        <img src="images/dressing/10.2.jpg" alt="Dressing 10" class="dressing-image dressing-image-hover">
+                        <img src="images/dressing/1.1.jpg" alt="Dressing 9" class="dressing-image">
+                        <img src="images/dressing/1.2.jpg" alt="Dressing 9" class="dressing-image dressing-image-hover">
                         <div class="dressing-overlay">
                             <div class="dressing-content">
                                 <h2 class="dressing-scene-name">Slide by Pauline Borgia</h2>
@@ -430,11 +244,211 @@
                     </div>
                 </div>
 
-                <!-- Gallery Item 11 - Sans pastilles (TRIO) -->
+                <!-- Gallery Item 2 - CLASSIC -->
+                <div class="dressing-item">
+                    <div class="dressing-image-wrapper">
+                        <img src="images/dressing/2.1.jpg" alt="Dressing 1" class="dressing-image" data-default-src="images/dressing/2.1.jpg">
+                        <img src="images/dressing/2.2.jpg" alt="Dressing 1" class="dressing-image dressing-image-hover">
+                        <div class="dressing-overlay">
+                            <div class="dressing-content">
+                                <h2 class="dressing-scene-name">Classic</h2>
+                                <p class="dressing-subtitle-2">Avec son tressage délicat, ce dressing en cannage fait partie de nos réalisations favorites.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dressing-content-mobile">
+                        <h2 class="dressing-scene-name">CLASSIC</h2>
+                        <p class="dressing-description">Dressing iconique</p>
+                        <p class="dressing-subtitle-2">Avec son tressage délicat, ce dressing en cannage fait partie de nos réalisations favorites.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 - VIDEO (TRIO) -->
+                <div class="dressing-item dressing-item-video dressing-item-trio">
+                    <div class="dressing-image-wrapper">
+                        <video class="dressing-video" autoplay muted loop playsinline>
+                            <source src="images/dressing/3.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la vidéo.
+                        </video>
+                        <div class="dressing-overlay">
+                            <div class="dressing-content">
+                                <h2 class="dressing-scene-name">Video</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dressing-content-mobile">
+                        <h2 class="dressing-scene-name">VIDEO</h2>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 - SLIDE (TRIO) -->
                 <div class="dressing-item dressing-item-trio">
                     <div class="dressing-image-wrapper">
-                        <img src="images/dressing/11.jpg" alt="Dressing 11" class="dressing-image">
-                        <img src="images/dressing/11.2.jpg" alt="Dressing 11" class="dressing-image dressing-image-hover">
+                        <img src="images/dressing/4.1.jpg" alt="Dressing 4" class="dressing-image">
+                        <img src="images/dressing/4.2.jpg" alt="Dressing 4" class="dressing-image dressing-image-hover">
+                        <div class="dressing-overlay">
+                            <div class="dressing-content">
+                                <h2 class="dressing-scene-name">Slide</h2>
+                                <p class="dressing-subtitle-2">Composé de portes en noyer naturel design Edge et de meubles ouverts Curved et Square, ce dressing s'invite fièrement dans le salon</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dressing-content-mobile">
+                        <h2 class="dressing-scene-name">SLIDE</h2>
+                        <p class="dressing-description">Dressing avec niches ouvertes 179cm</p>
+                        <p class="dressing-subtitle-2">Composé de portes en noyer naturel design Edge et de meubles ouverts Curved et Square, ce dressing s'invite fièrement dans le salon</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 - NEST BY PAPERMINT (TRIO) -->
+                <div class="dressing-item dressing-item-trio">
+                    <div class="dressing-image-wrapper">
+                        <img src="images/dressing/5.1.jpg" alt="Dressing 5" class="dressing-image">
+                        <img src="images/dressing/5.2.jpg" alt="Dressing 5" class="dressing-image dressing-image-hover">
+                        <div class="dressing-overlay">
+                            <div class="dressing-content">
+                                <h2 class="dressing-scene-name">Nest by Papermint</h2>
+                                <p class="dressing-subtitle-2">Douceur, délicatesse et couleur : il ne nous en fallait pas plus pour tomber sous le charme des Jolies Marguerites de Papermint, surtout dans cette version Olive et Jaune.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dressing-content-mobile">
+                        <h2 class="dressing-scene-name">NEST BY PAPERMINT</h2>
+                        <p class="dressing-description">Dressing banquette 164cm</p>
+                        <p class="dressing-subtitle-2">Douceur, délicatesse et couleur : il ne nous en fallait pas plus pour tomber sous le charme des Jolies Marguerites de Papermint, surtout dans cette version Olive et Jaune.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Styler Section -->
+            <section class="styler-section">
+                <div class="styler-section-container">
+                    <div class="styler-section-image">
+                        <img src="images/dressing/6-1.jpg" alt="Styler 3D" class="styler-section-img" id="stylerSectionImage">
+                    </div>
+                    <div class="styler-section-content">
+                        <h3 class="styler-section-title">STYLER 3D</h3>
+                        <h2 class="styler-section-name">Classic</h2>
+                        <p class="styler-section-description">Notre dressing iconique au design simple et intemporel. Personnalisez-le dans les moindres détails.</p>
+                        <div class="styler-section-colors">
+                            <button class="styler-section-swatch active" 
+                                    data-image="images/dressing/6-1.jpg" 
+                                    style="background-color: #F5F1EB;"
+                                    aria-label="Couleur Beige">
+                            </button>
+                            <button class="styler-section-swatch" 
+                                    data-image="images/dressing/6-2.jpg" 
+                                    style="background-color: #8B7355;"
+                                    aria-label="Couleur Bois clair">
+                            </button>
+                            <button class="styler-section-swatch" 
+                                    data-image="images/dressing/6-3.jpg" 
+                                    style="background-color: #4A5568;"
+                                    aria-label="Couleur Gris">
+                            </button>
+                            <button class="styler-section-swatch" 
+                                    data-image="images/dressing/6-4.jpg" 
+                                    style="background-color: #A0AEC0;"
+                                    aria-label="Couleur Sage">
+                            </button>
+                        </div>
+                        <a href="styler.html" class="styler-section-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                            <span>PERSONNALISER</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Gallery Grid - Suite -->
+        <div class="dressing-container">
+            <div class="dressing-grid dressing-grid-with-trio">
+                <!-- Gallery Item 7 - GALLERY -->
+                <div class="dressing-item">
+                    <div class="dressing-image-wrapper">
+                        <img src="images/dressing/7.1.jpg" alt="Dressing 7" class="dressing-image" data-default-src="images/dressing/7.1.jpg">
+                        <img src="images/dressing/7.2.jpg" alt="Dressing 7" class="dressing-image dressing-image-hover">
+                        <div class="dressing-overlay">
+                            <div class="dressing-content">
+                                <h2 class="dressing-scene-name">Gallery</h2>
+                                <p class="dressing-subtitle-2">Double dressing réalisé avec des caissons Pax et avec nos façades design Edge</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dressing-content-mobile">
+                        <h2 class="dressing-scene-name">GALLERY</h2>
+                        <p class="dressing-description">Dressing avec niches ouvertes 143cm</p>
+                        <p class="dressing-subtitle-2">Double dressing réalisé avec des caissons Pax et avec nos façades design Edge</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 8 - NEST BY JULIE GACHET -->
+                <div class="dressing-item">
+                    <div class="dressing-image-wrapper">
+                        <img src="images/dressing/8.jpg" alt="Dressing 7" class="dressing-image">
+                        <img src="images/dressing/8.2.jpg" alt="Dressing 7" class="dressing-image dressing-image-hover">
+                        <div class="dressing-overlay">
+                            <div class="dressing-content">
+                                <h2 class="dressing-scene-name">Nest by Julie Gachet</h2>
+                                <p class="dressing-subtitle-2">Dans sa chambre, Lisa Gachet a imaginé une arche inversée née d'un mix de caissons Pax et Metod, et de façades Plum Living en cannage et chêne naturel.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dressing-content-mobile">
+                        <h2 class="dressing-scene-name">NEST BY JULIE GACHET</h2>
+                        <p class="dressing-description">Dressing avec banquette 220cm</p>
+                        <p class="dressing-subtitle-2">Dans sa chambre, Lisa Gachet a imaginé une arche inversée née d'un mix de caissons Pax et Metod, et de façades Plum Living en cannage et chêne naturel.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 9 - SCRIPT -->
+                <div class="dressing-item">
+                    <div class="dressing-image-wrapper">
+                        <img src="images/dressing/9.jpg" alt="Dressing 8" class="dressing-image">
+                        <img src="images/dressing/9.2.jpg" alt="Dressing 8" class="dressing-image dressing-image-hover">
+                        <div class="dressing-overlay">
+                            <div class="dressing-content">
+                                <h2 class="dressing-scene-name">Script</h2>
+                                <p class="dressing-subtitle-2">Let the sunshine in ! Marié avec des poignées et un caisson ouvert en Chêne miel, India révèle toute son intensité sur des portes de dressing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dressing-content-mobile">
+                        <h2 class="dressing-scene-name">SCRIPT</h2>
+                        <p class="dressing-description">Dressing avec bureau attenant</p>
+                        <p class="dressing-subtitle-2">Let the sunshine in ! Marié avec des poignées et un caisson ouvert en Chêne miel, India révèle toute son intensité sur des portes de dressing.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 10 - FOCUS (INDIA) (TRIO) -->
+                <div class="dressing-item dressing-item-trio">
+                    <div class="dressing-image-wrapper">
+                        <img src="images/dressing/9.jpg" alt="Focus India" class="dressing-image">
+                        <img src="images/dressing/9.2.jpg" alt="Focus India" class="dressing-image dressing-image-hover">
+                        <div class="dressing-overlay">
+                            <div class="dressing-content">
+                                <h2 class="dressing-scene-name">Focus (India)</h2>
+                                <p class="dressing-subtitle-2">Let the sunshine in ! Marié avec des poignées et un caisson ouvert en Chêne miel, India révèle toute son intensité sur des portes de dressing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dressing-content-mobile">
+                        <h2 class="dressing-scene-name">FOCUS (INDIA)</h2>
+                        <p class="dressing-description">Un dressing bureau avec meuble ouvert</p>
+                        <p class="dressing-subtitle-2">Let the sunshine in ! Marié avec des poignées et un caisson ouvert en Chêne miel, India révèle toute son intensité sur des portes de dressing.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 11 - CLASSIC BY FLOLOVE PARIS (TRIO) -->
+                <div class="dressing-item dressing-item-trio">
+                    <div class="dressing-image-wrapper">
+                        <img src="images/dressing/11.jpg" alt="Dressing 10" class="dressing-image">
+                        <img src="images/dressing/11.2.jpg" alt="Dressing 10" class="dressing-image dressing-image-hover">
                         <div class="dressing-overlay">
                             <div class="dressing-content">
                                 <h2 class="dressing-scene-name">Classic by Flolove Paris</h2>
@@ -449,41 +463,41 @@
                     </div>
                 </div>
 
-                <!-- Gallery Item 12 - Sans pastilles (TRIO) -->
+                <!-- Gallery Item 12 - FOCUS (AMENDIER) (TRIO) -->
                 <div class="dressing-item dressing-item-trio">
                     <div class="dressing-image-wrapper">
-                        <img src="images/dressing/12.jpg" alt="Dressing 12" class="dressing-image">
-                        <img src="images/dressing/12.2.jpg" alt="Dressing 12" class="dressing-image dressing-image-hover">
+                        <img src="images/dressing/12.jpg" alt="Dressing 11" class="dressing-image">
+                        <img src="images/dressing/12.2.jpg" alt="Dressing 11" class="dressing-image dressing-image-hover">
                         <div class="dressing-overlay">
                             <div class="dressing-content">
-                                <h2 class="dressing-scene-name">Focus</h2>
+                                <h2 class="dressing-scene-name">Focus (Amendier)</h2>
                                 <p class="dressing-subtitle-2">Imaginé comme un élément d'architecture, ce dressing en Amandier grisé et Chêne naturel organise l'espace autant qu'il le sublime.</p>
                             </div>
                         </div>
                     </div>
                     <div class="dressing-content-mobile">
-                        <h2 class="dressing-scene-name">FOCUS</h2>
+                        <h2 class="dressing-scene-name">FOCUS (AMENDIER)</h2>
                         <p class="dressing-description">Un dressing bureau avec meuble ouvert</p>
                         <p class="dressing-subtitle-2">Imaginé comme un élément d'architecture, ce dressing en Amandier grisé et Chêne naturel organise l'espace autant qu'il le sublime.</p>
                     </div>
                 </div>
 
-                <!-- Gallery Item 13 - Script by Julie Sauvage (TRIO) -->
-                <div class="dressing-item dressing-item-trio">
+                <!-- Gallery Item 13 - DISPLAY -->
+                <div class="dressing-item">
                     <div class="dressing-image-wrapper">
-                        <img src="images/dressing/13.jpg" alt="Dressing 13" class="dressing-image">
-                        <img src="images/dressing/13.2.jpg" alt="Dressing 13" class="dressing-image dressing-image-hover">
+                        <img src="images/dressing/2.jpg" alt="Display" class="dressing-image">
+                        <img src="images/dressing/2.2.jpg" alt="Display" class="dressing-image dressing-image-hover">
                         <div class="dressing-overlay">
                             <div class="dressing-content">
-                                <h2 class="dressing-scene-name">Script by Julie Sauvage</h2>
-                                <p class="dressing-subtitle-2">Dans la chambre des kids de Julie Sauvage, le bureau prolonge élégamment le dressing et s'imbrique sous l'escalier menant à l'espace nuit.</p>
+                                <h2 class="dressing-scene-name">Display</h2>
+                                <p class="dressing-subtitle-2">Dressing avec niches ouvertes</p>
                             </div>
                         </div>
                     </div>
                     <div class="dressing-content-mobile">
-                        <h2 class="dressing-scene-name">SCRIPT BY JULIE SAUVAGE</h2>
-                        <p class="dressing-description">Un bureau dressing qui se prolonge sous l'escalier</p>
-                        <p class="dressing-subtitle-2">Dans la chambre des kids de Julie Sauvage, le bureau prolonge élégamment le dressing et s'imbrique sous l'escalier menant à l'espace nuit.</p>
+                        <h2 class="dressing-scene-name">DISPLAY</h2>
+                        <p class="dressing-description">Dressing avec niches ouvertes</p>
+                        <p class="dressing-subtitle-2">Dressing avec niches ouvertes</p>
                     </div>
                 </div>
 
@@ -493,528 +507,12 @@
 
     <!-- Scripts -->
     <script>
-        // Gestion du scroll pour la navbar transparente
-        document.addEventListener('DOMContentLoaded', () => {
-            const navbar = document.querySelector('.navbar-over-hero');
-            const logoWhite = navbar?.querySelector('.logo-white');
-            const logoBlack = navbar?.querySelector('.logo-black');
-            
-            if (navbar) {
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 50) {
-                        navbar.classList.add('scrolled');
-                        if (logoWhite) logoWhite.style.display = 'none';
-                        if (logoBlack) logoBlack.style.display = 'block';
-                    } else {
-                        navbar.classList.remove('scrolled');
-                        if (logoWhite) logoWhite.style.display = 'block';
-                        if (logoBlack) logoBlack.style.display = 'none';
-                    }
-                });
-            }
-        });
-
-        // Gestion du carrousel hero avec navigation et crossfade
-        document.addEventListener('DOMContentLoaded', () => {
-            // Définition des slides du hero
-            const heroSlides = [
-                {
-                    title: 'Classic',
-                    subtitle: 'Notre dressing iconique au design simple et intemporel',
-                    images: [
-                        { color: '#E7DCD1', label: 'Lin', image: 'images/dressing/1-1.jpg' },
-                        { color: '#8B7355', label: 'Bois', image: 'images/dressing/1-2.jpg' },
-                        { color: '#3C6575', label: 'Bleu lagon', image: 'images/dressing/1-3.jpg' },
-                        { color: '#B2CDC2', label: 'Celadon', image: 'images/dressing/1-3.jpg' }
-                    ]
-                },
-                {
-                    title: 'Nest',
-                    subtitle: 'Dressing avec banquette intégrée pratique et accueillant',
-                    images: [
-                        { color: '#8B7355', label: 'Couleur Moka', image: 'images/dressing/hero/hero2.1.jpg' },
-                        { color: '#E2E8F0', label: 'Couleur Smoke', image: 'images/dressing/hero/hero2.2.jpg' },
-                        { color: '#C6F6D5', label: 'Couleur Canopée', image: 'images/dressing/hero/hero2.3.jpg' },
-                        { color: '#F7FAFC', label: 'Couleur Blanc Pur', image: 'images/dressing/hero/hero2.4.jpg' }
-                    ]
-                },
-                {
-                    title: 'Moon',
-                    subtitle: 'Un dressing tete de lit pour optimiser votre chambre',
-                    images: [
-                        { color: '#8B7355', label: 'Couleur Moka', image: 'images/dressing/hero/hero3.1.jpg' },
-                        { color: '#E2E8F0', label: 'Couleur Smoke', image: 'images/dressing/hero/hero3.2.jpg' },
-                        { color: '#C6F6D5', label: 'Couleur Canopée', image: 'images/dressing/hero/hero3.3.jpg' }
-                    ]
-                }
-            ];
-
-            // Éléments DOM
-            const heroImageCurrent = document.getElementById('heroImageCurrent');
-            const heroImageNext = document.getElementById('heroImageNext');
-            const heroTitle = document.getElementById('heroTitle');
-            const heroSubtitle = document.getElementById('heroSubtitle');
-            const heroColors = document.getElementById('heroColors');
-            const navPrev = document.getElementById('heroNavPrev');
-            const navNext = document.getElementById('heroNavNext');
-            const isMobile = window.innerWidth <= 768;
-
-            if (!heroImageCurrent || !heroImageNext || !heroTitle || !heroSubtitle || !heroColors || !navPrev || !navNext) {
-                return;
-            }
-
-            let currentSlideIndex = 0;
-            let currentColorIndex = 0;
-            let isInitialized = false;
-            let isTransitioning = false;
-            let preloadedImages = new Map(); // Cache des images préchargées
-
-            // Fonction pour précharger une image
-            function preloadImage(src) {
-                // Vérifier si l'image est déjà en cache
-                if (preloadedImages.has(src)) {
-                    return Promise.resolve(preloadedImages.get(src));
-                }
-
-                return new Promise((resolve, reject) => {
-                    const img = new Image();
-                    img.onload = () => {
-                        preloadedImages.set(src, img);
-                        resolve(img);
-                    };
-                    img.onerror = reject;
-                    img.src = src;
-                });
-            }
-
-            // Précharger toutes les images au démarrage
-            function preloadAllImages() {
-                const allImages = [];
-                heroSlides.forEach(slide => {
-                    slide.images.forEach(colorData => {
-                        if (!allImages.includes(colorData.image)) {
-                            allImages.push(colorData.image);
-                        }
-                    });
-                });
-
-                Promise.allSettled(allImages.map(src => preloadImage(src)))
-                    .then(() => {
-                        console.log('Toutes les images du hero sont préchargées');
-                    });
-            }
-
-            // Fonction pour changer l'image avec crossfade
-            function crossfadeToImage(imageSrc) {
-                if (!imageSrc) return;
-                
-                // S'assurer que l'image est préchargée
-                preloadImage(imageSrc).then((loadedImage) => {
-                    // L'image est déjà chargée en mémoire, maintenant on la charge dans le DOM
-                    // Charger la nouvelle image dans l'image "next"
-                    heroImageNext.src = imageSrc;
-                    heroImageNext.style.transform = 'scale(1.1)';
-                    
-                    // Attendre que l'image soit complètement chargée dans le DOM avant de commencer le crossfade
-                    const startCrossfade = () => {
-                        // S'assurer que l'image next est prête et invisible au départ
-                        heroImageNext.style.opacity = '0';
-                        
-                        // Utiliser requestAnimationFrame pour s'assurer que le navigateur a rendu l'image
-                        // Double RAF pour garantir que l'image est rendue
-                        requestAnimationFrame(() => {
-                            requestAnimationFrame(() => {
-                                // Démarrer le crossfade - l'image next devient visible pendant que current disparaît
-                                // Les deux images sont superposées, donc pas de fond bleu visible
-                                heroImageNext.classList.add('crossfade-in');
-                                heroImageCurrent.classList.add('crossfade-out');
-                            });
-                        });
-
-                        // Après la transition, échanger les rôles de manière synchrone
-                        // IMPORTANT: On garde next visible jusqu'à ce que current soit prête
-                        setTimeout(() => {
-                            // Copier l'image de next vers current (sans transition pour éviter le flicker)
-                            heroImageCurrent.style.transition = 'none';
-                            heroImageCurrent.src = imageSrc;
-                            heroImageCurrent.style.transform = 'scale(1)';
-                            heroImageCurrent.style.opacity = '1';
-                            heroImageCurrent.style.zIndex = '2';
-                            
-                            // Attendre que l'image current soit complètement chargée ET rendue avant de nettoyer next
-                            // Utiliser plusieurs RAF pour s'assurer que le navigateur a vraiment rendu l'image
-                            const finishTransition = () => {
-                                // Vérifier que current est chargée
-                                if (heroImageCurrent.complete && heroImageCurrent.naturalHeight > 0) {
-                                    // Forcer un reflow pour s'assurer que le navigateur a rendu
-                                    const height = heroImageCurrent.offsetHeight;
-                                    
-                                    // Attendre encore un frame pour être sûr que le rendu est fait
-                                    requestAnimationFrame(() => {
-                                        requestAnimationFrame(() => {
-                                            // Maintenant on peut nettoyer next en toute sécurité
-                                            // D'abord retirer les classes de transition
-                                            heroImageCurrent.classList.remove('crossfade-out');
-                                            heroImageNext.classList.remove('crossfade-in');
-                                            
-                                            // Ensuite nettoyer next (elle reste invisible donc pas de flicker)
-                                            heroImageNext.src = '';
-                                            heroImageNext.style.opacity = '0';
-                                            heroImageNext.style.transform = 'scale(1.1)';
-                                            heroImageNext.style.zIndex = '3';
-                                            
-                                            // Restaurer la transition de current
-                                            heroImageCurrent.style.transition = '';
-                                            
-                                            isTransitioning = false;
-                                        });
-                                    });
-                                } else {
-                                    // Réessayer au prochain frame
-                                    requestAnimationFrame(finishTransition);
-                                }
-                            };
-                            
-                            // Vérifier immédiatement si l'image est déjà chargée (elle devrait l'être car préchargée)
-                            if (heroImageCurrent.complete && heroImageCurrent.naturalHeight > 0) {
-                                // Triple RAF pour s'assurer que le rendu est fait
-                                requestAnimationFrame(() => {
-                                    requestAnimationFrame(() => {
-                                        requestAnimationFrame(finishTransition);
-                                    });
-                                });
-                            } else {
-                                // Attendre le chargement
-                                heroImageCurrent.addEventListener('load', () => {
-                                    requestAnimationFrame(() => {
-                                        requestAnimationFrame(() => {
-                                            requestAnimationFrame(finishTransition);
-                                        });
-                                    });
-                                }, { once: true });
-                                // Timeout de sécurité
-                                setTimeout(() => {
-                                    requestAnimationFrame(finishTransition);
-                                }, 200);
-                            }
-                        }, 800); // Durée du crossfade
-                    };
-                    
-                    // Vérifier si l'image est déjà chargée dans le DOM
-                    if (heroImageNext.complete && heroImageNext.naturalHeight > 0) {
-                        // L'image est déjà chargée, on peut commencer immédiatement
-                        startCrossfade();
-                    } else {
-                        // Attendre que l'image soit chargée
-                        const onLoadHandler = () => {
-                            heroImageNext.removeEventListener('load', onLoadHandler);
-                            startCrossfade();
-                        };
-                        heroImageNext.addEventListener('load', onLoadHandler);
-                        
-                        // En cas d'erreur, essayer quand même après un court délai
-                        heroImageNext.addEventListener('error', () => {
-                            setTimeout(startCrossfade, 100);
-                        });
-                    }
-                }).catch(() => {
-                    // En cas d'erreur de préchargement, essayer quand même
-                    heroImageNext.src = imageSrc;
-                    heroImageNext.style.transform = 'scale(1.1)';
-                    
-                    const startCrossfade = () => {
-                        heroImageNext.style.opacity = '0';
-                        requestAnimationFrame(() => {
-                            requestAnimationFrame(() => {
-                                heroImageNext.classList.add('crossfade-in');
-                                heroImageCurrent.classList.add('crossfade-out');
-                            });
-                        });
-                        
-                        setTimeout(() => {
-                            // Copier l'image de next vers current (sans transition pour éviter le flicker)
-                            heroImageCurrent.style.transition = 'none';
-                            heroImageCurrent.src = imageSrc;
-                            heroImageCurrent.style.transform = 'scale(1)';
-                            heroImageCurrent.style.opacity = '1';
-                            heroImageCurrent.style.zIndex = '2';
-                            
-                            // Attendre que l'image current soit complètement chargée ET rendue avant de nettoyer next
-                            // Utiliser plusieurs RAF pour s'assurer que le navigateur a vraiment rendu l'image
-                            const finishTransition = () => {
-                                // Vérifier que current est chargée
-                                if (heroImageCurrent.complete && heroImageCurrent.naturalHeight > 0) {
-                                    // Forcer un reflow pour s'assurer que le navigateur a rendu
-                                    const height = heroImageCurrent.offsetHeight;
-                                    
-                                    // Attendre encore un frame pour être sûr que le rendu est fait
-                                    requestAnimationFrame(() => {
-                                        requestAnimationFrame(() => {
-                                            // Maintenant on peut nettoyer next en toute sécurité
-                                            // D'abord retirer les classes de transition
-                                            heroImageCurrent.classList.remove('crossfade-out');
-                                            heroImageNext.classList.remove('crossfade-in');
-                                            
-                                            // Ensuite nettoyer next (elle reste invisible donc pas de flicker)
-                                            heroImageNext.src = '';
-                                            heroImageNext.style.opacity = '0';
-                                            heroImageNext.style.transform = 'scale(1.1)';
-                                            heroImageNext.style.zIndex = '3';
-                                            
-                                            // Restaurer la transition de current
-                                            heroImageCurrent.style.transition = '';
-                                            
-                                            isTransitioning = false;
-                                        });
-                                    });
-                                } else {
-                                    // Réessayer au prochain frame
-                                    requestAnimationFrame(finishTransition);
-                                }
-                            };
-                            
-                            // Vérifier immédiatement si l'image est déjà chargée (elle devrait l'être car préchargée)
-                            if (heroImageCurrent.complete && heroImageCurrent.naturalHeight > 0) {
-                                // Triple RAF pour s'assurer que le rendu est fait
-                                requestAnimationFrame(() => {
-                                    requestAnimationFrame(() => {
-                                        requestAnimationFrame(finishTransition);
-                                    });
-                                });
-                            } else {
-                                // Attendre le chargement
-                                heroImageCurrent.addEventListener('load', () => {
-                                    requestAnimationFrame(() => {
-                                        requestAnimationFrame(() => {
-                                            requestAnimationFrame(finishTransition);
-                                        });
-                                    });
-                                }, { once: true });
-                                // Timeout de sécurité
-                                setTimeout(() => {
-                                    requestAnimationFrame(finishTransition);
-                                }, 200);
-                            }
-                        }, 800);
-                    };
-                    
-                    if (heroImageNext.complete && heroImageNext.naturalHeight > 0) {
-                        startCrossfade();
-                    } else {
-                        heroImageNext.addEventListener('load', startCrossfade);
-                    }
-                });
-            }
-
-            // Fonction pour mettre à jour le slide
-            function updateSlide(slideIndex) {
-                if (slideIndex < 0 || slideIndex >= heroSlides.length || isTransitioning) return;
-                
-                isTransitioning = true;
-                currentSlideIndex = slideIndex;
-                const slide = heroSlides[slideIndex];
-                currentColorIndex = 0;
-
-                // Fade out du texte
-                heroTitle.classList.add('fade-out');
-                heroSubtitle.classList.add('fade-out');
-                heroColors.classList.add('fade-out');
-
-                // Attendre un peu avant de commencer le crossfade
-                setTimeout(() => {
-                    // Mettre à jour l'image avec crossfade
-                    if (slide.images.length > 0) {
-                        const firstImage = slide.images[0].image;
-                        crossfadeToImage(firstImage);
-                    }
-
-                    // Mettre à jour le texte après le début du crossfade
-                    setTimeout(() => {
-                        heroTitle.textContent = slide.title;
-                        heroSubtitle.textContent = slide.subtitle;
-                        
-                        // Fade in du texte
-                        heroTitle.classList.remove('fade-out');
-                        heroTitle.classList.add('fade-in');
-                        heroSubtitle.classList.remove('fade-out');
-                        heroSubtitle.classList.add('fade-in');
-                        
-                        // Retirer fade-in après l'animation
-                        setTimeout(() => {
-                            heroTitle.classList.remove('fade-in');
-                            heroSubtitle.classList.remove('fade-in');
-                        }, 600);
-                    }, 200);
-
-                    // Générer les pastilles de couleurs
-                    heroColors.innerHTML = '';
-                    slide.images.forEach((colorData, index) => {
-                        const swatch = document.createElement('button');
-                        swatch.className = 'dressing-hero-color-swatch';
-                        swatch.style.backgroundColor = colorData.color;
-                        swatch.setAttribute('aria-label', colorData.label);
-                        swatch.setAttribute('data-image', colorData.image);
-                        swatch.setAttribute('data-index', index);
-                        if (index === 0) {
-                            swatch.classList.add('active');
-                        }
-                        heroColors.appendChild(swatch);
-                    });
-
-                    // Fade in des pastilles
-                    setTimeout(() => {
-                        heroColors.classList.remove('fade-out');
-                        heroColors.classList.add('fade-in');
-                        
-                        // Retirer fade-in après l'animation
-                        setTimeout(() => {
-                            heroColors.classList.remove('fade-in');
-                        }, 600);
-                    }, 300);
-
-                    // Attacher les événements aux nouvelles pastilles
-                    attachColorSwatchEvents();
-                }, 100);
-            }
-
-            // Fonction pour changer l'image avec crossfade (pour les pastilles)
-            function changeHeroImage(imageSrc, useCrossfade = false) {
-                if (!imageSrc || isTransitioning) return;
-                
-                if (useCrossfade) {
-                    isTransitioning = true;
-                    crossfadeToImage(imageSrc);
-                } else {
-                    // Changement direct (pour hover)
-                    preloadImage(imageSrc).then(() => {
-                        heroImageCurrent.src = imageSrc;
-                    }).catch(() => {
-                        heroImageCurrent.src = imageSrc;
-                    });
-                }
-            }
-
-            // Fonction pour attacher les événements aux pastilles de couleurs
-            function attachColorSwatchEvents() {
-                const heroColorSwatches = document.querySelectorAll('.dressing-hero-color-swatch');
-                
-                heroColorSwatches.forEach(swatch => {
-                    // Changement d'image direct au hover sur pastille (uniquement sur desktop)
-                    if (!isMobile) {
-                        swatch.addEventListener('mouseenter', () => {
-                            const imageSrc = swatch.getAttribute('data-image');
-                            changeHeroImage(imageSrc);
-                        });
-                    }
-                    
-                    // Gestion du click (feedback visuel)
-                    swatch.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        // Retirer la classe active de toutes les pastilles
-                        heroColorSwatches.forEach(s => s.classList.remove('active'));
-                        // Ajouter la classe active à la pastille cliquée
-                        swatch.classList.add('active');
-                        // Mettre à jour l'index de couleur
-                        currentColorIndex = parseInt(swatch.getAttribute('data-index'));
-                        // Changer l'image au click avec crossfade
-                        const imageSrc = swatch.getAttribute('data-image');
-                        changeHeroImage(imageSrc, true);
-                    });
-                });
-            }
-
-            // Navigation précédent
-            navPrev.addEventListener('click', () => {
-                if (isTransitioning) return;
-                const newIndex = currentSlideIndex > 0 ? currentSlideIndex - 1 : heroSlides.length - 1;
-                updateSlide(newIndex);
-            });
-
-            // Navigation suivant
-            navNext.addEventListener('click', () => {
-                if (isTransitioning) return;
-                const newIndex = currentSlideIndex < heroSlides.length - 1 ? currentSlideIndex + 1 : 0;
-                updateSlide(newIndex);
-            });
-
-            // Initialiser : précharger toutes les images puis afficher le premier slide
-            preloadAllImages();
-            
-            // Initialiser le premier slide sans transition
-            if (heroSlides.length > 0 && heroSlides[0].images.length > 0) {
-                const firstSlide = heroSlides[0];
-                const firstImage = firstSlide.images[0].image;
-                
-                preloadImage(firstImage).then(() => {
-                    heroImageCurrent.src = firstImage;
-                    heroImageCurrent.classList.add('initialized');
-                    
-                    // Initialiser le contenu texte
-                    heroTitle.textContent = firstSlide.title;
-                    heroSubtitle.textContent = firstSlide.subtitle;
-                    
-                    // Générer les pastilles de couleurs
-                    heroColors.innerHTML = '';
-                    firstSlide.images.forEach((colorData, index) => {
-                        const swatch = document.createElement('button');
-                        swatch.className = 'dressing-hero-color-swatch';
-                        swatch.style.backgroundColor = colorData.color;
-                        swatch.setAttribute('aria-label', colorData.label);
-                        swatch.setAttribute('data-image', colorData.image);
-                        swatch.setAttribute('data-index', index);
-                        if (index === 0) {
-                            swatch.classList.add('active');
-                        }
-                        heroColors.appendChild(swatch);
-                    });
-                    
-                    // Attacher les événements aux pastilles
-                    attachColorSwatchEvents();
-                    
-                    setTimeout(() => {
-                        isInitialized = true;
-                        isTransitioning = false;
-                    }, 2000);
-                }).catch(() => {
-                    heroImageCurrent.src = firstImage;
-                    heroImageCurrent.classList.add('initialized');
-                    
-                    // Initialiser le contenu texte même en cas d'erreur
-                    heroTitle.textContent = firstSlide.title;
-                    heroSubtitle.textContent = firstSlide.subtitle;
-                    
-                    // Générer les pastilles de couleurs
-                    heroColors.innerHTML = '';
-                    firstSlide.images.forEach((colorData, index) => {
-                        const swatch = document.createElement('button');
-                        swatch.className = 'dressing-hero-color-swatch';
-                        swatch.style.backgroundColor = colorData.color;
-                        swatch.setAttribute('aria-label', colorData.label);
-                        swatch.setAttribute('data-image', colorData.image);
-                        swatch.setAttribute('data-index', index);
-                        if (index === 0) {
-                            swatch.classList.add('active');
-                        }
-                        heroColors.appendChild(swatch);
-                    });
-                    
-                    // Attacher les événements aux pastilles
-                    attachColorSwatchEvents();
-                    
-                    setTimeout(() => {
-                        isInitialized = true;
-                        isTransitioning = false;
-                    }, 2000);
-                });
-            }
-        });
 
         // Gestion simplifiée du hover sur les dropdowns
         const navbar = document.querySelector('.navbar');
         const dropdownItems = document.querySelectorAll('.nav-item-dropdown');
-        const isMobile = window.innerWidth <= 768;
         
-        if (navbar && dropdownItems.length > 0 && !isMobile) {
+        if (navbar && dropdownItems.length > 0) {
             let closeTimeout = null;
             let currentHoveredItem = null;
             
@@ -1029,6 +527,7 @@
                 }
                 
                 dropdownItem.classList.add('is-hovered');
+                    // Sur la page dressing, la navbar reste toujours blanche
                 navbar.classList.add('navbar-white');
                 navbar.classList.add('navbar-has-hover');
                 currentHoveredItem = dropdownItem;
@@ -1045,8 +544,10 @@
                         currentHoveredItem = null;
                     }
                     
-                    navbar.classList.remove('navbar-white');
-                    navbar.classList.remove('navbar-has-hover');
+                    // Sur la page dressing, on garde toujours navbar-white et navbar-has-hover
+                    // Ne pas retirer ces classes pour garder la navbar blanche par défaut
+                    // navbar.classList.remove('navbar-white');
+                    // navbar.classList.remove('navbar-has-hover');
                     closeTimeout = null;
                 }, 100);
             };
@@ -1206,6 +707,104 @@
                         }
                     }
                 });
+            });
+        });
+
+        // Gestion du bloc styler avec rotation automatique
+        document.addEventListener('DOMContentLoaded', () => {
+            const stylerSection = document.querySelector('.styler-section');
+            if (!stylerSection) return;
+
+            const image = document.getElementById('stylerSectionImage');
+            const swatches = stylerSection.querySelectorAll('.styler-section-swatch');
+            
+            if (!image || swatches.length === 0) return;
+
+            let currentIndex = 0;
+            let autoRotateInterval = null;
+            let isUserInteracting = false;
+
+            // Fonction pour changer l'image et la pastille active
+            function switchToIndex(index) {
+                if (index < 0 || index >= swatches.length) return;
+
+                // Retirer la classe active de toutes les pastilles
+                swatches.forEach(swatch => swatch.classList.remove('active'));
+
+                // Ajouter la classe active à la pastille sélectionnée
+                const activeSwatch = swatches[index];
+                activeSwatch.classList.add('active');
+
+                // Changer l'image avec transition
+                const imageSrc = activeSwatch.getAttribute('data-image');
+                if (imageSrc) {
+                    image.style.opacity = '0';
+                    setTimeout(() => {
+                        image.src = imageSrc;
+                        image.style.opacity = '1';
+                    }, 300);
+                }
+
+                currentIndex = index;
+            }
+
+            // Fonction pour passer à la suivante
+            function nextSwatch() {
+                if (isUserInteracting) return;
+                const nextIndex = (currentIndex + 1) % swatches.length;
+                switchToIndex(nextIndex);
+            }
+
+            // Démarrer la rotation automatique
+            function startAutoRotate() {
+                if (autoRotateInterval) return;
+                autoRotateInterval = setInterval(nextSwatch, 2000); // 2 secondes
+            }
+
+            // Arrêter la rotation automatique
+            function stopAutoRotate() {
+                if (autoRotateInterval) {
+                    clearInterval(autoRotateInterval);
+                    autoRotateInterval = null;
+                }
+            }
+
+            // Gestion du clic sur les pastilles
+            swatches.forEach((swatch, index) => {
+                swatch.addEventListener('click', () => {
+                    isUserInteracting = true;
+                    switchToIndex(index);
+                    stopAutoRotate();
+                    // Reprendre après 5 secondes d'inactivité
+                    setTimeout(() => {
+                        isUserInteracting = false;
+                        startAutoRotate();
+                    }, 5000);
+                });
+
+                swatch.addEventListener('mouseenter', () => {
+                    isUserInteracting = true;
+                    stopAutoRotate();
+                });
+
+                swatch.addEventListener('mouseleave', () => {
+                    isUserInteracting = false;
+                    startAutoRotate();
+                });
+            });
+
+            // Démarrer la rotation automatique au chargement
+            startAutoRotate();
+
+            // Pause au survol de la section
+            stylerSection.addEventListener('mouseenter', () => {
+                stopAutoRotate();
+            });
+
+            stylerSection.addEventListener('mouseleave', () => {
+                if (!isUserInteracting) {
+                    startAutoRotate();
+                }
             });
         });
     </script>
