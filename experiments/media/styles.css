@@ -341,6 +341,23 @@ body.media-transition.animation-complete::after {
   object-fit: cover;
 }
 
+/* Trio container pour les 3 derniers articles */
+.trio-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.trio-container .article-card {
+  flex: 1;
+  width: calc(33.333% - 7px);
+  min-width: 0;
+  display: block;
+  margin-bottom: 0;
+}
+
 .article-link {
   display: flex;
   flex-direction: column;
@@ -504,6 +521,15 @@ body.media-transition.animation-complete::after {
 
   .article-title {
     font-size: var(--font-size-l); /* 16px - L du DS */
+  }
+
+  .trio-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .trio-container .article-card {
+    width: 100%;
   }
 }
 

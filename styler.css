@@ -92,10 +92,16 @@
     object-fit: cover;
     object-position: center;
     display: block;
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: none; /* Pas de transition pour éviter l'écran noir */
     transform: scale(1);
     transform-origin: center center;
     opacity: 1;
+    /* Empêcher le flash noir lors du changement d'image */
+    background-color: transparent;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .styler-item:hover .styler-image {
@@ -104,7 +110,7 @@
 
 /* Pas de zoom sur les items - le changement d'image via pastilles gère la transition */
 .styler-item .styler-image {
-    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Seulement opacity, pas de transform */
+    transition: none; /* Pas de transition pour éviter l'écran noir lors du changement d'image */
     transform: scale(1); /* Pas de zoom */
 }
 

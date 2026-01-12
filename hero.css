@@ -534,6 +534,7 @@ a.hero-btn.hero-btn-ghost * {
 .styler-section {
   width: 100%;
   padding: 0;
+  margin-bottom: 0;
   background-color: var(--color-grey-4);
 }
 
@@ -552,7 +553,7 @@ a.hero-btn.hero-btn-ghost * {
   width: 100%;
   height: 640px;
   overflow: hidden;
-  background-color: var(--color-grey-4);
+  background-color: #000; /* Fond noir pour éviter le flash gris pendant le cross-fade */
   position: relative;
 }
 
@@ -562,8 +563,17 @@ a.hero-btn.hero-btn-ghost * {
   object-fit: cover;
   object-position: center;
   display: block;
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.1s ease;
+}
+
+.styler-section-img-1 {
+  position: relative;
   opacity: 1;
+  z-index: 1;
+}
+
+.styler-section-img-2 {
+  display: none;
 }
 
 /* Overlay pour mobile - masqué sur desktop */
@@ -708,64 +718,94 @@ a.hero-btn.hero-btn-ghost * {
     padding: 0;
     grid-template-columns: 1fr;
     gap: 0;
-    height: 375px;
+    height: 400px;
   }
 
   .styler-section-image {
     width: 100%;
-    height: 375px;
+    height: 400px;
     aspect-ratio: auto;
     order: 1;
+    position: relative !important; /* Nécessaire pour positionner l'overlay */
+    z-index: 1;
+  }
+
+  .styler-section-img {
+    position: relative;
+    z-index: 1; /* En dessous de l'overlay */
   }
 
   /* Afficher l'overlay sur mobile */
   .styler-section-overlay {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
     padding: var(--spacing-lg);
-    z-index: 2;
+    z-index: 10 !important; /* Augmenter le z-index pour être sûr qu'il soit au-dessus */
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .styler-section-title {
-    position: absolute;
-    top: var(--spacing-lg);
-    left: var(--spacing-lg);
-    color: var(--color-white);
+    display: block !important;
+    position: absolute !important;
+    top: var(--spacing-lg) !important;
+    left: var(--spacing-lg) !important;
+    color: var(--color-white) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 11 !important; /* Au-dessus de l'overlay */
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .styler-section-content-mobile {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
     gap: var(--spacing-xs);
-    position: absolute;
-    bottom: var(--spacing-lg);
-    left: var(--spacing-lg);
+    position: absolute !important;
+    bottom: var(--spacing-lg) !important;
+    left: var(--spacing-lg) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 11 !important; /* Au-dessus de l'overlay */
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .styler-section-name-mobile {
-    font-family: var(--font-heading, 'Blacklist', sans-serif);
-    font-size: var(--font-size-h3); /* 42px */
-    font-weight: 400;
-    line-height: var(--line-height-h3); /* 120% */
-    letter-spacing: -0.02em;
-    color: var(--color-white);
-    margin: 0;
+    display: block !important;
+    font-family: var(--font-heading, 'Blacklist', sans-serif) !important;
+    font-size: var(--font-size-h3) !important; /* 42px */
+    font-weight: 400 !important;
+    line-height: var(--line-height-h3) !important; /* 120% */
+    letter-spacing: -0.02em !important;
+    color: var(--color-white) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 12 !important;
   }
 
   .styler-section-description-mobile {
-    font-family: var(--font-primary, 'Cera Pro', sans-serif);
-    font-size: var(--font-size-m); /* 14px */
-    font-weight: 400;
-    line-height: var(--line-height-body); /* 140% */
-    letter-spacing: var(--letter-spacing-body); /* -0.5px */
-    color: var(--color-white);
-    margin: 0;
+    display: block !important;
+    font-family: var(--font-primary, 'Cera Pro', sans-serif) !important;
+    font-size: var(--font-size-m) !important; /* 14px */
+    font-weight: 400 !important;
+    line-height: var(--line-height-body) !important; /* 140% */
+    letter-spacing: var(--letter-spacing-body) !important; /* -0.5px */
+    color: var(--color-white) !important;
+    margin: 0 !important;
+    padding: 0 !important;
     max-width: 500px;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 12 !important;
   }
 
   .styler-section-link-mobile {
@@ -827,6 +867,121 @@ a.hero-btn.hero-btn-ghost * {
 
   /* Masquer le contenu desktop sur mobile */
   .styler-section-content {
+    display: none;
+  }
+}
+
+/* Mobile uniquement - Style selon l'image de référence */
+@media (max-width: 480px) {
+  .styler-section-container {
+    height: 400px;
+  }
+
+  .styler-section-image {
+    height: 400px;
+    position: relative !important; /* Nécessaire pour positionner l'overlay */
+    z-index: 1;
+  }
+
+  .styler-section-img {
+    object-fit: cover;
+    position: relative;
+    z-index: 1; /* En dessous de l'overlay */
+  }
+
+  /* Overlay avec gradient léger pour améliorer la lisibilité */
+  .styler-section-overlay {
+    display: flex !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    z-index: 10 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* "STYLER 3D" en haut à gauche */
+  .styler-section-title {
+    display: block !important;
+    position: absolute !important;
+    top: var(--spacing-xl) !important;
+    left: var(--spacing-lg) !important;
+    font-size: var(--font-size-alt-3) !important; /* 12px */
+    color: var(--color-white) !important;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-alt); /* 0.05em */
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 11 !important; /* Au-dessus de l'overlay */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Contenu mobile en bas à gauche */
+  .styler-section-content-mobile {
+    display: flex !important;
+    flex-direction: column !important;
+    position: absolute !important;
+    bottom: var(--spacing-xl) !important;
+    left: var(--spacing-lg) !important;
+    right: var(--spacing-lg) !important;
+    gap: var(--spacing-sm);
+    max-width: 85%;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 11 !important; /* Au-dessus de l'overlay */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* "Classic" - grand texte blanc */
+  .styler-section-name-mobile {
+    display: block !important;
+    font-family: var(--font-heading, 'Blacklist', sans-serif) !important;
+    font-size: var(--font-size-h2) !important; /* 54px */
+    line-height: var(--line-height-h2) !important; /* 120% */
+    color: var(--color-white) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 12 !important;
+  }
+
+  /* Description */
+  .styler-section-description-mobile {
+    display: block !important;
+    font-family: var(--font-primary, 'Cera Pro', sans-serif) !important;
+    font-size: var(--font-size-m) !important; /* 14px */
+    line-height: var(--line-height-body) !important; /* 140% */
+    color: var(--color-white) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 12 !important;
+  }
+
+  /* Bouton PERSONNALISER avec flèche */
+  .styler-section-link-mobile {
+    margin-top: var(--spacing-xs);
+    color: var(--color-white);
+    font-size: var(--font-size-alt-1); /* 16px */
+    letter-spacing: var(--letter-spacing-alt); /* 0.05em */
+    text-transform: uppercase;
+  }
+
+  .styler-section-link-mobile svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Cacher les pastilles de couleur sur mobile */
+  .styler-section-colors-mobile {
     display: none;
   }
 }

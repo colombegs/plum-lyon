@@ -503,3 +503,63 @@ body {
 /* ============================================
    RESPONSIVE
    ============================================ */
+
+/* Mobile - Vidéo pleine hauteur comme les articles (image + titre/description) */
+@media (max-width: 600px) {
+    .poseur-card {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .poseur-card-header {
+        position: relative;
+        width: 100%;
+        /* Hauteur équivalente à un article avec image + titre/description sur mobile */
+        /* Les articles ont généralement une hauteur naturelle, on utilise aspect-ratio pour correspondre */
+        aspect-ratio: 3 / 4;
+        min-height: 450px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    
+    .poseur-card-image,
+    .poseur-card-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* Assurer que la vidéo prend toute la hauteur du header */
+    .poseur-card-video {
+        height: 100% !important;
+        min-height: 100% !important;
+        max-height: 100% !important;
+        width: 100% !important;
+    }
+    
+    .poseur-card-content {
+        padding: var(--spacing-lg);
+        position: relative;
+        z-index: 2;
+        width: 100%;
+    }
+    
+    .poseur-card-name {
+        font-size: var(--font-size-h5);
+        line-height: var(--line-height-h5);
+    }
+    
+    .poseur-card-contact {
+        font-size: var(--font-size-s);
+    }
+    
+    .poseur-card-description {
+        font-size: var(--font-size-m);
+    }
+}

@@ -544,7 +544,8 @@
     <section class="styler-section">
         <div class="styler-section-container">
             <div class="styler-section-image">
-                <img src="images/styler/1.jpg" alt="Styler 3D" class="styler-section-img" id="stylerSectionImage">
+                <img src="images/styler/1.jpg" alt="Styler 3D" class="styler-section-img styler-section-img-1" id="stylerSectionImage1">
+                <img src="images/styler/1.jpg" alt="Styler 3D" class="styler-section-img styler-section-img-2" id="stylerSectionImage2">
                 <!-- Overlay pour mobile uniquement -->
                 <div class="styler-section-overlay">
                     <h3 class="styler-section-title">STYLER 3D</h3>
@@ -822,21 +823,23 @@
         })();
     </script>
     <script>
-        // Gestion du bloc styler avec rotation automatique
+        // Gestion du bloc styler avec rotation automatique et cross-fade
         document.addEventListener('DOMContentLoaded', () => {
             const stylerSection = document.querySelector('.styler-section');
             if (!stylerSection) return;
 
-            const image = document.getElementById('stylerSectionImage');
+            const image1 = document.getElementById('stylerSectionImage1');
+            const image2 = document.getElementById('stylerSectionImage2');
             const swatches = stylerSection.querySelectorAll('.styler-section-swatch');
             
-            if (!image || swatches.length === 0) return;
+            if (!image1 || !image2 || swatches.length === 0) return;
 
             let currentIndex = 0;
             let autoRotateInterval = null;
             let isUserInteracting = false;
+            let isImage1Active = true; // Pour alterner entre les deux images
 
-            // Fonction pour changer l'image et la pastille active
+            // Fonction pour changer l'image avec transition rapide
             function switchToIndex(index) {
                 if (index < 0 || index >= swatches.length) return;
 
@@ -847,14 +850,11 @@
                 const activeSwatch = swatches[index];
                 activeSwatch.classList.add('active');
 
-                // Changer l'image avec transition
+                // Changer l'image directement avec transition rapide
                 const imageSrc = activeSwatch.getAttribute('data-image');
                 if (imageSrc) {
-                    image.style.opacity = '0';
-                    setTimeout(() => {
-                        image.src = imageSrc;
-                        image.style.opacity = '1';
-                    }, 300);
+                    // Utiliser image1 comme image principale
+                    image1.src = imageSrc;
                 }
 
                 currentIndex = index;

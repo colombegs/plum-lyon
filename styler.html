@@ -493,6 +493,67 @@
         document.addEventListener('DOMContentLoaded', () => {
             const colorSwatches = document.querySelectorAll('.color-swatch');
             
+            // Map pour stocker les images préchargées
+            const preloadedImages = new Map();
+            
+            // Fonction pour précharger une image
+            const preloadImage = (src) => {
+                if (preloadedImages.has(src)) {
+                    // #region agent log
+                    fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:preloadImage',message:'Image already preloaded',data:{src:src},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                    // #endregion
+                    return Promise.resolve(preloadedImages.get(src));
+                }
+                
+                // #region agent log
+                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:preloadImage',message:'Starting preload',data:{src:src},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                // #endregion
+                
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    const startTime = Date.now();
+                    img.onload = () => {
+                        const loadTime = Date.now() - startTime;
+                        preloadedImages.set(src, img);
+                        // #region agent log
+                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:preloadImage:onload',message:'Preload success',data:{src:src,loadTime:loadTime,complete:img.complete,naturalWidth:img.naturalWidth,naturalHeight:img.naturalHeight},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                        // #endregion
+                        resolve(img);
+                    };
+                    img.onerror = () => {
+                        // #region agent log
+                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:preloadImage:onerror',message:'Preload failed',data:{src:src},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                        // #endregion
+                        reject(new Error(`Failed to load image: ${src}`));
+                    };
+                    img.src = src;
+                });
+            };
+            
+            // Précharger toutes les images des pastilles
+            const preloadStartTime = Date.now();
+            let preloadCount = 0;
+            colorSwatches.forEach(swatch => {
+                const imageSrc = swatch.getAttribute('data-image');
+                if (imageSrc) {
+                    preloadCount++;
+                    preloadImage(imageSrc).then(() => {
+                        preloadCount--;
+                        if (preloadCount === 0) {
+                            // #region agent log
+                            fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:preloadAll',message:'All preloads complete',data:{totalTime:Date.now()-preloadStartTime,preloadedCount:preloadedImages.size},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                            // #endregion
+                        }
+                    }).catch(() => {
+                        preloadCount--;
+                        // Silently fail - image will load on demand
+                    });
+                }
+            });
+            
+            // Détecter si on est sur un appareil tactile
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            
             colorSwatches.forEach(swatch => {
                 // Trouver l'image associée à cette pastille (dans le même styler-item)
                 const stylerItem = swatch.closest('.styler-item');
@@ -506,22 +567,103 @@
                     image.dataset.defaultSrc = image.src;
                 }
                 
-                // Changement d'image direct au hover sur pastille
-                swatch.addEventListener('mouseenter', (e) => {
-                    e.stopPropagation();
-                    const imageSrc = swatch.getAttribute('data-image');
-                    if (imageSrc && image) {
-                        image.src = imageSrc;
-                    }
-                });
+                // Flag pour éviter les doubles déclenchements sur mobile
+                let isTouching = false;
+                let touchTimeout = null;
                 
-                // Retour à l'image par défaut quand on quitte la pastille
-                swatch.addEventListener('mouseleave', (e) => {
-                    e.stopPropagation();
-                    if (image && image.dataset.defaultSrc) {
-                        image.src = image.dataset.defaultSrc;
+                // Fonction pour changer l'image de manière fluide
+                const changeImage = (newSrc) => {
+                    if (!newSrc || newSrc === image.src) return;
+                    
+                    const oldSrc = image.src;
+                    const changeStartTime = Date.now();
+                    
+                    // Vérifier si l'image est déjà préchargée et complètement chargée
+                    const preloadedImg = preloadedImages.get(newSrc);
+                    const hasPreloaded = !!preloadedImg;
+                    const isComplete = preloadedImg && preloadedImg.complete;
+                    const hasDimensions = preloadedImg && preloadedImg.naturalWidth > 0;
+                    
+                    // #region agent log
+                    fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImage',message:'Change image called',data:{oldSrc:oldSrc,newSrc:newSrc,hasPreloaded:hasPreloaded,isComplete:isComplete,hasDimensions:hasDimensions,preloadedCount:preloadedImages.size},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+                    // #endregion
+                    
+                    if (preloadedImg && preloadedImg.complete && preloadedImg.naturalWidth > 0) {
+                        // Image déjà chargée et valide, changer immédiatement
+                        image.src = newSrc;
+                        // #region agent log
+                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImage',message:'Changed src immediately (preloaded)',data:{newSrc:newSrc,changeTime:Date.now()-changeStartTime},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+                        // #endregion
+                    } else {
+                        // Image pas encore préchargée ou pas complète, essayer de la précharger
+                        // mais changer quand même (le navigateur la chargera, et le préchargement aidera)
+                        // #region agent log
+                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImage',message:'Changing without preloaded image',data:{newSrc:newSrc,hasPreloaded:hasPreloaded,isComplete:isComplete},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
+                        // #endregion
+                        preloadImage(newSrc).catch(() => {
+                            // Ignorer les erreurs de préchargement
+                        });
+                        // Changer l'image - si elle est préchargée elle sera instantanée,
+                        // sinon le navigateur la chargera (mais le préchargement devrait avoir aidé)
+                        image.src = newSrc;
+                        // #region agent log
+                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImage',message:'Changed src (not preloaded)',data:{newSrc:newSrc,changeTime:Date.now()-changeStartTime},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
+                        // #endregion
                     }
-                });
+                    
+                    // Vérifier l'état de l'image après changement
+                    setTimeout(() => {
+                        // #region agent log
+                        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'styler.html:changeImage:after',message:'Image state after change',data:{currentSrc:image.src,complete:image.complete,naturalWidth:image.naturalWidth,naturalHeight:image.naturalHeight,timeSinceChange:Date.now()-changeStartTime},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
+                        // #endregion
+                    }, 10);
+                };
+                
+                // Changement d'image au hover sur pastille (désactivé sur mobile)
+                if (!isTouchDevice) {
+                    swatch.addEventListener('mouseenter', (e) => {
+                        e.stopPropagation();
+                        const imageSrc = swatch.getAttribute('data-image');
+                        if (imageSrc) {
+                            changeImage(imageSrc);
+                        }
+                    });
+                    
+                    // Retour à l'image par défaut quand on quitte la pastille
+                    swatch.addEventListener('mouseleave', (e) => {
+                        e.stopPropagation();
+                        if (image && image.dataset.defaultSrc) {
+                            changeImage(image.dataset.defaultSrc);
+                        }
+                    });
+                }
+                
+                // Gestion du touch pour mobile
+                swatch.addEventListener('touchstart', (e) => {
+                    e.stopPropagation();
+                    isTouching = true;
+                    const imageSrc = swatch.getAttribute('data-image');
+                    if (imageSrc) {
+                        changeImage(imageSrc);
+                        // Annuler le timeout précédent si existe
+                        if (touchTimeout) {
+                            clearTimeout(touchTimeout);
+                            touchTimeout = null;
+                        }
+                    }
+                }, { passive: true });
+                
+                swatch.addEventListener('touchend', (e) => {
+                    e.stopPropagation();
+                    isTouching = false;
+                    // Retour à l'image par défaut après un délai
+                    touchTimeout = setTimeout(() => {
+                        if (image && image.dataset.defaultSrc && !isTouching) {
+                            changeImage(image.dataset.defaultSrc);
+                        }
+                        touchTimeout = null;
+                    }, 800);
+                }, { passive: true });
                 
                 // Gestion du click (feedback visuel)
                 swatch.addEventListener('click', (e) => {

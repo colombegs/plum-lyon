@@ -102,7 +102,7 @@ body .navbar {
 
 /* Bloc de contenu sous l'image - visible sur desktop et mobile */
 .dressing-content-mobile {
-    display: none; /* Temporairement caché */
+    display: none; /* Caché sur desktop, affiché sur mobile */
     flex-direction: column;
     gap: 2px;
     padding: var(--spacing-md) 0 0 0;
@@ -143,9 +143,11 @@ body .navbar {
     display: none;
 }
 
-/* Cacher le contenu mobile pour les éléments vidéo */
-.dressing-item-video .dressing-content-mobile {
-    display: none;
+/* Sur mobile, afficher le contenu sous la vidéo pour qu'elle ait la même hauteur que les articles */
+@media (max-width: 480px) {
+    .dressing-item-video .dressing-content-mobile {
+        display: flex !important; /* Afficher sur mobile pour que la vidéo ait la même hauteur totale */
+    }
 }
 
 .dressing-item:hover {
@@ -272,9 +274,9 @@ body .navbar {
     opacity: 1;
 }
 
-/* Cacher l'overlay (titre et description) pour les éléments vidéo */
-.dressing-item-video:hover .dressing-overlay {
-    opacity: 0;
+/* Pas d'overlay pour les éléments vidéo - supprimé du HTML */
+.dressing-item-video .dressing-overlay {
+    display: none;
 }
 
 .dressing-content {
@@ -454,7 +456,8 @@ body .navbar {
    ============================================ */
 
 /* Tablette - Grid avec trio reste en 6 colonnes mais items trio passent à 3 colonnes */
-@media (max-width: 1024px) {
+/* À 500px et au-dessus, les items trio restent sur une seule ligne (span 2) */
+@media (max-width: 500px) {
     .dressing-grid-with-trio .dressing-item-trio {
         grid-column: span 3; /* Repasse à 2 colonnes visuelles */
     }
@@ -501,7 +504,7 @@ body .navbar {
     }
 
     .dressing-container {
-        padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-md) var(--spacing-sm); /* Plus d'espace en haut, moins en bas */
+        padding: var(--spacing-xl) 0 var(--spacing-md) 0; /* Plus d'espace en haut, moins en bas - pas de padding horizontal sur mobile */
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
@@ -541,9 +544,9 @@ body .navbar {
         grid-column: 1 / -1; /* Prend toute la largeur (2 colonnes) */
     }
 
-    /* Article 6 en full width sur mobile */
+    /* Cacher l'item 5 (Nest by Papermint) sur mobile */
     .dressing-grid .dressing-item:nth-child(5) {
-        grid-column: 1 / -1; /* Prend toute la largeur (2 colonnes) */
+        display: none !important;
     }
 
     /* Sur mobile, les items contiennent l'image + texte en dessous */
@@ -579,15 +582,29 @@ body .navbar {
         object-fit: cover;
         display: block;
     }
+    
+    /* Assurer que la vidéo prend toute la hauteur du wrapper comme les images */
+    .dressing-item-video .dressing-image-wrapper {
+        aspect-ratio: 3 / 4; /* Même ratio que les images */
+    }
+    
+    .dressing-item-video .dressing-video {
+        height: 100% !important;
+        width: 100% !important;
+        object-fit: cover;
+    }
 
     /* Cacher l'overlay sur mobile */
     .dressing-overlay {
         display: none !important;
     }
 
-    /* Sur mobile, ajuster le padding du bloc de texte */
+    /* Sur mobile, afficher et ajuster le padding du bloc de texte */
     .dressing-content-mobile {
-        padding: var(--spacing-xs) 0 0 0;
+        display: flex !important; /* Afficher sur mobile */
+        padding: var(--spacing-xs) 10px 0 10px;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
 
@@ -651,7 +668,7 @@ body .navbar {
 /* Petit mobile */
 @media (max-width: 480px) {
     .dressing-container {
-        padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-md) var(--spacing-sm);
+        padding: var(--spacing-xl) 0 var(--spacing-md) 0; /* Pas de padding horizontal sur mobile */
         max-width: 100vw;
         box-sizing: border-box;
         overflow-x: hidden;
@@ -709,7 +726,8 @@ body .navbar {
    ============================================ */
 
 .dressing-container .styler-section {
-    margin: 30px 0;
+    margin-top: 30px;
+    margin-bottom: 0;
 }
 
 .dressing-container .styler-section-container {
