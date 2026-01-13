@@ -71,7 +71,7 @@
                                 <div class="dropdown-column">
                                     <div class="dropdown-section-title">Je commence</div>
                                     <a href="#" class="dropdown-link">Échantillons</a>
-                                    <a href="#" class="dropdown-link">Créer mon projet</a>
+                                    <a href="#" class="dropdown-link">Estimation et devis</a>
                                     <a href="#" class="dropdown-link">Prendre rendez-vous</a>
                                     <a href="#" class="dropdown-link">Club Pro</a>
                                 </div>
@@ -115,7 +115,7 @@
                                     <div class="dropdown-section-title">OUTILS & SERVICES</div>
                                     <a href="styler.html" class="dropdown-link">Styler 3D</a>
                                     <a href="#" class="dropdown-link">Estimation en 2min</a>
-                                    <a href="#" class="dropdown-link">Créer mon projet</a>
+                                    <a href="#" class="dropdown-link">Estimation et devis</a>
                                     <a href="#" class="dropdown-link">Prendre rendez-vous</a>
                                 </div>
                                 <div class="dropdown-column">
@@ -161,7 +161,6 @@
                                     <div class="dropdown-section-title">INSPIRATION</div>
                                     <a href="plumwall.html" class="dropdown-link">Gallerie projets</a>
                                     <a href="dressing.html" class="dropdown-link">Dressings</a>
-                                    <a href="#" class="dropdown-link">Ponts de lit</a>
                                     <a href="#" class="dropdown-link">Banquettes</a>
                                     <a href="#" class="dropdown-link">Buffets & Rangements</a>
                                     <a href="#" class="dropdown-link">Salle de bain</a>
@@ -171,7 +170,7 @@
                                 <div class="dropdown-column">
                                     <div class="dropdown-section-title">OUTILS & SERVICES</div>
                                     <a href="styler.html" class="dropdown-link">Styler 3D</a>
-                                    <a href="#" class="dropdown-link">Créer mon projet</a>
+                                    <a href="#" class="dropdown-link">Estimation et devis</a>
                                     <a href="#" class="dropdown-link">Prendre rendez-vous</a>
                                 </div>
                                 <div class="dropdown-column">
@@ -425,9 +424,6 @@
                                     <a href="dressing.html" class="mobile-menu-link">Dressings</a>
                                 </li>
                                 <li class="mobile-menu-item">
-                                    <a href="#" class="mobile-menu-link">Ponts de lit</a>
-                                </li>
-                                <li class="mobile-menu-item">
                                     <a href="#" class="mobile-menu-link">Banquettes</a>
                                 </li>
                                 <li class="mobile-menu-item">
@@ -451,7 +447,7 @@
                                     <a href="styler.html" class="mobile-menu-link">Styler 3D</a>
                                 </li>
                                 <li class="mobile-menu-item">
-                                    <a href="#" class="mobile-menu-link">Créer mon projet</a>
+                                    <a href="#" class="mobile-menu-link">Estimation et devis</a>
                                 </li>
                                 <li class="mobile-menu-item">
                                     <a href="#" class="mobile-menu-link">Prendre rendez-vous</a>
@@ -524,7 +520,7 @@
                             <a href="#" class="mobile-menu-link">Échantillons</a>
                         </li>
                         <li class="mobile-menu-item">
-                            <a href="#" class="mobile-menu-link">Créer mon projet</a>
+                            <a href="#" class="mobile-menu-link">Estimation et devis</a>
                         </li>
                         <li class="mobile-menu-item">
                             <a href="#" class="mobile-menu-link">Prendre rendez-vous</a>
@@ -545,7 +541,7 @@
     <section class="hero">
         <div class="hero-background">
             <div class="hero-image-wrapper">
-                <img src="images/home/sophie lloyd.jpg" alt="Cuisine Sophie LLoyd" class="hero-image">
+                <img src="images/Home/sophie lloyd.jpg" alt="Cuisine Sophie LLoyd" class="hero-image">
                 <div class="hero-overlay"></div>
             </div>
         </div>
@@ -581,11 +577,6 @@
             <h2 class="inspiration-title">À découvrir cette semaine</h2>
             
             <div class="inspiration-carousel-wrapper">
-                <button class="carousel-nav-button carousel-nav-prev" id="inspirationCarouselPrev" aria-label="Slide précédent">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </button>
                 <div class="inspiration-carousel" id="inspirationCarousel">
                     <div class="carousel-track" id="carouselTrack">
                         <div class="carousel-slide">
@@ -640,11 +631,6 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-nav-button carousel-nav-next" id="inspirationCarouselNext" aria-label="Slide suivant">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
             </div>
             
             <a href="plumwall.html" class="btn btn-secondary-dark inspiration-cta">
@@ -866,92 +852,8 @@
             });
         });
 
-        // Gestion du slider horizontal d'inspiration avec navigation par boutons
-        (function() {
-            const carousel = document.getElementById('inspirationCarousel');
-            const carouselTrack = document.getElementById('carouselTrack');
-            const prevButton = document.getElementById('inspirationCarouselPrev');
-            const nextButton = document.getElementById('inspirationCarouselNext');
-            
-            if (!carousel || !carouselTrack || !prevButton || !nextButton) {
-                return;
-            }
-            
-            const slides = carouselTrack.querySelectorAll('.carousel-slide');
-            if (slides.length === 0) {
-                return;
-            }
-            
-            // Fonction pour obtenir le nombre de slides visibles
-            function getSlidesToShow() {
-                const carouselWidth = carousel.offsetWidth;
-                const slideWidth = slides[0].offsetWidth;
-                const gap = 10; // gap entre les slides
-                return Math.floor((carouselWidth + gap) / (slideWidth + gap));
-            }
-            
-            // Fonction pour obtenir l'index du slide actuellement visible
-            function getCurrentSlideIndex() {
-                const scrollLeft = carousel.scrollLeft;
-                const slideWidth = slides[0].offsetWidth;
-                const gap = 10;
-                return Math.round(scrollLeft / (slideWidth + gap));
-            }
-            
-            // Fonction pour mettre à jour l'état des boutons
-            function updateButtons() {
-                const currentIndex = getCurrentSlideIndex();
-                const slidesToShow = getSlidesToShow();
-                const maxIndex = Math.max(0, slides.length - slidesToShow);
-                
-                prevButton.disabled = currentIndex === 0;
-                nextButton.disabled = currentIndex >= maxIndex;
-            }
-            
-            // Fonction pour naviguer vers un slide spécifique
-            function goToSlide(index) {
-                const slideWidth = slides[0].offsetWidth;
-                const gap = 10;
-                const targetScroll = index * (slideWidth + gap);
-                
-                carousel.scrollTo({
-                    left: targetScroll,
-                    behavior: 'smooth'
-                });
-            }
-            
-            // Navigation précédente
-            prevButton.addEventListener('click', function() {
-                const currentIndex = getCurrentSlideIndex();
-                if (currentIndex > 0) {
-                    goToSlide(currentIndex - 1);
-                }
-            });
-            
-            // Navigation suivante
-            nextButton.addEventListener('click', function() {
-                const currentIndex = getCurrentSlideIndex();
-                const slidesToShow = getSlidesToShow();
-                const maxIndex = Math.max(0, slides.length - slidesToShow);
-                
-                if (currentIndex < maxIndex) {
-                    goToSlide(currentIndex + 1);
-                }
-            });
-            
-            // Mettre à jour les boutons lors du scroll
-            let scrollTimeout;
-            carousel.addEventListener('scroll', function() {
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(updateButtons, 100);
-            });
-            
-            // Mettre à jour les boutons au chargement et au redimensionnement
-            updateButtons();
-            window.addEventListener('resize', function() {
-                updateButtons();
-            });
-        })();
+        // Gestion du slider horizontal d'inspiration (scroll horizontal natif)
+        // Les boutons de navigation ont été supprimés
     </script>
     <script src="shared/scripts/logo-fade.js"></script>
     <script src="shared/scripts/mobile-menu.js"></script>
