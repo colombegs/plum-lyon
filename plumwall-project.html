@@ -39,23 +39,17 @@
             animation: none !important;
         }
         
-        /* Forcer le layout avec sidebar largeur fixe au-dessus de 600px */
+        /* Layout vertical pour tous les écrans */
         @media (min-width: 601px) {
             .project-featured .container .project-featured-layout,
             section.project-featured .container .project-featured-layout,
             .project-featured-layout {
-                grid-template-columns: 1fr 400px !important;
-                display: grid !important;
-            }
-            .project-featured .container .project-featured-layout.landscape-image,
-            section.project-featured .container .project-featured-layout.landscape-image,
-            .project-featured-layout.landscape-image {
-                grid-template-columns: 1fr 400px !important;
-                display: grid !important;
+                display: flex !important;
+                flex-direction: column !important;
             }
             .project-featured .container .project-featured-sidebar,
             .project-featured-sidebar {
-                display: flex !important;
+                display: block !important;
             }
         }
     </style>
@@ -272,30 +266,23 @@
         <!-- Featured Project Section -->
         <section class="project-featured">
             <div class="container">
-                <!-- Back Button -->
-                <div class="project-back-button-wrapper">
-                    <a href="plumwall.html" class="project-back-button" aria-label="Retour">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="19" y1="12" x2="5" y2="12"></line>
-                            <polyline points="12 19 5 12 12 5"></polyline>
-                        </svg>
-                    </a>
-                </div>
-                <div class="project-featured-layout" style="grid-template-columns: 1fr 400px !important; display: grid !important;">
-                    <!-- Colonnes 1-2 : Image principale + Titre -->
+                <div class="project-featured-layout">
+                    <!-- Image principale - prend toute la largeur -->
                     <div class="project-featured-main">
                         <div class="project-featured-image-wrapper">
-                            <img id="featuredProjectImage" class="project-featured-image" src="" alt="">
-                            <div class="project-featured-overlay">
-                                <div class="project-featured-info">
-                                    <h1 id="featuredProjectTitle" class="project-featured-title"></h1>
-                                    <p id="featuredProjectSubtitle" class="project-featured-subtitle"></p>
+                            <div class="project-featured-image-container">
+                                <img id="featuredProjectImage" class="project-featured-image" src="" alt="">
+                                <div class="project-featured-overlay">
+                                    <div class="project-featured-info">
+                                        <h1 id="featuredProjectTitle" class="project-featured-title"></h1>
+                                        <p id="featuredProjectSubtitle" class="project-featured-subtitle"></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Colonne 3 : Autres projets (sidebar) -->
+                    <!-- Autres projets - en dessous de l'image principale -->
                     <div class="project-featured-sidebar">
                         <div class="plumwall-grid plumwall-grid-sidebar" id="sidebarProjectsGrid">
                             <!-- Les projets seront chargés dynamiquement -->

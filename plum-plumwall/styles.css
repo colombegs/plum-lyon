@@ -231,6 +231,57 @@ body .navbar .logo-black {
   transform: scale(1.05);
 }
 
+/* Bouton favori */
+.grid-item-favorite {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+  pointer-events: auto;
+}
+
+.grid-item:hover .grid-item-favorite {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.grid-item-favorite:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.grid-item-favorite:active {
+  transform: scale(0.95);
+}
+
+.grid-item-favorite .favorite-icon {
+  color: var(--color-asphalte);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grid-item-favorite.is-favorite .favorite-icon {
+  fill: var(--color-error);
+  stroke: var(--color-error);
+  color: var(--color-error);
+}
+
+.grid-item-favorite:hover .favorite-icon {
+  transform: scale(1.1);
+}
+
 /* Overlay pour les informations sur l'image */
 .grid-item-overlay {
   position: absolute;

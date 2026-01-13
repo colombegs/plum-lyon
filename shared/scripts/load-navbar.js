@@ -121,6 +121,13 @@
             const homePath = depth === 0 ? 'home.html' : pathPrefix + 'home.html';
             homeLink.setAttribute('href', homePath);
         }
+        
+        // Corriger le lien GALLERIE vers plumwall
+        const galleryLink = navbar.querySelector('[data-gallery-link]');
+        if (galleryLink) {
+            const galleryPath = depth === 0 ? 'plumwall.html' : pathPrefix + 'plumwall.html';
+            galleryLink.setAttribute('href', galleryPath);
+        }
     }
 
     /**

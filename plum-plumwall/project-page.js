@@ -14,17 +14,34 @@
         animationDelay: 40 // Délai entre chaque animation d'image (ms)
     };
 
-    // Pool d'images avec données réelles - Utilisation des images du dossier styler
-    // Nomenclature: X.jpg = image par défaut, X-2.jpg = hover sur 1ère vignette, X-3.jpg = hover sur 2e vignette, etc.
+    // Pool d'images - Uniquement les images "chez vous"
     const IMAGE_POOL = [
-        { src: 'styler/1.jpg', title: 'Projet 1', arrangement: 'Cuisine', color: 'Clay', firstName: 'Plum Planner' },
-        { src: 'styler/2.jpg', title: 'Projet 2', arrangement: 'Dressing', color: 'Argile', firstName: 'Plum Planner' },
-        { src: 'styler/3.jpg', title: 'Projet 3', arrangement: 'Cuisine', color: 'Blanc', firstName: 'Plum Planner' },
-        { src: 'styler/4.jpg', title: 'Projet 4', arrangement: 'Meuble salle de bain', color: 'Gris', firstName: 'Plum Planner' },
-        { src: 'styler/5.jpg', title: 'Projet 5', arrangement: 'Buffet', color: 'Noir', firstName: 'Plum Planner' },
-        { src: 'styler/6.jpg', title: 'Projet 6', arrangement: 'Pont de lit', color: 'Taupe', firstName: 'Plum Planner' },
-        { src: 'styler/7.jpg', title: 'Projet 7', arrangement: 'Rangement', color: 'Beige', firstName: 'Plum Planner' },
-        { src: 'styler/8.jpg', title: 'Projet 8', arrangement: 'Cuisine', color: 'Clay', firstName: 'Plum Planner' },
+        { src: 'media/chez vous/CORRECTION_REQUEST_80_1546_Frédérique Gobert_1.jpg', title: 'Chez Frédérique Gobert' },
+        { src: 'media/chez vous/PP_REQUEST_1197_WILLAERT_3.jpg', title: 'Chez Willaert' },
+        { src: 'media/chez vous/PP_REQUEST_1254_matteo Piccolomini_2.jpg', title: 'Chez Matteo Piccolomini' },
+        { src: 'media/chez vous/PP_REQUEST_1254_matteo Piccolomini_4.jpg', title: 'Chez Matteo Piccolomini' },
+        { src: 'media/chez vous/PP_REQUEST_1549_NAJIA_1.jpg', title: 'Chez Najia' },
+        { src: 'media/chez vous/PP_REQUEST_1699_Ludmila JURCIK_3.jpg', title: 'Chez Ludmila Jurcik' },
+        { src: 'media/chez vous/PP_REQUEST_2231_zivkovic_4.jpg', title: 'Chez Zivkovic' },
+        { src: 'media/chez vous/PP_REQUEST_2315_7.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/PP_REQUEST_639_Lorien Alecki_4.jpg', title: 'Chez Lorien Alecki' },
+        { src: 'media/chez vous/PP_REQUEST_648_CHANUT - (Chanel)_3.jpg', title: 'Chez Chanut' },
+        { src: 'media/chez vous/PP_REQUEST_656_Delemotte_4.jpg', title: 'Chez Delemotte' },
+        { src: 'media/chez vous/image 1.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/image 2.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/image 3.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/image 4.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/image 5.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/image 6.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/image 7.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/image 8.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/image 9.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/image 10.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/image 11.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/image 12.jpg', title: 'Projet personnalisé' },
+        { src: 'media/chez vous/PP_REQUEST_1959_Mechrezia Chebbi_4.jpg', title: 'Chez Mechrezia Chebbi' },
+        { src: 'media/chez vous/PP_REQUEST_639_Lorien Alecki_1.jpg', title: 'Chez Lorien Alecki' },
+        { src: 'media/chez vous/PP_REQUEST_648_CHANUT - (Chanel)_1.jpg', title: 'Chez Chanut' },
     ];
 
     // État
@@ -135,21 +152,56 @@
         
         featuredProjectTitle.textContent = `${projectInfo.arrangement} · ${projectInfo.color}`;
         featuredProjectSubtitle.textContent = `Réalisé par ${projectInfo.firstName}`;
+        
+        // Ajouter le bouton favori sur l'image principale
+        const imageContainer = featuredProjectImage.closest('.project-featured-image-container');
+        if (imageContainer) {
+            // Vérifier si le bouton existe déjà
+            let featuredFavoriteButton = imageContainer.querySelector('.project-featured-favorite');
+            if (!featuredFavoriteButton) {
+                featuredFavoriteButton = document.createElement('button');
+                featuredFavoriteButton.className = 'project-featured-favorite';
+                featuredFavoriteButton.setAttribute('aria-label', 'Ajouter aux favoris');
+                featuredFavoriteButton.innerHTML = `
+                    <svg class="favorite-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                `;
+                
+                // Trouver l'index du projet dans le pool
+                const projectIndex = IMAGE_POOL.findIndex(img => img.src === projectData.src);
+                const finalIndex = projectIndex >= 0 ? projectIndex : currentProjectIndex;
+                featuredFavoriteButton.dataset.projectIndex = finalIndex;
+                
+                // Gestion du clic sur le bouton favori
+                featuredFavoriteButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleFavorite(featuredFavoriteButton, finalIndex);
+                });
+                
+                imageContainer.appendChild(featuredFavoriteButton);
+                
+                // Vérifier l'état favori initial
+                checkFavoriteState(featuredFavoriteButton, finalIndex);
+            } else {
+                // Mettre à jour l'index du projet si le bouton existe déjà
+                const projectIndex = IMAGE_POOL.findIndex(img => img.src === projectData.src);
+                const finalIndex = projectIndex >= 0 ? projectIndex : currentProjectIndex;
+                featuredFavoriteButton.dataset.projectIndex = finalIndex;
+                checkFavoriteState(featuredFavoriteButton, finalIndex);
+            }
+        }
 
-        // Détecter si l'image est en format paysage et ajuster le layout
+        // Détecter si l'image est verticale pour appliquer object-fit: contain
         featuredProjectImage.onload = function() {
-            const isLandscape = this.naturalWidth > this.naturalHeight;
-            const layoutElement = document.querySelector('.project-featured-layout');
-            if (layoutElement) {
-                if (isLandscape) {
-                    layoutElement.classList.add('landscape-image');
+            const isPortrait = this.naturalWidth < this.naturalHeight;
+            const imageWrapper = this.closest('.project-featured-image-wrapper');
+            if (imageWrapper) {
+                if (isPortrait) {
+                    imageWrapper.classList.add('portrait-image');
                 } else {
-                    layoutElement.classList.remove('landscape-image');
-                    // Pour les images portrait, s'assurer que la sidebar est visible
-                    const sidebar = document.querySelector('.project-featured-sidebar');
-                    if (sidebar) {
-                        sidebar.style.display = 'flex';
-                    }
+                    imageWrapper.classList.remove('portrait-image');
                 }
             }
         };
@@ -157,8 +209,64 @@
         // Gestion des erreurs d'image
         featuredProjectImage.onerror = function() {
             console.warn('Failed to load featured image:', imagePath);
-            this.src = CONFIG.imageBasePath + 'styler/1.jpg';
+            // En cas d'erreur, utiliser la première image du pool
+            if (IMAGE_POOL.length > 0) {
+                this.src = CONFIG.imageBasePath + IMAGE_POOL[0].src;
+            }
         };
+    }
+
+    /**
+     * Gère l'état favori d'un projet
+     */
+    function toggleFavorite(button, projectIndex) {
+        const favorites = getFavorites();
+        const index = favorites.indexOf(projectIndex);
+        
+        if (index > -1) {
+            // Retirer des favoris
+            favorites.splice(index, 1);
+            button.classList.remove('is-favorite');
+        } else {
+            // Ajouter aux favoris
+            favorites.push(projectIndex);
+            button.classList.add('is-favorite');
+        }
+        
+        saveFavorites(favorites);
+    }
+    
+    /**
+     * Vérifie l'état favori initial
+     */
+    function checkFavoriteState(button, projectIndex) {
+        const favorites = getFavorites();
+        if (favorites.indexOf(projectIndex) > -1) {
+            button.classList.add('is-favorite');
+        }
+    }
+    
+    /**
+     * Récupère la liste des favoris depuis localStorage
+     */
+    function getFavorites() {
+        try {
+            const stored = localStorage.getItem('plumwall-favorites');
+            return stored ? JSON.parse(stored) : [];
+        } catch (e) {
+            return [];
+        }
+    }
+    
+    /**
+     * Sauvegarde la liste des favoris dans localStorage
+     */
+    function saveFavorites(favorites) {
+        try {
+            localStorage.setItem('plumwall-favorites', JSON.stringify(favorites));
+        } catch (e) {
+            console.warn('Failed to save favorites:', e);
+        }
     }
 
     /**
@@ -181,7 +289,7 @@
      * Crée un élément de grille avec une image
      * @param {Object} imageData - Données de l'image
      * @param {number} index - Index global dans le pool
-     * @param {number} positionInGrid - Position dans la grille (0 = première vignette, 1 = deuxième, etc.) pour déterminer l'image hover
+     * @param {number} positionInGrid - Position dans la grille (non utilisé pour les images "chez vous" qui n'ont pas de variantes hover)
      */
     function createGridItem(imageData, index, positionInGrid = 0) {
         const item = document.createElement('div');
@@ -196,10 +304,6 @@
         // Trouver l'index du projet dans le pool IMAGE_POOL original
         const poolIndex = IMAGE_POOL.findIndex(img => img.src === imageData.src);
         const finalIndex = poolIndex >= 0 ? poolIndex : 0;
-
-        // Extraire le numéro du projet depuis le chemin (ex: "styler/1.jpg" -> 1)
-        const projectNumber = imageData.src.match(/\/(\d+)\.jpg$/);
-        const projectNum = projectNumber ? parseInt(projectNumber[1], 10) : 1;
 
         const link = document.createElement('a');
         // plumwall-project.html est à la racine, donc le chemin est relatif à cette page
@@ -217,41 +321,42 @@
         img.loading = 'lazy';
         img.dataset.defaultSrc = imagePath; // Stocker l'image par défaut
 
-        // Calculer l'image hover selon la position : positionInGrid 0 = X-2.jpg, 1 = X-3.jpg, 2 = X-4.jpg, etc.
-        // positionInGrid 0 -> X-2.jpg, positionInGrid 1 -> X-3.jpg, positionInGrid 2 -> X-4.jpg
-        const hoverSuffix = positionInGrid + 2; // 0 -> 2, 1 -> 3, 2 -> 4
-        const hoverImagePath = CONFIG.imageBasePath + `styler/${projectNum}-${hoverSuffix}.jpg`;
-        img.dataset.hoverSrc = hoverImagePath;
-
-        // Précharger l'image hover dès maintenant pour un changement instantané
-        const hoverImgPreload = new Image();
-        item.dataset.hoverImageExists = 'false'; // Sera mis à jour par le callback
-        
-        // Mettre à jour le flag quand l'image hover est chargée
-        hoverImgPreload.onload = function() {
-            item.dataset.hoverImageExists = 'true';
-        };
-        hoverImgPreload.onerror = function() {
-            console.warn('Hover image not found:', hoverImagePath);
-            item.dataset.hoverImageExists = 'false';
-        };
-        hoverImgPreload.src = hoverImagePath;
+        // Les images "chez vous" n'ont pas de variantes hover, donc on désactive cette fonctionnalité
+        item.dataset.hoverImageExists = 'false';
 
         img.onerror = function() {
             console.warn('Failed to load image:', imagePath);
-            this.src = CONFIG.imageBasePath + 'styler/1.jpg';
+            // En cas d'erreur, utiliser la première image du pool
+            if (IMAGE_POOL.length > 0) {
+                this.src = CONFIG.imageBasePath + IMAGE_POOL[0].src;
+            }
         };
         img.onload = function() {
             // Ajouter la classe loaded pour rendre l'image visible
             this.classList.add('loaded');
         };
 
-        // Stocker les données hover dans les data-attributes de l'item pour la délégation d'événements
-        item.dataset.projectNum = projectNum;
-        item.dataset.positionInGrid = positionInGrid;
-        item.dataset.hoverSrc = hoverImagePath;
+        // Stocker les données dans les data-attributes de l'item pour la délégation d'événements
         item.dataset.defaultSrc = imagePath;
 
+        // Créer le bouton favori
+        const favoriteButton = document.createElement('button');
+        favoriteButton.className = 'grid-item-favorite';
+        favoriteButton.setAttribute('aria-label', 'Ajouter aux favoris');
+        favoriteButton.dataset.projectIndex = finalIndex;
+        favoriteButton.innerHTML = `
+            <svg class="favorite-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+        `;
+        
+        // Gestion du clic sur le bouton favori
+        favoriteButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleFavorite(favoriteButton, finalIndex);
+        });
+        
         // Créer l'overlay avec texte
         const overlay = document.createElement('div');
         overlay.className = 'grid-item-overlay';
@@ -274,104 +379,39 @@
         overlay.appendChild(overlayContent);
         
         imageWrapper.appendChild(img);
+        imageWrapper.appendChild(favoriteButton);
         imageWrapper.appendChild(overlay);
         link.appendChild(imageWrapper);
         item.appendChild(link);
+        
+        // Vérifier l'état favori initial
+        checkFavoriteState(favoriteButton, finalIndex);
 
         return item;
     }
 
     /**
      * Calcule le nombre d'images à afficher dans la sidebar
-     * Pour les images portrait : toujours 2 images
-     * Pour les images paysage : calculer dynamiquement
+     * Maintenant que la sidebar est en dessous, on charge un nombre fixe d'images
      */
     function calculateSidebarImageCount() {
-        if (!featuredProjectImage || !sidebarProjectsGrid) {
-            return 2; // Valeur par défaut pour portrait
-        }
-
-        // Vérifier si l'image principale est en portrait ou paysage
-        const isPortrait = featuredProjectImage.naturalWidth < featuredProjectImage.naturalHeight;
-        
-        // Si l'image est en portrait, toujours retourner 2 images
-        if (isPortrait) {
-            return 2;
-        }
-
-        // Pour les images paysage, calculer dynamiquement (mais normalement la sidebar est cachée)
-        // Utiliser offsetHeight pour la hauteur réelle affichée, sinon naturalHeight
-        const mainImageHeight = featuredProjectImage.offsetHeight || featuredProjectImage.naturalHeight;
-        
-        // Si l'image n'est pas encore chargée ou n'a pas de hauteur, retourner une valeur par défaut
-        if (!mainImageHeight || mainImageHeight === 0) {
-            return 2; // Valeur par défaut
-        }
-
-        const sidebarWidth = sidebarProjectsGrid.offsetWidth || sidebarProjectsGrid.parentElement.offsetWidth || 300;
-        
-        // Estimer la hauteur moyenne d'une image dans la sidebar
-        // En supposant un ratio moyen de 4:3 pour les images de la sidebar
-        const estimatedImageHeight = (sidebarWidth * 3) / 4; // Ratio 4:3
-        const gapBetweenImages = 10; // column-gap
-        
-        // Calculer combien d'images peuvent tenir dans la hauteur de l'image principale
-        let totalHeight = 0;
-        let imageCount = 0;
-        const maxImages = Math.min(availableProjects.length, 10); // Maximum 10 images
-        
-        for (let i = 0; i < maxImages; i++) {
-            // Estimer la hauteur de cette image (peut varier selon le ratio réel)
-            const imageHeight = estimatedImageHeight;
-            totalHeight += imageHeight;
-            
-            // Si on dépasse la hauteur de l'image principale, arrêter
-            if (totalHeight > mainImageHeight) {
-                break;
-            }
-            
-            imageCount++;
-            totalHeight += gapBetweenImages; // Ajouter l'espace entre les images
-        }
-        
-        // S'assurer d'avoir au moins 2 images et au maximum le nombre disponible
-        return Math.max(2, Math.min(imageCount, availableProjects.length));
+        // Charger un nombre fixe d'images dans la sidebar (par exemple 6 ou 9)
+        // On peut ajuster ce nombre selon les besoins
+        return Math.min(9, availableProjects.length);
     }
 
     /**
      * Charge les projets dans la sidebar (premiers projets)
-     * Le nombre d'images est calculé dynamiquement pour ne pas dépasser la hauteur de l'image principale
+     * Maintenant que la sidebar est en dessous, on charge directement sans attendre la hauteur de l'image principale
      */
     function loadSidebarProjects() {
-        if (!sidebarProjectsGrid || !featuredProjectImage) {
+        if (!sidebarProjectsGrid) {
             return;
         }
 
-        // Fonction pour charger la sidebar une fois que l'image est prête
-        const loadSidebarWhenReady = () => {
-            // Attendre un peu pour que le layout soit calculé après le chargement de l'image
-            setTimeout(() => {
-                const imageCount = calculateSidebarImageCount();
-                loadSidebarProjectsWithCount(imageCount);
-            }, 150);
-        };
-
-        // Vérifier si l'image est déjà chargée
-        if (featuredProjectImage.complete && featuredProjectImage.naturalHeight > 0) {
-            // L'image est déjà chargée, calculer immédiatement
-            loadSidebarWhenReady();
-        } else {
-            // Attendre que l'image soit chargée
-            featuredProjectImage.addEventListener('load', loadSidebarWhenReady, { once: true });
-            
-            // Timeout de sécurité au cas où l'événement load ne se déclenche pas
-            setTimeout(() => {
-                if (sidebarProjectsGrid.children.length === 0) {
-                    const imageCount = calculateSidebarImageCount();
-                    loadSidebarProjectsWithCount(imageCount);
-                }
-            }, 2000);
-        }
+        // Charger directement les images dans la sidebar
+        const imageCount = calculateSidebarImageCount();
+        loadSidebarProjectsWithCount(imageCount);
     }
 
     /**
@@ -397,19 +437,6 @@
                 sidebarProjectsGrid.appendChild(item);
                 setTimeout(() => {
                     item.classList.add('visible');
-                    
-                    // Pour les images portrait, s'assurer que les images de la sidebar sont chargées
-                    // et ajuster la hauteur si nécessaire
-                    if (idx === imageCount - 1) { // Dernière image chargée
-                        const isPortrait = featuredProjectImage.naturalWidth < featuredProjectImage.naturalHeight;
-                        if (isPortrait && featuredProjectImage.offsetHeight > 0) {
-                            // Synchroniser la hauteur de la sidebar avec l'image principale
-                            const sidebar = sidebarProjectsGrid.closest('.project-featured-sidebar');
-                            if (sidebar) {
-                                sidebar.style.height = featuredProjectImage.offsetHeight + 'px';
-                            }
-                        }
-                    }
                 }, 10);
             }, idx * CONFIG.animationDelay);
         });
@@ -447,9 +474,8 @@
                 const imageData = availableProjects[poolIndex];
                 // Utiliser un index unique pour chaque item
                 const uniqueIndex = startIndex + i;
-                // positionInGrid = i % 3 pour alterner entre les 3 premières positions (0, 1, 2)
-                // Cela permet d'utiliser les images hover 1-2, 1-3, 1-4 de manière cyclique
-                const positionInGrid = i % 3;
+                // positionInGrid n'est plus utilisé car les images "chez vous" n'ont pas de variantes hover
+                const positionInGrid = 0;
                 const item = createGridItem(imageData, uniqueIndex, positionInGrid);
                 itemsToLoad.push(item);
             }
@@ -571,15 +597,8 @@
                 const img = item.querySelector('.grid-item-img');
                 if (!img) return;
                 
-                const hoverSrc = item.dataset.hoverSrc;
-                const hoverImageExists = item.dataset.hoverImageExists === 'true';
-                
-                if (hoverSrc && hoverImageExists) {
-                    console.log('Hover ENTER - project:', item.dataset.projectNum, 'position:', item.dataset.positionInGrid, 'hoverSrc:', hoverSrc);
-                    img.src = hoverSrc;
-                } else {
-                    console.log('Hover ENTER - project:', item.dataset.projectNum, 'but hover image does not exist');
-                }
+                // Les images "chez vous" n'ont pas de variantes hover, donc on ne fait rien
+                // Le hover est désactivé pour ces images
             }
             
             function handleGridItemLeave(e) {

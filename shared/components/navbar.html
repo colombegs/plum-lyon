@@ -44,7 +44,7 @@
                 <a href="#" class="nav-link">AUTRES PIÈCES</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">GALLERIE</a>
+                <a href="#" class="nav-link" data-gallery-link>GALLERIE</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">MEDIA</a>
@@ -368,23 +368,32 @@
 </nav>
 
 <script>
-    // Corriger le lien du logo vers la home
+    // Corriger le lien du logo vers la home et le lien GALLERIE
     (function() {
+        const currentPath = window.location.pathname;
+        const pathParts = currentPath.split('/').filter(part => part && !part.endsWith('.html'));
+        
+        // Calculer la profondeur (nombre de niveaux depuis la racine)
+        let depth = 0;
+        if (pathParts.includes('experiments')) {
+            depth = pathParts.length;
+        }
+        
+        // Construire le préfixe de chemin relatif
+        const pathPrefix = depth > 0 ? '../'.repeat(depth) : '';
+        
+        // Corriger le lien du logo vers la home
         const homeLink = document.querySelector('[data-home-link]');
         if (homeLink && homeLink.getAttribute('href') === '#') {
-            const currentPath = window.location.pathname;
-            const pathParts = currentPath.split('/').filter(part => part && !part.endsWith('.html'));
-            
-            // Calculer la profondeur (nombre de niveaux depuis la racine)
-            let depth = 0;
-            if (pathParts.includes('experiments')) {
-                depth = pathParts.length;
-            }
-            
-            // Construire le préfixe de chemin relatif
-            const pathPrefix = depth > 0 ? '../'.repeat(depth) : '';
             const homePath = depth === 0 ? 'home.html' : pathPrefix + 'home.html';
             homeLink.setAttribute('href', homePath);
+        }
+        
+        // Corriger le lien GALLERIE vers plumwall
+        const galleryLink = document.querySelector('[data-gallery-link]');
+        if (galleryLink && galleryLink.getAttribute('href') === '#') {
+            const galleryPath = depth === 0 ? 'plumwall.html' : pathPrefix + 'plumwall.html';
+            galleryLink.setAttribute('href', galleryPath);
         }
     })();
 </script>

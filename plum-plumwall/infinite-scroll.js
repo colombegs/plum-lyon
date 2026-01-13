@@ -94,6 +94,59 @@
     }
 
     /**
+     * Gère l'état favori d'un projet
+     */
+    function toggleFavorite(button, projectIndex) {
+        const favorites = getFavorites();
+        const index = favorites.indexOf(projectIndex);
+        
+        if (index > -1) {
+            // Retirer des favoris
+            favorites.splice(index, 1);
+            button.classList.remove('is-favorite');
+        } else {
+            // Ajouter aux favoris
+            favorites.push(projectIndex);
+            button.classList.add('is-favorite');
+        }
+        
+        saveFavorites(favorites);
+    }
+    
+    /**
+     * Vérifie l'état favori initial
+     */
+    function checkFavoriteState(button, projectIndex) {
+        const favorites = getFavorites();
+        if (favorites.indexOf(projectIndex) > -1) {
+            button.classList.add('is-favorite');
+        }
+    }
+    
+    /**
+     * Récupère la liste des favoris depuis localStorage
+     */
+    function getFavorites() {
+        try {
+            const stored = localStorage.getItem('plumwall-favorites');
+            return stored ? JSON.parse(stored) : [];
+        } catch (e) {
+            return [];
+        }
+    }
+    
+    /**
+     * Sauvegarde la liste des favoris dans localStorage
+     */
+    function saveFavorites(favorites) {
+        try {
+            localStorage.setItem('plumwall-favorites', JSON.stringify(favorites));
+        } catch (e) {
+            console.warn('Failed to save favorites:', e);
+        }
+    }
+
+    /**
      * Génère des données placeholder pour l'overlay
      */
     function generateOverlayData(imageData) {
@@ -162,6 +215,24 @@
             this.classList.add('loaded');
         };
 
+        // Créer le bouton favori
+        const favoriteButton = document.createElement('button');
+        favoriteButton.className = 'grid-item-favorite';
+        favoriteButton.setAttribute('aria-label', 'Ajouter aux favoris');
+        favoriteButton.dataset.projectIndex = finalIndex;
+        favoriteButton.innerHTML = `
+            <svg class="favorite-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+        `;
+        
+        // Gestion du clic sur le bouton favori
+        favoriteButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleFavorite(favoriteButton, finalIndex);
+        });
+        
         // Créer l'overlay avec texte
         const overlay = document.createElement('div');
         overlay.className = 'grid-item-overlay';
@@ -187,9 +258,13 @@
         overlay.appendChild(overlayContent);
         
         imageWrapper.appendChild(img);
+        imageWrapper.appendChild(favoriteButton);
         imageWrapper.appendChild(overlay);
         link.appendChild(imageWrapper);
         item.appendChild(link);
+        
+        // Vérifier l'état favori initial
+        checkFavoriteState(favoriteButton, finalIndex);
 
         return item;
     }

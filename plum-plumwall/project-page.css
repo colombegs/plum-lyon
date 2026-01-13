@@ -55,6 +55,7 @@ html.fade-out {
 .project-back-button-wrapper {
   display: inline-block;
   margin-bottom: var(--spacing-lg);
+  /* Le padding est géré par le container parent */
 }
 
 .project-back-button {
@@ -88,7 +89,7 @@ html.fade-out {
 }
 
 /* ============================================
-   FEATURED PROJECT SECTION - Layout 2 colonnes + sidebar
+   FEATURED PROJECT SECTION - Layout vertical : image principale en haut, autres images en dessous
    ============================================ */
 
 .project-featured {
@@ -98,70 +99,117 @@ html.fade-out {
 
 .project-featured .container {
   max-width: 100%; /* Permettre la croissance au-delà de 1400px comme plumwall */
-  padding: 0; /* Pas de padding pour que le container s'étire complètement */
+  padding: 0 var(--spacing-lg); /* Padding horizontal pour le contenu */
 }
 
 .project-featured-layout {
-  display: grid;
-  grid-template-columns: 1fr 400px !important; /* Sidebar largeur fixe 400px, contenu principal s'étire */
+  display: flex;
+  flex-direction: column;
   gap: 10px;
-  align-items: start;
   margin-bottom: 0; /* Pas de marge en bas pour enchaîner avec la grille */
 }
 
-/* Pour les images portrait, aligner la sidebar en haut et lui donner la même hauteur que l'image principale */
-.project-featured-layout:not(.landscape-image) {
-  align-items: stretch; /* Étirer la sidebar à la hauteur de l'image principale */
-  grid-template-columns: 1fr 400px !important; /* Sidebar largeur fixe 400px */
-}
-
-/* Au-dessus de 600px, TOUTES les images (portrait ET paysage) gardent la sidebar avec largeur fixe */
-@media (min-width: 601px) {
-  .project-featured-layout.landscape-image {
-    grid-template-columns: 1fr 400px !important; /* Sidebar largeur fixe 400px */
-  }
-
-  .project-featured-layout.landscape-image .project-featured-sidebar {
-    display: flex !important; /* Afficher la sidebar même pour les images paysage */
-  }
-}
-
-/* Si l'image est en format paysage, elle prend 3 colonnes (toute la largeur) */
-/* MAIS seulement en dessous de 600px - au-dessus, on garde 2 colonnes */
-@media (max-width: 600px) {
-  .project-featured-layout.landscape-image {
-    grid-template-columns: 1fr !important; /* L'image prend toute la largeur (3 colonnes sur 3) */
-  }
-
-  .project-featured-layout.landscape-image .project-featured-sidebar {
-    display: none !important; /* Cacher la sidebar quand l'image est paysage */
-  }
-}
-
 .project-featured-main {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xl);
+  width: 100%;
 }
 
 .project-featured-image-wrapper {
   width: 100%;
+  max-height: 800px;
   overflow: hidden;
   background-color: var(--color-grey-4);
   border-radius: 12px;
   position: relative;
 }
 
+.project-featured-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
 .project-featured-image {
   width: 100%;
   height: auto;
+  max-height: 800px;
   object-fit: cover;
   display: block;
-  border-radius: 12px;
+  border-radius: 0;
   transition: filter 0.3s ease;
 }
 
+/* Pour les images verticales : afficher en entier avec contain et fond gris visible */
+.project-featured-image-wrapper.portrait-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  max-height: 800px;
+}
+
+.project-featured-image-wrapper.portrait-image .project-featured-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-featured-image-wrapper.portrait-image .project-featured-image {
+  width: auto;
+  height: auto;
+  max-height: 800px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 /* Filtres de couleur supprimés - images affichées telles quelles */
+
+/* Bouton favori sur l'image principale - overlay en haut à droite */
+.project-featured-favorite {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+  pointer-events: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-featured-favorite:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.project-featured-favorite:active {
+  transform: scale(0.95);
+}
+
+.project-featured-favorite .favorite-icon {
+  color: var(--color-asphalte);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-featured-favorite.is-favorite .favorite-icon {
+  fill: var(--color-error);
+  stroke: var(--color-error);
+  color: var(--color-error);
+}
+
+.project-featured-favorite:hover .favorite-icon {
+  transform: scale(1.1);
+}
 
 /* Overlay gradient noir très discret sur l'image principale (comme au hover plum wall) */
 .project-featured-overlay {
@@ -181,7 +229,7 @@ html.fade-out {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  border-radius: 12px;
+  pointer-events: none;
 }
 
 .project-featured-info {
@@ -191,66 +239,30 @@ html.fade-out {
   align-items: flex-start;
 }
 
-/* Sidebar avec projets */
+/* Sidebar avec projets - maintenant en dessous de l'image principale */
 .project-featured-sidebar {
-  height: fit-content; /* S'adapter au contenu plutôt que 100% */
-  align-self: start; /* Aligner en haut */
-  width: 400px;
-  flex-shrink: 0; /* Empêcher la sidebar de rétrécir */
-}
-
-/* Quand l'image principale est en portrait, la sidebar doit remplir toute la hauteur */
-.project-featured-layout:not(.landscape-image) .project-featured-sidebar {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-self: stretch; /* Étirer pour correspondre à la hauteur de l'image principale */
+  width: 100%;
+  margin-top: 10px;
 }
 
 .plumwall-grid-sidebar {
-  column-count: 1;
+  column-count: 3;
   column-gap: 10px;
   width: 100%;
+  min-height: 200px;
 }
 
-/* Pour les images portrait : toujours 2 images dans la sidebar qui remplissent la hauteur */
-.project-featured-layout:not(.landscape-image) .plumwall-grid-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  height: 100%;
-  column-count: 1; /* Désactiver column-count pour utiliser flexbox */
+/* Responsive pour la sidebar */
+@media (max-width: 768px) {
+  .plumwall-grid-sidebar {
+    column-count: 2;
+  }
 }
 
-.project-featured-layout:not(.landscape-image) .plumwall-grid-sidebar .grid-item {
-  flex: 1 1 0; /* Chaque image prend 50% de la hauteur disponible */
-  min-height: 0;
-  margin-bottom: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.project-featured-layout:not(.landscape-image) .plumwall-grid-sidebar .grid-item-link {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-}
-
-.project-featured-layout:not(.landscape-image) .plumwall-grid-sidebar .grid-item-image {
-  flex: 1;
-  height: 100%;
-  min-height: 0;
-  display: flex;
-  position: relative; /* Conserver position relative pour l'overlay */
-}
-
-.project-featured-layout:not(.landscape-image) .plumwall-grid-sidebar .grid-item-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  flex: 1;
+@media (max-width: 600px) {
+  .plumwall-grid-sidebar {
+    column-count: 1;
+  }
 }
 
 .project-featured-title {
@@ -324,6 +336,64 @@ html.fade-out {
   pointer-events: none;
 }
 
+/* Bouton favori dans la sidebar et la grille de projets */
+.project-featured-sidebar .grid-item-favorite,
+.project-grid-section .grid-item-favorite {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+  pointer-events: auto;
+}
+
+.project-featured-sidebar .grid-item:hover .grid-item-favorite,
+.project-grid-section .grid-item:hover .grid-item-favorite {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.project-featured-sidebar .grid-item-favorite:hover,
+.project-grid-section .grid-item-favorite:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.project-featured-sidebar .grid-item-favorite:active,
+.project-grid-section .grid-item-favorite:active {
+  transform: scale(0.95);
+}
+
+.project-featured-sidebar .grid-item-favorite .favorite-icon,
+.project-grid-section .grid-item-favorite .favorite-icon {
+  color: var(--color-asphalte);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-featured-sidebar .grid-item-favorite.is-favorite .favorite-icon,
+.project-grid-section .grid-item-favorite.is-favorite .favorite-icon {
+  fill: var(--color-error);
+  stroke: var(--color-error);
+  color: var(--color-error);
+}
+
+.project-featured-sidebar .grid-item-favorite:hover .favorite-icon,
+.project-grid-section .grid-item-favorite:hover .favorite-icon {
+  transform: scale(1.1);
+}
+
 /* Loading Indicator */
 .loading-indicator {
   text-align: center;
@@ -370,16 +440,16 @@ html.fade-out {
   }
 }
 
-/* S'assurer que le layout reste avec sidebar largeur fixe jusqu'à 600px */
+/* Layout vertical pour tous les écrans */
 @media (min-width: 601px) {
   .project-featured .container .project-featured-layout,
   .project-featured-layout {
-    grid-template-columns: 1fr 400px !important; /* Sidebar largeur fixe 400px */
-    display: grid !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
   
   .project-featured-sidebar {
-    display: flex !important;
+    display: block !important;
   }
 }
 
@@ -403,6 +473,18 @@ html.fade-out {
     height: 18px;
   }
 
+  .project-featured-favorite {
+    top: var(--spacing-xs);
+    right: var(--spacing-xs);
+    width: 36px;
+    height: 36px;
+  }
+
+  .project-featured-favorite .favorite-icon {
+    width: 18px;
+    height: 18px;
+  }
+
   .project-featured {
     padding: var(--spacing-2xl) 0 0 0;
   }
@@ -411,17 +493,26 @@ html.fade-out {
     padding: 0 var(--spacing-md);
   }
 
+  .project-featured {
+    padding: var(--spacing-md) 0 0 0;
+  }
+
+  .project-back-button-wrapper {
+    margin-bottom: var(--spacing-md);
+  }
+
   .project-featured-main {
     gap: var(--spacing-lg);
   }
 
   .project-featured-layout {
-    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
     gap: var(--spacing-lg);
   }
 
   .project-featured-sidebar {
-    order: -1; /* Mettre la sidebar en premier sur mobile */
+    order: 2; /* La sidebar reste après l'image principale */
   }
 
   .plumwall-grid-sidebar {
