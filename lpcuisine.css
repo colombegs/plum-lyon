@@ -216,9 +216,14 @@
 /* Inspiration Section */
 .inspiration-section {
     width: 100%;
-    padding: 0 0 var(--spacing-4xl) 0;
+    padding: 48px 0 var(--spacing-4xl) 0;
     background-color: var(--color-white);
     scroll-margin-top: 80px; /* Offset pour la navbar lors du scroll */
+}
+
+/* Inspiration Section - Home (différenciée de lpcuisine) */
+.inspiration-section-home {
+    /* Styles spécifiques pour la home si nécessaire */
 }
 
 .inspiration-container {
@@ -249,19 +254,30 @@
     margin-left: 0;
     padding-right: 0;
     overflow: visible;
+    display: flex;
+    align-items: center;
 }
 
 .inspiration-carousel {
     width: 100%;
-    overflow: visible;
+    overflow-x: auto;
+    overflow-y: hidden;
     position: relative;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.inspiration-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .carousel-track {
     display: flex;
     gap: 10px;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
+    will-change: scroll-position;
 }
 
 .carousel-slide {
@@ -271,6 +287,8 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 .carousel-image-wrapper {
@@ -388,22 +406,78 @@
 }
 
 .carousel-button {
+    display: none; /* Boutons supprimés - scroll natif activé */
+}
+
+/* Boutons de navigation du carousel */
+.carousel-nav-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 10;
     width: 48px;
     height: 48px;
-    border-radius: var(--radius-full);
+    border-radius: 50%;
     background-color: var(--color-white);
-    border: 1px solid var(--color-grey-3);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all var(--transition-base);
-    z-index: 10;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     color: var(--color-asphalte);
-    padding: 0;
+}
+
+.carousel-nav-button:hover:not(:disabled) {
+    background-color: var(--color-asphalte);
+    color: var(--color-white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-nav-button:active:not(:disabled) {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-nav-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.carousel-nav-button svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.5;
+}
+
+.carousel-nav-prev {
+    left: var(--spacing-lg);
+}
+
+.carousel-nav-next {
+    right: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .carousel-nav-button {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .carousel-nav-button svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .carousel-nav-prev {
+        left: var(--spacing-md);
+    }
+    
+    .carousel-nav-next {
+        right: var(--spacing-md);
+    }
 }
 
 .carousel-button:hover:not(.disabled) {
@@ -450,6 +524,58 @@
 }
 
 .inspiration-cta:hover svg {
+    transform: translateX(4px);
+}
+
+/* Personalization Section */
+.personalization-section {
+    width: 100%;
+    padding: var(--spacing-4xl) 0;
+    background-color: var(--color-white);
+    scroll-margin-top: 80px;
+}
+
+.personalization-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-2xl);
+}
+
+.personalization-title {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h2); /* 54px */
+    font-weight: 400;
+    line-height: var(--line-height-h2); /* 120% */
+    letter-spacing: -0.02em;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+.personalization-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-l); /* 16px */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: -0.5px;
+    color: var(--color-grey-1);
+    margin: 0;
+    max-width: 600px;
+}
+
+.personalization-cta {
+    margin-top: var(--spacing-lg);
+}
+
+.personalization-cta svg {
+    transition: transform var(--transition-base);
+}
+
+.personalization-cta:hover svg {
     transform: translateX(4px);
 }
 
@@ -950,7 +1076,7 @@
     }
 
     .inspiration-section {
-        padding: 0 0 var(--spacing-3xl) 0;
+        padding: 48px 0 var(--spacing-3xl) 0;
     }
 
     .inspiration-container {
@@ -962,6 +1088,20 @@
     }
 
     .inspiration-title {
+        font-size: var(--font-size-h3); /* 42px */
+        line-height: var(--line-height-h3); /* 120% */
+    }
+
+    .personalization-section {
+        padding: var(--spacing-3xl) 0;
+    }
+
+    .personalization-container {
+        padding: 0 60px;
+        gap: var(--spacing-xl);
+    }
+
+    .personalization-title {
         font-size: var(--font-size-h3); /* 42px */
         line-height: var(--line-height-h3); /* 120% */
     }
@@ -1293,6 +1433,24 @@
         font-size: var(--font-size-h3); /* 42px */
         line-height: var(--line-height-h3); /* 120% */
     }
+
+    .personalization-section {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .personalization-container {
+        padding: 0 var(--spacing-lg);
+        gap: var(--spacing-lg);
+    }
+
+    .personalization-title {
+        font-size: var(--font-size-h3); /* 42px */
+        line-height: var(--line-height-h3); /* 120% */
+    }
+
+    .personalization-description {
+        font-size: var(--font-size-m); /* 14px */
+    }
     
     .carousel-slide-title {
         font-size: var(--font-size-l); /* 16px */
@@ -1319,6 +1477,7 @@
 
     .carousel-slide {
         width: calc((100% - var(--spacing-lg)) / 1.5);
+        min-width: calc((100% - var(--spacing-lg)) / 1.5);
     }
 
     .carousel-image-wrapper {

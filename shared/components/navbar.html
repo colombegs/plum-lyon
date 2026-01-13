@@ -35,16 +35,16 @@
         <!-- Navigation principale -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="#" class="nav-link">CUISINE</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">AUTRES PIECES</a>
-            </li>
-            <li class="nav-item">
                 <a href="#" class="nav-link">CONCEPT</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">SHOWROOM</a>
+                <a href="#" class="nav-link">CUISINE</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">AUTRES PIÈCES</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">GALLERIE</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">MEDIA</a>
@@ -110,6 +110,15 @@
             <div class="mobile-menu-view mobile-menu-view-main" data-menu-view="main">
                 <ul class="mobile-menu-list mobile-menu-main">
                     <li class="mobile-menu-item">
+                        <a href="#" class="mobile-menu-link" data-menu-trigger="concept">
+                            Concept
+                            <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="mobile-menu-item">
                         <a href="#" class="mobile-menu-link" data-menu-trigger="cuisine">
                             Cuisine
                             <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -121,15 +130,6 @@
                     <li class="mobile-menu-item">
                         <a href="#" class="mobile-menu-link" data-menu-trigger="maison">
                             Autres pièces
-                            <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="mobile-menu-item">
-                        <a href="#" class="mobile-menu-link" data-menu-trigger="concept">
-                            Concept
                             <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -232,7 +232,7 @@
                 </div>
             </div>
 
-            <!-- Sous-menu Maison -->
+            <!-- Sous-menu Autres pièces -->
             <div class="mobile-menu-view mobile-menu-view-submenu" data-menu-view="maison">
                 <div class="mobile-menu-submenu-header">
                     <button class="mobile-menu-back" aria-label="Retour">
@@ -245,19 +245,22 @@
                 </div>
                 <div class="mobile-menu-drawer-sections">
                     <div class="mobile-menu-drawer-section">
-                        <h4 class="mobile-menu-drawer-section-title">Catégories</h4>
+                        <h4 class="mobile-menu-drawer-section-title">INSPIRATION</h4>
                         <ul class="mobile-menu-list mobile-menu-submenu-list">
+                            <li class="mobile-menu-item">
+                                <a href="plumwall.html" class="mobile-menu-link">Gallerie projets</a>
+                            </li>
                             <li class="mobile-menu-item">
                                 <a href="dressing.html" class="mobile-menu-link">Dressings</a>
                             </li>
                             <li class="mobile-menu-item">
-                                <a href="#" class="mobile-menu-link">Ponts de lits</a>
-                            </li>
-                            <li class="mobile-menu-item">
-                                <a href="#" class="mobile-menu-link">Buffets & Rangements</a>
+                                <a href="#" class="mobile-menu-link">Ponts de lit</a>
                             </li>
                             <li class="mobile-menu-item">
                                 <a href="#" class="mobile-menu-link">Banquettes</a>
+                            </li>
+                            <li class="mobile-menu-item">
+                                <a href="#" class="mobile-menu-link">Buffets & Rangements</a>
                             </li>
                             <li class="mobile-menu-item">
                                 <a href="#" class="mobile-menu-link">Salle de bain</a>
@@ -271,22 +274,48 @@
                         </ul>
                     </div>
                     <div class="mobile-menu-drawer-section">
-                        <h4 class="mobile-menu-drawer-section-title">Shop</h4>
+                        <h4 class="mobile-menu-drawer-section-title">OUTILS & SERVICES</h4>
                         <ul class="mobile-menu-list mobile-menu-submenu-list">
                             <li class="mobile-menu-item">
+                                <a href="../../styler.html" class="mobile-menu-link">Styler 3D</a>
+                            </li>
+                            <li class="mobile-menu-item">
+                                <a href="#" class="mobile-menu-link">Créer mon projet</a>
+                            </li>
+                            <li class="mobile-menu-item">
+                                <a href="#" class="mobile-menu-link">Prendre rendez-vous</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mobile-menu-drawer-section">
+                        <h4 class="mobile-menu-drawer-section-title">SHOP</h4>
+                        <ul class="mobile-menu-list mobile-menu-submenu-list">
+                            <li class="mobile-menu-item">
+                                <a href="#" class="mobile-menu-link">Échantillons</a>
+                            </li>
+                            <li class="mobile-menu-item">
                                 <a href="#" class="mobile-menu-link">Façades Pax</a>
+                            </li>
+                            <li class="mobile-menu-item">
+                                <a href="#" class="mobile-menu-link">Façades Besta</a>
                             </li>
                             <li class="mobile-menu-item">
                                 <a href="#" class="mobile-menu-link">Façades Metod</a>
                             </li>
                             <li class="mobile-menu-item">
-                                <a href="#" class="mobile-menu-link">Meubles ouverts</a>
+                                <a href="#" class="mobile-menu-link">Plans & Plateaux</a>
                             </li>
                             <li class="mobile-menu-item">
-                                <a href="#" class="mobile-menu-link">Étagères</a>
+                                <a href="#" class="mobile-menu-link">Mitigeurs</a>
                             </li>
                             <li class="mobile-menu-item">
-                                <a href="#" class="mobile-menu-link">Poignées</a>
+                                <a href="#" class="mobile-menu-link">Crédences</a>
+                            </li>
+                            <li class="mobile-menu-item">
+                                <a href="#" class="mobile-menu-link">Plinthes</a>
+                            </li>
+                            <li class="mobile-menu-item">
+                                <a href="#" class="mobile-menu-link">Carreaux</a>
                             </li>
                             <li class="mobile-menu-item">
                                 <a href="#" class="mobile-menu-link">Peinture</a>

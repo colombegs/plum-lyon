@@ -418,18 +418,27 @@ body {
   color: var(--color-asphalte);
 }
 
-/* CTA devient noir quand la navbar devient blanche (hover sur dropdown) */
+/* CTA reste en primary (noir) même quand la navbar devient blanche (hover sur dropdown) */
 .navbar-white .btn-cta,
 .navbar-has-hover .btn-cta {
-  color: var(--color-asphalte) !important;
-  border-color: var(--color-asphalte) !important;
+  background-color: var(--btn-primary-bg) !important; /* noir */
+  color: var(--btn-primary-color) !important; /* white */
+  border-color: var(--btn-primary-border) !important; /* noir */
+}
+
+.navbar-white .btn-cta:hover,
+.navbar-has-hover .btn-cta:hover {
+  background-color: var(--btn-primary-bg) !important; /* noir */
+  color: var(--btn-primary-color) !important; /* white */
+  border-color: var(--btn-primary-border) !important; /* noir */
+  opacity: 0.9;
 }
 
 .navbar-white .btn-cta *,
 .navbar-has-hover .btn-cta *,
 .navbar-white .btn-cta-text,
 .navbar-has-hover .btn-cta-text {
-  color: var(--color-asphalte) !important;
+  color: var(--btn-primary-color) !important; /* white */
 }
 
 .dropdown-content {
@@ -563,13 +572,13 @@ body {
 }
 
 .dropdown-section-title {
-  font-family: var(--font-heading, 'Blacklist', sans-serif);
-  font-size: var(--font-size-h5) !important; /* 20px - H5 du DS */
-  line-height: var(--line-height-h5) !important; /* 120% - H5 du DS */
+  font-family: var(--font-primary, 'Cera Pro', sans-serif);
+  font-size: var(--font-size-alt-3) !important; /* 12px - Alt 3 du DS */
+  line-height: var(--line-height-alt) !important; /* 140% - Alt 3 du DS */
   font-weight: 500;
-  color: var(--color-asphalte);
-  text-transform: none;
-  letter-spacing: -0.5px;
+  color: var(--color-grey-1);
+  text-transform: uppercase; /* Alt 3 : toujours en majuscules */
+  letter-spacing: var(--letter-spacing-alt); /* 0.05em - Alt 3 du DS */
   margin-bottom: var(--spacing-xs); /* 8px */
   padding-bottom: var(--spacing-xs); /* 8px */
   display: block;
@@ -610,10 +619,11 @@ body {
   visibility: visible !important;
   display: block !important;
   pointer-events: auto !important;
-  /* FORCER les styles de texte */
-  font-size: var(--font-size-h5) !important;
-  line-height: var(--line-height-h5) !important;
-  color: var(--color-asphalte) !important;
+  /* FORCER les styles de texte - Alt 3 du DS */
+  font-size: var(--font-size-alt-3) !important;
+  line-height: var(--line-height-alt) !important;
+  color: var(--color-grey-1) !important;
+  text-transform: uppercase !important; /* Alt 3 : toujours en majuscules */
 }
 
 /* Titres cachés - doivent rester invisibles même au hover */
@@ -628,23 +638,23 @@ body {
   pointer-events: none !important;
   transform: translateY(0) !important;
   color: transparent !important;
-  /* FORCER les mêmes dimensions que les titres visibles - EXACTEMENT les mêmes */
-  font-family: var(--font-heading, 'Blacklist', sans-serif) !important;
-  font-size: var(--font-size-h5) !important; /* 24px - H5 du DS */
-  line-height: var(--line-height-h5) !important; /* 120% - H5 du DS */
+  /* FORCER les mêmes dimensions que les titres visibles - EXACTEMENT les mêmes - Alt 3 du DS */
+  font-family: var(--font-primary, 'Cera Pro', sans-serif) !important;
+  font-size: var(--font-size-alt-3) !important; /* 12px - Alt 3 du DS */
+  line-height: var(--line-height-alt) !important; /* 140% - Alt 3 du DS */
   margin-bottom: var(--spacing-xs) !important; /* 8px */
   padding-bottom: var(--spacing-xs) !important; /* 8px */
   margin-top: 0 !important;
   padding-top: 0 !important;
   font-weight: 500 !important;
-  letter-spacing: -0.5px !important;
-  text-transform: none !important;
+  letter-spacing: var(--letter-spacing-alt) !important; /* 0.05em - Alt 3 du DS */
+  text-transform: uppercase !important; /* Alt 3 : toujours en majuscules */
   box-sizing: border-box !important;
-  /* Hauteur exacte = line-height (24px * 120% = 28.8px) + padding-bottom (8px) = 36.8px */
+  /* Hauteur exacte = line-height (12px * 140% = 16.8px) + padding-bottom (8px) = 24.8px */
   /* Avec box-sizing: border-box, la hauteur inclut le padding mais pas le margin */
-  /* Calcul: 24px * 1.2 + 8px = 28.8px + 8px = 36.8px */
-  height: 36.8px !important;
-  min-height: 36.8px !important;
+  /* Calcul: 12px * 1.4 + 8px = 16.8px + 8px = 24.8px */
+  height: 24.8px !important;
+  min-height: 24.8px !important;
   /* S'assurer que le contenu prend l'espace */
   overflow: hidden !important;
 }
@@ -692,8 +702,8 @@ body {
 
 .nav-item-dropdown.is-hovered .dropdown-content .dropdown-section-title:not(.hidden-title),
 .nav-item-dropdown:hover .dropdown-content .dropdown-section-title:not(.hidden-title) {
-  font-size: var(--font-size-h5) !important;
-  line-height: var(--line-height-h5) !important;
+  font-size: var(--font-size-alt-3) !important;
+  line-height: var(--line-height-alt) !important;
 }
 
 /* ============================================
@@ -760,6 +770,39 @@ body {
 .navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(5) {
   transition: opacity 0.6s linear 0.233s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.233s !important;
   transition-delay: 0.233s !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Colonne 1, lien 6 - 0.267s */
+.nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(6),
+.nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(6),
+.navbar-has-hover .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(6),
+.navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(6) {
+  transition: opacity 0.6s linear 0.267s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.267s !important;
+  transition-delay: 0.267s !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Colonne 1, lien 7 - 0.3s */
+.nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(7),
+.nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(7),
+.navbar-has-hover .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(7),
+.navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(7) {
+  transition: opacity 0.6s linear 0.3s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.3s !important;
+  transition-delay: 0.3s !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Colonne 1, lien 8 - 0.333s */
+.nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(8),
+.nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(8),
+.navbar-has-hover .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(8),
+.navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(1) .dropdown-link:nth-of-type(8) {
+  transition: opacity 0.6s linear 0.333s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.333s !important;
+  transition-delay: 0.333s !important;
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
@@ -856,13 +899,103 @@ body {
   transform: translateY(0) !important;
 }
 
-/* Colonne 3, lien 4 (ex: Eviers) - 0.5s */
+/* Colonne 3, lien 4 - 0.5s */
 .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(3) .dropdown-link:nth-of-type(4),
 .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(3) .dropdown-link:nth-of-type(4),
 .navbar-has-hover .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(3) .dropdown-link:nth-of-type(4),
 .navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(3) .dropdown-link:nth-of-type(4) {
   transition: opacity 0.6s linear 0.5s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.5s !important;
   transition-delay: 0.5s !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Colonne 3, lien 5 - 0.533s */
+.nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(3) .dropdown-link:nth-of-type(5),
+.nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(3) .dropdown-link:nth-of-type(5),
+.navbar-has-hover .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(3) .dropdown-link:nth-of-type(5),
+.navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(3) .dropdown-link:nth-of-type(5) {
+  transition: opacity 0.6s linear 0.533s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.533s !important;
+  transition-delay: 0.533s !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Colonne 3, lien 6 - 0.567s */
+.nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(3) .dropdown-link:nth-of-type(6),
+.nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(3) .dropdown-link:nth-of-type(6),
+.navbar-has-hover .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(3) .dropdown-link:nth-of-type(6),
+.navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(3) .dropdown-link:nth-of-type(6) {
+  transition: opacity 0.6s linear 0.567s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.567s !important;
+  transition-delay: 0.567s !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* COLONNE 4 - Tous les liens de la colonne 4 (SHOP suite) */
+
+/* Colonne 4, lien 1 - 0.6s */
+.nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(1),
+.nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(1),
+.navbar-has-hover .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(1),
+.navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(1) {
+  transition: opacity 0.6s linear 0.6s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.6s !important;
+  transition-delay: 0.6s !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Colonne 4, lien 2 - 0.633s */
+.nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(2),
+.nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(2),
+.navbar-has-hover .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(2),
+.navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(2) {
+  transition: opacity 0.6s linear 0.633s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.633s !important;
+  transition-delay: 0.633s !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Colonne 4, lien 3 - 0.667s */
+.nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(3),
+.nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(3),
+.navbar-has-hover .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(3),
+.navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(3) {
+  transition: opacity 0.6s linear 0.667s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.667s !important;
+  transition-delay: 0.667s !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Colonne 4, lien 4 - 0.7s */
+.nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(4),
+.nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(4),
+.navbar-has-hover .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(4),
+.navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(4) {
+  transition: opacity 0.6s linear 0.7s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.7s !important;
+  transition-delay: 0.7s !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Colonne 4, lien 5 - 0.733s */
+.nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(5),
+.nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(5),
+.navbar-has-hover .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(5),
+.navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(5) {
+  transition: opacity 0.6s linear 0.733s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.733s !important;
+  transition-delay: 0.733s !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Colonne 4, lien 6 - 0.767s */
+.nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(6),
+.nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(6),
+.navbar-has-hover .nav-item-dropdown.is-hovered .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(6),
+.navbar-has-hover .nav-item-dropdown:hover .dropdown-columns .dropdown-column:nth-child(4) .dropdown-link:nth-of-type(6) {
+  transition: opacity 0.6s linear 0.767s, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.767s !important;
+  transition-delay: 0.767s !important;
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
@@ -1061,17 +1194,17 @@ body {
   fill: none;
 }
 
-/* Bouton CTA - Secondary white button avec stroke blanc */
-/* Utilise les règles du Design System : .btn.btn-secondary.btn-small */
+/* Bouton CTA - Primary black button avec fond noir */
+/* Utilise les règles du Design System : .btn.btn-primary.btn-small */
 .btn-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm); /* DS : gap var(--spacing-sm) */
   padding: 8px var(--spacing-sm); /* DS btn-small : 8px top/bottom, 12px left/right */
-  background-color: var(--btn-secondary-bg); /* transparent */
-  color: var(--btn-secondary-color); /* white */
-  border: 1px solid var(--btn-secondary-border); /* white */
+  background-color: var(--color-white); /* blanc */
+  color: var(--btn-secondary-dark-color); /* noir */
+  border: none; /* pas de bordure */
   text-decoration: none;
   font-family: var(--font-primary, 'Cera Pro', sans-serif);
   font-size: var(--font-size-alt-3); /* DS btn-small : 12px - Alt 3 */
@@ -1099,11 +1232,19 @@ body {
   font-weight: 500;
   letter-spacing: var(--letter-spacing-alt); /* 0.05em - Alt 3 */
   line-height: var(--line-height-alt); /* 140% */
+  color: var(--btn-secondary-dark-color); /* noir par défaut */
 }
 
 .btn-cta:hover {
-  opacity: 0.8;
+  background-color: var(--btn-primary-bg); /* noir */
+  color: var(--btn-primary-color); /* white */
+  border: none; /* pas de bordure */
   transform: translateY(-1px);
+}
+
+.btn-cta:hover *,
+.btn-cta:hover .btn-cta-text {
+  color: var(--btn-primary-color) !important; /* white au hover */
 }
 
 .btn-cta:active {

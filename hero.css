@@ -182,12 +182,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(45, 80, 82, 0.4) 0%,
-    rgba(45, 80, 82, 0.2) 50%,
-    rgba(45, 80, 82, 0.3) 100%
-  );
+  background: rgba(0, 0, 0, 0.1);
   z-index: 1;
   pointer-events: none;
 }
@@ -225,7 +220,7 @@
   font-family: var(--font-heading, 'Blacklist', sans-serif);
   font-size: var(--font-size-h1); /* 80px - H1 du DS */
   font-weight: 400; /* Regular */
-  line-height: var(--line-height-h1); /* 90% */
+  line-height: 120%;
   letter-spacing: -0.02em;
   margin-bottom: var(--spacing-xl);
   color: var(--color-white);
@@ -448,96 +443,6 @@ a.hero-btn.hero-btn-ghost * {
   }
 }
 
-/* Hero Box avec étapes cliquables */
-.hero-box {
-  background-color: var(--color-white);
-  padding: var(--spacing-3xl) var(--spacing-2xl);
-  max-width: 500px;
-  border-radius: 0;
-  z-index: 10;
-  position: absolute;
-  right: var(--spacing-3xl);
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s forwards;
-  pointer-events: auto !important;
-}
-
-.hero-box-title {
-  font-family: var(--font-heading, 'Blacklist', sans-serif);
-  font-size: var(--font-size-h3); /* 42px */
-  font-weight: 400;
-  line-height: var(--line-height-h3); /* 120% */
-  letter-spacing: -0.02em;
-  color: var(--color-asphalte);
-  margin: 0 0 var(--spacing-md) 0;
-}
-
-.hero-box-steps {
-  list-style: none;
-  counter-reset: step-counter;
-  padding: 0;
-  margin: 0;
-  pointer-events: auto;
-}
-
-.hero-box-steps li {
-  counter-increment: step-counter;
-  margin-bottom: var(--spacing-sm);
-  padding-left: var(--spacing-2xl);
-  position: relative;
-  list-style: none;
-  pointer-events: auto;
-}
-
-.hero-box-step-link {
-  font-family: var(--font-primary, 'Cera Pro', sans-serif);
-  font-size: var(--font-size-l); /* 16px */
-  font-weight: 400;
-  line-height: var(--line-height-body); /* 140% */
-  letter-spacing: var(--letter-spacing-body); /* -0.5px */
-  color: var(--color-asphalte);
-  text-decoration: none;
-  display: block;
-  width: 100%;
-  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
-  padding: var(--spacing-xs) 0;
-  pointer-events: auto !important;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
-.hero-box-step-link:active {
-  color: var(--hero-teal-dark);
-}
-
-.hero-box-step-link:hover {
-  color: var(--hero-teal-dark);
-}
-
-.hero-box-steps li::before {
-  content: counter(step-counter);
-  position: absolute;
-  left: 0;
-  top: var(--spacing-xs);
-  font-family: var(--font-heading, 'Blacklist', sans-serif);
-  font-size: var(--font-size-h5); /* 24px */
-  font-weight: 400;
-  line-height: var(--line-height-h5); /* 120% */
-  color: var(--color-asphalte);
-  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  pointer-events: none !important;
-  z-index: 0;
-}
-
-.hero-box-steps li:hover::before {
-  color: var(--hero-teal-dark);
-}
-
 /* Scroll smooth pour les ancres */
 html {
   scroll-behavior: smooth;
@@ -546,41 +451,6 @@ html {
 /* Offset pour les ancres (compenser la navbar) */
 .category-card {
   scroll-margin-top: 100px;
-}
-
-/* Responsive - Hero Box */
-@media (max-width: 1024px) {
-  .hero-box {
-    right: var(--spacing-xl);
-    max-width: 400px;
-    padding: var(--spacing-2xl) var(--spacing-xl);
-  }
-
-  .hero-box-title {
-    font-size: var(--font-size-h4); /* 32px */
-    line-height: var(--line-height-h4); /* 120% */
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-box {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    max-width: 100%;
-    margin-top: var(--spacing-2xl);
-    padding: var(--spacing-xl);
-  }
-
-  .hero-box-title {
-    font-size: var(--font-size-h4); /* 32px */
-    line-height: var(--line-height-h4); /* 120% */
-  }
-
-  .hero-box-step-link {
-    font-size: var(--font-size-m); /* 14px */
-  }
 }
 
 /* Categories Grid Section */
