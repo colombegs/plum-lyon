@@ -204,15 +204,23 @@
   width: 100%;
   margin: 0 auto;
   padding: 0 var(--container-padding);
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
   position: relative;
 }
 
 .hero-text {
-  max-width: 90%;
+  max-width: 100%;
   color: var(--color-white);
-  text-align: center;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  justify-self: center;
+  width: 100%;
 }
 
 /* Titre principal - Blacklist Regular - H1 du DS */
@@ -269,12 +277,12 @@
   font-weight: 400; /* Regular */
   letter-spacing: -0.5px;
   line-height: var(--line-height-body); /* 140% */
-  margin: 0 auto var(--spacing-3xl);
+  margin: 0 0 var(--spacing-3xl) 0;
   color: rgba(255, 255, 255, 0.95);
   opacity: 0;
   animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
   max-width: 560px;
-  text-align: center;
+  text-align: left;
 }
 
 /* Tous les paragraphes et textes dans la hero - Cera Pro Regular par défaut */
@@ -292,7 +300,7 @@
   display: flex;
   gap: var(--spacing-lg);
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   opacity: 0;
   animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s forwards;
 }
@@ -527,6 +535,26 @@ html {
 
 /* Responsive - Tablette (900px - même breakpoint que le burger) */
 @media (max-width: 900px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .hero-text {
+    text-align: center;
+    align-items: center;
+    max-width: 90%;
+  }
+
+  .hero-subtitle {
+    text-align: center;
+    margin: 0 auto var(--spacing-3xl);
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
   .hero-title {
     font-size: var(--font-size-h2); /* 54px - H2 du DS pour tablette */
     line-height: var(--line-height-h2); /* 120% - H2 du DS pour tablette */
