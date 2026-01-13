@@ -703,7 +703,9 @@ body .navbar {
     }
 
     .dressing-scene-name {
-        font-size: 14px;
+        font-size: var(--font-size-alt-2); /* 14px - Alt 2 du DS */
+        line-height: var(--line-height-alt); /* 140% - Alt 2 complet */
+        letter-spacing: var(--letter-spacing-alt); /* 0.05em - Alt 2 complet */
     }
 
     .dressing-description {

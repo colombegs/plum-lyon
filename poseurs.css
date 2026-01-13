@@ -474,14 +474,14 @@ body {
     color: var(--color-asphalte);
     text-decoration: none;
     font-family: var(--font-primary);
-    font-size: var(--font-size-m);
-    line-height: var(--line-height-body);
+    font-size: var(--font-size-alt-2); /* 14px - Alt 2 du DS */
+    line-height: var(--line-height-alt); /* 140% - Alt 2 complet */
     font-weight: 500;
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--radius-sm);
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--letter-spacing-alt); /* 0.05em - Alt 2 complet */
     transition: background-color var(--transition-fast);
 }
 
