@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -56,7 +56,7 @@
             <!-- Navigation principale -->
             <ul class="navbar-nav">
                 <li class="nav-item nav-item-dropdown">
-                    <a href="#" class="nav-link">CUISINE</a>
+                    <a href="#" class="nav-link" id="navLinkCuisine">CUISINE</a>
                     <div class="dropdown-menu">
                         <div class="dropdown-content">
                             <div class="dropdown-columns">
@@ -68,7 +68,6 @@
                                 <div class="dropdown-column">
                                     <div class="dropdown-section-title">OUTILS & SERVICES</div>
                                     <a href="styler.html" class="dropdown-link">Styler 3D</a>
-                                    <a href="#" class="dropdown-link">Estimation en 2min</a>
                                     <a href="#" class="dropdown-link">Estimation et devis</a>
                                     <a href="#" class="dropdown-link">Prendre rendez-vous</a>
                                 </div>
@@ -172,10 +171,10 @@
                             <div class="dropdown-media-group">
                                 <div class="dropdown-media">
                                     <div class="dropdown-media-image">
-                                        <img src="images/couleur.jpg" alt="Nos couleurs">
+                                        <img src="images/couleur.jpg" alt="Club Pro">
                                         <div class="dropdown-media-overlay">
                                             <div class="dropdown-media-content">
-                                                <h5 class="dropdown-media-title">Nos couleurs</h5>
+                                                <h5 class="dropdown-media-title">Club Pro</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -230,6 +229,7 @@
                             <circle cx="12" cy="7" r="4"></circle>
                         </svg>
                     </button>
+                    <!-- Panier -->
                     <button class="icon-button" aria-label="Panier">
                         <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="9" cy="21" r="1"></circle>
@@ -238,6 +238,9 @@
                         </svg>
                     </button>
                 </div>
+
+                <!-- Club Pro -->
+                <a href="#" class="nav-link" id="clubProLink">CLUB PRO</a>
 
                 <!-- Bouton CTA -->
                 <a href="#" class="btn-cta">
@@ -285,7 +288,7 @@
                         </li>
                         <li class="mobile-menu-item">
                             <a href="#" class="mobile-menu-link">
-                                Showroom
+                                Galerie
                             </a>
                         </li>
                         <li class="mobile-menu-item">
@@ -326,7 +329,6 @@
                     </div>
                     <div class="mobile-menu-drawer-sections">
                         <div class="mobile-menu-drawer-section">
-                            <h4 class="mobile-menu-drawer-section-title">Découvrir</h4>
                             <ul class="mobile-menu-list mobile-menu-submenu-list">
                                 <li class="mobile-menu-item">
                                     <a href="styler.html" class="mobile-menu-link">Styler 3D</a>
@@ -335,19 +337,11 @@
                                     <a href="#" class="mobile-menu-link">Nos cuisines chez vous</a>
                                 </li>
                                 <li class="mobile-menu-item">
-                                    <a href="#" class="mobile-menu-link">Rendez-vous conception</a>
+                                    <a href="plumwall.html" class="mobile-menu-link">Galerie</a>
                                 </li>
                                 <li class="mobile-menu-item">
                                     <a href="#" class="mobile-menu-link">Estimation en 2min</a>
                                 </li>
-                                <li class="mobile-menu-item">
-                                    <a href="plumwall.html" class="mobile-menu-link">Inspiration</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mobile-menu-drawer-section">
-                            <h4 class="mobile-menu-drawer-section-title">Shop</h4>
-                            <ul class="mobile-menu-list mobile-menu-submenu-list">
                                 <li class="mobile-menu-item">
                                     <a href="#" class="mobile-menu-link">Échantillons</a>
                                 </li>
@@ -402,7 +396,6 @@
                     </div>
                     <div class="mobile-menu-drawer-sections">
                         <div class="mobile-menu-drawer-section">
-                            <h4 class="mobile-menu-drawer-section-title">Catégories</h4>
                             <ul class="mobile-menu-list mobile-menu-submenu-list">
                                 <li class="mobile-menu-item">
                                     <a href="dressing.html" class="mobile-menu-link">Dressings</a>
@@ -425,14 +418,6 @@
                                 <li class="mobile-menu-item">
                                     <a href="#" class="mobile-menu-link">Kids</a>
                                 </li>
-                                <li class="mobile-menu-item">
-                                    <a href="plumwall.html" class="mobile-menu-link">Inspiration</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mobile-menu-drawer-section">
-                            <h4 class="mobile-menu-drawer-section-title">Shop</h4>
-                            <ul class="mobile-menu-list mobile-menu-submenu-list">
                                 <li class="mobile-menu-item">
                                     <a href="#" class="mobile-menu-link">Façades Pax</a>
                                 </li>
@@ -484,13 +469,7 @@
                             <a href="#" class="mobile-menu-link">Échantillons</a>
                         </li>
                         <li class="mobile-menu-item">
-                            <a href="#" class="mobile-menu-link">Showroom</a>
-                        </li>
-                        <li class="mobile-menu-item">
-                            <a href="#" class="mobile-menu-link">Conception au showroom</a>
-                        </li>
-                        <li class="mobile-menu-item">
-                            <a href="#" class="mobile-menu-link">Club Pro</a>
+                            <a href="#" class="mobile-menu-link">Galerie</a>
                         </li>
                     </ul>
                 </div>
@@ -501,11 +480,16 @@
         <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
     </nav>
 
+    <!-- Titre Bienvenue -->
+    <section class="welcome-section">
+        <h1 class="welcome-title">Bienvenue chez Pauline DB</h1>
+    </section>
+
     <!-- Hero Section -->
     <section class="hero hero-cuisine">
         <div class="hero-cuisine-container">
             <div class="hero-cuisine-content">
-                <h1 class="hero-cuisine-title">Votre cuisine Plum Living</h1>
+                <h1 class="hero-cuisine-title h0">Votre cuisine Plum Living</h1>
                 <p class="hero-cuisine-subtitle">Plongez dans nos inspirations et explorez nos matières et couleurs. Obtenez votre devis cuisine personnalisé en quelques clics, commandez vos échantillons et découvrez nos produits au showroom. Créez votre cuisine sur mesure, seul ou avec un expert, pour un projet unique, pratique et pensée pour vous.</p>
                 <ol class="hero-cuisine-steps">
                     <li><a href="#concept" class="hero-cuisine-step-link">Le concept Plum Living</a></li>
@@ -516,9 +500,6 @@
                     <li><a href="#configuration" class="hero-cuisine-step-link">Configurer votre plan seul ou bien accompagné</a></li>
                     <li><a href="#finalisation" class="hero-cuisine-step-link">Finaliser votre projet</a></li>
                 </ol>
-                <a href="#" class="btn btn-primary-dark hero-cuisine-btn">
-                    <span>JE COMMENCE</span>
-                </a>
             </div>
             <div class="hero-cuisine-image-wrapper">
                 <img src="images/lpcuisine/hero.jpg" alt="Cuisine Plum Living" class="hero-cuisine-image">
@@ -750,7 +731,7 @@
     </section>
 
     <!-- La touche Plum Section -->
-    <section class="touche-plum-section">
+    <section class="touche-plum-section" style="display: none;">
         <div class="touche-plum-container">
             <h3 class="touche-plum-title">La touche Plum Living</h3>
             
@@ -787,7 +768,7 @@
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                         </svg>
                     </div>
-                    <h3 class="touche-plum-heading">Un prix juste (ou au juste prix)</h3>
+                    <h3 class="touche-plum-heading">Un prix juste</h3>
                     <p class="touche-plum-description">En moyenne, deux à trois fois moins onéreux qu'un cuisiniste</p>
                 </div>
 
@@ -840,6 +821,9 @@
                 <p class="pose-description">
                     Pour vous ou votre poseur, découvrez notre guide d'installation complet : notices Ikea, tutos vidéo et instructions claires et simples pour chaque étape de votre pose.
                 </p>
+                <a href="#" class="btn btn-ghost-dark pose-link">
+                    <span>Guide d'installation</span>
+                </a>
             </div>
         </div>
     </section>
@@ -1150,8 +1134,63 @@
             });
         }
 
+        // #region agent log - Debug hover color issue
+        // Instrumentation pour déboguer le problème de couleur au hover
+        (function() {
+            function logNavLinkHover(event, link, eventType) {
+                const navbar = document.querySelector('.navbar');
+                const computedColor = window.getComputedStyle(link).color;
+                const navbarClasses = navbar ? navbar.className : 'none';
+                const linkClasses = link.className;
+                const isHovered = link.matches(':hover');
+                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lpcuisine.html:1150',message:`nav-link ${eventType}`,data:{text:link.textContent.trim(),computedColor,navbarClasses,linkClasses,isHovered},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+            }
+            
+            document.addEventListener('DOMContentLoaded', () => {
+                const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+                const navbar = document.querySelector('.navbar');
+                
+                navLinks.forEach(link => {
+                    link.addEventListener('mouseenter', (e) => logNavLinkHover(e, link, 'enter'));
+                    link.addEventListener('mouseleave', (e) => logNavLinkHover(e, link, 'leave'));
+                });
+                
+                if (navbar) {
+                    const navbarObserver = new MutationObserver(() => {
+                        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+                        navLinks.forEach(link => {
+                            const computedColor = window.getComputedStyle(link).color;
+                            fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lpcuisine.html:1165',message:'navbar class changed',data:{navbarClasses:navbar.className,linkText:link.textContent.trim(),computedColor},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+                        });
+                    });
+                    navbarObserver.observe(navbar, { attributes: true, attributeFilter: ['class'] });
+                }
+            });
+        })();
+        // #endregion agent log
+
         // Gestion de la barre de recherche
         document.addEventListener('DOMContentLoaded', () => {
+            // #region agent log
+            fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lpcuisine.html:1154',message:'DOMContentLoaded - Checking CLUB PRO element',data:{clubProExists:!!document.getElementById('clubProLink'),navbarActionsExists:!!document.querySelector('.navbar-actions')},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+            // #endregion
+            
+            const clubProLink = document.getElementById('clubProLink');
+            if (clubProLink) {
+                const styles = window.getComputedStyle(clubProLink);
+                // #region agent log
+                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lpcuisine.html:1160',message:'CLUB PRO element CSS properties',data:{display:styles.display,visibility:styles.visibility,opacity:styles.opacity,width:styles.width,height:styles.height,position:styles.position,left:styles.left,top:styles.top,overflow:styles.overflow,parentDisplay:window.getComputedStyle(clubProLink.parentElement).display},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+                // #endregion
+                
+                // #region agent log
+                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lpcuisine.html:1163',message:'CLUB PRO element DOM position',data:{textContent:clubProLink.textContent,className:clubProLink.className,parentTag:clubProLink.parentElement?.tagName,parentClass:clubProLink.parentElement?.className,nextSibling:clubProLink.nextElementSibling?.tagName,previousSibling:clubProLink.previousElementSibling?.tagName},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+                // #endregion
+            } else {
+                // #region agent log
+                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lpcuisine.html:1167',message:'CLUB PRO element NOT FOUND in DOM',data:{navbarActionsHTML:document.querySelector('.navbar-actions')?.innerHTML?.substring(0,200)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                // #endregion
+            }
+            
             const searchContainer = document.querySelector('.search-container');
             const searchBar = document.getElementById('searchBar');
             const searchInput = document.getElementById('searchInput');
@@ -1175,6 +1214,16 @@
 
             searchContainer.addEventListener('mouseenter', openSearchBar);
             searchContainer.addEventListener('mouseleave', closeSearchBar);
+            
+            // #region agent log
+            setTimeout(() => {
+                const clubProLink = document.getElementById('clubProLink');
+                if (clubProLink) {
+                    const styles = window.getComputedStyle(clubProLink);
+                    fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lpcuisine.html:1185',message:'CLUB PRO element after 1s delay - checking if JS modified it',data:{display:styles.display,visibility:styles.visibility,opacity:styles.opacity,width:styles.width,height:styles.height,isConnected:clubProLink.isConnected,parentElement:!!clubProLink.parentElement},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
+                }
+            }, 1000);
+            // #endregion
             searchBar.addEventListener('mouseleave', closeSearchBar);
 
             if (searchClose) {
@@ -1212,6 +1261,171 @@
             // Pas besoin de JavaScript pour la navigation
         })();
 
+        // #region agent log - Debug Instagram empty space
+        (function() {
+            function logDebug(hypothesisId, location, message, data) {
+                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        location: location,
+                        message: message,
+                        data: data,
+                        timestamp: Date.now(),
+                        sessionId: 'debug-session',
+                        runId: 'empty-space-debug',
+                        hypothesisId: hypothesisId
+                    })
+                }).catch(() => {});
+            }
+            
+            function measureEmptySpace() {
+                const section = document.querySelector('.instagram-section');
+                const container = document.querySelector('.instagram-container');
+                const wrapper = document.querySelector('.instagram-carousel-wrapper');
+                const carousel = document.getElementById('instagramCarousel');
+                const track = document.getElementById('instagramCarouselTrack');
+                const firstSlide = document.querySelector('.instagram-carousel-slide');
+                const firstWrapper = document.querySelector('.instagram-carousel-slide .instagram-image-wrapper');
+                
+                if (!section || !container || !wrapper || !carousel || !track) {
+                    return;
+                }
+                
+                // Hypothesis A: Section min-height and align-items causing extra space
+                const sectionStyle = window.getComputedStyle(section);
+                logDebug('A', 'lpcuisine.html:measureEmptySpace', 'Section dimensions and CSS', {
+                    sectionHeight: section.offsetHeight,
+                    sectionClientHeight: section.clientHeight,
+                    sectionScrollHeight: section.scrollHeight,
+                    minHeight: sectionStyle.minHeight,
+                    height: sectionStyle.height,
+                    display: sectionStyle.display,
+                    alignItems: sectionStyle.alignItems,
+                    justifyContent: sectionStyle.justifyContent,
+                    paddingTop: sectionStyle.paddingTop,
+                    paddingBottom: sectionStyle.paddingBottom,
+                    marginTop: sectionStyle.marginTop,
+                    marginBottom: sectionStyle.marginBottom
+                });
+                
+                // Hypothesis B: Container and wrapper dimensions
+                const containerStyle = window.getComputedStyle(container);
+                const wrapperStyle = window.getComputedStyle(wrapper);
+                logDebug('B', 'lpcuisine.html:measureEmptySpace', 'Container and wrapper dimensions', {
+                    containerHeight: container.offsetHeight,
+                    containerClientHeight: container.clientHeight,
+                    containerGap: containerStyle.gap,
+                    wrapperHeight: wrapper.offsetHeight,
+                    wrapperClientHeight: wrapper.clientHeight,
+                    wrapperMinHeight: wrapperStyle.minHeight,
+                    wrapperDisplay: wrapperStyle.display,
+                    wrapperAlignItems: wrapperStyle.alignItems
+                });
+                
+                // Hypothesis C: Carousel and track dimensions
+                const carouselStyle = window.getComputedStyle(carousel);
+                const trackStyle = window.getComputedStyle(track);
+                logDebug('C', 'lpcuisine.html:measureEmptySpace', 'Carousel and track dimensions', {
+                    carouselHeight: carousel.offsetHeight,
+                    carouselClientHeight: carousel.clientHeight,
+                    carouselScrollHeight: carousel.scrollHeight,
+                    carouselOverflowY: carouselStyle.overflowY,
+                    trackHeight: track.offsetHeight,
+                    trackClientHeight: track.clientHeight,
+                    trackMinHeight: trackStyle.minHeight,
+                    trackDisplay: trackStyle.display
+                });
+                
+                // Hypothesis D: Actual content height vs container height
+                if (firstSlide && firstWrapper) {
+                    const slideStyle = window.getComputedStyle(firstSlide);
+                    const wrapperStyle2 = window.getComputedStyle(firstWrapper);
+                    logDebug('D', 'lpcuisine.html:measureEmptySpace', 'Content vs container height comparison', {
+                        firstSlideHeight: firstSlide.offsetHeight,
+                        firstWrapperHeight: firstWrapper.offsetHeight,
+                        firstWrapperMinHeight: wrapperStyle2.minHeight,
+                        firstWrapperAspectRatio: wrapperStyle2.aspectRatio,
+                        trackHeight: track.offsetHeight,
+                        wrapperHeight: wrapper.offsetHeight,
+                        containerHeight: container.offsetHeight,
+                        sectionHeight: section.offsetHeight,
+                        heightDifference: section.offsetHeight - container.offsetHeight,
+                        containerToWrapperDiff: container.offsetHeight - wrapper.offsetHeight,
+                        wrapperToTrackDiff: wrapper.offsetHeight - track.offsetHeight
+                    });
+                }
+                
+                // Hypothesis E: Flex alignment creating equal spacing
+                logDebug('E', 'lpcuisine.html:measureEmptySpace', 'Flex alignment analysis', {
+                    sectionDisplay: sectionStyle.display,
+                    sectionAlignItems: sectionStyle.alignItems,
+                    sectionJustifyContent: sectionStyle.justifyContent,
+                    sectionMinHeight: sectionStyle.minHeight,
+                    sectionActualHeight: section.offsetHeight,
+                    containerHeight: container.offsetHeight,
+                    spaceAbove: (section.offsetHeight - container.offsetHeight) / 2,
+                    spaceBelow: (section.offsetHeight - container.offsetHeight) / 2,
+                    isCentered: sectionStyle.alignItems === 'center' || sectionStyle.alignItems === 'flex-start'
+                });
+                
+                // Additional: Measure bleed images to understand wrapper height
+                const bleedLeft = document.querySelector('.instagram-bleed-left');
+                const bleedRight = document.querySelector('.instagram-bleed-right');
+                if (bleedLeft) {
+                    const bleedLeftStyle = window.getComputedStyle(bleedLeft);
+                    const bleedLeftWrapper = bleedLeft.querySelector('.instagram-image-wrapper');
+                    logDebug('F', 'lpcuisine.html:measureEmptySpace', 'Bleed left dimensions', {
+                        bleedLeftHeight: bleedLeft.offsetHeight,
+                        bleedLeftWidth: bleedLeft.offsetWidth,
+                        bleedLeftWrapperHeight: bleedLeftWrapper ? bleedLeftWrapper.offsetHeight : 0,
+                        bleedLeftWrapperWidth: bleedLeftWrapper ? bleedLeftWrapper.offsetWidth : 0,
+                        wrapperHeight: wrapper.offsetHeight,
+                        carouselHeight: carousel.offsetHeight,
+                        trackHeight: track.offsetHeight
+                    });
+                }
+                if (bleedRight) {
+                    const bleedRightStyle = window.getComputedStyle(bleedRight);
+                    const bleedRightWrapper = bleedRight.querySelector('.instagram-image-wrapper');
+                    logDebug('F', 'lpcuisine.html:measureEmptySpace', 'Bleed right dimensions', {
+                        bleedRightHeight: bleedRight.offsetHeight,
+                        bleedRightWidth: bleedRight.offsetWidth,
+                        bleedRightWrapperHeight: bleedRightWrapper ? bleedRightWrapper.offsetHeight : 0,
+                        bleedRightWrapperWidth: bleedRightWrapper ? bleedRightWrapper.offsetWidth : 0
+                    });
+                }
+                
+                // Additional: Check if slides are stretching due to track height
+                if (firstSlide) {
+                    const slideStyle = window.getComputedStyle(firstSlide);
+                    logDebug('G', 'lpcuisine.html:measureEmptySpace', 'Slide stretching analysis', {
+                        slideHeight: firstSlide.offsetHeight,
+                        slideWidth: firstSlide.offsetWidth,
+                        slideAlignSelf: slideStyle.alignSelf,
+                        slideDisplay: slideStyle.display,
+                        wrapperHeight: firstWrapper ? firstWrapper.offsetHeight : 0,
+                        trackHeight: track.offsetHeight,
+                        trackAlignItems: trackStyle.alignItems,
+                        heightDifference: firstSlide.offsetHeight - (firstWrapper ? firstWrapper.offsetHeight : 0)
+                    });
+                }
+            }
+            
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                setTimeout(measureEmptySpace, 500);
+            } else {
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(measureEmptySpace, 500);
+                });
+            }
+            
+            window.addEventListener('resize', function() {
+                setTimeout(measureEmptySpace, 100);
+            });
+        })();
+        // #endregion
+        
         // #region agent log - Debug Instagram image cropping
         (function() {
             function logDebug(hypothesisId, location, message, data) {
@@ -1574,6 +1788,31 @@
         })();
         // #endregion
         
+        // #region agent log - Debug navbar dropdown CUISINE content
+        (function() {
+            function checkNavbarDropdown() {
+                const cuisineDropdown = document.querySelector('#navLinkCuisine')?.closest('.nav-item-dropdown')?.querySelector('.dropdown-menu');
+                if (cuisineDropdown) {
+                    const dropdownLinks = Array.from(cuisineDropdown.querySelectorAll('.dropdown-link'));
+                    const linkTexts = dropdownLinks.map(link => link.textContent.trim());
+                    const hasEstimation2min = linkTexts.some(text => text.toLowerCase().includes('estimation') && text.toLowerCase().includes('2min'));
+                    
+                    fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lpcuisine.html:checkNavbarDropdown',message:'Checking CUISINE dropdown content in DOM',data:{hasEstimation2min:hasEstimation2min,allLinkTexts:linkTexts,dropdownHTML:cuisineDropdown.innerHTML.substring(0,500)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                } else {
+                    fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lpcuisine.html:checkNavbarDropdown',message:'CUISINE dropdown NOT FOUND in DOM',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                }
+            }
+            
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                setTimeout(checkNavbarDropdown, 100);
+            } else {
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(checkNavbarDropdown, 100);
+                });
+            }
+        })();
+        // #endregion
+        
         // Déclencher l'animation du fade blanc vers la page au chargement
         (function() {
             function triggerFade() {
@@ -1596,4 +1835,4 @@
     </script>
 </body>
 </html>
-cen
+cen>

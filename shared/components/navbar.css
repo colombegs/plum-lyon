@@ -219,11 +219,36 @@
   text-underline-offset: 4px;
 }
 
+/* Nav-link dans navbar-actions (pour CLUB PRO) */
+.navbar-actions .nav-link {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-alt-3); /* 12px - Alt 3 */
+  line-height: var(--line-height-alt); /* 140% - Alt 3 */
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-alt); /* 5% - Alt 3 */
+  text-transform: uppercase;
+  color: var(--color-asphalte);
+  text-decoration: none;
+  position: relative;
+  padding: 8px 12px;
+  transition: color var(--transition-fast);
+  display: block !important; /* Override flex from navbar.css */
+  white-space: nowrap;
+  height: auto !important; /* Override height: 100% from navbar.css */
+  width: auto !important; /* Override width: 100% from navbar.css */
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-actions .nav-link:hover {
+  color: var(--color-grey-1);
+}
+
 /* Actions utilisateur */
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: var(--spacing-lg);
+  column-gap: 12px;
   flex-shrink: 0; /* Ne pas rétrécir, garder la taille fixe */
   min-width: 0; /* Permet au flex de rétrécir en dessous de sa taille de contenu */
   margin-left: auto; /* Pousser vers la droite */
@@ -623,7 +648,6 @@
 .mobile-menu-drawer-sections {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
 }
 
 .mobile-menu-drawer-section {
@@ -662,17 +686,17 @@
   animation: none;
 }
 
-/* Titres de sections dans les drawers - H5 */
+/* Titres de sections dans les drawers - Alt 2 */
 .mobile-menu-drawer-section-title {
-  font-family: var(--font-heading, 'Blacklist', sans-serif);
-  font-size: var(--font-size-h5) !important; /* 20px - H5 du DS */
-  line-height: var(--line-height-h5) !important; /* 120% - H5 du DS */
+  font-family: var(--font-primary, 'Cera Pro', sans-serif);
+  font-size: var(--font-size-alt-2) !important; /* 14px - Alt 2 du DS */
+  line-height: var(--line-height-alt) !important; /* 140% - Alt 2 complet */
   font-weight: 500;
   color: var(--color-white);
   margin: 0;
   margin-bottom: var(--spacing-md);
   text-transform: none;
-  letter-spacing: -0.5px;
+  letter-spacing: var(--letter-spacing-alt); /* 5% - Alt 2 complet */
   opacity: 0;
   transform: translateY(10px);
   will-change: opacity, transform;
@@ -766,18 +790,14 @@
 }
 
 .mobile-menu.is-open .mobile-menu-view-main.active .mobile-menu-list.mobile-menu-alt .mobile-menu-item:nth-child(1) {
-  animation-delay: 0.525s;
-}
-
-.mobile-menu.is-open .mobile-menu-view-main.active .mobile-menu-list.mobile-menu-alt .mobile-menu-item:nth-child(2) {
   animation-delay: 0.6s;
 }
 
-.mobile-menu.is-open .mobile-menu-view-main.active .mobile-menu-list.mobile-menu-alt .mobile-menu-item:nth-child(3) {
+.mobile-menu.is-open .mobile-menu-view-main.active .mobile-menu-list.mobile-menu-alt .mobile-menu-item:nth-child(2) {
   animation-delay: 0.675s;
 }
 
-.mobile-menu.is-open .mobile-menu-view-main.active .mobile-menu-list.mobile-menu-alt .mobile-menu-item:nth-child(4) {
+.mobile-menu.is-open .mobile-menu-view-main.active .mobile-menu-list.mobile-menu-alt .mobile-menu-item:nth-child(3) {
   animation-delay: 0.75s;
 }
 
@@ -1082,6 +1102,11 @@
     flex-shrink: 0; /* Ne pas rétrécir */
     min-width: 0; /* Empêche le débordement */
     display: none; /* Cacher navbar-actions sur mobile car tout est caché */
+  }
+
+  /* Cacher spécifiquement CLUB PRO de la navbar sur mobile */
+  .navbar-actions .nav-link {
+    display: none !important;
   }
 
   .icon-button {

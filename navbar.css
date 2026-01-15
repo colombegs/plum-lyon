@@ -403,6 +403,11 @@ body {
   letter-spacing: var(--letter-spacing-alt); /* 0.05em (5% de la taille de police) pour les styles alt */
 }
 
+.navbar-white .navbar-actions .nav-link,
+.navbar-has-hover .navbar-actions .nav-link {
+  color: var(--color-asphalte);
+}
+
 .navbar-white .icon-button,
 .navbar-has-hover .icon-button,
 .navbar-white .navbar .icon-button,
@@ -1016,6 +1021,15 @@ body {
   /* RÉINITIALISER les valeurs héritées */
   line-height: normal !important;
   font-size: inherit !important;
+  /* Support pour les liens */
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Cursor pointer pour les liens dropdown-media */
+a.dropdown-media {
+  cursor: pointer;
 }
 
 /* Dropdown Media Group - pour 2 images côte à côte (CONCEPT) */
@@ -1149,7 +1163,7 @@ body {
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  column-gap: 12px;
   flex-shrink: 1; /* Permet de rétrécir si nécessaire */
   min-width: 0; /* Permet au flex de rétrécir en dessous de sa taille de contenu */
   background: transparent;

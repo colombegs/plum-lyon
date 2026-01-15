@@ -50,8 +50,8 @@
   --letter-spacing-alt: 0.05em; /* 5% de la taille de police = 0.05em - FAIT PARTIE INTÉGRANTE DU DS Alt 1, 2, 3. À utiliser UNIQUEMENT avec ces styles. */
   
   /* Tailles de police - Headings (Blacklist) */
-  --font-size-h0: 72px;
-  --font-size-h1: 80px;
+  --font-size-h0: 80px;
+  --font-size-h1: 72px;
   --font-size-h2: 54px;
   --font-size-h3: 42px;
   --font-size-h4: 32px;

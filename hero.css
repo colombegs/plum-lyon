@@ -87,8 +87,53 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+.navbar-over-hero .nav-link {
+  color: var(--color-white);
+}
+
 .navbar-over-hero.scrolled .nav-link {
   color: var(--color-asphalte);
+}
+
+/* Fix: Quand navbar-has-hover est actif, TOUS les liens doivent être noirs (pas seulement au hover) */
+.navbar-over-hero.navbar-has-hover .nav-link,
+.navbar-over-hero.navbar-white .nav-link {
+  color: var(--color-asphalte) !important;
+}
+
+/* Fix: Quand navbar-has-hover est actif, le hover doit aussi être noir */
+.navbar-over-hero.navbar-has-hover .nav-link:hover,
+.navbar-over-hero.navbar-white .nav-link:hover {
+  color: var(--color-asphalte) !important;
+}
+
+.navbar-over-hero .navbar-actions .nav-link {
+  color: var(--color-white) !important;
+}
+
+.navbar-over-hero.scrolled .navbar-actions .nav-link {
+  color: var(--color-asphalte) !important;
+}
+
+/* Fix: CLUB PRO doit aussi être noir quand navbar-has-hover est actif */
+.navbar-over-hero.navbar-has-hover .navbar-actions .nav-link,
+.navbar-over-hero.navbar-white .navbar-actions .nav-link {
+  color: var(--color-asphalte) !important;
+}
+
+.navbar-over-hero .navbar-actions .nav-link:hover {
+  color: var(--color-grey-3) !important;
+  opacity: 0.8;
+}
+
+/* Fix: CLUB PRO hover doit aussi être noir quand navbar-has-hover est actif */
+.navbar-over-hero.navbar-has-hover .navbar-actions .nav-link:hover,
+.navbar-over-hero.navbar-white .navbar-actions .nav-link:hover {
+  color: var(--color-asphalte) !important;
+}
+
+.navbar-over-hero.scrolled .navbar-actions .nav-link:hover {
+  color: var(--color-grey-1) !important;
 }
 
 .navbar-over-hero .icon-button {
