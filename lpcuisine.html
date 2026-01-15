@@ -509,11 +509,12 @@
                 <p class="hero-cuisine-subtitle">Plongez dans nos inspirations et explorez nos matières et couleurs. Obtenez votre devis cuisine personnalisé en quelques clics, commandez vos échantillons et découvrez nos produits au showroom. Créez votre cuisine sur mesure, seul ou avec un expert, pour un projet unique, pratique et pensée pour vous.</p>
                 <ol class="hero-cuisine-steps">
                     <li><a href="#concept" class="hero-cuisine-step-link">Le concept Plum Living</a></li>
-                    <li><a href="#inspiration" class="hero-cuisine-step-link">Trouvez l'inspiration pour votre cuisine</a></li>
+                    <li><a href="#inspiration" class="hero-cuisine-step-link">Trouvez l'inspiration</a></li>
                     <li><a href="#couleurs" class="hero-cuisine-step-link">Choisissez vos couleurs et designs</a></li>
-                    <li><a href="#configuration" class="hero-cuisine-step-link">Imaginez votre cuisine</a></li>
-                    <li><a href="#configuration" class="hero-cuisine-step-link">Configurez votre cuisine</a></li>
-                    <li><a href="#finalisation" class="hero-cuisine-step-link">Finalisez votre projet</a></li>
+                    <li><a href="#finalisation" class="hero-cuisine-step-link">Découvrez nos produits au showroom</a></li>
+                    <li><a href="#estimation" class="hero-cuisine-step-link">Estimer le prix de votre cuisine</a></li>
+                    <li><a href="#configuration" class="hero-cuisine-step-link">Configurer votre plan seul ou bien accompagné</a></li>
+                    <li><a href="#finalisation" class="hero-cuisine-step-link">Finaliser votre projet</a></li>
                 </ol>
                 <a href="#" class="btn btn-primary-dark hero-cuisine-btn">
                     <span>JE COMMENCE</span>
@@ -684,6 +685,9 @@
     <!-- Showroom Section -->
     <section id="finalisation" class="showroom-section">
         <div class="showroom-container">
+            <div class="showroom-image">
+                <img src="images/lpcuisine/showroom.jpg" alt="Le Showroom Plum Living" class="showroom-img">
+            </div>
             <div class="showroom-content">
                 <h2 class="showroom-title">Découvrez nos produits au showroom</h2>
                 <p class="showroom-description">
@@ -699,9 +703,6 @@
                     </svg>
                     <span>PRENDRE RDV AU SHOWROOM</span>
                 </a>
-            </div>
-            <div class="showroom-image">
-                <img src="images/lpcuisine/showroom.jpg" alt="Le Showroom Plum Living" class="showroom-img">
             </div>
         </div>
     </section>
@@ -751,7 +752,7 @@
     <!-- La touche Plum Section -->
     <section class="touche-plum-section">
         <div class="touche-plum-container">
-            <h3 class="touche-plum-title">Pourquoi choisir une cuisine Plum Living ?</h3>
+            <h3 class="touche-plum-title">La touche Plum Living</h3>
             
             <div class="touche-plum-grid">
                 <!-- Column 1: Unique -->
@@ -1223,7 +1224,7 @@
                         data: data,
                         timestamp: Date.now(),
                         sessionId: 'debug-session',
-                        runId: 'run1',
+                        runId: 'post-fix',
                         hypothesisId: hypothesisId
                     })
                 }).catch(() => {});
@@ -1407,7 +1408,7 @@
     <script src="shared/scripts/mobile-menu.js"></script>
     <script src="shared/scripts/faq.js"></script>
     <script>
-        // #region agent log - Debug hero viewport dimensions
+        // #region agent log - Debug hero grid 40/60 split
         (function() {
             function logDebug(hypothesisId, location, message, data) {
                 fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de', {
@@ -1419,113 +1420,156 @@
                         data: data,
                         timestamp: Date.now(),
                         sessionId: 'debug-session',
-                        runId: 'run1',
+                        runId: 'post-fix',
                         hypothesisId: hypothesisId
                     })
                 }).catch(() => {});
             }
             
-            function measureHeroDimensions() {
-                const hero = document.querySelector('.hero.hero-cuisine');
+            function measureHeroGrid() {
                 const container = document.querySelector('.hero-cuisine-container');
                 const content = document.querySelector('.hero-cuisine-content');
                 const imageWrapper = document.querySelector('.hero-cuisine-image-wrapper');
-                const body = document.body;
-                const html = document.documentElement;
                 
-                if (!hero || !container) return;
+                if (!container || !content || !imageWrapper) return;
                 
+                const containerStyle = window.getComputedStyle(container);
+                const contentStyle = window.getComputedStyle(content);
+                const imageWrapperStyle = window.getComputedStyle(imageWrapper);
+                
+                // Hypothesis A: Grid template columns override
+                logDebug('A', 'lpcuisine.html:measureHeroGrid', 'Grid template columns computed value', {
+                    gridTemplateColumns: containerStyle.gridTemplateColumns,
+                    gridTemplateColumnsRaw: containerStyle.getPropertyValue('grid-template-columns'),
+                    display: containerStyle.display,
+                    gridGap: containerStyle.gap,
+                    gridColumnGap: containerStyle.columnGap,
+                    gridRowGap: containerStyle.rowGap
+                });
+                
+                // Hypothesis B: Container width/padding affecting proportions
+                const containerWidth = container.offsetWidth;
+                const containerClientWidth = container.clientWidth;
+                const containerPaddingLeft = parseFloat(containerStyle.paddingLeft) || 0;
+                const containerPaddingRight = parseFloat(containerStyle.paddingRight) || 0;
+                const availableWidth = containerClientWidth - containerPaddingLeft - containerPaddingRight;
+                
+                logDebug('B', 'lpcuisine.html:measureHeroGrid', 'Container width calculations', {
+                    containerOffsetWidth: containerWidth,
+                    containerClientWidth: containerClientWidth,
+                    containerPaddingLeft: containerPaddingLeft,
+                    containerPaddingRight: containerPaddingRight,
+                    availableWidth: availableWidth,
+                    containerMaxWidth: containerStyle.maxWidth,
+                    containerWidthStyle: containerStyle.width,
+                    containerBoxSizing: containerStyle.boxSizing
+                });
+                
+                // Hypothesis C: Content and image wrapper actual widths
+                const contentWidth = content.offsetWidth;
+                const imageWrapperWidth = imageWrapper.offsetWidth;
+                const contentPercent = (contentWidth / containerWidth) * 100;
+                const imageWrapperPercent = (imageWrapperWidth / containerWidth) * 100;
+                const totalPercent = contentPercent + imageWrapperPercent;
+                
+                logDebug('C', 'lpcuisine.html:measureHeroGrid', 'Actual rendered widths and percentages', {
+                    contentOffsetWidth: contentWidth,
+                    contentClientWidth: content.clientWidth,
+                    contentPercent: contentPercent.toFixed(2),
+                    imageWrapperOffsetWidth: imageWrapperWidth,
+                    imageWrapperClientWidth: imageWrapper.clientWidth,
+                    imageWrapperPercent: imageWrapperPercent.toFixed(2),
+                    containerTotalWidth: containerWidth,
+                    totalPercent: totalPercent.toFixed(2),
+                    expectedContentPercent: 40,
+                    expectedImageWrapperPercent: 60,
+                    contentPercentDiff: Math.abs(contentPercent - 40).toFixed(2),
+                    imageWrapperPercentDiff: Math.abs(imageWrapperPercent - 60).toFixed(2)
+                });
+                
+                // Hypothesis D: CSS rules that might override grid
+                logDebug('D', 'lpcuisine.html:measureHeroGrid', 'Content and image wrapper CSS properties', {
+                    contentWidth: contentStyle.width,
+                    contentMinWidth: contentStyle.minWidth,
+                    contentMaxWidth: contentStyle.maxWidth,
+                    contentFlex: contentStyle.flex,
+                    contentFlexBasis: contentStyle.flexBasis,
+                    contentGridColumn: contentStyle.gridColumn,
+                    contentDisplay: contentStyle.display,
+                    contentBoxSizing: contentStyle.boxSizing,
+                    imageWrapperWidth: imageWrapperStyle.width,
+                    imageWrapperMinWidth: imageWrapperStyle.minWidth,
+                    imageWrapperMaxWidth: imageWrapperStyle.maxWidth,
+                    imageWrapperFlex: imageWrapperStyle.flex,
+                    imageWrapperFlexBasis: imageWrapperStyle.flexBasis,
+                    imageWrapperGridColumn: imageWrapperStyle.gridColumn,
+                    imageWrapperDisplay: imageWrapperStyle.display,
+                    imageWrapperBoxSizing: imageWrapperStyle.boxSizing
+                });
+                
+                // Check for any child elements that might have fixed widths
+                const contentChildren = Array.from(content.children);
+                const imageWrapperChildren = Array.from(imageWrapper.children);
+                
+                const contentChildrenWidths = contentChildren.map((child, idx) => {
+                    const childStyle = window.getComputedStyle(child);
+                    return {
+                        index: idx,
+                        tagName: child.tagName,
+                        className: child.className,
+                        offsetWidth: child.offsetWidth,
+                        width: childStyle.width,
+                        minWidth: childStyle.minWidth,
+                        maxWidth: childStyle.maxWidth,
+                        hasFixedWidth: childStyle.width !== 'auto' && childStyle.width !== '100%' && !childStyle.width.includes('%')
+                    };
+                });
+                
+                const imageWrapperChildrenWidths = imageWrapperChildren.map((child, idx) => {
+                    const childStyle = window.getComputedStyle(child);
+                    return {
+                        index: idx,
+                        tagName: child.tagName,
+                        className: child.className,
+                        offsetWidth: child.offsetWidth,
+                        width: childStyle.width,
+                        minWidth: childStyle.minWidth,
+                        maxWidth: childStyle.maxWidth,
+                        hasFixedWidth: childStyle.width !== 'auto' && childStyle.width !== '100%' && !childStyle.width.includes('%')
+                    };
+                });
+                
+                logDebug('D', 'lpcuisine.html:measureHeroGrid', 'Child elements widths that might force grid to pixels', {
+                    contentChildrenCount: contentChildren.length,
+                    contentChildrenWidths: contentChildrenWidths,
+                    imageWrapperChildrenCount: imageWrapperChildren.length,
+                    imageWrapperChildrenWidths: imageWrapperChildrenWidths
+                });
+                
+                // Hypothesis E: Media query breakpoint check
                 const viewportWidth = window.innerWidth;
-                const viewportHeight = window.innerHeight;
+                const isTablet = viewportWidth <= 1024;
+                const isMobile = viewportWidth <= 768;
                 
-                logDebug('A', 'lpcuisine.html:measureHeroDimensions', 'Viewport dimensions', {
-                    viewportWidth,
-                    viewportHeight
-                });
-                
-                logDebug('A', 'lpcuisine.html:measureHeroDimensions', 'Hero element dimensions', {
-                    heroWidth: hero.offsetWidth,
-                    heroHeight: hero.offsetHeight,
-                    heroClientWidth: hero.clientWidth,
-                    heroClientHeight: hero.clientHeight,
-                    heroScrollWidth: hero.scrollWidth,
-                    heroScrollHeight: hero.scrollHeight,
-                    heroComputedWidth: window.getComputedStyle(hero).width,
-                    heroComputedHeight: window.getComputedStyle(hero).height,
-                    heroMinHeight: window.getComputedStyle(hero).minHeight,
-                    heroMaxWidth: window.getComputedStyle(hero).maxWidth,
-                    heroPaddingLeft: window.getComputedStyle(hero).paddingLeft,
-                    heroPaddingRight: window.getComputedStyle(hero).paddingRight,
-                    heroPaddingTop: window.getComputedStyle(hero).paddingTop,
-                    heroPaddingBottom: window.getComputedStyle(hero).paddingBottom,
-                    heroMarginLeft: window.getComputedStyle(hero).marginLeft,
-                    heroMarginRight: window.getComputedStyle(hero).marginRight
-                });
-                
-                logDebug('B', 'lpcuisine.html:measureHeroDimensions', 'Container dimensions', {
-                    containerWidth: container.offsetWidth,
-                    containerHeight: container.offsetHeight,
-                    containerClientWidth: container.clientWidth,
-                    containerClientHeight: container.clientHeight,
-                    containerMaxWidth: window.getComputedStyle(container).maxWidth,
-                    containerMinHeight: window.getComputedStyle(container).minHeight,
-                    containerHeightStyle: window.getComputedStyle(container).height,
-                    containerPaddingLeft: window.getComputedStyle(container).paddingLeft,
-                    containerPaddingRight: window.getComputedStyle(container).paddingRight,
-                    containerPaddingTop: window.getComputedStyle(container).paddingTop,
-                    containerPaddingBottom: window.getComputedStyle(container).paddingBottom,
-                    containerMarginLeft: window.getComputedStyle(container).marginLeft,
-                    containerMarginRight: window.getComputedStyle(container).marginRight,
-                    containerAlignItems: window.getComputedStyle(container).alignItems
-                });
-                
-                logDebug('C', 'lpcuisine.html:measureHeroDimensions', 'Content and image wrapper dimensions', {
-                    contentWidth: content ? content.offsetWidth : null,
-                    contentHeight: content ? content.offsetHeight : null,
-                    contentClientHeight: content ? content.clientHeight : null,
-                    contentMinHeight: content ? window.getComputedStyle(content).minHeight : null,
-                    contentHeightStyle: content ? window.getComputedStyle(content).height : null,
-                    imageWrapperWidth: imageWrapper ? imageWrapper.offsetWidth : null,
-                    imageWrapperHeight: imageWrapper ? imageWrapper.offsetHeight : null,
-                    imageWrapperClientHeight: imageWrapper ? imageWrapper.clientHeight : null,
-                    imageWrapperMinHeight: imageWrapper ? window.getComputedStyle(imageWrapper).minHeight : null,
-                    imageWrapperHeightStyle: imageWrapper ? window.getComputedStyle(imageWrapper).height : null,
-                    gridGap: window.getComputedStyle(container).gap,
-                    gridColumns: window.getComputedStyle(container).gridTemplateColumns,
-                    gridRows: window.getComputedStyle(container).gridTemplateRows
-                });
-                
-                logDebug('D', 'lpcuisine.html:measureHeroDimensions', 'Body and HTML dimensions', {
-                    bodyWidth: body.offsetWidth,
-                    bodyMarginLeft: window.getComputedStyle(body).marginLeft,
-                    bodyMarginRight: window.getComputedStyle(body).marginRight,
-                    bodyPaddingLeft: window.getComputedStyle(body).paddingLeft,
-                    bodyPaddingRight: window.getComputedStyle(body).paddingRight,
-                    htmlWidth: html.offsetWidth,
-                    htmlMarginLeft: window.getComputedStyle(html).marginLeft,
-                    htmlMarginRight: window.getComputedStyle(html).marginRight
-                });
-                
-                logDebug('E', 'lpcuisine.html:measureHeroDimensions', 'Overflow and positioning', {
-                    heroOverflow: window.getComputedStyle(hero).overflow,
-                    heroOverflowX: window.getComputedStyle(hero).overflowX,
-                    heroOverflowY: window.getComputedStyle(hero).overflowY,
-                    containerOverflow: window.getComputedStyle(container).overflow,
-                    heroPosition: window.getComputedStyle(hero).position,
-                    containerPosition: window.getComputedStyle(container).position
+                logDebug('E', 'lpcuisine.html:measureHeroGrid', 'Media query breakpoint check', {
+                    viewportWidth: viewportWidth,
+                    isTablet: isTablet,
+                    isMobile: isMobile,
+                    expectedGridColumns: isMobile || isTablet ? '1fr' : '4fr 6fr',
+                    actualGridColumns: containerStyle.gridTemplateColumns
                 });
             }
             
             if (document.readyState === 'complete' || document.readyState === 'interactive') {
-                setTimeout(measureHeroDimensions, 500);
+                setTimeout(measureHeroGrid, 500);
             } else {
                 document.addEventListener('DOMContentLoaded', function() {
-                    setTimeout(measureHeroDimensions, 500);
+                    setTimeout(measureHeroGrid, 500);
                 });
             }
             
             window.addEventListener('resize', function() {
-                setTimeout(measureHeroDimensions, 100);
+                setTimeout(measureHeroGrid, 100);
             });
         })();
         // #endregion

@@ -43,12 +43,14 @@
 .hero-cuisine-content {
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Centrer verticalement (haut-bas) */
     gap: var(--spacing-lg);
-    padding: 120px var(--spacing-xl) var(--spacing-xl) var(--spacing-xl); /* Top, Right, Bottom, Left */
+    padding: 120px var(--spacing-xl) 0 var(--spacing-xl); /* Top, Right, Bottom, Left */
     background-color: transparent; /* Fond transparent car le hero a déjà le fond gris */
     box-sizing: border-box;
     position: relative;
     z-index: 2; /* Au-dessus de l'image pour permettre le chevauchement */
+    min-width: 0; /* Permettre au grid de réduire cette colonne selon les fractions (4fr) */
 }
 
 .hero-cuisine-image-wrapper {
@@ -62,6 +64,7 @@
     position: relative;
     margin-top: 0; /* Pas de marge en haut pour que l'image commence en haut */
     padding-top: 0; /* Pas de padding en haut */
+    min-width: 0; /* Permettre au grid de réduire cette colonne selon les fractions (6fr) */
 }
 
 .hero-cuisine-image {
@@ -74,9 +77,9 @@
 
 .hero-cuisine-title {
     font-family: var(--font-heading, 'Blacklist', sans-serif);
-    font-size: var(--font-size-h2); /* 54px */
+    font-size: var(--font-size-h0); /* 72px */
     font-weight: 400;
-    line-height: var(--line-height-h2); /* 120% */
+    line-height: var(--line-height-h0); /* 90% */
     letter-spacing: -0.02em;
     color: var(--color-asphalte);
     margin: 0;
@@ -148,7 +151,7 @@
 }
 
 .hero-cuisine-btn {
-    margin-top: var(--spacing-md);
+    margin-top: 0; /* Supprimer l'espace supplémentaire */
     padding-top: var(--spacing-sm); /* 12px */
     padding-bottom: var(--spacing-sm); /* 12px */
     width: fit-content;
