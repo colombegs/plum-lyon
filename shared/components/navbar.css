@@ -1013,7 +1013,33 @@
 
 
 .mobile-menu-divider {
-  display: none;
+  display: block !important;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: var(--spacing-md) 0;
+  width: 100%;
+  flex-shrink: 0;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+  visibility: visible !important;
+  border: none;
+  padding: 0;
+}
+
+/* Divider dans les drawer-sections - doit être visible immédiatement */
+.mobile-menu-drawer-sections .mobile-menu-divider {
+  margin: var(--spacing-md) 0;
+  width: 100%;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+  visibility: visible !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  height: 1px !important;
+  display: block !important;
+  position: relative;
+  z-index: 10;
 }
 
 /* Overlay */
@@ -1037,6 +1063,11 @@
 
 /* Responsive - Mobile (un seul breakpoint à 900px) */
 @media (max-width: 900px) {
+  /* Cacher les éléments avec la classe hidden-mobile */
+  .mobile-menu-item-hidden-mobile {
+    display: none !important;
+  }
+  
   /* Cacher les icônes (search, user et cart) avec fade out */
   .icon-button[aria-label="Rechercher"],
   .icon-button[aria-label="Mon compte"],
