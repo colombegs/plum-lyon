@@ -4,6 +4,14 @@
  * Styles spécifiques pour la page de landing cuisine
  */
 
+/* Cacher le scroll indicator (chevron) qui pourrait traîner au-dessus de la navbar */
+.hero-scroll,
+.scroll-indicator {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
 /* Welcome Section */
 .welcome-section {
     width: 100%;

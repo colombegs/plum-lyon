@@ -12,7 +12,7 @@
   right: 0;
   height: var(--navbar-height);
   background-color: var(--color-white);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--color-grey-3);
   z-index: 1000; /* Navbar au-dessus de tout */
   display: flex;
   align-items: center;

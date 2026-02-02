@@ -49,7 +49,7 @@
                             <div class="dropdown-column">
                                 <div class="dropdown-section-title">Je commence</div>
                                 <a href="#" class="dropdown-link">Échantillons</a>
-                                <a href="#" class="dropdown-link">Showroom</a>
+                                <a href="#" class="dropdown-link" data-showroom-link>Showroom</a>
                                 <a href="#" class="dropdown-link">Conception au showroom</a>
                                 <a href="#" class="dropdown-link">Club Pro</a>
                                 <a href="#" class="dropdown-link">Trouver un poseur</a>
@@ -185,7 +185,7 @@
                         </a>
                     </li>
                     <li class="mobile-menu-item">
-                        <a href="#" class="mobile-menu-link">
+                        <a href="#" class="mobile-menu-link" data-showroom-link>
                             Showroom
                         </a>
                     </li>
@@ -395,7 +395,7 @@
                         <a href="#" class="mobile-menu-link">Échantillons</a>
                     </li>
                     <li class="mobile-menu-item">
-                        <a href="#" class="mobile-menu-link">Showroom</a>
+                        <a href="#" class="mobile-menu-link" data-showroom-link>Showroom</a>
                     </li>
                     <li class="mobile-menu-item">
                         <a href="#" class="mobile-menu-link">Conception au showroom</a>
@@ -440,6 +440,14 @@
             const galleryPath = depth === 0 ? 'plumwall.html' : pathPrefix + 'plumwall.html';
             galleryLink.setAttribute('href', galleryPath);
         }
+        
+        // Corriger le lien Showroom vers marseille (page showroom)
+        document.querySelectorAll('[data-showroom-link]').forEach(function(link) {
+            if (link && link.getAttribute('href') === '#') {
+                const showroomPath = depth === 0 ? 'marseille.html' : pathPrefix + 'marseille.html';
+                link.setAttribute('href', showroomPath);
+            }
+        });
     })();
 </script>
 

@@ -128,6 +128,12 @@
             const galleryPath = depth === 0 ? 'plumwall.html' : pathPrefix + 'plumwall.html';
             galleryLink.setAttribute('href', galleryPath);
         }
+        
+        // Corriger le lien Showroom vers marseille (page showroom)
+        navbar.querySelectorAll('[data-showroom-link]').forEach(function(link) {
+            const showroomPath = depth === 0 ? 'marseille.html' : pathPrefix + 'marseille.html';
+            link.setAttribute('href', showroomPath);
+        });
     }
 
     /**

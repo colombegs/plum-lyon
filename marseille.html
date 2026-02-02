@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plum Living - Hero Section</title>
+    <title>Plum living s'installe à Marseille - Plum Living</title>
     <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="shared/styles/variables.css">
+    <link rel="stylesheet" href="shared/styles/reset.css">
     <link rel="stylesheet" href="shared/styles/buttons.css">
     <link rel="stylesheet" href="shared/components/navbar.css">
     <link rel="stylesheet" href="shared/styles/fade-transitions.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="hero.css">
-    <link rel="stylesheet" href="lpcuisine.css">
+    <link rel="stylesheet" href="marseille.css">
     <script>
         // Script inline pour éviter le flash de contenu lors du fade-in
         (function() {
@@ -565,203 +566,208 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero hero-marseille">
         <div class="hero-background">
             <div class="hero-image-wrapper">
-                <img src="images/Home/hero/paulineDB.jpg" alt="Cuisine Pauline DB" class="hero-image">
+                <img src="images/marseille/hero.jpg" alt="Vieux-Port de Marseille" class="hero-image">
                 <div class="hero-overlay"></div>
             </div>
         </div>
         
         <div class="hero-content">
-            <div class="hero-container">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="hero-title-line">Bienvenue chez Pauline DB</span>
+            <div class="hero-container hero-marseille-container">
+                <!-- Container flottant blanc -->
+                <div class="marseille-form-container">
+                    <h1 class="marseille-title">
+                        <span class="marseille-title-line">Plum living</span>
+                        <span class="marseille-title-line">s'installe à Marseille</span>
                     </h1>
-                    <div class="hero-actions">
-                        <a href="#" class="hero-btn hero-btn-ghost">
-                            <span>Découvrir</span>
-                        </a>
+                    
+                    <p class="marseille-description">
+                        Inscrivez vous pour être parmi les premiers à découvrir notre appartement marseillais
+                    </p>
+                    
+                    <form class="marseille-form" id="marseilleForm">
+                        <div class="marseille-form-row">
+                            <input 
+                                type="text" 
+                                name="prenom1" 
+                                id="prenom1" 
+                                placeholder="Prénom" 
+                                class="marseille-input"
+                                required
+                            >
+                            <input 
+                                type="text" 
+                                name="prenom2" 
+                                id="prenom2" 
+                                placeholder="Prénom" 
+                                class="marseille-input"
+                            >
+                        </div>
+                        
+                        <input 
+                            type="email" 
+                            name="email" 
+                            id="email" 
+                            placeholder="Email" 
+                            class="marseille-input marseille-input-full"
+                            required
+                        >
+                        
+                        <button type="submit" class="btn btn-primary-dark marseille-cta">
+                            S'INSCRIRE
+                        </button>
+                        
+                        <div class="marseille-checkbox-container">
+                            <input 
+                                type="checkbox" 
+                                name="data-consent" 
+                                id="dataConsent" 
+                                class="marseille-checkbox"
+                                required
+                                checked
+                            >
+                            <label for="dataConsent" class="marseille-checkbox-label">
+                                J'accepte que mes données soient utilisées pour recevoir les communications Plum Living.
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloc 2: L'appartement Plum Living -->
+    <section class="marseille-appartement-section">
+        <div class="marseille-appartement-container">
+            <div class="marseille-appartement-layout">
+                <!-- Colonne gauche : Image avec padding coloré -->
+                <div class="marseille-appartement-image-column">
+                    <div class="marseille-appartement-image-wrapper">
+                        <img src="images/marseille/appartement.jpg" alt="L'appartement Plum living à Marseille" class="marseille-appartement-image">
+                    </div>
+                </div>
+                
+                <!-- Colonne droite : Texte -->
+                <div class="marseille-appartement-text-column">
+                    <p class="marseille-appartement-subtitle">BONJOUR MARSEILLE</p>
+                    <h2 class="marseille-appartement-title">L'appartement Plum living</h2>
+                    <p class="marseille-appartement-description">
+                        Au sein d'un des quartiers les plus emblématiques de cette ville vibrante où chaque rue, chaque quartier et chaque devanture déborde de créativité, l'appartement Plum living, pensé comme un lieu d'inspiration, d'exposition et de rencontres, est l'écrin idéal pour donner vie à vos projets.
+                    </p>
+                    <a href="#" class="btn btn-secondary-dark marseille-appartement-cta">
+                        PRENDRE UN RENDEZ-VOUS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloc 3: Carousel nos bonnes adresses -->
+    <section class="marseille-adresses-section">
+        <div class="marseille-adresses-container">
+            <h2 class="marseille-adresses-title">Nos bonnes adresses à Marseille</h2>
+            <p class="marseille-adresses-description">
+                Nos bonnes adresses et contacts clés pour vous permettre de créer un intérieur qui vous ressemble.
+            </p>
+            
+            <!-- Tabs -->
+            <div class="marseille-adresses-tabs">
+                <button class="marseille-tab" data-tab="architectes">ARCHITECTES</button>
+                <button class="marseille-tab active" data-tab="boutiques">BOUTIQUES</button>
+                <button class="marseille-tab" data-tab="poseurs">POSEURS</button>
+            </div>
+            
+            <!-- Carousel -->
+            <div class="marseille-carousel-wrapper">
+                <div class="marseille-carousel" id="marseilleCarousel">
+                    <!-- Images du carousel seront ajoutées dynamiquement -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloc 4: Bloc PP -->
+    <section class="marseille-pp-section">
+        <div class="marseille-pp-container">
+            <div class="marseille-pp-layout">
+                <!-- Colonne gauche : Image -->
+                <div class="marseille-pp-image-column">
+                    <div class="marseille-pp-image-wrapper">
+                        <img src="images/marseille/Fabien1.jpg" alt="Fabien - Concepteur Plum Living" class="marseille-pp-image" id="marseillePpImage">
+                    </div>
+                </div>
+                
+                <!-- Colonne droite : Texte -->
+                <div class="marseille-pp-text-column">
+                    <p class="marseille-pp-subtitle">NOS CONCEPTEURS VOUS ACCOMPAGNENT</p>
+                    
+                    <div class="marseille-pp-header">
+                        <div class="marseille-pp-avatar-wrapper">
+                            <img src="images/marseille/Fabien1.jpg" alt="Fabien" class="marseille-pp-avatar" id="marseillePpAvatar">
+                        </div>
+                        <div class="marseille-pp-info">
+                            <h4 class="marseille-pp-name" id="marseillePpName">Fabien</h4>
+                            <div class="marseille-pp-projects">
+                                <span class="marseille-pp-projects-count" id="marseillePpProjectsCount">123 projets réalisés</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="marseille-pp-description" id="marseillePpDescription">
+                        Avec plus d'une centaine de projets à son actif, Fabien saura mettre son expertise et sa bonne humeur pour vous aider à réaliser le projet de vos rêves.
+                    </p>
+                    
+                    <div class="marseille-pp-dots" id="marseillePpDots">
+                        <!-- Les dots seront générés dynamiquement -->
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary-dark marseille-pp-cta">
+                        RDV AVEC UN CONCEPTEUR
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloc 5: Bloc Edito Magazine -->
+    <section class="marseille-edito-section">
+        <div class="marseille-edito-container">
+            <div class="marseille-edito-layout">
+                <!-- Image gauche (edito 1) + bloc turquoise en dessous -->
+                <div class="marseille-edito-image-left-wrapper">
+                    <div class="marseille-edito-image-left">
+                        <img src="images/marseille/edito 1.png" alt="Intérieur Plum Living Marseille" class="marseille-edito-image">
+                    </div>
+                    <div class="marseille-edito-mint-block"></div>
+                </div>
+
+                <!-- Contenu texte central -->
+                <div class="marseille-edito-content">
+                    <h2 class="marseille-edito-title">Bonjour Marseille</h2>
+                    <p class="marseille-edito-description">
+                        Au sein d'un des quartiers les plus emblématiques de cette ville vibrante où chaque rue, chaque quartier et chaque devanture déborde de créativité, l'appartement Plum living, pensé comme un lieu d'inspiration, d'exposition et de rencontres, est l'écrin idéal pour donner vie à vos projets.
+                    </p>
+                    <a href="#" class="btn btn-secondary-dark marseille-edito-cta">
+                        PRENDRE RENDEZ-VOUS
+                    </a>
+                </div>
+
+                <!-- Image droite (edito 2) -->
+                <div class="marseille-edito-image-right-wrapper">
+                    <div class="marseille-edito-image-right">
+                        <img src="images/marseille/Edito 2.png" alt="Toits de Marseille" class="marseille-edito-image">
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Scroll indicator -->
-        <div class="hero-scroll">
-            <div class="scroll-indicator">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </div>
-        </div>
     </section>
 
-    <!-- Inspiration Section -->
-    <section id="inspiration" class="inspiration-section inspiration-section-home">
-        <div class="inspiration-container">
-            <h2 class="inspiration-title">À découvrir cette semaine</h2>
-            
-            <div class="inspiration-carousel-wrapper">
-                <div class="inspiration-carousel" id="inspirationCarousel">
-                    <div class="carousel-track" id="carouselTrack">
-                        <div class="carousel-slide">
-                            <div class="carousel-image-wrapper">
-                                <img src="images/Home/nouveautes/1.1.jpg" alt="La cuisine de Caroline Debono, fondatrice d'Atelier CVD" class="carousel-image">
-                                <img src="images/Home/nouveautes/1.2.jpg" alt="La cuisine de Caroline Debono, fondatrice d'Atelier CVD" class="carousel-image carousel-image-hover">
-                                <div class="carousel-overlay">
-                                    <div class="carousel-content">
-                                        <h2 class="carousel-scene-name">La cuisine de Caroline Debono, fondatrice d'Atelier CVD</h2>
-                                        <p class="carousel-subtitle-2">Autrefois blanche, la cuisine de Caroline Debono s'est simplement parée de couleurs pour gagner en caractère et en profondeur.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="carousel-slide">
-                            <div class="carousel-image-wrapper">
-                                <img src="images/Home/nouveautes/2.1.jpg" alt="Une cuisine Canopée à Invalides" class="carousel-image">
-                                <img src="images/Home/nouveautes/2.2.jpg" alt="Une cuisine Canopée à Invalides" class="carousel-image carousel-image-hover">
-                                <div class="carousel-overlay">
-                                    <div class="carousel-content">
-                                        <h2 class="carousel-scene-name">Une cuisine Canopée à Invalides</h2>
-                                        <p class="carousel-subtitle-2">Pensée comme une cuisine tableau, cette cuisine Canopée s'étire de mur à mur en multipliant les rangements.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="carousel-slide">
-                            <div class="carousel-image-wrapper">
-                                <img src="images/Home/nouveautes/3.1.jpg" alt="Chez Marissa Cox, à Rouen" class="carousel-image">
-                                <div class="carousel-overlay">
-                                    <div class="carousel-content">
-                                        <h2 class="carousel-scene-name">Chez Marissa Cox, à Rouen</h2>
-                                        <p class="carousel-subtitle-2">Ambiance feutrée, poutres apparentes et charme désuet : on jurerait que le cocon Rouennais de Marissa Cox a traversé le temps.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="carousel-slide">
-                            <div class="carousel-image-wrapper">
-                                <img src="images/Home/nouveautes/4.1.jpg" alt="Slide Givre avec poignées Pauline Borgia" class="carousel-image">
-                                <img src="images/Home/nouveautes/4.2.jpg" alt="Slide Givre avec poignées Pauline Borgia" class="carousel-image carousel-image-hover">
-                                <div class="carousel-overlay">
-                                    <div class="carousel-content">
-                                        <h2 class="carousel-scene-name">Slide Givre avec poignées Pauline Borgia</h2>
-                                        <p class="carousel-subtitle-2">Ce dressing Givre à trois portes aux poignées Pilule XL issues de la collection Pauline Borgia répond au besoin de créer un maximum de rangements.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <a href="plumwall.html" class="btn btn-ghost-dark inspiration-cta">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-                <span>DÉCOUVRIR PLUS D'INSPIRATIONS</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Personalization Section -->
-    <section class="personalization-section">
-        <div class="personalization-container">
-            <h2 class="personalization-title">Personnalisez votre intérieur en un clin d'oeil.</h2>
-            <p class="personalization-description">Nous proposons des façades qui habillent les caissons Ikea Metod, Pax et Besta, ainsi qu'une gamme d'accessoires qui sublimera votre agencement.</p>
-            <a href="#" class="btn btn-primary-dark personalization-cta">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-                <span>COMMENT ÇA MARCHE</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Categories Grid Section -->
-    <section class="categories-grid">
-        <div class="categories-container">
-            <!-- Category 1: Façades -->
-            <a href="#" class="category-card">
-                <img src="images/categories/facades.jpg" alt="Façades" class="category-img">
-                <h3 class="category-label">Façades</h3>
-            </a>
-
-            <!-- Category 2: Plans de travail -->
-            <a href="#" class="category-card">
-                <img src="images/categories/plans%20de%20travail.jpg" alt="Plans de travail" class="category-img">
-                <h3 class="category-label">Plans de travail</h3>
-            </a>
-
-            <!-- Category 3: Poignées -->
-            <a href="#" class="category-card">
-                <img src="images/categories/poignees.jpg" alt="Poignées" class="category-img">
-                <h3 class="category-label">Poignées</h3>
-            </a>
-
-            <!-- Category 4: Étagères -->
-            <a href="#" class="category-card">
-                <img src="images/categories/etageres.jpg" alt="Étagères" class="category-img">
-                <h3 class="category-label">Étagères</h3>
-            </a>
-
-            <!-- Category 5: Meubles ouverts -->
-            <a href="#" class="category-card">
-                <img src="images/categories/meubles-ouverts.jpg" alt="Meubles ouverts" class="category-img">
-                <h3 class="category-label">Meubles ouverts</h3>
-            </a>
-
-            <!-- Category 6: Dressings -->
-            <a href="#" class="category-card">
-                <img src="images/categories/dressings.jpg" alt="Dressings" class="category-img">
-                <h3 class="category-label">Dressings</h3>
-            </a>
-
-            <!-- Category 7: Salle de bain -->
-            <a href="#" class="category-card">
-                <img src="images/categories/sdb.jpg" alt="Salle de bain" class="category-img">
-                <h3 class="category-label">Salle de bain</h3>
-            </a>
-
-            <!-- Category 8: Rangement -->
-            <a href="#" class="category-card">
-                <img src="images/categories/rangements.jpg" alt="Rangement" class="category-img">
-                <h3 class="category-label">Rangement</h3>
-            </a>
-
-            <!-- Category 9: Ponts de lits -->
-            <a href="#" class="category-card">
-                <img src="images/categories/ponts%20de%20lit.jpg" alt="Ponts de lits" class="category-img">
-                <h3 class="category-label">Ponts de lits</h3>
-            </a>
-
-            <!-- Category 10: Buffets -->
-            <a href="#" class="category-card">
-                <img src="images/categories/buffets.jpg" alt="Buffets" class="category-img">
-                <h3 class="category-label">Buffets</h3>
-            </a>
-
-            <!-- Category 11: Bureaux -->
-            <a href="#" class="category-card">
-                <img src="images/categories/bureaux.jpg" alt="Bureaux" class="category-img">
-                <h3 class="category-label">Bureaux</h3>
-            </a>
-
-            <!-- Category 12: Kids -->
-            <a href="#" class="category-card">
-                <img src="images/categories/kids.jpg" alt="Kids" class="category-img">
-                <h3 class="category-label">Kids</h3>
-            </a>
-        </div>
-    </section>
-
+    <script src="shared/scripts/logo-fade.js"></script>
+    <script src="shared/scripts/mobile-menu.js"></script>
+    <script src="marseille-carousel.js"></script>
+    <script src="marseille-pp-carousel.js"></script>
     <script>
         // Gestion simplifiée du hover sur les dropdowns
         const navbar = document.querySelector('.navbar');
@@ -773,18 +779,15 @@
             
             // Fonction pour ouvrir un menu
             const openMenu = (dropdownItem) => {
-                // Annuler la fermeture en cours
                 if (closeTimeout) {
                     clearTimeout(closeTimeout);
                     closeTimeout = null;
                 }
                 
-                // Si on change de menu, fermer l'ancien immédiatement
                 if (currentHoveredItem && currentHoveredItem !== dropdownItem) {
                     currentHoveredItem.classList.remove('is-hovered');
                 }
                 
-                // Ouvrir le nouveau menu
                 dropdownItem.classList.add('is-hovered');
                 navbar.classList.add('navbar-white');
                 navbar.classList.add('navbar-has-hover');
@@ -798,7 +801,6 @@
                 }
                 
                 closeTimeout = setTimeout(() => {
-                    // Fermer seulement si on n'est plus sur aucun menu
                     if (currentHoveredItem) {
                         currentHoveredItem.classList.remove('is-hovered');
                         currentHoveredItem = null;
@@ -807,7 +809,7 @@
                     navbar.classList.remove('navbar-white');
                     navbar.classList.remove('navbar-has-hover');
                     closeTimeout = null;
-                }, 100); // Délai court pour permettre le passage entre menus
+                }, 100);
             };
             
             // Gérer les événements pour chaque dropdown
@@ -815,74 +817,17 @@
                 const dropdownMenu = dropdownItem.querySelector('.dropdown-menu');
                 
                 if (dropdownMenu) {
-                    // Ouvrir au survol
                     dropdownItem.addEventListener('mouseenter', () => openMenu(dropdownItem));
                     dropdownMenu.addEventListener('mouseenter', () => openMenu(dropdownItem));
                     
-                    // Fermer quand on quitte
                     dropdownItem.addEventListener('mouseleave', closeMenu);
                     dropdownMenu.addEventListener('mouseleave', closeMenu);
                 }
             });
         }
 
-        // #region agent log - Debug navbar color when dropdown hovered
-        // Instrumentation pour vérifier que tous les liens deviennent noirs quand navbar-has-hover est actif
-        document.addEventListener('DOMContentLoaded', () => {
-            const navbar = document.querySelector('.navbar');
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            
-            function logNavbarState() {
-                const navbarClasses = navbar ? navbar.className : 'none';
-                const linkColors = Array.from(navLinks).map(link => ({
-                    text: link.textContent.trim(),
-                    computedColor: window.getComputedStyle(link).color,
-                    isHovered: link.matches(':hover')
-                }));
-                
-                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'home.html:820',message:'navbar state check',data:{navbarClasses,linkColors},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-            }
-            
-            if (navbar) {
-                const navbarObserver = new MutationObserver(() => {
-                    setTimeout(logNavbarState, 50);
-                });
-                navbarObserver.observe(navbar, { attributes: true, attributeFilter: ['class'] });
-                
-                // Log initial state
-                setTimeout(logNavbarState, 100);
-                
-                // Log on hover
-                navLinks.forEach(link => {
-                    link.addEventListener('mouseenter', () => setTimeout(logNavbarState, 50));
-                    link.addEventListener('mouseleave', () => setTimeout(logNavbarState, 50));
-                });
-            }
-        });
-        // #endregion agent log
-
         // Gestion de la barre de recherche
         document.addEventListener('DOMContentLoaded', () => {
-            // #region agent log
-            fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'home.html:826',message:'DOMContentLoaded - Checking CLUB PRO element',data:{clubProExists:!!document.getElementById('clubProLink'),navbarActionsExists:!!document.querySelector('.navbar-actions')},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-            // #endregion
-            
-            const clubProLink = document.getElementById('clubProLink');
-            if (clubProLink) {
-                const styles = window.getComputedStyle(clubProLink);
-                // #region agent log
-                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'home.html:831',message:'CLUB PRO element CSS properties',data:{display:styles.display,visibility:styles.visibility,opacity:styles.opacity,width:styles.width,height:styles.height,position:styles.position,left:styles.left,top:styles.top,overflow:styles.overflow,parentDisplay:window.getComputedStyle(clubProLink.parentElement).display,color:styles.color},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-                // #endregion
-                
-                // #region agent log
-                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'home.html:834',message:'CLUB PRO element DOM position',data:{textContent:clubProLink.textContent,className:clubProLink.className,parentTag:clubProLink.parentElement?.tagName,parentClass:clubProLink.parentElement?.className,nextSibling:clubProLink.nextElementSibling?.tagName,previousSibling:clubProLink.previousElementSibling?.tagName},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-                // #endregion
-            } else {
-                // #region agent log
-                fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'home.html:839',message:'CLUB PRO element NOT FOUND in DOM',data:{navbarActionsHTML:document.querySelector('.navbar-actions')?.innerHTML?.substring(0,300)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-                // #endregion
-            }
-            
             const searchContainer = document.querySelector('.search-container');
             const searchBar = document.getElementById('searchBar');
             const searchInput = document.getElementById('searchInput');
@@ -890,11 +835,9 @@
             const searchToggle = document.getElementById('searchToggle');
 
             if (!searchContainer || !searchBar || !searchInput) {
-                console.error('Éléments de recherche non trouvés');
                 return;
             }
 
-            // Fonction pour ouvrir la barre
             function openSearchBar() {
                 searchBar.classList.add('search-bar-active');
                 setTimeout(() => {
@@ -902,29 +845,14 @@
                 }, 300);
             }
 
-            // Fonction pour fermer la barre
             function closeSearchBar() {
                 searchBar.classList.remove('search-bar-active');
             }
-            
-            // #region agent log
-            setTimeout(() => {
-                const clubProLink = document.getElementById('clubProLink');
-                if (clubProLink) {
-                    const styles = window.getComputedStyle(clubProLink);
-                    fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'home.html:852',message:'CLUB PRO element after 1s delay - checking if JS modified it',data:{display:styles.display,visibility:styles.visibility,opacity:styles.opacity,width:styles.width,height:styles.height,isConnected:clubProLink.isConnected,parentElement:!!clubProLink.parentElement,color:styles.color},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
-                }
-            }, 1000);
-            // #endregion
 
-            // Ouvrir la barre au hover sur le container
             searchContainer.addEventListener('mouseenter', openSearchBar);
-
-            // Fermer la barre quand on quitte le container ou la barre
             searchContainer.addEventListener('mouseleave', closeSearchBar);
             searchBar.addEventListener('mouseleave', closeSearchBar);
 
-            // Fermer la barre de recherche avec le bouton X
             if (searchClose) {
                 searchClose.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -934,7 +862,6 @@
                 });
             }
 
-            // Fermer avec Escape
             searchInput.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     closeSearchBar();
@@ -944,21 +871,24 @@
             });
         });
 
-        // Gestion du slider horizontal d'inspiration (scroll horizontal natif)
-        // Les boutons de navigation ont été supprimés
-    </script>
-    <script src="shared/scripts/logo-fade.js"></script>
-    <script src="shared/scripts/mobile-menu.js"></script>
-    <script>
+        // Gestion du formulaire
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('marseilleForm');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    // Ici vous pouvez ajouter la logique de soumission du formulaire
+                    console.log('Formulaire soumis');
+                });
+            }
+        });
+
         // Déclencher l'animation du fade blanc vers la page au chargement
         (function() {
             function triggerFade() {
-                // Utiliser requestAnimationFrame pour s'assurer que l'overlay est rendu
                 requestAnimationFrame(function() {
                     requestAnimationFrame(function() {
-                        // Forcer un reflow pour garantir que l'overlay est visible
                         void document.body.offsetHeight;
-                        // Délai pour garantir que l'overlay est visible avant l'animation
                         setTimeout(function() {
                             document.body.classList.add('page-loaded');
                         }, 200);
@@ -966,7 +896,6 @@
                 });
             }
             
-            // Démarrer immédiatement si le DOM est déjà chargé
             if (document.readyState === 'complete' || document.readyState === 'interactive') {
                 triggerFade();
             } else {

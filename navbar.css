@@ -10,6 +10,7 @@
   --color-white: #ffffff;
   --color-grey-1: #666;
   --color-grey-2: #999;
+  --color-grey-3: #e5e5e5;
   --color-teal: #5fb3b3; /* Teardrop color approximation */
   
   /* Typographie - Styles alt */
@@ -49,7 +50,7 @@ body {
   background: transparent;
   background-color: transparent;
   border: none;
-  border-bottom: none;
+  border-bottom: 1px solid var(--color-grey-3);
   outline: none;
   box-shadow: none;
   filter: none;
@@ -374,7 +375,7 @@ body {
   transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   border: none !important;
   border-top: none !important;
-  border-bottom: none !important;
+  border-bottom: 1px solid var(--color-grey-3) !important;
   border-left: none !important;
   border-right: none !important;
   box-shadow: none !important;
@@ -392,7 +393,7 @@ body {
   background-color: var(--color-white);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  border-bottom: none;
+  border-bottom: 1px solid var(--color-grey-3);
 }
 
 .navbar-white .nav-link,

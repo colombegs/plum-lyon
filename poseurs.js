@@ -46,7 +46,8 @@ const poseursData = {
                 email: 'contact@magicpose.fr',
                 instagram: '@magicpose',
                 description: 'Magic Pose transforme vos espaces avec élégance. Nos installateurs certifiés garantissent une pose parfaite de vos meubles Plum Living.',
-                image: 'images/poseurs/Purpose.jpg' // Image par défaut si pas de fichier spécifique
+                image: 'images/poseurs/magic pose.jpg',
+                video: 'images/poseurs/magic pose.mp4'
             }
         ]
     },
@@ -282,6 +283,7 @@ let expandedPoseur = null;
 document.addEventListener('DOMContentLoaded', () => {
     initMap();
     initSidebar();
+    initRegionTabs();
 });
 
 /**
@@ -944,6 +946,9 @@ function selectRegion(regionId) {
 
     // Afficher les poseurs dans la sidebar
     displayPoseurs(regionId);
+    
+    // Mettre à jour les tabs si on est sur mobile
+    updateActiveTab(regionId);
 }
 
 /**
@@ -956,10 +961,17 @@ function displayPoseurs(regionId) {
     const sidebarTitle = document.getElementById('sidebarTitle');
     const sidebarSubtitle = document.getElementById('sidebarSubtitle');
     const sidebarContent = document.getElementById('sidebarContent');
+    const isMobile = window.innerWidth <= 600;
 
     // Mettre à jour le titre
     sidebarTitle.textContent = `${region.poseurs.length} poseur${region.poseurs.length > 1 ? 's' : ''} en ${region.name}`;
-    sidebarSubtitle.textContent = '';
+    
+    // Sur mobile, ne pas afficher de sous-titre (ou un message différent)
+    if (isMobile) {
+        sidebarSubtitle.textContent = '';
+    } else {
+        sidebarSubtitle.textContent = '';
+    }
 
     // Vider le contenu
     sidebarContent.innerHTML = '';
@@ -1021,40 +1033,40 @@ function createPoseurCard(poseur) {
         video.load();
         
         // Gérer le hover pour lancer la vidéo
-        card.addEventListener('mouseenter', () => {
-            image.style.opacity = '0';
-            video.style.display = 'block';
-            // Cacher le contenu (titre et description) quand la vidéo est affichée
-            if (content) {
-                content.style.opacity = '0';
-            }
-            setTimeout(() => {
-                video.style.opacity = '1';
-                video.play().catch(err => {
-                    console.warn('Erreur lors de la lecture de la vidéo:', err);
-                    // En cas d'erreur, réafficher l'image et le contenu
-                    video.style.display = 'none';
-                    image.style.opacity = '1';
-                    if (content) {
-                        content.style.opacity = '1';
-                    }
-                });
-            }, 50);
-        });
+        // Les informations (titre, description, instagram) doivent toujours rester visibles
+        const isMobile = window.innerWidth <= 600;
         
-        card.addEventListener('mouseleave', () => {
-            video.style.opacity = '0';
-            setTimeout(() => {
-                video.pause();
-                video.currentTime = 0;
-                video.style.display = 'none';
-            }, 300);
-            image.style.opacity = '1';
-            // Réafficher le contenu (titre et description) quand on quitte le hover
+        if (!isMobile) {
+            card.addEventListener('mouseenter', () => {
+                image.style.opacity = '0';
+                video.style.display = 'block';
+                // Ne pas masquer le contenu - les informations doivent rester visibles
+                setTimeout(() => {
+                    video.style.opacity = '1';
+                    video.play().catch(err => {
+                        console.warn('Erreur lors de la lecture de la vidéo:', err);
+                        // En cas d'erreur, réafficher l'image
+                        video.style.display = 'none';
+                        image.style.opacity = '1';
+                    });
+                }, 50);
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                video.style.opacity = '0';
+                setTimeout(() => {
+                    video.pause();
+                    video.currentTime = 0;
+                    video.style.display = 'none';
+                }, 300);
+                image.style.opacity = '1';
+            });
+        } else {
+            // Sur mobile, s'assurer que le contenu est toujours visible
             if (content) {
                 content.style.opacity = '1';
             }
-        });
+        }
     }
 
     // Bloc 1 : titre + contact
@@ -1068,7 +1080,15 @@ function createPoseurCard(poseur) {
 
     const contact = document.createElement('div');
     contact.className = 'poseur-card-contact';
-    contact.textContent = `${poseur.phone} · ${poseur.email}`;
+    
+    const phone = document.createElement('div');
+    phone.textContent = poseur.phone;
+    contact.appendChild(phone);
+    
+    const email = document.createElement('div');
+    email.textContent = poseur.email;
+    contact.appendChild(email);
+    
     bloc1.appendChild(contact);
 
     content.appendChild(bloc1);
@@ -1145,6 +1165,10 @@ function createPoseurCard(poseur) {
         bloc1.style.setProperty('--translation-distance', `${translationDistance}px`);
         body.style.setProperty('--bloc2-initial-position', `${bloc2InitialPosition}px`);
         body.style.setProperty('--translation-distance', `${translationDistance}px`);
+        
+        // #region agent log
+        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'poseurs.js:1159',message:'Heights calculated',data:{poseurId:poseur.id,bloc1Height,bloc2Height,spacing,lineHeight,extraMargin,translationDistance,bloc2InitialPosition},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+        // #endregion
     };
     
     // Attendre que le DOM soit rendu et que les images soient chargées
@@ -1160,6 +1184,30 @@ function createPoseurCard(poseur) {
 
     // Ajouter l'événement de clic pour expand/collapse
     card.addEventListener('click', () => togglePoseurCard(card, poseur.id));
+    
+    // #region agent log
+    // Instrumenter le hover pour vérifier les z-index et positions
+    card.addEventListener('mouseenter', () => {
+        // Attendre un peu pour que les transitions CSS soient appliquées
+        setTimeout(() => {
+            const computedBloc1 = getComputedStyle(bloc1);
+            const computedBody = getComputedStyle(body);
+            const computedContent = getComputedStyle(content);
+            const bloc1Rect = bloc1.getBoundingClientRect();
+            const bodyRect = body.getBoundingClientRect();
+            const contentRect = content.getBoundingClientRect();
+            const translationDistance = getComputedStyle(bloc1).getPropertyValue('--translation-distance');
+            const bloc2InitialPosition = getComputedStyle(body).getPropertyValue('--bloc2-initial-position');
+            fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'poseurs.js:1181',message:'Hover enter - z-index and positions',data:{poseurId:poseur.id,bloc1:{zIndex:computedBloc1.zIndex,position:computedBloc1.position,transform:computedBloc1.transform,top:bloc1Rect.top,bottom:bloc1Rect.bottom,height:bloc1Rect.height},body:{zIndex:computedBody.zIndex,position:computedBody.position,transform:computedBody.transform,top:bodyRect.top,bottom:bodyRect.bottom,height:bodyRect.height,opacity:computedBody.opacity},content:{zIndex:computedContent.zIndex,position:computedContent.position},cssVars:{translationDistance,bloc2InitialPosition},overlap:bodyRect.top < bloc1Rect.bottom && bodyRect.bottom > bloc1Rect.top},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+        }, 100);
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        const computedBloc1 = getComputedStyle(bloc1);
+        const computedBody = getComputedStyle(body);
+        fetch('http://127.0.0.1:7247/ingest/45a8b155-5349-4f6e-930d-b9fa1e3c96de',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'poseurs.js:1193',message:'Hover leave',data:{poseurId:poseur.id,bloc1:{zIndex:computedBloc1.zIndex,transform:computedBloc1.transform},body:{zIndex:computedBody.zIndex,transform:computedBody.transform}},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+    });
+    // #endregion
 
     return card;
 }
@@ -1198,4 +1246,44 @@ function togglePoseurCard(card, poseurId) {
 function initSidebar() {
     // La sidebar est déjà initialisée avec le contenu vide
     // Les poseurs seront affichés quand une région sera sélectionnée
+}
+
+/**
+ * Met à jour l'état actif des tabs selon la région sélectionnée
+ */
+function updateActiveTab(regionId) {
+    const tabs = document.querySelectorAll('.region-tab');
+    tabs.forEach(tab => {
+        if (tab.getAttribute('data-region') === regionId) {
+            tab.classList.add('active');
+        } else {
+            tab.classList.remove('active');
+        }
+    });
+}
+
+/**
+ * Initialise les tabs de régions (mobile et desktop)
+ */
+function initRegionTabs() {
+    const tabs = document.querySelectorAll('.region-tab');
+    const isMobile = window.innerWidth <= 600;
+    
+    // Si on est sur mobile, sélectionner IDF par défaut (la carte n'est pas visible)
+    if (isMobile) {
+        // Attendre un peu pour que la map soit initialisée
+        setTimeout(() => {
+            selectRegion('ile-de-france');
+        }, 500);
+    }
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const regionId = tab.getAttribute('data-region');
+            if (regionId) {
+                // Sélectionner la région (cela mettra à jour les tabs via selectRegion)
+                selectRegion(regionId);
+            }
+        });
+    });
 }

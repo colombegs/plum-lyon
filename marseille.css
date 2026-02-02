@@ -1,0 +1,1363 @@
+/**
+ * Page Marseille - Plum Living
+ * 
+ * Styles spécifiques pour la page d'inscription Marseille
+ */
+
+/* ============================================
+   HERO MARSEILLE
+   ============================================ */
+
+.hero-marseille {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.hero-marseille-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0;
+    padding: 0 var(--container-padding);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* ============================================
+   CONTAINER FLOTTANT BLANC
+   ============================================ */
+
+.marseille-form-container {
+    background-color: var(--color-white);
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+    max-width: 560px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    z-index: 2;
+    position: relative;
+}
+
+/* ============================================
+   TITRE H1
+   ============================================ */
+
+/* Titre Marseille - Blacklist Regular 48px (comme lpcuisine / home) */
+.hero-marseille h1.marseille-title,
+.hero-marseille .marseille-title,
+.marseille-title {
+    font-family: 'Blacklist', sans-serif !important;
+    font-size: 64px !important; /* 64px */
+    font-weight: 400 !important; /* Regular */
+    line-height: 120% !important;
+    letter-spacing: -0.02em !important;
+    color: var(--color-asphalte) !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+
+/* Lignes du titre - Blacklist Regular */
+.marseille-title-line {
+    font-family: 'Blacklist', sans-serif !important;
+    font-weight: 400 !important;
+}
+
+.marseille-title-line {
+    display: block;
+}
+
+/* ============================================
+   DESCRIPTION XL
+   ============================================ */
+
+.marseille-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-xl); /* 20px - XL du DS */
+    font-weight: 400; /* Regular */
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* ============================================
+   FORMULAIRE
+   ============================================ */
+
+.marseille-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+.marseille-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+/* ============================================
+   INPUTS
+   ============================================ */
+
+.marseille-input {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-l); /* 16px - L du DS */
+    font-weight: 400; /* Regular */
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-grey-3);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--transition-base);
+    outline: none;
+}
+
+.marseille-input::placeholder {
+    color: var(--color-grey-2);
+}
+
+.marseille-input:focus {
+    border-color: var(--color-asphalte);
+}
+
+.marseille-input-full {
+    grid-column: 1 / -1;
+}
+
+/* ============================================
+   CTA BUTTON
+   ============================================ */
+
+.marseille-cta {
+    width: 100%;
+    margin-top: var(--spacing-xs);
+}
+
+/* ============================================
+   CHECKBOX
+   ============================================ */
+
+.marseille-checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+}
+
+.marseille-checkbox {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: var(--color-asphalte);
+}
+
+.marseille-checkbox-label {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-m); /* 14px - M du DS */
+    font-weight: 400; /* Regular */
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    cursor: pointer;
+    user-select: none;
+}
+
+.marseille-checkbox-label a {
+    color: var(--color-asphalte);
+    text-decoration: underline;
+}
+
+.marseille-checkbox-label a:hover {
+    opacity: 0.7;
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 900px) {
+    .hero-marseille-container {
+        justify-content: center;
+        padding: 0 var(--spacing-xl);
+    }
+
+    .marseille-form-container {
+        max-width: 100%;
+        padding: var(--spacing-2xl) var(--spacing-xl);
+    }
+
+    .marseille-title {
+        font-size: 42px; /* Réduction pour tablette */
+        line-height: 120%;
+    }
+
+    .marseille-description {
+        font-size: var(--font-size-l); /* 16px - L du DS pour tablette */
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .hero-marseille {
+        min-height: 100vh;
+        align-items: flex-start;
+        padding-top: calc(var(--navbar-height) + var(--spacing-xl));
+    }
+
+    .hero-marseille-container {
+        padding: 0 var(--spacing-md);
+        justify-content: center;
+    }
+
+    .marseille-form-container {
+        padding: var(--spacing-xl) var(--spacing-lg);
+        max-width: 100%;
+    }
+
+    .marseille-title {
+        font-size: 36px; /* Réduction pour mobile */
+        line-height: 120%;
+    }
+
+    .marseille-description {
+        font-size: var(--font-size-m); /* 14px - M du DS pour mobile */
+    }
+
+    .marseille-form-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .marseille-input {
+        font-size: var(--font-size-m); /* 14px - M du DS pour mobile */
+    }
+
+    .marseille-checkbox-label {
+        font-size: var(--font-size-s); /* 12px - S du DS pour mobile */
+    }
+}
+
+/* ============================================
+   BLOC 2: L'APPARTEMENT PLUM LIVING
+   ============================================ */
+
+.marseille-appartement-section {
+    width: 100%;
+    min-height: 700px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.marseille-appartement-container {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.marseille-appartement-layout {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Colonne gauche : Image avec padding coloré */
+.marseille-appartement-image-column {
+    background-color: #3C524C; /* Dark teal-green padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 90px;
+    overflow: hidden;
+}
+
+.marseille-appartement-image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.marseille-appartement-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* Colonne droite : Texte */
+.marseille-appartement-text-column {
+    background-color: #F6F1E7; /* Light beige */
+    padding: var(--spacing-4xl) var(--spacing-3xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Subtitle Alt 1 */
+.marseille-appartement-subtitle {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-alt-1); /* 16px - Alt 1 */
+    font-weight: 400;
+    line-height: var(--line-height-alt); /* 140% */
+    letter-spacing: var(--letter-spacing-alt); /* 5% - FAIT PARTIE DU DS Alt 1 */
+    color: var(--color-asphalte);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Titre H2 Blacklist */
+.marseille-appartement-title {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h2); /* 54px - H2 */
+    font-weight: 400;
+    line-height: var(--line-height-h2); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* Description XL */
+.marseille-appartement-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-xl); /* 20px - XL */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* CTA Secondary */
+.marseille-appartement-cta {
+    margin-top: var(--spacing-xs);
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .marseille-appartement-section {
+        padding: 0;
+        min-height: auto;
+        height: auto;
+    }
+
+    .marseille-appartement-container {
+        padding: 0;
+    }
+
+    .marseille-appartement-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .marseille-appartement-image-column {
+        padding: var(--spacing-2xl);
+    }
+
+    .marseille-appartement-text-column {
+        padding: var(--spacing-3xl) var(--spacing-2xl);
+    }
+
+    .marseille-appartement-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour tablette */
+    }
+
+    .marseille-appartement-description {
+        font-size: var(--font-size-l); /* 16px - L pour tablette */
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .marseille-appartement-section {
+        padding: 0;
+        min-height: auto;
+        height: auto;
+    }
+
+    .marseille-appartement-container {
+        padding: 0;
+    }
+
+    .marseille-appartement-image-column {
+        padding: var(--spacing-xl);
+    }
+
+    .marseille-appartement-text-column {
+        padding: var(--spacing-2xl) var(--spacing-xl);
+        gap: var(--spacing-lg);
+    }
+
+    .marseille-appartement-subtitle {
+        font-size: var(--font-size-alt-2); /* 14px - Alt 2 pour mobile */
+    }
+
+    .marseille-appartement-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour mobile */
+    }
+
+    .marseille-appartement-description {
+        font-size: var(--font-size-l); /* 16px - L pour mobile */
+    }
+}
+
+/* ============================================
+   BLOC 3: CAROUSEL NOS BONNES ADRESSES
+   ============================================ */
+
+.marseille-adresses-section {
+    width: 100%;
+    padding: var(--spacing-4xl) var(--container-padding);
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 2;
+}
+
+.marseille-adresses-container {
+    max-width: var(--container-max-width);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md); /* 16px au lieu de 32px */
+    overflow: visible; /* permet au carousel de dépasser à droite */
+}
+
+/* Titre H2 */
+.marseille-adresses-title {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h2); /* 54px - H2 */
+    font-weight: 400;
+    line-height: var(--line-height-h2); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* Description XL */
+.marseille-adresses-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-xl); /* 20px - XL */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* Tabs */
+.marseille-adresses-tabs {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+}
+
+.marseille-tab {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-alt-3); /* 12px - Alt 3 */
+    font-weight: 500;
+    line-height: var(--line-height-alt); /* 140% */
+    letter-spacing: var(--letter-spacing-alt); /* 5% - Alt 3 */
+    text-transform: uppercase;
+    color: var(--color-asphalte);
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.marseille-tab:hover {
+    color: var(--color-grey-1);
+}
+
+.marseille-tab.active {
+    color: var(--color-asphalte);
+}
+
+.marseille-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    right: 12px;
+    height: 1px;
+    background-color: var(--color-asphalte);
+}
+
+/* Carousel - bleeding à gauche et à droite (dépasse sans marge blanche) */
+.marseille-carousel-wrapper {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-top: var(--spacing-xl);
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
+.marseille-carousel {
+    display: flex;
+    gap: 10px; /* Gap de 10px entre chaque image */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding-left: calc(50vw - 50%); /* Aligne le premier slide avec le conteneur (title/tabs) */
+    padding-right: calc(50vw - 50% + var(--container-padding)); /* Padding à droite pour permettre le scroll */
+    padding-bottom: var(--spacing-md);
+}
+
+.marseille-carousel::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.marseille-carousel-slide {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 500px; /* Largeur minimale pour garder un bon ratio */
+}
+
+.marseille-carousel-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 700px; /* Hauteur fixe de 700px */
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+}
+
+.marseille-carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Overlay gradient renforcé depuis le bas */
+.marseille-carousel-image-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.3) 70%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Container pour le contenu (catégorie + titre + description) - monte ensemble */
+.marseille-carousel-content {
+    position: absolute;
+    bottom: var(--spacing-md); /* Vraiment en bas à gauche */
+    left: 90px; /* 90px depuis le bord gauche du slide (aligné avec conteneur + 90px) */
+    right: var(--spacing-md);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(60px); /* Commence 60px plus bas */
+}
+
+/* Au hover, tout le container monte de 70px (50% moins dramatique) */
+.marseille-carousel-image-wrapper:hover .marseille-carousel-content {
+    transform: translateY(-10px); /* Monte de 70px depuis la position initiale (60px - 70px = -10px) */
+}
+
+/* Label sur l'image - texte direct en overlay */
+.marseille-carousel-label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.marseille-carousel-category {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-s); /* 12px */
+    font-weight: 500;
+    line-height: 140%;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+.marseille-carousel-name {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h3); /* 42px - H3 */
+    font-weight: 400;
+    line-height: var(--line-height-h3); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-white);
+    margin: 0;
+}
+
+/* Description - transparente par défaut, apparaît au hover */
+.marseille-carousel-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-l); /* 16px */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-white);
+    margin: 0;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    white-space: pre-line; /* Permet les retours à la ligne avec \n */
+}
+
+/* Au hover, la description devient visible */
+.marseille-carousel-image-wrapper:hover .marseille-carousel-description {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .marseille-adresses-section {
+        padding: var(--spacing-3xl) var(--spacing-xl);
+    }
+
+    .marseille-adresses-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour tablette */
+    }
+
+    .marseille-adresses-description {
+        font-size: var(--font-size-l); /* 16px - L pour tablette */
+    }
+
+    .marseille-carousel-image-wrapper {
+        height: 600px; /* Hauteur réduite pour tablette */
+    }
+
+    .marseille-carousel-content {
+        bottom: var(--spacing-md); /* Vraiment en bas pour tablette */
+        left: 60px; /* 60px depuis le bord du slide pour tablette */
+        transform: translateY(50px); /* Commence 50px plus bas pour tablette */
+    }
+
+    .marseille-carousel-name {
+        font-size: var(--font-size-h4); /* 32px - H4 pour tablette */
+        line-height: var(--line-height-h4); /* 120% */
+    }
+
+    .marseille-carousel-description {
+        font-size: var(--font-size-m); /* 14px pour tablette */
+    }
+
+    .marseille-carousel-image-wrapper:hover .marseille-carousel-content {
+        transform: translateY(-10px); /* Monte de 60px depuis la position initiale (50px - 60px = -10px) */
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .marseille-adresses-section {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .marseille-adresses-container {
+        gap: var(--spacing-lg);
+    }
+
+    .marseille-adresses-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour mobile */
+    }
+
+    .marseille-adresses-description {
+        font-size: var(--font-size-l); /* 16px - L pour mobile */
+    }
+
+    .marseille-adresses-tabs {
+        gap: var(--spacing-md);
+        flex-wrap: wrap;
+    }
+
+    .marseille-tab {
+        font-size: var(--font-size-s); /* 12px pour mobile */
+        padding: 6px 10px;
+    }
+
+    .marseille-carousel-slide {
+        width: auto;
+        min-width: 300px; /* Largeur minimale réduite pour mobile */
+    }
+
+    .marseille-carousel-image-wrapper {
+        height: 500px; /* Hauteur réduite pour mobile */
+    }
+
+    .marseille-carousel-content {
+        bottom: var(--spacing-sm); /* Vraiment en bas pour mobile */
+        left: var(--spacing-md); /* 16px depuis le bord du slide pour mobile */
+        right: var(--spacing-sm);
+        gap: var(--spacing-sm);
+        transform: translateY(40px); /* Commence 40px plus bas pour mobile */
+    }
+
+    .marseille-carousel-label {
+        gap: 2px;
+    }
+
+    .marseille-carousel-category {
+        font-size: var(--font-size-xs); /* 10px pour mobile */
+    }
+
+    .marseille-carousel-name {
+        font-size: var(--font-size-h4); /* 32px - H4 pour mobile au lieu de H3 */
+        line-height: var(--line-height-h4); /* 120% */
+    }
+
+    .marseille-carousel-description {
+        font-size: var(--font-size-m); /* 14px pour mobile */
+    }
+
+    .marseille-carousel-image-wrapper:hover .marseille-carousel-content {
+        transform: translateY(-10px); /* Monte de 50px depuis la position initiale (40px - 50px = -10px) */
+    }
+}
+
+/* ============================================
+   BLOC 4: BLOC PP
+   ============================================ */
+
+.marseille-pp-section {
+    width: 100%;
+    min-height: 700px;
+    max-height: 800px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background-color: var(--color-white);
+}
+
+.marseille-pp-container {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.marseille-pp-layout {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Colonne gauche : Image */
+.marseille-pp-image-column {
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.marseille-pp-image-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 700px;
+    max-height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.marseille-pp-image {
+    width: 100%;
+    height: 100%;
+    max-height: 800px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s ease;
+}
+
+.marseille-pp-image-column.fade-out .marseille-pp-image,
+.marseille-pp-text-column.fade-out {
+    opacity: 0;
+}
+
+/* Colonne droite : Texte */
+.marseille-pp-text-column {
+    background-color: var(--color-grey-4);
+    transition: opacity 0.2s ease;
+    padding: var(--spacing-4xl) var(--spacing-3xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+}
+
+/* Subtitle Alt 1 */
+.marseille-pp-subtitle {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-alt-1); /* 16px - Alt 1 */
+    font-weight: 400;
+    line-height: var(--line-height-alt); /* 140% */
+    letter-spacing: var(--letter-spacing-alt); /* 5% - FAIT PARTIE DU DS Alt 1 */
+    color: var(--color-asphalte);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Header avec avatar et nom */
+.marseille-pp-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    width: 100%;
+}
+
+.marseille-pp-avatar-wrapper {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 2px solid var(--color-grey-3);
+}
+
+.marseille-pp-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.marseille-pp-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+/* Nom H4 */
+.marseille-pp-name {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h4); /* 32px - H4 */
+    font-weight: 400;
+    line-height: var(--line-height-h4); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+.marseille-pp-projects {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    justify-content: space-between;
+    width: 100%;
+}
+
+.marseille-pp-nav-arrows {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.marseille-pp-projects-count {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-m); /* 14px - M */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-grey-1);
+}
+
+.marseille-pp-nav-arrow {
+    background: none;
+    border: none;
+    padding: var(--spacing-xs);
+    cursor: pointer;
+    color: var(--color-asphalte);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity var(--transition-fast);
+    margin-left: var(--spacing-xs);
+}
+
+.marseille-pp-nav-arrow:hover {
+    opacity: 0.7;
+}
+
+.marseille-pp-nav-arrow svg {
+    width: 16px;
+    height: 16px;
+}
+
+.marseille-pp-nav-prev {
+    transform: rotate(180deg);
+}
+
+/* Description XL */
+.marseille-pp-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-xl); /* 20px - XL */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* Carousel dots */
+.marseille-pp-dots {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    margin-top: var(--spacing-xs);
+}
+
+.marseille-pp-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-grey-3);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color var(--transition-fast);
+}
+
+.marseille-pp-dot.active {
+    background-color: #D4A574; /* Couleur orange/brown du design */
+}
+
+.marseille-pp-dot:hover {
+    background-color: var(--color-grey-2);
+}
+
+/* CTA Button */
+.marseille-pp-cta {
+    margin-top: var(--spacing-xs);
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .marseille-pp-section {
+        padding: 0;
+        min-height: auto;
+        height: auto;
+    }
+
+    .marseille-pp-container {
+        padding: 0;
+    }
+
+    .marseille-pp-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .marseille-pp-image-column {
+        min-height: 500px;
+    }
+
+    .marseille-pp-text-column {
+        padding: var(--spacing-3xl) var(--spacing-2xl);
+    }
+
+    .marseille-pp-name {
+        font-size: var(--font-size-h5); /* 24px - H5 pour tablette */
+    }
+
+    .marseille-pp-description {
+        font-size: var(--font-size-l); /* 16px - L pour tablette */
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .marseille-pp-section {
+        padding: 0;
+        min-height: auto;
+        height: auto;
+    }
+
+    .marseille-pp-container {
+        padding: 0;
+    }
+
+    .marseille-pp-image-column {
+        min-height: 400px;
+    }
+
+    .marseille-pp-text-column {
+        padding: var(--spacing-2xl) var(--spacing-xl);
+        gap: var(--spacing-lg);
+    }
+
+    .marseille-pp-subtitle {
+        font-size: var(--font-size-alt-2); /* 14px - Alt 2 pour mobile */
+    }
+
+    .marseille-pp-header {
+        gap: var(--spacing-md);
+    }
+
+    .marseille-pp-avatar-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+
+    .marseille-pp-name {
+        font-size: var(--font-size-h5); /* 24px - H5 pour mobile */
+    }
+
+    .marseille-pp-projects-count {
+        font-size: var(--font-size-s); /* 12px - S pour mobile */
+    }
+
+    .marseille-pp-description {
+        font-size: var(--font-size-l); /* 16px - L pour mobile */
+    }
+}
+
+/* ============================================
+   BLOC 5: BLOC EDITO MAGAZINE
+   ============================================ */
+
+.marseille-edito-section {
+    width: 100%;
+    min-height: 800px;
+    padding: var(--spacing-4xl) 0;
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+}
+
+.marseille-edito-container {
+    max-width: var(--container-max-width);
+    width: 100%;
+    margin: 0;
+    position: relative;
+    padding: 0;
+}
+
+.marseille-edito-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--spacing-xl);
+    position: relative;
+    min-height: 800px;
+    align-items: start;
+}
+
+/* Image gauche (edito 1) - mord à gauche */
+.marseille-edito-image-left-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: var(--spacing-2xl);
+    margin-left: calc(-1 * var(--container-padding));
+    padding-bottom: 280px;
+}
+
+.marseille-edito-image-left {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marseille-edito-image-left .marseille-edito-image {
+    width: 140%;
+    height: auto;
+    max-height: 840px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Bloc vert menthe sous l'image edito 1, absolute, déstructuré en bas à droite */
+.marseille-edito-mint-block {
+    position: absolute;
+    top: 100%;
+    left: 30%;
+    width: 70%;
+    height: 280px;
+    background-color: #C8E6D9; /* Light mint green */
+    z-index: 3;
+}
+
+/* Contenu texte en haut à droite */
+.marseille-edito-content {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--spacing-2xl) var(--spacing-2xl) 0 0;
+    z-index: 4;
+    position: relative;
+    background-color: transparent;
+}
+
+/* Titre H2 Blacklist */
+.marseille-edito-title {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h2); /* 54px - H2 */
+    font-weight: 400;
+    line-height: var(--line-height-h2); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* Description XL */
+.marseille-edito-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-xl); /* 20px - XL */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* CTA Button */
+.marseille-edito-cta {
+    margin-top: var(--spacing-xs);
+}
+
+/* Image droite (edito 2) avec bordure bleu foncé - mord à droite et positionnée plus bas */
+.marseille-edito-image-right-wrapper {
+    grid-column: 3;
+    grid-row: 2;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-left: var(--spacing-xl);
+    padding-top: var(--spacing-3xl);
+    margin-right: calc(-1 * var(--container-padding));
+    width: calc(100% + var(--container-padding));
+}
+
+.marseille-edito-image-right {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.marseille-edito-image-right .marseille-edito-image {
+    width: 168%;
+    height: auto;
+    max-height: 910px;
+    object-fit: cover;
+    object-position: left center;
+    display: block;
+    margin-left: -34%;
+}
+
+.marseille-edito-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .marseille-edito-section {
+        padding: var(--spacing-3xl) 0;
+        min-height: auto;
+    }
+
+    .marseille-edito-container {
+        padding: 0;
+    }
+
+    .marseille-edito-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: var(--spacing-2xl);
+        min-height: auto;
+    }
+
+    .marseille-edito-image-left-wrapper {
+        grid-column: 1;
+        grid-row: 1;
+        margin-left: calc(-1 * var(--spacing-xl));
+        padding-bottom: 200px;
+    }
+
+    .marseille-edito-mint-block {
+        width: 75%;
+        left: 25%;
+        height: 200px;
+    }
+
+    .marseille-edito-image-left .marseille-edito-image {
+        width: 140%;
+        max-height: 600px;
+    }
+
+    .marseille-edito-content {
+        grid-column: 1;
+        grid-row: 3;
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .marseille-edito-image-right-wrapper {
+        grid-column: 1;
+        grid-row: 4;
+        padding-left: 0;
+        padding-top: var(--spacing-lg);
+        margin-right: calc(-1 * var(--spacing-xl));
+        width: calc(100% + var(--spacing-xl));
+    }
+
+    .marseille-edito-image-right .marseille-edito-image {
+        width: 168%;
+        margin-left: -34%;
+        max-height: 700px;
+    }
+
+    .marseille-edito-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour tablette */
+    }
+
+    .marseille-edito-description {
+        font-size: var(--font-size-l); /* 16px - L pour tablette */
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .marseille-edito-section {
+        padding: var(--spacing-2xl) 0;
+        min-height: auto;
+    }
+
+    .marseille-edito-container {
+        padding: 0;
+    }
+
+    .marseille-edito-layout {
+        gap: var(--spacing-xl);
+    }
+
+    .marseille-edito-image-left-wrapper {
+        margin-left: calc(-1 * var(--spacing-md));
+        padding-bottom: 150px;
+    }
+
+    .marseille-edito-image-left {
+        padding: var(--spacing-lg);
+    }
+
+    .marseille-edito-mint-block {
+        width: 70%;
+        left: 30%;
+        height: 150px;
+    }
+
+    .marseille-edito-image-left .marseille-edito-image {
+        width: 140%;
+        max-height: 500px;
+    }
+
+    .marseille-edito-content {
+        padding: var(--spacing-xl) 0;
+        gap: var(--spacing-lg);
+    }
+
+    .marseille-edito-image-right-wrapper {
+        margin-right: calc(-1 * var(--spacing-md));
+        width: calc(100% + var(--spacing-md));
+    }
+
+    .marseille-edito-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour mobile */
+    }
+
+    .marseille-edito-description {
+        font-size: var(--font-size-l); /* 16px - L pour mobile */
+    }
+}

@@ -99,7 +99,7 @@ body {
 
 .poseurs-layout {
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 0;
     align-items: stretch;
     width: 100%;
@@ -108,7 +108,7 @@ body {
 
 @media (max-width: 1200px) {
     .poseurs-layout {
-        grid-template-columns: 350px 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 0;
     }
 }
@@ -117,6 +117,16 @@ body {
     .poseurs-layout {
         grid-template-columns: 1fr;
         gap: 0;
+    }
+    
+    /* Cacher la map sur mobile */
+    .poseurs-map-container {
+        display: none !important;
+    }
+    
+    /* Cacher le sous-titre qui mentionne la carte */
+    .sidebar-subtitle {
+        display: none;
     }
 }
 
@@ -157,9 +167,17 @@ body {
 }
 
 .sidebar-content {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
+}
+
+@media (max-width: 600px) {
+    .sidebar-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
 }
 
 .sidebar-empty {
@@ -407,6 +425,10 @@ body {
     display: block;
 }
 
+.poseur-card-contact > div {
+    display: block;
+}
+
 /* Bloc 2 : description + instagram - Positionné sous le bloc 1 */
 .poseur-card-body {
     display: flex;
@@ -451,6 +473,12 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    /* Troncature à 4 lignes maximum pour éviter le chevauchement */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .poseur-card-details {
@@ -501,6 +529,51 @@ body {
 }
 
 /* ============================================
+   TABS RÉGIONS
+   ============================================ */
+
+.region-tabs {
+    display: flex;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md) 0;
+    margin-bottom: var(--spacing-md);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.region-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.region-tab {
+    flex-shrink: 0;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: transparent;
+    border: 1px solid var(--color-grey-3);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-body);
+    color: var(--color-grey-1);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    white-space: nowrap;
+}
+
+.region-tab:hover {
+    border-color: var(--color-asphalte);
+    color: var(--color-asphalte);
+}
+
+.region-tab.active {
+    background: var(--color-asphalte);
+    border-color: var(--color-asphalte);
+    color: var(--color-white);
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 
@@ -548,6 +621,44 @@ body {
         position: relative;
         z-index: 2;
         width: 100%;
+        opacity: 1 !important; /* Toujours visible sur mobile */
+    }
+    
+    /* Sur mobile, le bloc 1 ne monte pas au hover */
+    .poseur-card-bloc-1 {
+        transform: translateY(0) !important;
+        margin-top: auto;
+    }
+    
+    .poseur-card:hover .poseur-card-bloc-1 {
+        transform: translateY(0) !important;
+    }
+    
+    /* Sur mobile, le bloc 2 (description + instagram) est toujours visible */
+    .poseur-card-body {
+        opacity: 1 !important;
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        margin-top: var(--spacing-xs);
+    }
+    
+    .poseur-card:hover .poseur-card-body {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+    
+    /* Afficher la ligne de séparation sur mobile */
+    .poseur-card-bloc-1::after {
+        display: block !important;
+    }
+    
+    /* S'assurer que le contenu reste visible même après hover sur mobile */
+    .poseur-card:hover .poseur-card-content {
+        opacity: 1 !important;
     }
     
     .poseur-card-name {
