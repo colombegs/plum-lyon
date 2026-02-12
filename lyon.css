@@ -1,0 +1,2037 @@
+/**
+ * Page Lyon - Plum Living
+ * 
+ * Styles spécifiques pour la page d'inscription Lyon
+ */
+
+/* ============================================
+   HERO LYON
+   ============================================ */
+
+.hero-lyon {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.hero-lyon-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0;
+    padding: 0 var(--container-padding);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* ============================================
+   CONTAINER FLOTTANT BLANC
+   ============================================ */
+
+.lyon-form-container {
+    background-color: var(--color-white);
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+    max-width: 560px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    z-index: 2;
+    position: relative;
+}
+
+/* ============================================
+   TITRE H1
+   ============================================ */
+
+/* Titre Lyon - Blacklist Regular 48px (comme lpcuisine / home) */
+.hero-lyon h1.lyon-title,
+.hero-lyon .lyon-title,
+.lyon-title {
+    font-family: 'Blacklist', sans-serif !important;
+    font-size: 64px !important; /* 64px */
+    font-weight: 400 !important; /* Regular */
+    line-height: 120% !important;
+    letter-spacing: -0.02em !important;
+    color: var(--color-asphalte) !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+
+/* Lignes du titre - Blacklist Regular */
+.lyon-title-line {
+    font-family: 'Blacklist', sans-serif !important;
+    font-weight: 400 !important;
+}
+
+.lyon-title-line {
+    display: block;
+}
+
+/* ============================================
+   DESCRIPTION XL
+   ============================================ */
+
+.lyon-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-xl); /* 20px - XL du DS */
+    font-weight: 400; /* Regular */
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* ============================================
+   FORMULAIRE
+   ============================================ */
+
+.lyon-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+.lyon-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+/* ============================================
+   INPUTS
+   ============================================ */
+
+.lyon-input {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-l); /* 16px - L du DS */
+    font-weight: 400; /* Regular */
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-grey-3);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--transition-base);
+    outline: none;
+}
+
+.lyon-input::placeholder {
+    color: var(--color-grey-2);
+}
+
+.lyon-input:focus {
+    border-color: var(--color-asphalte);
+}
+
+.lyon-input-full {
+    grid-column: 1 / -1;
+}
+
+/* ============================================
+   CTA BUTTON
+   ============================================ */
+
+.lyon-cta {
+    width: 100%;
+    margin-top: var(--spacing-xs);
+}
+
+/* ============================================
+   CHECKBOX
+   ============================================ */
+
+.lyon-checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+}
+
+.lyon-checkbox {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: var(--color-asphalte);
+}
+
+.lyon-checkbox-label {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-m); /* 14px - M du DS */
+    font-weight: 400; /* Regular */
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    cursor: pointer;
+    user-select: none;
+}
+
+.lyon-checkbox-label a {
+    color: var(--color-asphalte);
+    text-decoration: underline;
+}
+
+.lyon-checkbox-label a:hover {
+    opacity: 0.7;
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 900px) {
+    .hero-lyon-container {
+        justify-content: center;
+        padding: 0 var(--spacing-xl);
+    }
+
+    .lyon-form-container {
+        max-width: 100%;
+        padding: var(--spacing-2xl) var(--spacing-xl);
+    }
+
+    .lyon-title {
+        font-size: 42px; /* Réduction pour tablette */
+        line-height: 120%;
+    }
+
+    .lyon-description {
+        font-size: var(--font-size-l); /* 16px - L du DS pour tablette */
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .hero-lyon {
+        min-height: 100vh;
+        align-items: flex-start;
+        padding-top: calc(var(--navbar-height) + var(--spacing-xl));
+    }
+
+    .hero-lyon-container {
+        padding: 0 var(--spacing-md);
+        justify-content: center;
+    }
+
+    .lyon-form-container {
+        padding: var(--spacing-xl) var(--spacing-lg);
+        max-width: 100%;
+    }
+
+    .lyon-title {
+        font-size: 36px; /* Réduction pour mobile */
+        line-height: 120%;
+    }
+
+    .lyon-description {
+        font-size: var(--font-size-m); /* 14px - M du DS pour mobile */
+    }
+
+    .lyon-form-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .lyon-input {
+        font-size: var(--font-size-m); /* 14px - M du DS pour mobile */
+    }
+
+    .lyon-checkbox-label {
+        font-size: var(--font-size-s); /* 12px - S du DS pour mobile */
+    }
+}
+
+/* ============================================
+   BLOC 2: L'APPARTEMENT PLUM LIVING
+   ============================================ */
+
+.lyon-appartement-section {
+    width: 100%;
+    height: 827px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.lyon-appartement-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.lyon-appartement-layout {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Colonne gauche : Image prend toute la plage */
+.lyon-appartement-image-column {
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    padding: 0;
+    overflow: hidden;
+}
+
+.lyon-appartement-image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    overflow: hidden;
+}
+
+.lyon-appartement-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Colonne droite : Texte */
+.lyon-appartement-text-column {
+    background-color: #F6F1E7; /* Light beige */
+    padding: var(--spacing-4xl) var(--spacing-3xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Subtitle Alt 1 */
+.lyon-appartement-subtitle {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-alt-1); /* 16px - Alt 1 */
+    font-weight: 400;
+    line-height: var(--line-height-alt); /* 140% */
+    letter-spacing: var(--letter-spacing-alt); /* 5% - FAIT PARTIE DU DS Alt 1 */
+    color: var(--color-asphalte);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Titre H1 Blacklist */
+.lyon-appartement-title {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h2); /* 54px - H2 */
+    font-weight: 400;
+    line-height: var(--line-height-h2); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* Description XL */
+.lyon-appartement-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-xl); /* 20px - XL */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* CTA Secondary */
+.lyon-appartement-cta {
+    margin-top: var(--spacing-xs);
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .lyon-appartement-section {
+        padding: 0;
+        min-height: auto;
+        height: auto;
+    }
+
+    .lyon-appartement-container {
+        padding: 0;
+    }
+
+    .lyon-appartement-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .lyon-appartement-image-column {
+        padding: 0;
+    }
+
+    .lyon-appartement-text-column {
+        padding: var(--spacing-3xl) var(--spacing-2xl);
+    }
+
+    .lyon-appartement-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour tablette */
+    }
+
+    .lyon-appartement-description {
+        font-size: var(--font-size-l); /* 16px - L pour tablette */
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .lyon-appartement-section {
+        padding: 0;
+        min-height: auto;
+        height: auto;
+    }
+
+    .lyon-appartement-container {
+        padding: 0;
+    }
+
+    .lyon-appartement-image-column {
+        padding: 0;
+    }
+
+    .lyon-appartement-text-column {
+        padding: var(--spacing-2xl) var(--spacing-xl);
+        gap: var(--spacing-lg);
+    }
+
+    .lyon-appartement-subtitle {
+        font-size: var(--font-size-alt-2); /* 14px - Alt 2 pour mobile */
+    }
+
+    .lyon-appartement-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour mobile */
+    }
+
+    .lyon-appartement-description {
+        font-size: var(--font-size-l); /* 16px - L pour mobile */
+    }
+}
+
+/* ============================================
+   BLOC 3: CAROUSEL NOS BONNES ADRESSES
+   ============================================ */
+
+.lyon-adresses-section {
+    width: 100%;
+    padding: var(--spacing-4xl) var(--container-padding);
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 2;
+}
+
+.lyon-adresses-container {
+    max-width: var(--container-max-width);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md); /* 16px au lieu de 32px */
+    overflow: visible; /* permet au carousel de dépasser à droite */
+}
+
+/* Titre H2 */
+.lyon-adresses-title {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h2); /* 54px - H2 */
+    font-weight: 400;
+    line-height: var(--line-height-h2); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* Description XL */
+.lyon-adresses-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-xl); /* 20px - XL */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* Tabs */
+.lyon-adresses-tabs {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+}
+
+.lyon-tab {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-alt-3); /* 12px - Alt 3 */
+    font-weight: 500;
+    line-height: var(--line-height-alt); /* 140% */
+    letter-spacing: var(--letter-spacing-alt); /* 5% - Alt 3 */
+    text-transform: uppercase;
+    color: var(--color-asphalte);
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.lyon-tab:hover {
+    color: var(--color-grey-1);
+}
+
+.lyon-tab.active {
+    color: var(--color-asphalte);
+}
+
+.lyon-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    right: 12px;
+    height: 1px;
+    background-color: var(--color-asphalte);
+}
+
+/* Carousel - bleeding à gauche et à droite (dépasse sans marge blanche) */
+.lyon-carousel-wrapper {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-top: var(--spacing-xl);
+    overflow-x: auto;
+    overflow-y: visible;
+    position: relative;
+}
+
+.lyon-carousel {
+    display: flex;
+    gap: 10px; /* Gap de 10px entre chaque image */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding-left: calc(50vw - 50%); /* Aligne le premier slide avec le conteneur (title/tabs) */
+    padding-right: calc(50vw - 50% + var(--container-padding)); /* Padding à droite pour permettre le scroll */
+    padding-bottom: var(--spacing-md);
+}
+
+.lyon-carousel::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Flèches de navigation */
+.lyon-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-asphalte);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    color: var(--color-white);
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    opacity: 0.9;
+}
+
+.lyon-carousel-arrow:hover {
+    opacity: 1;
+    background-color: var(--color-asphalte);
+}
+
+.lyon-carousel-arrow:active {
+    opacity: 0.8;
+}
+
+.lyon-carousel-arrow svg {
+    width: 24px;
+    height: 24px;
+}
+
+.lyon-carousel-arrow-prev {
+    left: var(--spacing-xl);
+}
+
+.lyon-carousel-arrow-next {
+    right: var(--spacing-xl);
+}
+
+.lyon-carousel-slide {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 400px; /* Largeur minimale pour format vertical */
+}
+
+.lyon-carousel-image-wrapper {
+    position: relative;
+    width: 400px; /* Largeur fixe pour format vertical */
+    height: 600px; /* Hauteur plus grande pour format vertical */
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+}
+
+.lyon-carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Overlay gradient renforcé depuis le bas */
+.lyon-carousel-image-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.3) 70%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Container pour le contenu (catégorie + titre + description) */
+.lyon-carousel-content {
+    position: absolute;
+    bottom: 40px; /* Position fixe depuis le bas pour aligner tous les titres */
+    left: 90px; /* 90px depuis le bord gauche du slide (aligné avec conteneur + 90px) */
+    right: var(--spacing-md);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* Label sur l'image - position fixe pour alignement parfait */
+.lyon-carousel-label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-shrink: 0;
+    position: relative; /* Position relative pour rester dans le flux */
+}
+
+.lyon-carousel-category {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-s); /* 12px */
+    font-weight: 500;
+    line-height: 140%;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+    flex-shrink: 0;
+}
+
+.lyon-carousel-name {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h3); /* 42px - H3 */
+    font-weight: 400;
+    line-height: var(--line-height-h3); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-white);
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Description - transparente par défaut, apparaît au hover */
+.lyon-carousel-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-l); /* 16px */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-white);
+    margin: 0;
+    margin-top: var(--spacing-md); /* Espacement depuis le label */
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), max-height 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    white-space: pre-line; /* Permet les retours à la ligne avec \n */
+    max-height: 0; /* Hauteur nulle par défaut pour ne pas prendre d'espace */
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* Au hover, la description devient visible */
+.lyon-carousel-image-wrapper:hover .lyon-carousel-description {
+    opacity: 1;
+    pointer-events: auto;
+    max-height: 500px; /* Hauteur maximale pour permettre l'affichage */
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .lyon-adresses-section {
+        padding: var(--spacing-3xl) var(--spacing-xl);
+    }
+
+    .lyon-adresses-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour tablette */
+    }
+
+    .lyon-adresses-description {
+        font-size: var(--font-size-l); /* 16px - L pour tablette */
+    }
+
+    .lyon-carousel-image-wrapper {
+        width: 350px; /* Largeur réduite pour tablette, format vertical */
+        height: 550px; /* Hauteur réduite pour tablette */
+    }
+
+    .lyon-carousel-content {
+        bottom: 35px; /* Position fixe depuis le bas pour aligner tous les titres sur tablette */
+        left: 60px; /* 60px depuis le bord du slide pour tablette */
+    }
+
+    .lyon-carousel-label {
+        gap: 4px;
+    }
+
+    .lyon-carousel-name {
+        font-size: var(--font-size-h4); /* 32px - H4 pour tablette */
+        line-height: var(--line-height-h4); /* 120% */
+    }
+
+    .lyon-carousel-description {
+        font-size: var(--font-size-m); /* 14px pour tablette */
+    }
+
+    .lyon-carousel-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lyon-carousel-arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .lyon-carousel-arrow-prev {
+        left: var(--spacing-md);
+    }
+
+    .lyon-carousel-arrow-next {
+        right: var(--spacing-md);
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .lyon-adresses-section {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .lyon-adresses-container {
+        gap: var(--spacing-lg);
+    }
+
+    .lyon-adresses-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour mobile */
+    }
+
+    .lyon-adresses-description {
+        font-size: var(--font-size-l); /* 16px - L pour mobile */
+    }
+
+    .lyon-adresses-tabs {
+        gap: var(--spacing-md);
+        flex-wrap: wrap;
+    }
+
+    .lyon-tab {
+        font-size: var(--font-size-s); /* 12px pour mobile */
+        padding: 6px 10px;
+    }
+
+    .lyon-carousel-slide {
+        width: auto;
+        min-width: 280px; /* Largeur minimale réduite pour mobile */
+    }
+
+    .lyon-carousel-image-wrapper {
+        width: 280px; /* Largeur fixe pour mobile, format vertical */
+        height: 450px; /* Hauteur réduite pour mobile */
+    }
+
+    .lyon-carousel-content {
+        bottom: 30px; /* Position fixe depuis le bas pour aligner tous les titres sur mobile */
+        left: var(--spacing-md); /* 16px depuis le bord du slide pour mobile */
+        right: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+
+    .lyon-carousel-label {
+        gap: 2px;
+    }
+
+    .lyon-carousel-category {
+        font-size: var(--font-size-xs); /* 10px pour mobile */
+    }
+
+    .lyon-carousel-name {
+        font-size: var(--font-size-h4); /* 32px - H4 pour mobile au lieu de H3 */
+        line-height: var(--line-height-h4); /* 120% */
+    }
+
+    .lyon-carousel-description {
+        font-size: var(--font-size-m); /* 14px pour mobile */
+    }
+
+    .lyon-carousel-arrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .lyon-carousel-arrow svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .lyon-carousel-arrow-prev {
+        left: var(--spacing-sm);
+    }
+
+    .lyon-carousel-arrow-next {
+        right: var(--spacing-sm);
+    }
+}
+
+/* ============================================
+   BLOC 4: BLOC PP
+   ============================================ */
+
+.lyon-pp-section {
+    width: 100%;
+    min-height: 700px;
+    max-height: 800px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background-color: var(--color-white);
+}
+
+.lyon-pp-container {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.lyon-pp-layout {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Colonne gauche : Image */
+.lyon-pp-image-column {
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Carousel des projets dans la colonne de gauche */
+.lyon-pp-projects-carousel {
+    width: 100%;
+    height: 100%;
+    min-height: 700px;
+    max-height: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+.lyon-pp-projects-carousel-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lyon-pp-project-image {
+    width: 100%;
+    height: 100%;
+    min-height: 700px;
+    max-height: 800px;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lyon-pp-project-image.active {
+    opacity: 1;
+    position: relative;
+}
+
+.lyon-pp-image-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 700px;
+    max-height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.lyon-pp-image {
+    width: 100%;
+    height: 100%;
+    max-height: 800px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s ease;
+}
+
+.lyon-pp-image-column.fade-out .lyon-pp-image,
+.lyon-pp-text-column.fade-out {
+    opacity: 0;
+}
+
+/* Colonne droite : Texte */
+.lyon-pp-text-column {
+    background-color: #F6F1E7; /* Light beige */
+    transition: opacity 0.2s ease;
+    padding: var(--spacing-4xl) var(--spacing-3xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+}
+
+/* Subtitle Alt 1 */
+.lyon-pp-subtitle {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-alt-1); /* 16px - Alt 1 */
+    font-weight: 400;
+    line-height: var(--line-height-alt); /* 140% */
+    letter-spacing: var(--letter-spacing-alt); /* 5% - FAIT PARTIE DU DS Alt 1 */
+    color: var(--color-asphalte);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Header avec avatar et nom */
+.lyon-pp-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    width: 100%;
+}
+
+.lyon-pp-avatar-wrapper {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 2px solid var(--color-grey-3);
+}
+
+.lyon-pp-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.lyon-pp-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+/* Nom H4 */
+.lyon-pp-name {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h4); /* 32px - H4 */
+    font-weight: 400;
+    line-height: var(--line-height-h4); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+.lyon-pp-projects {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    justify-content: space-between;
+    width: 100%;
+}
+
+.lyon-pp-nav-arrows {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.lyon-pp-projects-count {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-m); /* 14px - M */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-grey-1);
+}
+
+.lyon-pp-nav-arrow {
+    background: none;
+    border: none;
+    padding: var(--spacing-xs);
+    cursor: pointer;
+    color: var(--color-asphalte);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity var(--transition-fast);
+    margin-left: var(--spacing-xs);
+}
+
+.lyon-pp-nav-arrow:hover {
+    opacity: 0.7;
+}
+
+.lyon-pp-nav-arrow svg {
+    width: 16px;
+    height: 16px;
+}
+
+.lyon-pp-nav-prev {
+    transform: rotate(180deg);
+}
+
+/* Description XL */
+.lyon-pp-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-xl); /* 20px - XL */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* Carousel dots */
+.lyon-pp-dots {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    margin-top: var(--spacing-xs);
+}
+
+.lyon-pp-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-grey-3);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color var(--transition-fast);
+}
+
+.lyon-pp-dot.active {
+    background-color: #D4A574; /* Couleur orange/brown du design */
+}
+
+.lyon-pp-dot:hover {
+    background-color: var(--color-grey-2);
+}
+
+/* CTA Button */
+.lyon-pp-cta {
+    margin-top: var(--spacing-xs);
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .lyon-pp-section {
+        padding: 0;
+        min-height: auto;
+        height: auto;
+    }
+
+    .lyon-pp-container {
+        padding: 0;
+    }
+
+    .lyon-pp-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .lyon-pp-image-column {
+        min-height: 500px;
+    }
+
+    .lyon-pp-projects-carousel {
+        min-height: 500px;
+        max-height: 600px;
+    }
+
+    .lyon-pp-project-image {
+        min-height: 500px;
+        max-height: 600px;
+    }
+
+    .lyon-pp-text-column {
+        padding: var(--spacing-3xl) var(--spacing-2xl);
+    }
+
+    .lyon-pp-name {
+        font-size: var(--font-size-h5); /* 24px - H5 pour tablette */
+    }
+
+    .lyon-pp-description {
+        font-size: var(--font-size-l); /* 16px - L pour tablette */
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .lyon-pp-section {
+        padding: 0;
+        min-height: auto;
+        height: auto;
+    }
+
+    .lyon-pp-container {
+        padding: 0;
+    }
+
+    .lyon-pp-image-column {
+        min-height: 400px;
+    }
+
+    .lyon-pp-projects-carousel {
+        min-height: 400px;
+        max-height: 500px;
+    }
+
+    .lyon-pp-project-image {
+        min-height: 400px;
+        max-height: 500px;
+    }
+
+    .lyon-pp-text-column {
+        padding: var(--spacing-2xl) var(--spacing-xl);
+        gap: var(--spacing-lg);
+    }
+
+    .lyon-pp-subtitle {
+        font-size: var(--font-size-alt-2); /* 14px - Alt 2 pour mobile */
+    }
+
+    .lyon-pp-header {
+        gap: var(--spacing-md);
+    }
+
+    .lyon-pp-avatar-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+
+    .lyon-pp-name {
+        font-size: var(--font-size-h5); /* 24px - H5 pour mobile */
+    }
+
+    .lyon-pp-projects-count {
+        font-size: var(--font-size-s); /* 12px - S pour mobile */
+    }
+
+    .lyon-pp-description {
+        font-size: var(--font-size-l); /* 16px - L pour mobile */
+    }
+}
+
+/* ============================================
+   BLOC 5: LA TOUCHE PLUM LIVING
+   ============================================ */
+
+.lyon-touche-section {
+    width: 100%;
+    padding: 0;
+    background-color: #F6F1E7;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lyon-touche-container {
+    width: 1044px;
+    height: 211px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Titre */
+.lyon-touche-title {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h2); /* 54px - H2 */
+    font-weight: 400;
+    line-height: var(--line-height-h2); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* Grille des 4 colonnes */
+.lyon-touche-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+/* Item de réassurance */
+.lyon-touche-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+/* Pictogramme - taille réduite pour rendu discret */
+.lyon-touche-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Sous-titre en gras */
+.lyon-touche-subtitle {
+    font-family: 'Blacklist Variable', 'Blacklist', sans-serif;
+    font-size: var(--font-size-xl); /* 20px - XL (augmenté de 2 tailles depuis M) */
+    font-weight: 600; /* Semi Bold */
+    line-height: 140%;
+    letter-spacing: -0.5px;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* Texte descriptif */
+.lyon-touche-text {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-m); /* 14px - M */
+    font-weight: 400; /* Regular */
+    line-height: 140%;
+    letter-spacing: -0.5px;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .lyon-touche-section {
+        padding: var(--spacing-2xl) var(--spacing-xl);
+    }
+
+    .lyon-touche-container {
+        width: 100%;
+        max-width: 1044px;
+        height: auto;
+        min-height: 211px;
+        padding: var(--spacing-lg) var(--spacing-xl);
+    }
+
+    .lyon-touche-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+
+    .lyon-touche-item {
+        gap: 10px;
+    }
+
+    .lyon-touche-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .lyon-touche-subtitle {
+        font-size: var(--font-size-m); /* 14px - M pour tablette */
+    }
+
+    .lyon-touche-text {
+        font-size: var(--font-size-s); /* 12px - S pour tablette */
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .lyon-touche-section {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .lyon-touche-container {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        padding: var(--spacing-md);
+    }
+
+    .lyon-touche-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .lyon-touche-item {
+        gap: 8px;
+    }
+
+    .lyon-touche-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .lyon-touche-subtitle {
+        font-size: var(--font-size-m); /* 14px - M pour mobile */
+    }
+
+    .lyon-touche-text {
+        font-size: var(--font-size-s); /* 12px - S pour mobile */
+    }
+}
+
+/* ============================================
+   BLOC VALEURS
+   ============================================ */
+
+.lyon-valeurs-section {
+    width: 100%;
+    min-height: 500px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background-color: var(--color-white);
+}
+
+.lyon-valeurs-container {
+    max-width: 1140px;
+    width: 1140px;
+    height: 670px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.lyon-valeurs-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    align-items: center;
+}
+
+/* Colonne droite : Image */
+.lyon-valeurs-image-column {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+}
+
+.lyon-valeurs-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.lyon-valeurs-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Colonne droite : Texte */
+.lyon-valeurs-text-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    justify-content: center;
+    padding: var(--spacing-2xl) 0;
+}
+
+.lyon-valeurs-title {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h2); /* 54px - H2 */
+    font-weight: 400;
+    line-height: var(--line-height-h2); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+.lyon-valeurs-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-xl); /* 20px - XL */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+.lyon-valeurs-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+}
+
+.lyon-valeurs-cta svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Badges Made in */
+.lyon-valeurs-badges {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    margin-top: var(--spacing-md);
+}
+
+.lyon-valeurs-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.lyon-valeurs-badge-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lyon-valeurs-badge-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.lyon-valeurs-badge-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-s); /* 12px - S */
+    font-weight: 400;
+    line-height: 140%;
+    color: var(--color-grey-1);
+    text-align: center;
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .lyon-valeurs-section {
+        min-height: auto;
+        height: auto;
+    }
+
+    .lyon-valeurs-container {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 60px 40px;
+    }
+
+    .lyon-valeurs-layout {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-3xl);
+        align-items: center;
+    }
+
+    .lyon-valeurs-image-column {
+        width: 100%;
+        height: 500px;
+    }
+
+    .lyon-valeurs-text-column {
+        padding: 0;
+        gap: var(--spacing-lg);
+    }
+
+    .lyon-valeurs-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour tablette */
+    }
+
+    .lyon-valeurs-description {
+        font-size: var(--font-size-l); /* 16px - L pour tablette */
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .lyon-valeurs-section {
+        min-height: auto;
+        height: auto;
+    }
+
+    .lyon-valeurs-container {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .lyon-valeurs-layout {
+        gap: var(--spacing-2xl);
+        align-items: center;
+    }
+
+    .lyon-valeurs-image-column {
+        width: 100%;
+        height: 400px;
+    }
+
+    .lyon-valeurs-text-column {
+        padding: 0;
+        gap: var(--spacing-md);
+    }
+
+    .lyon-valeurs-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour mobile */
+    }
+
+    .lyon-valeurs-description {
+        font-size: var(--font-size-l); /* 16px - L pour mobile */
+    }
+
+    .lyon-valeurs-badges {
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-sm);
+    }
+
+    .lyon-valeurs-badge-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lyon-valeurs-badge-text {
+        font-size: var(--font-size-xs); /* 10px - XS pour mobile */
+    }
+}
+
+/* ============================================
+   BLOC FAQ
+   ============================================ */
+
+.lyon-faq-section {
+    background-color: var(--color-white);
+    padding: var(--spacing-4xl) var(--container-padding);
+    margin: 0;
+}
+
+.lyon-faq-section .faq-title {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h2); /* 54px - H2 */
+    font-weight: 400;
+    line-height: var(--line-height-h2); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-asphalte);
+    margin-bottom: var(--spacing-3xl);
+    text-align: center;
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .lyon-faq-section {
+        padding: var(--spacing-3xl) var(--spacing-xl);
+    }
+
+    .lyon-faq-section .faq-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour tablette */
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .lyon-faq-section {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .lyon-faq-section .faq-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour mobile */
+    }
+}
+
+/* ============================================
+   BLOC 6: BLOC EDITO MAGAZINE
+   ============================================ */
+
+.lyon-edito-section {
+    width: 100%;
+    min-height: 800px;
+    padding: var(--spacing-4xl) 0;
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+}
+
+.lyon-edito-container {
+    max-width: var(--container-max-width);
+    width: 100%;
+    margin: 0;
+    position: relative;
+    padding: 0;
+}
+
+.lyon-edito-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--spacing-xl);
+    position: relative;
+    min-height: 800px;
+    align-items: start;
+}
+
+/* Image gauche (edito 1) - mord à gauche */
+.lyon-edito-image-left-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: var(--spacing-2xl);
+    margin-left: calc(-1 * var(--container-padding));
+    padding-bottom: 280px;
+}
+
+.lyon-edito-image-left {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lyon-edito-image-left .lyon-edito-image {
+    width: 140%;
+    height: auto;
+    max-height: 840px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Bloc vert menthe sous l'image edito 1, absolute, déstructuré en bas à droite */
+.lyon-edito-mint-block {
+    position: absolute;
+    top: 100%;
+    left: 30%;
+    width: 70%;
+    height: 280px;
+    background-color: #C8E6D9; /* Light mint green */
+    z-index: 3;
+}
+
+/* Contenu texte en haut à droite */
+.lyon-edito-content {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--spacing-2xl) var(--spacing-2xl) 0 0;
+    z-index: 4;
+    position: relative;
+    background-color: transparent;
+}
+
+/* Titre H2 Blacklist */
+.lyon-edito-title {
+    font-family: var(--font-heading, 'Blacklist', sans-serif);
+    font-size: var(--font-size-h2); /* 54px - H2 */
+    font-weight: 400;
+    line-height: var(--line-height-h2); /* 120% */
+    letter-spacing: -0.3px;
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* Description XL */
+.lyon-edito-description {
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-xl); /* 20px - XL */
+    font-weight: 400;
+    line-height: var(--line-height-body); /* 140% */
+    letter-spacing: var(--letter-spacing-body); /* -0.5px */
+    color: var(--color-asphalte);
+    margin: 0;
+}
+
+/* CTA Button */
+.lyon-edito-cta {
+    margin-top: var(--spacing-xs);
+}
+
+/* Image droite (edito 2) avec bordure bleu foncé - mord à droite et positionnée plus bas */
+.lyon-edito-image-right-wrapper {
+    grid-column: 3;
+    grid-row: 2;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-left: var(--spacing-xl);
+    padding-top: var(--spacing-3xl);
+    margin-right: calc(-1 * var(--container-padding));
+    width: calc(100% + var(--container-padding));
+}
+
+.lyon-edito-image-right {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.lyon-edito-image-right .lyon-edito-image {
+    width: 168%;
+    height: auto;
+    max-height: 910px;
+    object-fit: cover;
+    object-position: left center;
+    display: block;
+    margin-left: -34%;
+}
+
+.lyon-edito-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .lyon-edito-section {
+        padding: var(--spacing-3xl) 0;
+        min-height: auto;
+    }
+
+    .lyon-edito-container {
+        padding: 0;
+    }
+
+    .lyon-edito-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: var(--spacing-2xl);
+        min-height: auto;
+    }
+
+    .lyon-edito-image-left-wrapper {
+        grid-column: 1;
+        grid-row: 1;
+        margin-left: calc(-1 * var(--spacing-xl));
+        padding-bottom: 200px;
+    }
+
+    .lyon-edito-mint-block {
+        width: 75%;
+        left: 25%;
+        height: 200px;
+    }
+
+    .lyon-edito-image-left .lyon-edito-image {
+        width: 140%;
+        max-height: 600px;
+    }
+
+    .lyon-edito-content {
+        grid-column: 1;
+        grid-row: 3;
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .lyon-edito-image-right-wrapper {
+        grid-column: 1;
+        grid-row: 4;
+        padding-left: 0;
+        padding-top: var(--spacing-lg);
+        margin-right: calc(-1 * var(--spacing-xl));
+        width: calc(100% + var(--spacing-xl));
+    }
+
+    .lyon-edito-image-right .lyon-edito-image {
+        width: 168%;
+        margin-left: -34%;
+        max-height: 700px;
+    }
+
+    .lyon-edito-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour tablette */
+    }
+
+    .lyon-edito-description {
+        font-size: var(--font-size-l); /* 16px - L pour tablette */
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .lyon-edito-section {
+        padding: var(--spacing-2xl) 0;
+        min-height: auto;
+    }
+
+    .lyon-edito-container {
+        padding: 0;
+    }
+
+    .lyon-edito-layout {
+        gap: var(--spacing-xl);
+    }
+
+    .lyon-edito-image-left-wrapper {
+        margin-left: calc(-1 * var(--spacing-md));
+        padding-bottom: 150px;
+    }
+
+    .lyon-edito-image-left {
+        padding: var(--spacing-lg);
+    }
+
+    .lyon-edito-mint-block {
+        width: 70%;
+        left: 30%;
+        height: 150px;
+    }
+
+    .lyon-edito-image-left .lyon-edito-image {
+        width: 140%;
+        max-height: 500px;
+    }
+
+    .lyon-edito-content {
+        padding: var(--spacing-xl) 0;
+        gap: var(--spacing-lg);
+    }
+
+    .lyon-edito-image-right-wrapper {
+        margin-right: calc(-1 * var(--spacing-md));
+        width: calc(100% + var(--spacing-md));
+    }
+
+    .lyon-edito-title {
+        font-size: var(--font-size-h3); /* 42px - H3 pour mobile */
+    }
+
+    .lyon-edito-description {
+        font-size: var(--font-size-l); /* 16px - L pour mobile */
+    }
+}
+
+/* ============================================
+   BLOC DÉFILEMENT HORIZONTAL CONTINU
+   ============================================ */
+
+.lyon-scroll-section {
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--color-white);
+    position: relative;
+    padding: var(--spacing-4xl) 0;
+}
+
+.lyon-scroll-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.lyon-scroll-track {
+    display: flex;
+    width: fit-content;
+    will-change: transform;
+    animation: lyon-scroll-infinite 18s linear infinite;
+}
+
+.lyon-scroll-track.paused {
+    animation-play-state: paused;
+}
+
+.lyon-scroll-content {
+    display: flex;
+    gap: var(--spacing-xl);
+    flex-shrink: 0;
+}
+
+.lyon-scroll-image {
+    width: auto;
+    height: 400px;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+}
+
+/* Animation de défilement continu */
+@keyframes lyon-scroll-infinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ============================================
+   RESPONSIVE - TABLETTE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .lyon-scroll-section {
+        padding: var(--spacing-3xl) 0;
+    }
+
+    .lyon-scroll-image {
+        height: 350px;
+    }
+
+    .lyon-scroll-content {
+        gap: var(--spacing-lg);
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .lyon-scroll-section {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .lyon-scroll-image {
+        height: 300px;
+    }
+
+    .lyon-scroll-content {
+        gap: var(--spacing-md);
+    }
+}

@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plum living s'installe à Lyon - Plum Living</title>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="shared/styles/variables.css">
+    <link rel="stylesheet" href="shared/styles/reset.css">
+    <link rel="stylesheet" href="shared/styles/buttons.css">
+    <link rel="stylesheet" href="shared/components/navbar.css">
+    <link rel="stylesheet" href="shared/styles/fade-transitions.css">
+    <link rel="stylesheet" href="shared/styles/faq.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="hero.css">
+    <link rel="stylesheet" href="lyon.css">
+    <script>
+        // Script inline pour éviter le flash de contenu lors du fade-in
+        (function() {
+            if (sessionStorage.getItem('fadeNavigation') === 'true') {
+                document.documentElement.style.opacity = '0';
+            }
+        })();
+    </script>
+    <script src="shared/scripts/fade-navigation.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-over-hero">
+        <div class="navbar-container">
+            <!-- Groupe Burger + Logo -->
+            <div class="navbar-left">
+                <!-- Bouton Burger (Mobile) -->
+                <button class="burger-button icon-button" id="burgerButton" aria-label="Menu" aria-expanded="false">
+                    <svg class="burger-icon icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Paths burger (3 lignes) -->
+                        <g class="burger-paths">
+                            <path d="M2 5H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M2 10H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M2 15H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </g>
+                        <!-- Paths close (X) -->
+                        <g class="close-paths">
+                            <path d="M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </g>
+                    </svg>
+                </button>
+                
+                <!-- Logo -->
+                <div class="navbar-logo">
+                    <a href="home.html" class="logo-link">
+                        <img src="images/logo.png" alt="plum living" class="logo-image logo-white">
+                        <img src="images/logo-black.png" alt="plum living" class="logo-image logo-black" style="display: none;">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Navigation principale -->
+            <ul class="navbar-nav">
+                <li class="nav-item nav-item-dropdown">
+                    <a href="#" class="nav-link">CONCEPT</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">Découvrir</div>
+                                    <a href="#" class="dropdown-link">Notre concept</a>
+                                    <a href="#" class="dropdown-link">Couleurs & Design</a>
+                                    <a href="lyon.html" class="dropdown-link">Showroom</a>
+                                    <a href="#" class="dropdown-link">Nos engagements</a>
+                                    <a href="#" class="dropdown-link">FAQ</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">Je commence</div>
+                                    <a href="#" class="dropdown-link">Échantillons</a>
+                                    <a href="#" class="dropdown-link">Estimation et devis</a>
+                                    <a href="#" class="dropdown-link">Prendre rendez-vous</a>
+                                    <a href="#" class="dropdown-link">Club Pro</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-media-group">
+                                <a href="#" class="dropdown-media">
+                                    <div class="dropdown-media-image">
+                                        <img src="images/couleur.jpg" alt="Nos couleurs">
+                                        <div class="dropdown-media-overlay">
+                                            <div class="dropdown-media-content">
+                                                <h5 class="dropdown-media-title">Nos couleurs</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="lyon.html" class="dropdown-media">
+                                    <div class="dropdown-media-image">
+                                        <img src="images/showroom.jpg" alt="Le Showroom">
+                                        <div class="dropdown-media-overlay">
+                                            <div class="dropdown-media-content">
+                                                <h5 class="dropdown-media-title">Le Showroom</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item nav-item-dropdown">
+                    <a href="#" class="nav-link">CUISINE</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">INSPIRATION</div>
+                                    <a href="#" class="dropdown-link">Nos cuisines chez vous</a>
+                                    <a href="plumwall.html" class="dropdown-link">Galerie projets</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">OUTILS & SERVICES</div>
+                                    <a href="styler.html" class="dropdown-link">Styler 3D</a>
+                                    <a href="#" class="dropdown-link">Estimation et devis</a>
+                                    <a href="#" class="dropdown-link">Prendre rendez-vous</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">SHOP</div>
+                                    <a href="#" class="dropdown-link">Échantillons</a>
+                                    <a href="#" class="dropdown-link">Façades Metod</a>
+                                    <a href="#" class="dropdown-link">Plans de travail</a>
+                                    <a href="#" class="dropdown-link">Poignées</a>
+                                    <a href="#" class="dropdown-link">Étagères</a>
+                                    <a href="#" class="dropdown-link">Meubles ouverts</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title hidden-title">SHOP</div>
+                                    <a href="#" class="dropdown-link">Mitigeurs</a>
+                                    <a href="#" class="dropdown-link">Eviers</a>
+                                    <a href="#" class="dropdown-link">Crédences</a>
+                                    <a href="#" class="dropdown-link">Carreaux</a>
+                                    <a href="#" class="dropdown-link">Plinthes</a>
+                                    <a href="#" class="dropdown-link">Peinture</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-media-group">
+                                <div class="dropdown-media">
+                                    <div class="dropdown-media-image">
+                                        <img src="images/navbar/paulineborgia.png" alt="Pauline Borgia">
+                                        <div class="dropdown-media-overlay">
+                                            <div class="dropdown-media-content">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-media">
+                                    <div class="dropdown-media-image">
+                                        <img src="images/Home/nouveautes/2.1.jpg" alt="Une cuisine Canopée à Invalides">
+                                        <div class="dropdown-media-overlay">
+                                            <div class="dropdown-media-content">
+                                                <h5 class="dropdown-media-title">Une cuisine Canopée à Invalides</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item nav-item-dropdown">
+                    <a href="#" class="nav-link">RANGEMENT</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-columns">
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">INSPIRATION</div>
+                                    <a href="plumwall.html" class="dropdown-link">Galerie projets</a>
+                                    <a href="dressing.html" class="dropdown-link">Dressings</a>
+                                    <a href="#" class="dropdown-link">Banquettes</a>
+                                    <a href="#" class="dropdown-link">Buffets & Rangements</a>
+                                    <a href="#" class="dropdown-link">Salle de bain</a>
+                                    <a href="#" class="dropdown-link">Bureaux</a>
+                                    <a href="#" class="dropdown-link">Kids</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">OUTILS & SERVICES</div>
+                                    <a href="styler.html" class="dropdown-link">Styler 3D</a>
+                                    <a href="#" class="dropdown-link">Estimation et devis</a>
+                                    <a href="#" class="dropdown-link">Prendre rendez-vous</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title">SHOP</div>
+                                    <a href="#" class="dropdown-link">Échantillons</a>
+                                    <a href="#" class="dropdown-link">Façades Pax</a>
+                                    <a href="#" class="dropdown-link">Façades Besta</a>
+                                    <a href="#" class="dropdown-link">Façades Metod</a>
+                                    <a href="#" class="dropdown-link">Plan de travail</a>
+                                    <a href="#" class="dropdown-link">Plateaux de bureaux</a>
+                                    <a href="#" class="dropdown-link">Poignées</a>
+                                    <a href="#" class="dropdown-link">Étagères</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <div class="dropdown-section-title hidden-title">SHOP</div>
+                                    <a href="#" class="dropdown-link">Meubles ouverts</a>
+                                    <a href="#" class="dropdown-link">Mitigeurs</a>
+                                    <a href="#" class="dropdown-link">Crédences</a>
+                                    <a href="#" class="dropdown-link">Carreaux</a>
+                                    <a href="#" class="dropdown-link">Plinthes</a>
+                                    <a href="#" class="dropdown-link">Peinture</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-media-group">
+                                <div class="dropdown-media">
+                                    <div class="dropdown-media-image">
+                                        <img src="images/navbar/dressing.jpg" alt="Slide Givre avec poignées Pauline Borgia">
+                                        <div class="dropdown-media-overlay">
+                                            <div class="dropdown-media-content">
+                                                <h5 class="dropdown-media-title">Slide Givre avec poignées Pauline Borgia</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-media">
+                                    <div class="dropdown-media-image">
+                                        <img src="images/dressing/8.jpg" alt="Nest by Lisa Gachet">
+                                        <div class="dropdown-media-overlay">
+                                            <div class="dropdown-media-content">
+                                                <h5 class="dropdown-media-title">Nest by Lisa Gachet</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="plumwall.html" class="nav-link">GALERIE</a>
+                </li>
+                <li class="nav-item">
+                    <a href="experiments/media/index.html" class="nav-link">MEDIA</a>
+                </li>
+            </ul>
+
+            <!-- Actions utilisateur -->
+            <div class="navbar-actions">
+                <!-- Icônes -->
+                <div class="navbar-icons">
+                    <!-- Barre de recherche -->
+                    <div class="search-container">
+                        <button class="icon-button search-toggle" id="searchToggle" aria-label="Rechercher">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                        <div class="search-bar" id="searchBar">
+                            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher..." aria-label="Rechercher">
+                            <button class="search-close" id="searchClose" aria-label="Fermer la recherche">
+                                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="icon-button" aria-label="Mon compte">
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </button>
+                    <!-- Panier -->
+                    <button class="icon-button" aria-label="Panier">
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Club Pro -->
+                <a href="#" class="nav-link" id="clubProLink">CLUB PRO</a>
+
+                <!-- Bouton CTA -->
+                <a href="#" class="btn-cta">
+                    <svg class="btn-cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                    <span class="btn-cta-text">JE COMMENCE</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-menu-nav">
+                <!-- Vue principale du menu -->
+                <div class="mobile-menu-view mobile-menu-view-main" data-menu-view="main">
+                    <ul class="mobile-menu-list mobile-menu-main">
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link" data-menu-trigger="concept">
+                                Concept
+                                <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link" data-menu-trigger="cuisine">
+                                Cuisine
+                                <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link" data-menu-trigger="maison">
+                                Rangement
+                                <svg class="mobile-menu-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">
+                                Galerie
+                            </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="experiments/media/index.html" class="mobile-menu-link">
+                                Media
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="mobile-menu-divider"></div>
+                    
+                    <ul class="mobile-menu-list mobile-menu-alt">
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Mon compte</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Suivre ma livraison</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Aide & Contact</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Club Pro</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sous-menu Cuisine -->
+                <div class="mobile-menu-view mobile-menu-view-submenu" data-menu-view="cuisine">
+                    <div class="mobile-menu-submenu-header">
+                        <button class="mobile-menu-back" aria-label="Retour">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </button>
+                        <h3 class="mobile-menu-submenu-title">Cuisine</h3>
+                    </div>
+                    <div class="mobile-menu-drawer-sections">
+                        <div class="mobile-menu-drawer-section">
+                            <ul class="mobile-menu-list mobile-menu-submenu-list">
+                                <li class="mobile-menu-item">
+                                    <a href="styler.html" class="mobile-menu-link">Styler 3D</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Nos cuisines chez vous</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Galerie projets</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Estimation en 2min</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mobile-menu-divider"></div>
+                        <div class="mobile-menu-drawer-section">
+                            <ul class="mobile-menu-list mobile-menu-submenu-list">
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Échantillons</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Façades Metod</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Plans de travail</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Poignées</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Étagères</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Meubles ouverts</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Mitigeurs</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Eviers</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Crédences</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Carreaux</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Plinthes</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Peinture</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sous-menu Autres pièces -->
+                <div class="mobile-menu-view mobile-menu-view-submenu" data-menu-view="maison">
+                    <div class="mobile-menu-submenu-header">
+                        <button class="mobile-menu-back" aria-label="Retour">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </button>
+                        <h3 class="mobile-menu-submenu-title">Rangement</h3>
+                    </div>
+                    <div class="mobile-menu-drawer-sections">
+                        <div class="mobile-menu-drawer-section">
+                            <ul class="mobile-menu-list mobile-menu-submenu-list">
+                                <li class="mobile-menu-item">
+                                    <a href="styler.html" class="mobile-menu-link">Styler 3D</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="plumwall.html" class="mobile-menu-link">Galerie projets</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="dressing.html" class="mobile-menu-link">Dressings</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Banquettes</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Buffets & Rangements</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Salle de bain</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Bureaux</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Kids</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mobile-menu-divider"></div>
+                        <div class="mobile-menu-drawer-section">
+                            <ul class="mobile-menu-list mobile-menu-submenu-list">
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Échantillons</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Façades Pax</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Façades Besta</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Façades Metod</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Plan de travail</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Plateaux de bureaux</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Poignées</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Étagères</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Meubles ouverts</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Mitigeurs</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Crédences</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Carreaux</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Plinthes</a>
+                                </li>
+                                <li class="mobile-menu-item">
+                                    <a href="#" class="mobile-menu-link">Peinture</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sous-menu Concept -->
+                <div class="mobile-menu-view mobile-menu-view-submenu" data-menu-view="concept">
+                    <div class="mobile-menu-submenu-header">
+                        <button class="mobile-menu-back" aria-label="Retour">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </button>
+                        <h3 class="mobile-menu-submenu-title">Concept</h3>
+                    </div>
+                    <ul class="mobile-menu-list mobile-menu-submenu-list">
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Notre concept</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Couleurs & Design</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="lyon.html" class="mobile-menu-link">Showroom</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Nos engagements</a>
+                        </li>
+                    </ul>
+                    <div class="mobile-menu-divider"></div>
+                    <ul class="mobile-menu-list mobile-menu-submenu-list">
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Échantillons</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Estimation et devis</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Prendre rendez-vous</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">Club Pro</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#" class="mobile-menu-link">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Overlay pour fermer le menu -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-lyon">
+        <div class="hero-background">
+            <div class="hero-image-wrapper">
+                <img src="images/lyon/herotest.jpg" alt="Vue de Lyon" class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-container hero-lyon-container">
+                <!-- Container flottant blanc -->
+                <div class="lyon-form-container">
+                    <h1 class="lyon-title">
+                        <span class="lyon-title-line">Plum living</span>
+                        <span class="lyon-title-line">s'installe à Lyon</span>
+                    </h1>
+                    
+                    <p class="lyon-description">
+                        Inscrivez vous pour être parmi les premiers à découvrir notre appartement lyonnais
+                    </p>
+                    
+                    <form class="lyon-form" id="lyonForm">
+                        <div class="lyon-form-row">
+                            <input 
+                                type="text" 
+                                name="prenom1" 
+                                id="prenom1" 
+                                placeholder="Prénom" 
+                                class="lyon-input"
+                                required
+                            >
+                            <input 
+                                type="text" 
+                                name="prenom2" 
+                                id="prenom2" 
+                                placeholder="Prénom" 
+                                class="lyon-input"
+                            >
+                        </div>
+                        
+                        <input 
+                            type="email" 
+                            name="email" 
+                            id="email" 
+                            placeholder="Email" 
+                            class="lyon-input lyon-input-full"
+                            required
+                        >
+                        
+                        <button type="submit" class="btn btn-primary-dark lyon-cta">
+                            S'INSCRIRE
+                        </button>
+                        
+                        <div class="lyon-checkbox-container">
+                            <input 
+                                type="checkbox" 
+                                name="data-consent" 
+                                id="dataConsent" 
+                                class="lyon-checkbox"
+                                required
+                                checked
+                            >
+                            <label for="dataConsent" class="lyon-checkbox-label">
+                                J'accepte que mes données soient utilisées pour recevoir les communications Plum Living.
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloc 2: L'appartement Plum Living -->
+    <section class="lyon-appartement-section">
+        <div class="lyon-appartement-container">
+            <div class="lyon-appartement-layout">
+                <!-- Colonne gauche : Image avec padding coloré -->
+                <div class="lyon-appartement-image-column">
+                    <div class="lyon-appartement-image-wrapper">
+                        <img src="images/lyon/appart.jpg" alt="L'appartement Plum living à Lyon" class="lyon-appartement-image">
+                    </div>
+                </div>
+                
+                <!-- Colonne droite : Texte -->
+                <div class="lyon-appartement-text-column">
+                    <p class="lyon-appartement-subtitle">BONJOUR LYON</p>
+                    <h1 class="lyon-appartement-title">Déjà prêt à vous lancer?</h1>
+                    <p class="lyon-appartement-description">
+                        Commencez votre projet seul ou accompagné de nos concepteurs, à distance ou à domicile. En attendant l'ouverture, découvrez notre concept, explorez les couleurs et concevez votre plan. Il ne vous restera plus qu'à affiner et valider vos choix.
+                    </p>
+                    <a href="#" class="btn btn-secondary-dark lyon-appartement-cta">
+                        JE PRÉPARE MON PROJET
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloc 3: Carousel nos bonnes adresses -->
+    <section class="lyon-adresses-section">
+        <div class="lyon-adresses-container">
+            <h2 class="lyon-adresses-title">Nos bonnes adresses à Lyon</h2>
+            <p class="lyon-adresses-description">
+                Lyon, ville dynamique où chaque rue, chaque quartier et chaque devanture déborde de créativité. Que vous soyez à la recherche de matériaux et petits détails qui font toute la différence pour sublimer vos projets ou de sources d'inspiration pour nourrir vos idées, ce city guide est pensé pour vous.
+            </p>
+            
+            <!-- Tabs -->
+            <div class="lyon-adresses-tabs">
+                <button class="lyon-tab" data-tab="architectes">ARCHITECTES</button>
+                <button class="lyon-tab active" data-tab="boutiques">BOUTIQUES</button>
+                <button class="lyon-tab" data-tab="poseurs">POSEURS</button>
+            </div>
+            
+            <!-- Carousel -->
+            <div class="lyon-carousel-wrapper">
+                <button class="lyon-carousel-arrow lyon-carousel-arrow-prev" id="lyonCarouselPrev" aria-label="Précédent">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <div class="lyon-carousel" id="lyonCarousel">
+                    <!-- Images du carousel seront ajoutées dynamiquement -->
+                </div>
+                <button class="lyon-carousel-arrow lyon-carousel-arrow-next" id="lyonCarouselNext" aria-label="Suivant">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloc 4: Bloc PP -->
+    <section class="lyon-pp-section">
+        <div class="lyon-pp-container">
+            <div class="lyon-pp-layout">
+                <!-- Colonne gauche : Carousel des projets -->
+                <div class="lyon-pp-image-column">
+                    <div class="lyon-pp-projects-carousel" id="lyonPpProjectsCarousel">
+                        <div class="lyon-pp-projects-carousel-wrapper">
+                            <img src="images/lyon/homeproject1.jpg" alt="Projet 1" class="lyon-pp-project-image active" data-project="homeproject1">
+                            <img src="images/lyon/homeproject2.jpg" alt="Projet 2" class="lyon-pp-project-image" data-project="homeproject2">
+                            <img src="images/lyon/homeproject3.jpg" alt="Projet 3" class="lyon-pp-project-image" data-project="homeproject3">
+                            <img src="images/lyon/homeproject4.jpg" alt="Projet 4" class="lyon-pp-project-image" data-project="homeproject4">
+                        </div>
+                    </div>
+                    <!-- Image principale du concepteur (conservée pour compatibilité) -->
+                    <div class="lyon-pp-image-wrapper" style="display: none;">
+                        <img src="images/lyon/Fabien1.jpg" alt="Fabien - Concepteur Plum Living" class="lyon-pp-image" id="lyonPpImage">
+                    </div>
+                </div>
+                
+                <!-- Colonne droite : Texte -->
+                <div class="lyon-pp-text-column">
+                    <p class="lyon-pp-subtitle">NOS CONCEPTEURS VOUS ACCOMPAGNENT</p>
+                    
+                    <div class="lyon-pp-header">
+                        <div class="lyon-pp-avatar-wrapper">
+                            <img src="images/lyon/Bénédicte.jpg" alt="Bénédicte" class="lyon-pp-avatar" id="lyonPpAvatar">
+                        </div>
+                        <div class="lyon-pp-info">
+                            <h4 class="lyon-pp-name" id="lyonPpName">Bénédicte</h4>
+                            <div class="lyon-pp-projects">
+                                <span class="lyon-pp-projects-count" id="lyonPpProjectsCount">123 projets réalisés</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="lyon-pp-description" id="lyonPpDescription">
+                        Avec plus d'une centaine de projets à son actif, Bénédicte saura mettre son expertise et sa bonne humeur pour vous aider à réaliser le projet de vos rêves.
+                    </p>
+                    
+                    <div class="lyon-pp-dots" id="lyonPpDots">
+                        <!-- Les dots seront générés dynamiquement -->
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary-dark lyon-pp-cta">
+                        RDV AVEC UN CONCEPTEUR
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloc FAQ -->
+    <section class="faq-section lyon-faq-section">
+        <div class="faq-container">
+            <h2 class="faq-title">Vos questions fréquentes</h2>
+            
+            <div class="faq-list">
+                <!-- Item FAQ 1 -->
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <div class="faq-question">Quels sont les délais de livraison à Lyon?</div>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-content">
+                        <div class="faq-answer">
+                            <p>Les délais de livraison varient selon le type de projet et les produits sélectionnés. En général, comptez entre 4 à 8 semaines pour une cuisine sur mesure et 2 à 6 semaines pour des éléments de rangement. Nos conseillers vous donneront un délai précis lors de votre rendez-vous.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item FAQ 2 -->
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <div class="faq-question">Avez-vous des poseurs partenaires à Lyon et ses alentours?</div>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-content">
+                        <div class="faq-answer">
+                            <p>Oui, nous travaillons avec un réseau de poseurs partenaires certifiés dans la région lyonnaise et ses environs. Nos équipes sont formées à l'installation de nos produits et garantissent une pose de qualité. Vous pouvez demander une liste de nos partenaires lors de votre rendez-vous.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item FAQ 3 -->
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <div class="faq-question">Peut-on déjà prendre rendez-vous au showroom?</div>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-content">
+                        <div class="faq-answer">
+                            <p>Le showroom de Lyon ouvrira prochainement. En attendant, vous pouvez déjà prendre rendez-vous avec nos concepteurs pour une consultation à distance ou à domicile. Inscrivez-vous sur cette page pour être informé de l'ouverture et réserver votre créneau.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item FAQ 4 -->
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <div class="faq-question">Quel type de projet peut on mener avec Plum Living?</div>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-content">
+                        <div class="faq-answer">
+                            <p>Plum Living accompagne tous types de projets d'aménagement intérieur : cuisines sur mesure, dressings, rangements, banquettes, buffets, aménagements de salle de bain, bureaux et espaces kids. Que vous souhaitiez rénover une pièce complète ou ajouter des éléments de rangement, nos concepteurs vous aident à créer un intérieur unique et fonctionnel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloc 5: La touche Plum Living -->
+    <section class="lyon-touche-section">
+        <div class="lyon-touche-container">
+            <div class="lyon-touche-grid">
+                <div class="lyon-touche-item">
+                    <img src="images/lyon/vector1.png" alt="Unique" class="lyon-touche-icon">
+                    <h3 class="lyon-touche-subtitle">Unique</h3>
+                    <p class="lyon-touche-text">Des centaines de combinaisons feront de votre intérieur un lieu à part</p>
+                </div>
+                
+                <div class="lyon-touche-item">
+                    <img src="images/lyon/Vector2.png" alt="Haut-de-gamme" class="lyon-touche-icon">
+                    <h3 class="lyon-touche-subtitle">Haut-de-gamme</h3>
+                    <p class="lyon-touche-text">Fait en France et au Portugal par des fabricants au savoir faire exceptionnel.</p>
+                </div>
+                
+                <div class="lyon-touche-item">
+                    <img src="images/lyon/Vector3.png" alt="Accessible" class="lyon-touche-icon">
+                    <h3 class="lyon-touche-subtitle">Accessible</h3>
+                    <p class="lyon-touche-text">Deux à trois fois moins onéreux que chez un cuisiniste.</p>
+                </div>
+                
+                <div class="lyon-touche-item">
+                    <img src="images/lyon/vector4.png" alt="L'expertise" class="lyon-touche-icon">
+                    <h3 class="lyon-touche-subtitle">L'expertise</h3>
+                    <p class="lyon-touche-text">Nos professionnels de l'agencement la pour vous accompagner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloc défilement horizontal continu -->
+    <section class="lyon-scroll-section">
+        <div class="lyon-scroll-container">
+            <div class="lyon-scroll-track" id="lyonScrollTrack">
+                <div class="lyon-scroll-content">
+                    <img src="images/lyon/homeproject1.jpg" alt="Projet 1" class="lyon-scroll-image">
+                    <img src="images/lyon/homeproject2.jpg" alt="Projet 2" class="lyon-scroll-image">
+                    <img src="images/lyon/homeproject3.jpg" alt="Projet 3" class="lyon-scroll-image">
+                    <img src="images/lyon/homeproject4.jpg" alt="Projet 4" class="lyon-scroll-image">
+                    <img src="images/lyon/homeproject5.jpg" alt="Projet 5" class="lyon-scroll-image">
+                </div>
+                <!-- Duplication pour effet seamless -->
+                <div class="lyon-scroll-content" aria-hidden="true">
+                    <img src="images/lyon/homeproject1.jpg" alt="Projet 1" class="lyon-scroll-image">
+                    <img src="images/lyon/homeproject2.jpg" alt="Projet 2" class="lyon-scroll-image">
+                    <img src="images/lyon/homeproject3.jpg" alt="Projet 3" class="lyon-scroll-image">
+                    <img src="images/lyon/homeproject4.jpg" alt="Projet 4" class="lyon-scroll-image">
+                    <img src="images/lyon/homeproject5.jpg" alt="Projet 5" class="lyon-scroll-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="shared/scripts/logo-fade.js"></script>
+    <script src="shared/scripts/mobile-menu.js"></script>
+    <script src="shared/scripts/faq.js"></script>
+    <script src="lyon-carousel.js"></script>
+    <script src="lyon-pp-carousel.js"></script>
+    <script>
+        // Gestion simplifiée du hover sur les dropdowns
+        const navbar = document.querySelector('.navbar');
+        const dropdownItems = document.querySelectorAll('.nav-item-dropdown');
+        
+        if (navbar && dropdownItems.length > 0) {
+            let closeTimeout = null;
+            let currentHoveredItem = null;
+            
+            // Fonction pour ouvrir un menu
+            const openMenu = (dropdownItem) => {
+                if (closeTimeout) {
+                    clearTimeout(closeTimeout);
+                    closeTimeout = null;
+                }
+                
+                if (currentHoveredItem && currentHoveredItem !== dropdownItem) {
+                    currentHoveredItem.classList.remove('is-hovered');
+                }
+                
+                dropdownItem.classList.add('is-hovered');
+                navbar.classList.add('navbar-white');
+                navbar.classList.add('navbar-has-hover');
+                currentHoveredItem = dropdownItem;
+            };
+            
+            // Fonction pour fermer le menu
+            const closeMenu = () => {
+                if (closeTimeout) {
+                    clearTimeout(closeTimeout);
+                }
+                
+                closeTimeout = setTimeout(() => {
+                    if (currentHoveredItem) {
+                        currentHoveredItem.classList.remove('is-hovered');
+                        currentHoveredItem = null;
+                    }
+                    
+                    navbar.classList.remove('navbar-white');
+                    navbar.classList.remove('navbar-has-hover');
+                    closeTimeout = null;
+                }, 100);
+            };
+            
+            // Gérer les événements pour chaque dropdown
+            dropdownItems.forEach(dropdownItem => {
+                const dropdownMenu = dropdownItem.querySelector('.dropdown-menu');
+                
+                if (dropdownMenu) {
+                    dropdownItem.addEventListener('mouseenter', () => openMenu(dropdownItem));
+                    dropdownMenu.addEventListener('mouseenter', () => openMenu(dropdownItem));
+                    
+                    dropdownItem.addEventListener('mouseleave', closeMenu);
+                    dropdownMenu.addEventListener('mouseleave', closeMenu);
+                }
+            });
+        }
+
+        // Gestion de la barre de recherche
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchContainer = document.querySelector('.search-container');
+            const searchBar = document.getElementById('searchBar');
+            const searchInput = document.getElementById('searchInput');
+            const searchClose = document.getElementById('searchClose');
+            const searchToggle = document.getElementById('searchToggle');
+
+            if (!searchContainer || !searchBar || !searchInput) {
+                return;
+            }
+
+            function openSearchBar() {
+                searchBar.classList.add('search-bar-active');
+                setTimeout(() => {
+                    searchInput.focus();
+                }, 300);
+            }
+
+            function closeSearchBar() {
+                searchBar.classList.remove('search-bar-active');
+            }
+
+            searchContainer.addEventListener('mouseenter', openSearchBar);
+            searchContainer.addEventListener('mouseleave', closeSearchBar);
+            searchBar.addEventListener('mouseleave', closeSearchBar);
+
+            if (searchClose) {
+                searchClose.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    closeSearchBar();
+                    searchInput.value = '';
+                    searchInput.blur();
+                });
+            }
+
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeSearchBar();
+                    searchInput.value = '';
+                    searchInput.blur();
+                }
+            });
+        });
+
+        // Gestion du formulaire
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('lyonForm');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    // Ici vous pouvez ajouter la logique de soumission du formulaire
+                    console.log('Formulaire soumis');
+                });
+            }
+        });
+
+        // Déclencher l'animation du fade blanc vers la page au chargement
+        (function() {
+            function triggerFade() {
+                requestAnimationFrame(function() {
+                    requestAnimationFrame(function() {
+                        void document.body.offsetHeight;
+                        setTimeout(function() {
+                            document.body.classList.add('page-loaded');
+                        }, 200);
+                    });
+                });
+            }
+            
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                triggerFade();
+            } else {
+                document.addEventListener('DOMContentLoaded', triggerFade);
+            }
+        })();
+
+        // Gestion du défilement horizontal continu avec pause au hover
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollTrack = document.getElementById('lyonScrollTrack');
+            const scrollSection = document.querySelector('.lyon-scroll-section');
+            
+            if (scrollTrack && scrollSection) {
+                // Pause au hover
+                scrollSection.addEventListener('mouseenter', () => {
+                    scrollTrack.classList.add('paused');
+                });
+                
+                scrollSection.addEventListener('mouseleave', () => {
+                    scrollTrack.classList.remove('paused');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

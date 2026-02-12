@@ -57,7 +57,7 @@ Pour l'ajouter dans Cursor, vous avez deux options :
    - **Command** : `npx`
    - **Args** : `-y`, `@modelcontextprotocol/server-figma`
    - **Environment Variables** :
-     - `FIGMA_ACCESS_TOKEN` : `figd_qaDhEhi20s7qm1UFNLxzLSFFFaeWNDQmPtpqnOr9`
+     - `FIGMA_ACCESS_TOKEN` : `VOTRE_TOKEN_FIGMA_ICI`
 
 #### Option B : Importer depuis le fichier
 
