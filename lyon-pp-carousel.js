@@ -39,27 +39,19 @@
     ];
 
     let currentIndex = 0;
-    let currentProjectIndex = 0;
-    let projectCarouselInterval = null;
 
     // Initialisation
     document.addEventListener('DOMContentLoaded', function() {
-        const imageElement = document.getElementById('lyonPpImage');
         const avatarElement = document.getElementById('lyonPpAvatar');
         const nameElement = document.getElementById('lyonPpName');
-        const projectsCountElement = document.getElementById('lyonPpProjectsCount');
         const descriptionElement = document.getElementById('lyonPpDescription');
         const dotsContainer = document.getElementById('lyonPpDots');
         const imageColumn = document.querySelector('.lyon-pp-image-column');
         const textColumn = document.querySelector('.lyon-pp-text-column');
         const nextButton = document.getElementById('lyonPpNext');
         const prevButton = document.getElementById('lyonPpPrev');
-        
-        // Éléments du carousel des projets
-        const projectImages = document.querySelectorAll('.lyon-pp-project-image');
-        const projectsCarousel = document.getElementById('lyonPpProjectsCarousel');
 
-        if (!imageElement || !avatarElement || !nameElement || !projectsCountElement || !descriptionElement || !dotsContainer) {
+        if (!avatarElement || !nameElement || !descriptionElement || !dotsContainer) {
             return;
         }
 
@@ -84,10 +76,7 @@
         function updateContent() {
             const currentPP = PP_DATA[currentIndex];
             
-            if (imageElement) {
-                imageElement.src = currentPP.image;
-                imageElement.alt = `${currentPP.name} - Concepteur Plum Living`;
-            }
+            // L'image de gauche reste statique (homeproject1.jpg), on ne la modifie plus
             
             if (avatarElement) {
                 avatarElement.src = currentPP.avatar;
@@ -96,10 +85,6 @@
             
             if (nameElement) {
                 nameElement.textContent = currentPP.name;
-            }
-            
-            if (projectsCountElement) {
-                projectsCountElement.textContent = `${currentPP.projectsCount} projets réalisés`;
             }
             
             if (descriptionElement) {
@@ -122,12 +107,11 @@
             if (index < 0 || index >= PP_DATA.length || index === currentIndex) {
                 return;
             }
-            if (imageColumn) imageColumn.classList.add('fade-out');
+            // L'image de gauche reste statique, on n'applique pas le fade-out
             if (textColumn) textColumn.classList.add('fade-out');
             setTimeout(function() {
                 currentIndex = index;
                 updateContent();
-                if (imageColumn) imageColumn.classList.remove('fade-out');
                 if (textColumn) textColumn.classList.remove('fade-out');
             }, FADE_DURATION);
         }
@@ -163,48 +147,6 @@
         // Initialisation
         createDots();
         updateContent();
-
-        // Fonction pour mettre à jour le carousel des projets
-        function updateProjectsCarousel() {
-            if (projectImages.length === 0) return;
-            
-            // Retirer la classe active de toutes les images
-            projectImages.forEach(img => img.classList.remove('active'));
-            
-            // Ajouter la classe active à l'image courante
-            if (projectImages[currentProjectIndex]) {
-                projectImages[currentProjectIndex].classList.add('active');
-            }
-        }
-
-        // Fonction pour passer à l'image suivante du carousel des projets
-        function nextProjectImage() {
-            if (projectImages.length === 0) return;
-            currentProjectIndex = (currentProjectIndex + 1) % projectImages.length;
-            updateProjectsCarousel();
-        }
-
-        // Initialiser le carousel des projets
-        if (projectImages.length > 0) {
-            updateProjectsCarousel();
-            
-            // Défilement automatique des projets toutes les 3 secondes
-            const PROJECT_AUTO_PLAY_INTERVAL = 3000;
-            projectCarouselInterval = setInterval(nextProjectImage, PROJECT_AUTO_PLAY_INTERVAL);
-            
-            // Pause au survol du carousel
-            if (projectsCarousel) {
-                projectsCarousel.addEventListener('mouseenter', function() {
-                    if (projectCarouselInterval) {
-                        clearInterval(projectCarouselInterval);
-                    }
-                });
-                
-                projectsCarousel.addEventListener('mouseleave', function() {
-                    projectCarouselInterval = setInterval(nextProjectImage, PROJECT_AUTO_PLAY_INTERVAL);
-                });
-            }
-        }
 
         // Défilement automatique toutes les 4 secondes pour les concepteurs
         const AUTO_PLAY_INTERVAL = 4000;

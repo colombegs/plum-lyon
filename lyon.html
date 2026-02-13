@@ -653,9 +653,9 @@
                 <!-- Colonne droite : Texte -->
                 <div class="lyon-appartement-text-column">
                     <p class="lyon-appartement-subtitle">BONJOUR LYON</p>
-                    <h1 class="lyon-appartement-title">Déjà prêt à vous lancer?</h1>
+                    <h1 class="lyon-appartement-title">Déjà prêt à vous lancer ?</h1>
                     <p class="lyon-appartement-description">
-                        Commencez votre projet seul ou accompagné de nos concepteurs, à distance ou à domicile. En attendant l'ouverture, découvrez notre concept, explorez les couleurs et concevez votre plan. Il ne vous restera plus qu'à affiner et valider vos choix.
+                        Notre showroom ouvre bientôt. D'ici là, découvrez notre concept, explorez les couleurs et concevez votre plan, seul ou avec nos concepteurs. Il ne vous restera plus qu'à affiner et valider vos choix à l'ouverture.
                     </p>
                     <a href="#" class="btn btn-secondary-dark lyon-appartement-cta">
                         JE PRÉPARE MON PROJET
@@ -669,14 +669,14 @@
     <section class="lyon-adresses-section">
         <div class="lyon-adresses-container">
             <h2 class="lyon-adresses-title">Nos bonnes adresses à Lyon</h2>
-            <p class="lyon-adresses-description">
-                Lyon, ville dynamique où chaque rue, chaque quartier et chaque devanture déborde de créativité. Que vous soyez à la recherche de matériaux et petits détails qui font toute la différence pour sublimer vos projets ou de sources d'inspiration pour nourrir vos idées, ce city guide est pensé pour vous.
+            <p class="lyon-adresses-description" id="lyonAdressesDescription">
+                Que vous soyez à la recherche de matériaux ou de petits détails qui font toute la différence pour sublimer vos projets, ce city guide est pensé pour vous.
             </p>
             
             <!-- Tabs -->
             <div class="lyon-adresses-tabs">
                 <button class="lyon-tab" data-tab="architectes">ARCHITECTES</button>
-                <button class="lyon-tab active" data-tab="boutiques">BOUTIQUES</button>
+                <button class="lyon-tab active" data-tab="boutiques">BONNES ADRESSES</button>
                 <button class="lyon-tab" data-tab="poseurs">POSEURS</button>
             </div>
             
@@ -696,6 +696,15 @@
                     </svg>
                 </button>
             </div>
+            
+            <!-- CTA Tout voir (visible uniquement pour Bonnes adresses) -->
+            <a href="#" class="lyon-carousel-cta" id="lyonCarouselCta" style="display: none;">
+                <svg class="lyon-carousel-cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+                <span>Tout voir</span>
+            </a>
         </div>
     </section>
 
@@ -703,19 +712,10 @@
     <section class="lyon-pp-section">
         <div class="lyon-pp-container">
             <div class="lyon-pp-layout">
-                <!-- Colonne gauche : Carousel des projets -->
+                <!-- Colonne gauche : Image statique -->
                 <div class="lyon-pp-image-column">
-                    <div class="lyon-pp-projects-carousel" id="lyonPpProjectsCarousel">
-                        <div class="lyon-pp-projects-carousel-wrapper">
-                            <img src="images/lyon/homeproject1.jpg" alt="Projet 1" class="lyon-pp-project-image active" data-project="homeproject1">
-                            <img src="images/lyon/homeproject2.jpg" alt="Projet 2" class="lyon-pp-project-image" data-project="homeproject2">
-                            <img src="images/lyon/homeproject3.jpg" alt="Projet 3" class="lyon-pp-project-image" data-project="homeproject3">
-                            <img src="images/lyon/homeproject4.jpg" alt="Projet 4" class="lyon-pp-project-image" data-project="homeproject4">
-                        </div>
-                    </div>
-                    <!-- Image principale du concepteur (conservée pour compatibilité) -->
-                    <div class="lyon-pp-image-wrapper" style="display: none;">
-                        <img src="images/lyon/Fabien1.jpg" alt="Fabien - Concepteur Plum Living" class="lyon-pp-image" id="lyonPpImage">
+                    <div class="lyon-pp-image-wrapper">
+                        <img src="images/lyon/homeproject1.jpg" alt="Projet" class="lyon-pp-image" id="lyonPpImage">
                     </div>
                 </div>
                 
@@ -729,9 +729,6 @@
                         </div>
                         <div class="lyon-pp-info">
                             <h4 class="lyon-pp-name" id="lyonPpName">Bénédicte</h4>
-                            <div class="lyon-pp-projects">
-                                <span class="lyon-pp-projects-count" id="lyonPpProjectsCount">123 projets réalisés</span>
-                            </div>
                         </div>
                     </div>
                     
@@ -760,7 +757,7 @@
                 <!-- Item FAQ 1 -->
                 <div class="faq-item">
                     <div class="faq-header">
-                        <div class="faq-question">Quels sont les délais de livraison à Lyon?</div>
+                        <div class="faq-question">Quels sont les délais de livraison?</div>
                         <div class="faq-icon">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -769,7 +766,7 @@
                     </div>
                     <div class="faq-content">
                         <div class="faq-answer">
-                            <p>Les délais de livraison varient selon le type de projet et les produits sélectionnés. En général, comptez entre 4 à 8 semaines pour une cuisine sur mesure et 2 à 6 semaines pour des éléments de rangement. Nos conseillers vous donneront un délai précis lors de votre rendez-vous.</p>
+                            <p>Délai : Sous 6 à 8 semaines<br>Mode de livraison : sur RDV au pied du camion ou à l'étage.<br>Retours : Produit fabriqué sur commande. Aucun retour ni échange accepté.</p>
                         </div>
                     </div>
                 </div>
@@ -820,7 +817,7 @@
                     </div>
                     <div class="faq-content">
                         <div class="faq-answer">
-                            <p>Plum Living accompagne tous types de projets d'aménagement intérieur : cuisines sur mesure, dressings, rangements, banquettes, buffets, aménagements de salle de bain, bureaux et espaces kids. Que vous souhaitiez rénover une pièce complète ou ajouter des éléments de rangement, nos concepteurs vous aident à créer un intérieur unique et fonctionnel.</p>
+                            <p>Aide à la conception : Cuisine<br>Aide à la conception : Dressing et tête de lit<br>Aide à la conception : Meuble de salle de bain<br>Aide à la conception : Banquette<br>Aide à la conception : Bibliothèque et meuble TV</p>
                         </div>
                     </div>
                 </div>

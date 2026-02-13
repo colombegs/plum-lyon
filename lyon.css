@@ -455,6 +455,7 @@
     flex-direction: column;
     gap: var(--spacing-md); /* 16px au lieu de 32px */
     overflow: visible; /* permet au carousel de dépasser à droite */
+    align-items: flex-start; /* Aligne les éléments enfants à gauche */
 }
 
 /* Titre H2 */
@@ -542,6 +543,18 @@
     padding-bottom: var(--spacing-md);
 }
 
+/* Centrer le carousel pour la catégorie poseurs (2 sections seulement) */
+.lyon-carousel-wrapper.lyon-carousel-poseurs .lyon-carousel {
+    justify-content: center;
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+}
+
+/* Masquer les flèches pour la catégorie poseurs */
+.lyon-carousel-wrapper.lyon-carousel-poseurs .lyon-carousel-arrow {
+    display: none;
+}
+
 .lyon-carousel::-webkit-scrollbar {
     display: none; /* Chrome/Safari */
 }
@@ -588,6 +601,31 @@
     right: var(--spacing-xl);
 }
 
+/* CTA Tout voir */
+.lyon-carousel-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: var(--spacing-xl);
+    font-family: var(--font-primary, 'Cera Pro', sans-serif);
+    font-size: var(--font-size-m); /* 14px */
+    font-weight: 500; /* Medium */
+    color: var(--color-asphalte);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    align-self: flex-start; /* Aligné à gauche */
+}
+
+.lyon-carousel-cta:hover {
+    opacity: 0.7;
+}
+
+.lyon-carousel-cta-arrow {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
 .lyon-carousel-slide {
     flex: 0 0 auto;
     width: auto;
@@ -626,12 +664,13 @@
 .lyon-carousel-content {
     position: absolute;
     bottom: 40px; /* Position fixe depuis le bas pour aligner tous les titres */
-    left: 90px; /* 90px depuis le bord gauche du slide (aligné avec conteneur + 90px) */
-    right: var(--spacing-md);
+    left: var(--spacing-xl); /* Espacement égal à gauche */
+    right: var(--spacing-xl); /* Espacement égal à droite pour centrer */
     z-index: 2;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    align-items: flex-start; /* Alignement à gauche du contenu dans le conteneur centré */
 }
 
 /* Label sur l'image - position fixe pour alignement parfait */
@@ -657,9 +696,9 @@
 
 .lyon-carousel-name {
     font-family: var(--font-heading, 'Blacklist', sans-serif);
-    font-size: var(--font-size-h3); /* 42px - H3 */
+    font-size: var(--font-size-h4); /* 32px - H4 (diminué de 1 taille depuis H3) */
     font-weight: 400;
-    line-height: var(--line-height-h3); /* 120% */
+    line-height: var(--line-height-h4); /* 120% */
     letter-spacing: -0.3px;
     color: var(--color-white);
     margin: 0;
@@ -716,7 +755,8 @@
 
     .lyon-carousel-content {
         bottom: 35px; /* Position fixe depuis le bas pour aligner tous les titres sur tablette */
-        left: 60px; /* 60px depuis le bord du slide pour tablette */
+        left: var(--spacing-lg); /* Espacement égal à gauche */
+        right: var(--spacing-lg); /* Espacement égal à droite pour centrer */
     }
 
     .lyon-carousel-label {
@@ -724,8 +764,8 @@
     }
 
     .lyon-carousel-name {
-        font-size: var(--font-size-h4); /* 32px - H4 pour tablette */
-        line-height: var(--line-height-h4); /* 120% */
+        font-size: var(--font-size-h5); /* 24px - H5 pour tablette (diminué de 1 taille depuis H4) */
+        line-height: var(--line-height-h5); /* 120% */
     }
 
     .lyon-carousel-description {
@@ -748,6 +788,12 @@
 
     .lyon-carousel-arrow-next {
         right: var(--spacing-md);
+    }
+
+    /* Centrer le carousel pour la catégorie poseurs sur tablette */
+    .lyon-carousel-wrapper.lyon-carousel-poseurs .lyon-carousel {
+        padding-left: var(--spacing-lg);
+        padding-right: var(--spacing-lg);
     }
 }
 
@@ -794,8 +840,8 @@
 
     .lyon-carousel-content {
         bottom: 30px; /* Position fixe depuis le bas pour aligner tous les titres sur mobile */
-        left: var(--spacing-md); /* 16px depuis le bord du slide pour mobile */
-        right: var(--spacing-sm);
+        left: var(--spacing-md); /* Espacement égal à gauche */
+        right: var(--spacing-md); /* Espacement égal à droite pour centrer */
         gap: var(--spacing-sm);
     }
 
@@ -808,8 +854,8 @@
     }
 
     .lyon-carousel-name {
-        font-size: var(--font-size-h4); /* 32px - H4 pour mobile au lieu de H3 */
-        line-height: var(--line-height-h4); /* 120% */
+        font-size: var(--font-size-h5); /* 24px - H5 pour mobile (diminué de 1 taille depuis H4) */
+        line-height: var(--line-height-h5); /* 120% */
     }
 
     .lyon-carousel-description {
@@ -832,6 +878,12 @@
 
     .lyon-carousel-arrow-next {
         right: var(--spacing-sm);
+    }
+
+    /* Centrer le carousel pour la catégorie poseurs sur mobile */
+    .lyon-carousel-wrapper.lyon-carousel-poseurs .lyon-carousel {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
     }
 }
 
@@ -878,45 +930,6 @@
     justify-content: center;
     padding: 0;
     overflow: hidden;
-    position: relative;
-}
-
-/* Carousel des projets dans la colonne de gauche */
-.lyon-pp-projects-carousel {
-    width: 100%;
-    height: 100%;
-    min-height: 700px;
-    max-height: 800px;
-    position: relative;
-    overflow: hidden;
-}
-
-.lyon-pp-projects-carousel-wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.lyon-pp-project-image {
-    width: 100%;
-    height: 100%;
-    min-height: 700px;
-    max-height: 800px;
-    object-fit: cover;
-    display: block;
-    flex-shrink: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.lyon-pp-project-image.active {
-    opacity: 1;
     position: relative;
 }
 
@@ -1012,27 +1025,10 @@
     margin: 0;
 }
 
-.lyon-pp-projects {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    justify-content: space-between;
-    width: 100%;
-}
-
 .lyon-pp-nav-arrows {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
-}
-
-.lyon-pp-projects-count {
-    font-family: var(--font-primary, 'Cera Pro', sans-serif);
-    font-size: var(--font-size-m); /* 14px - M */
-    font-weight: 400;
-    line-height: var(--line-height-body); /* 140% */
-    letter-spacing: var(--letter-spacing-body); /* -0.5px */
-    color: var(--color-grey-1);
 }
 
 .lyon-pp-nav-arrow {
@@ -1127,16 +1123,6 @@
         min-height: 500px;
     }
 
-    .lyon-pp-projects-carousel {
-        min-height: 500px;
-        max-height: 600px;
-    }
-
-    .lyon-pp-project-image {
-        min-height: 500px;
-        max-height: 600px;
-    }
-
     .lyon-pp-text-column {
         padding: var(--spacing-3xl) var(--spacing-2xl);
     }
@@ -1169,16 +1155,6 @@
         min-height: 400px;
     }
 
-    .lyon-pp-projects-carousel {
-        min-height: 400px;
-        max-height: 500px;
-    }
-
-    .lyon-pp-project-image {
-        min-height: 400px;
-        max-height: 500px;
-    }
-
     .lyon-pp-text-column {
         padding: var(--spacing-2xl) var(--spacing-xl);
         gap: var(--spacing-lg);
@@ -1199,10 +1175,6 @@
 
     .lyon-pp-name {
         font-size: var(--font-size-h5); /* 24px - H5 pour mobile */
-    }
-
-    .lyon-pp-projects-count {
-        font-size: var(--font-size-s); /* 12px - S pour mobile */
     }
 
     .lyon-pp-description {
@@ -1970,6 +1942,7 @@
     width: fit-content;
     will-change: transform;
     animation: lyon-scroll-infinite 18s linear infinite;
+    gap: var(--spacing-xl);
 }
 
 .lyon-scroll-track.paused {

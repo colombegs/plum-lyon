@@ -42,10 +42,10 @@
                 description: 'C\'est en plein cœur de la ville, dans le 1er arrondissement, que siège cette pépite. Ce qu\'on y trouve ? Des papiers peints éco friendly et des histoires à dévorer des yeux par milliers. À chaque papier peint, son histoire : qu\'elle soit animale, botanique, atypique, poétique ou encore historique. Une belle adresse qui fait honneur à la richesse textile de la ville de Lyon !<br><strong>5 Pl. Louis Chazette, 69001 Lyon</strong>'
             },
             { 
-                image: 'images/lyon/sepia_interieur.jpg',
-                category: 'Moulures/déco',
-                name: 'Sépia intérieur',
-                description: 'Moulures, corniches, plinthes ou panneaux 3D design… Orac offre une infinité de possibilités pour sublimer vos pièces, de la surface plane à l\'effet tridimensionnel saisissant. Retrouvez les produits Orac chez Sépia Intérieur, dans le 6ᵉ arrondissement de Lyon.<br><strong>99 Rue Duguesclin, 69006 Lyon</strong>'
+                image: 'images/lyon/boutique_toscane.jpeg',
+                category: 'Tissus/mobilier',
+                name: 'Toscane tissu',
+                description: '<strong>2 RUE GASPARD ANDRE, 69002 LYON, FRANCE</strong>'
             },
             { 
                 image: 'images/lyon/ressouce_lyon.jpeg',
@@ -64,6 +64,48 @@
                 category: 'Plan de travail',
                 name: 'Easy Plan',
                 description: 'Entre les éclaboussures, les plats chauds et les traces en tout genre, votre plan de travail sera mis à rude épreuve. Autant allier élégance et robustesse ! Easy plan propose des créations sur mesure du plans de travail, crédences, habillages muraux… qu\'il s\'agisse de cuisines, salles de bain ou de tout autre lieu de vie.<br><strong>3 Cr de la Liberté, 69003 Lyon</strong>'
+            },
+            { 
+                image: 'images/lyon/boutique_claude_cartier.jpg',
+                category: 'Tissus/mobilier',
+                name: 'Claude Cartier Décoration',
+                description: 'Animée par une passion pour la mise en scène et le souci du détail, cette maison incarne une œuvre totale où chaque objet, matière et espace compose un récit cohérent, sensible et profondément esthétique.<br><strong>25 Rue Auguste Comte, 69002 Lyon</strong>'
+            },
+            { 
+                image: 'images/lyon/boutique_meljac.jpg',
+                category: 'Interrupteurs/prises',
+                name: 'Maison Meljac',
+                description: 'Fabricant précurseur de l\'appareillage électrique en laiton.<br><strong>5 rue Charles Dullin 69002 Lyon</strong>'
+            },
+            { 
+                image: 'images/lyon/boutique_mercadier.jpg',
+                category: 'Peintures/béton ciré',
+                name: 'Mercadier',
+                description: 'Teintes et Matières. Béton Ciré, Peinture, Chaux, Enduits métallisés.<br><strong>27 Rue des Remparts d\'Ainay, 69002 Lyon</strong>'
+            },
+            { 
+                image: 'images/lyon/boutique_bruneel.jpg',
+                category: 'Tissus/ mobilier',
+                name: 'Atelier Bruneel',
+                description: 'De la tringlerie aux décors de fenêtre, en passant par les accessoires et finitions, chaque réalisation témoigne de leur engagement à sublimer vos projets les plus ambitieux.<br><strong>160 Rue Vendôme, 69003 Lyon</strong>'
+            },
+            { 
+                image: 'images/lyon/boutique_riviere_carreaux.jpg',
+                category: 'Carrelage',
+                name: 'La rivière de carreaux',
+                description: 'Leurs produits regroupent toute une gamme de carrelages : faïence, céramique, dalle, carreaux, grès céram, grès, carreaux de ciments, décors, mosaïques et effet parquets pour satisfaire toutes vos envies.<br><strong>52 Rue Boileau, 69006 Lyon</strong>'
+            },
+            { 
+                image: 'images/lyon/sepia_interieur.jpg',
+                category: 'Moulures/déco',
+                name: 'Sépia intérieur',
+                description: 'Moulures, corniches, plinthes ou panneaux 3D design… Orac offre une infinité de possibilités pour sublimer vos pièces, de la surface plane à l\'effet tridimensionnel saisissant. Retrouvez les produits Orac chez Sépia Intérieur, dans le 6ᵉ arrondissement de Lyon.<br><strong>99 Rue Duguesclin, 69006 Lyon</strong>'
+            },
+            { 
+                image: 'images/lyon/boutique_targe.jpg',
+                category: 'Moulures/miroirs/décors',
+                name: 'Miroiterie Targe',
+                description: 'La miroiterie TARGE est spécialisée dans le découpe et la pose de tous produits verriers et fenêtres.<br><strong>60 Rue de Marseille 58, 69007 Lyon</strong>'
             }
         ],
         poseurs: [
@@ -78,12 +120,6 @@
                 category: 'POSEUR',
                 name: 'Éric Pose Tout',
                 description: '06 19 60 15 02<br>contact@ericposetout.com<br>Auvergne-Rhône_Alpes'
-            },
-            { 
-                image: 'images/lyon/poseur3.jpg',
-                category: 'POSEUR',
-                name: 'R\'Moderne',
-                description: '07 83 19 69 41\ngerfaud.alexandre@gmail.com'
             }
         ]
     };
@@ -98,7 +134,7 @@
         }
 
         // Fonction pour créer une slide du carousel
-        function createCarouselSlide(item) {
+        function createCarouselSlide(item, currentCategory) {
             const slide = document.createElement('div');
             slide.className = 'lyon-carousel-slide';
             
@@ -123,7 +159,20 @@
             
             const description = document.createElement('p');
             description.className = 'lyon-carousel-description';
-            description.innerHTML = item.description || '';
+            
+            // Pour la catégorie "architectes", extraire uniquement l'adresse (contenu du tag <strong>)
+            if (currentCategory === 'architectes' && item.description) {
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = item.description;
+                const strongElement = tempDiv.querySelector('strong');
+                if (strongElement) {
+                    description.innerHTML = '<strong>' + strongElement.textContent + '</strong>';
+                } else {
+                    description.innerHTML = item.description;
+                }
+            } else {
+                description.innerHTML = item.description || '';
+            }
             
             label.appendChild(category);
             label.appendChild(name);
@@ -146,16 +195,55 @@
         // Fonction pour charger les images d'une catégorie avec répétition pour effet bleeding
         function loadCarousel(category) {
             const items = CAROUSEL_DATA[category] || [];
+            const carouselWrapper = carousel.closest('.lyon-carousel-wrapper');
             carousel.innerHTML = '';
             
-            // Répéter les images 3 fois pour créer un effet de bleeding scrollable
-            const REPEAT_COUNT = 3;
-            
-            for (let repeat = 0; repeat < REPEAT_COUNT; repeat++) {
+            // Pour la catégorie poseurs, on répète moins et on centre
+            if (category === 'poseurs') {
+                carouselWrapper.classList.add('lyon-carousel-poseurs');
+                // Ne pas répéter pour poseurs - afficher seulement les 2 éléments une fois
                 items.forEach((item, index) => {
-                    const slide = createCarouselSlide(item);
+                    const slide = createCarouselSlide(item, category);
                     carousel.appendChild(slide);
                 });
+            } else {
+                carouselWrapper.classList.remove('lyon-carousel-poseurs');
+                // Répéter les images 3 fois pour créer un effet de bleeding scrollable
+                const REPEAT_COUNT = 3;
+                for (let repeat = 0; repeat < REPEAT_COUNT; repeat++) {
+                    items.forEach((item, index) => {
+                        const slide = createCarouselSlide(item, category);
+                        carousel.appendChild(slide);
+                    });
+                }
+            }
+        }
+
+        // Textes selon la catégorie
+        const categoryTexts = {
+            architectes: 'Cuisine, dressing ou banquette, ces agences d\'architecture et décorateurs d\'intérieur comptent tous à leur actif des dizaines de projets Plum Living. Il ne vous reste plus qu\'à choisir l\'heureux élu.',
+            boutiques: 'Que vous soyez à la recherche de matériaux ou de petits détails qui font toute la différence pour sublimer vos projets, ce city guide est pensé pour vous.',
+            poseurs: 'Les adresses les mieux gardées : les professionnels auxquels nos concepteurs et clients ont déjà fait appel pour installer leurs projets, et dont ils ont été pleinement satisfaits.'
+        };
+
+        // Fonction pour mettre à jour le texte de description
+        function updateDescriptionText(category) {
+            const descriptionElement = document.getElementById('lyonAdressesDescription');
+            if (descriptionElement && categoryTexts[category]) {
+                descriptionElement.textContent = categoryTexts[category];
+            }
+        }
+
+        // Gestion du CTA "Tout voir"
+        const ctaElement = document.getElementById('lyonCarouselCta');
+        function toggleCta(category) {
+            if (ctaElement) {
+                // Afficher le CTA uniquement pour la catégorie "boutiques" (Bonnes adresses)
+                if (category === 'boutiques') {
+                    ctaElement.style.display = 'inline-flex';
+                } else {
+                    ctaElement.style.display = 'none';
+                }
             }
         }
 
@@ -171,11 +259,19 @@
                 // Charger le carousel correspondant
                 const category = this.dataset.tab;
                 loadCarousel(category);
+                
+                // Mettre à jour le texte de description
+                updateDescriptionText(category);
+                
+                // Afficher/masquer le CTA selon la catégorie
+                toggleCta(category);
             });
         });
 
         // Charger le carousel initial (BOUTIQUES par défaut)
         loadCarousel('boutiques');
+        updateDescriptionText('boutiques');
+        toggleCta('boutiques');
 
         // Gestion des flèches de navigation
         const prevButton = document.getElementById('lyonCarouselPrev');
