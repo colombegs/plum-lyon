@@ -28,13 +28,6 @@
             description: 'Expert en design d\'intérieur, Jessica transforme vos idées en espaces élégants et harmonieux, en alliant esthétique contemporaine et fonctionnalité.',
             image: 'images/lyon/Projet 3.jpg', // Grande image de cuisine
             avatar: 'images/lyon/Jessica Lejeune.jpg' // Petit avatar
-        },
-        {
-            name: 'Océane',
-            projectsCount: 87,
-            description: 'Passionnée par le design et l\'architecture, Océane vous guide dans la création d\'un intérieur unique qui reflète votre personnalité et votre style de vie.',
-            image: 'images/lyon/Projet 4.jpg', // Grande image de cuisine
-            avatar: 'images/lyon/Océane.jpg' // Petit avatar
         }
     ];
 

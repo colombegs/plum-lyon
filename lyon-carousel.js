@@ -10,28 +10,58 @@
     const CAROUSEL_DATA = {
         architectes: [
             { 
-                image: 'images/lyon/archi1.jpg',
+                image: 'images/lyon/archi_studio_castille.jpeg',
                 category: 'ARCHITECTE',
                 name: 'Studio Castille',
                 description: 'Bienvenue chez Studio Castille, agence d\'architecture d\'intérieur spécialisée dans la rénovation complète et l\'aménagement sur-mesure à Paris et Lyon.<br><strong>9 rue du Doyenné, 69005 Lyon (métro Vieux-Lyon)</strong>'
             },
             { 
-                image: 'images/lyon/archi2.jpg',
+                image: 'images/lyon/archi_constance_laurand.png',
                 category: 'ARCHITECTE',
                 name: 'Constance Laurand',
                 description: 'Installé à Lyon depuis 2018, son studio d\'architecture intérieure intervient dans toute la France.<br>Sa signature : l\'élégance au service du confort.<br>Son art : optimiser chaque mètre carré.<br>Son style : structurer les espaces avec des couleurs et des motifs chics.<br><strong>2 Pl. Gailleton, 69002 Lyon</strong>'
             },
             { 
-                image: 'images/lyon/archi4 - copie.jpeg',
+                image: 'images/lyon/archi_wellsat.jpeg',
                 category: 'ARCHITECTE',
                 name: 'Wellsat Déco',
-                description: 'En tant que décoratrice d\'intérieur, Héloïse vous guide dans la création d\'espaces singuliers conçus sur-mesure, à la fois pratiques et esthétiques. Son approche ? Des solutions personnalisées, créatives et parfaitement adaptées à vos besoins, pour un résultat qui vous ressemble vraiment !<br><strong>Contacter via le site web ou instagram</strong>'
+                description: '<strong>7 Rue Montesquieu, 69007 Lyon</strong>'
             },
             { 
-                image: 'images/lyon/archi5.png',
+                image: 'images/lyon/archi_emilie_lombardo.jpeg',
                 category: 'ARCHITECTE',
                 name: 'Émilie Darneau Lombardo',
                 description: 'Concevoir des intérieurs qui reflètent un art de [bien] vivre au quotidien est sa priorité. Parce que chaque projet est unique, Émilie considère chacun de vos chantiers comme tel. Très attentive au mode de vie de ses clients, elle créee des ambiances sur mesure et qui leur ressemblent.<br><strong>Lyon</strong>'
+            },
+            { 
+                image: 'images/lyon/archi_Johanne.avif',
+                category: 'ARCHITECTE',
+                name: 'Johanne Schwab',
+                description: '<strong>681 Chem. Pierre Drevet, 69300 Caluire-et-Cuire</strong>'
+            },
+            { 
+                image: 'images/lyon/archi_ollien.png',
+                category: 'ARCHITECTE',
+                name: 'Anne-Valérie Ollien',
+                description: '<strong>Projets toute France</strong>'
+            },
+            { 
+                image: 'images/lyon/archi_atelier_bronner.avif',
+                category: 'ARCHITECTE',
+                name: 'Atelier Bronner',
+                description: '<strong>Lyon | Paris| Bordeaux | Pays-Basque</strong>'
+            },
+            { 
+                image: 'images/lyon/archi_artemesia.jpeg',
+                category: 'ARCHITECTE',
+                name: 'Artemesia studio',
+                description: '<strong>25, rue de la Chapellerie - 69700 Beauvallon FRANCE</strong>'
+            },
+            { 
+                image: 'images/lyon/archi_chloe_letessier.jpeg',
+                category: 'ARCHITECTE',
+                name: 'Chloé Le Tessier',
+                description: '<strong>13 Les Tamaris, 69005 Lyon</strong>'
             }
         ],
         boutiques: [
@@ -108,20 +138,7 @@
                 description: 'La miroiterie TARGE est spécialisée dans le découpe et la pose de tous produits verriers et fenêtres.<br><strong>60 Rue de Marseille 58, 69007 Lyon</strong>'
             }
         ],
-        poseurs: [
-            { 
-                image: 'images/lyon/poseurv1.jpg',
-                category: 'POSEUR',
-                name: 'R\'Moderne',
-                description: '07 83 19 69 41<br>gerfaud.alexandre@gmail.com<br>Auvergne-Rhône_Alpes'
-            },
-            { 
-                image: 'images/lyon/poseurv2.jpg',
-                category: 'POSEUR',
-                name: 'Éric Pose Tout',
-                description: '06 19 60 15 02<br>contact@ericposetout.com<br>Auvergne-Rhône_Alpes'
-            }
-        ]
+        poseurs: []
     };
 
     // Initialisation
@@ -137,6 +154,14 @@
         function createCarouselSlide(item, currentCategory) {
             const slide = document.createElement('div');
             slide.className = 'lyon-carousel-slide';
+            
+            // Pour la catégorie "poseurs", rendre la slide cliquable
+            if (currentCategory === 'poseurs') {
+                slide.style.cursor = 'pointer';
+                slide.addEventListener('click', function() {
+                    window.location.href = 'https://plum-living.com/fr/media/address/annuaire-poseurs';
+                });
+            }
             
             const imageWrapper = document.createElement('div');
             imageWrapper.className = 'lyon-carousel-image-wrapper';
@@ -198,14 +223,56 @@
             const carouselWrapper = carousel.closest('.lyon-carousel-wrapper');
             carousel.innerHTML = '';
             
-            // Pour la catégorie poseurs, on répète moins et on centre
+            // Pour la catégorie poseurs, créer un élément cliquable qui redirige vers la page
             if (category === 'poseurs') {
                 carouselWrapper.classList.add('lyon-carousel-poseurs');
-                // Ne pas répéter pour poseurs - afficher seulement les 2 éléments une fois
-                items.forEach((item, index) => {
-                    const slide = createCarouselSlide(item, category);
-                    carousel.appendChild(slide);
-                });
+                // Si le tableau est vide, créer un élément de redirection avec l'image "concept"
+                if (items.length === 0) {
+                    const redirectSlide = document.createElement('div');
+                    redirectSlide.className = 'lyon-carousel-slide';
+                    redirectSlide.style.cursor = 'pointer';
+                    
+                    const imageWrapper = document.createElement('div');
+                    imageWrapper.className = 'lyon-carousel-image-wrapper';
+                    
+                    const img = document.createElement('img');
+                    img.src = 'images/lyon/concept.png';
+                    img.alt = 'Voir tous les poseurs';
+                    img.className = 'lyon-carousel-image';
+                    
+                    const contentWrapper = document.createElement('div');
+                    contentWrapper.className = 'lyon-carousel-content';
+                    
+                    const label = document.createElement('div');
+                    label.className = 'lyon-carousel-label';
+                    
+                    const category = document.createElement('div');
+                    category.className = 'lyon-carousel-category';
+                    category.textContent = 'POSEUR';
+                    
+                    const name = document.createElement('h3');
+                    name.className = 'lyon-carousel-name';
+                    name.textContent = 'Voir tous les poseurs';
+                    
+                    label.appendChild(category);
+                    label.appendChild(name);
+                    contentWrapper.appendChild(label);
+                    imageWrapper.appendChild(img);
+                    imageWrapper.appendChild(contentWrapper);
+                    redirectSlide.appendChild(imageWrapper);
+                    
+                    redirectSlide.addEventListener('click', function() {
+                        window.location.href = 'https://plum-living.com/fr/media/address/annuaire-poseurs';
+                    });
+                    
+                    carousel.appendChild(redirectSlide);
+                } else {
+                    // Afficher les éléments existants
+                    items.forEach((item, index) => {
+                        const slide = createCarouselSlide(item, category);
+                        carousel.appendChild(slide);
+                    });
+                }
             } else {
                 carouselWrapper.classList.remove('lyon-carousel-poseurs');
                 // Répéter les images 3 fois pour créer un effet de bleeding scrollable
