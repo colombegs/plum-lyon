@@ -167,8 +167,8 @@
             imageWrapper.className = 'lyon-carousel-image-wrapper';
             
             const img = document.createElement('img');
-            // Utiliser un chemin absolu pour Vercel
-            img.src = item.image.startsWith('/') ? item.image : '/' + item.image;
+            // Utiliser des chemins relatifs qui fonctionnent en local et sur Vercel
+            img.src = item.image;
             img.alt = item.name;
             img.className = 'lyon-carousel-image';
             
