@@ -18,16 +18,16 @@
         {
             name: 'Justine',
             projectsCount: 98,
-            description: 'Spécialisée dans la création d\'espaces modernes et fonctionnels, Justine vous accompagne dans la concrétisation de vos projets avec créativité et professionnalisme.',
+            description: '"Engagée à titre personnel dans de nombreux projets de rénovation depuis plus 10 ans, j\'aime optimiser les espaces et révéler tout leur potentiel. J\'ai complété mon apprentissage sur le terrain par une formation d\'architecte et décoration d\'intérieur en 2021. Devenue experte agencement pour Plum Living depuis 3 ans, j\'ai à cœur de concevoir des agencements fonctionnels, esthétiques et faits pour simplifier le quotidien."',
             image: 'images/lyon/Projet 2.jpg', // Grande image de cuisine
-            avatar: 'images/lyon/Justine.jpg' // Petit avatar
+            avatar: 'images/lyon/PP_Justine.jpg' // Petit avatar
         },
         {
             name: 'Jessica',
             projectsCount: 156,
             description: 'Expert en design d\'intérieur, Jessica transforme vos idées en espaces élégants et harmonieux, en alliant esthétique contemporaine et fonctionnalité.',
             image: 'images/lyon/Projet 3.jpg', // Grande image de cuisine
-            avatar: 'images/lyon/Jessica Lejeune.jpg' // Petit avatar
+            avatar: 'images/lyon/PP_Jessica.jpg' // Petit avatar
         }
     ];
 
