@@ -62,6 +62,18 @@
                 category: 'ARCHITECTE',
                 name: 'Chloé Le Tessier',
                 description: '<strong>13 Les Tamaris, 69005 Lyon</strong>'
+            },
+            { 
+                image: 'images/lyon/archi_bel_atelier.jpg',
+                category: 'ARCHITECTE',
+                name: 'Bel Atelier',
+                description: '<strong>35 Bis Rte de Paris, 69160 Tassin-la-Demi-Lune</strong>'
+            },
+            { 
+                image: 'images/lyon/archi_studio_cruzado.jpeg',
+                category: 'ARCHITECTE',
+                name: 'Studio Cruzado',
+                description: '<strong>Lyon</strong>'
             }
         ],
         boutiques: [
@@ -289,9 +301,9 @@
 
         // Textes selon la catégorie
         const categoryTexts = {
-            architectes: 'Cuisine, dressing ou banquette, ces agences d\'architecture et décorateurs d\'intérieur comptent tous à leur actif des dizaines de projets Plum Living. Il ne vous reste plus qu\'à choisir l\'heureux élu.',
-            boutiques: 'Que vous soyez à la recherche de matériaux ou de petits détails qui font toute la différence pour sublimer vos projets, ce city guide est pensé pour vous.',
-            poseurs: 'Les adresses les mieux gardées : les professionnels auxquels nos concepteurs et clients ont déjà fait appel pour installer leurs projets, et dont ils ont été pleinement satisfaits.'
+            architectes: 'Cuisine, dressing ou banquette : ces architectes et décorateurs d\'intérieur connaissent notre concept sur le bout des doigts. À vous de choisir le profil parfait pour donner vie à vos envies.',
+            boutiques: 'Que vous soyez à la recherche d\'un œil expert pour concevoir votre intérieur, de matériaux pour sublimer vos idées, ou d\'artisans de confiance pour en assurer la pose, ce city guide est pensé pour vous.',
+            poseurs: 'Notre secret le mieux gardé. Les artisans poseurs à qui nos clients et concepteurs ont déjà confié l\'installation de leurs projets, et qu\'ils recommandent les yeux fermés.'
         };
 
         // Fonction pour mettre à jour le texte de description
