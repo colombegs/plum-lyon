@@ -441,7 +441,7 @@
 
 .lyon-adresses-section {
     width: 100%;
-    padding: var(--spacing-4xl) var(--container-padding);
+    padding: var(--spacing-4xl) var(--container-padding) var(--spacing-xl) var(--container-padding);
     background-color: var(--color-white);
     position: relative;
     z-index: 2;
@@ -759,7 +759,7 @@
 
 @media (max-width: 1024px) {
     .lyon-adresses-section {
-        padding: var(--spacing-3xl) var(--spacing-xl);
+        padding: var(--spacing-3xl) var(--spacing-xl) var(--spacing-lg) var(--spacing-xl);
     }
 
     .lyon-adresses-title {
@@ -825,7 +825,7 @@
 
 @media (max-width: 768px) {
     .lyon-adresses-section {
-        padding: var(--spacing-2xl) var(--spacing-md);
+        padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-md) var(--spacing-md);
     }
 
     .lyon-adresses-container {
@@ -915,7 +915,7 @@
 
 .lyon-personalization-section {
     width: 100%;
-    padding: var(--spacing-4xl) var(--container-padding);
+    padding: var(--spacing-xl) var(--container-padding) var(--spacing-4xl) var(--container-padding);
     background-color: var(--color-white);
     position: relative;
     z-index: 2;
@@ -971,7 +971,7 @@
 
 @media (max-width: 1024px) {
     .lyon-personalization-section {
-        padding: var(--spacing-3xl) var(--spacing-xl);
+        padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-3xl) var(--spacing-xl);
     }
 
     .lyon-personalization-title {
@@ -989,7 +989,7 @@
 
 @media (max-width: 768px) {
     .lyon-personalization-section {
-        padding: var(--spacing-2xl) var(--spacing-md);
+        padding: var(--spacing-md) var(--spacing-md) var(--spacing-2xl) var(--spacing-md);
     }
 
     .lyon-personalization-container {
@@ -1067,6 +1067,7 @@
     height: 100%;
     max-height: 800px;
     object-fit: cover;
+    object-position: center bottom; /* Afficher plus le bas de la photo */
     display: block;
     transition: opacity 0.2s ease;
 }
