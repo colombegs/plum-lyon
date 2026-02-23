@@ -11,7 +11,7 @@
         {
             name: 'Bénédicte',
             projectsCount: 123,
-            description: 'Avec plus d\'une centaine de projets à son actif, Bénédicte saura mettre son expertise et sa bonne humeur pour vous aider à réaliser le projet de vos rêves.',
+            description: '"Moi c\'est Bénédicte, architecte d\'intérieur et décoratrice. Je conçois des intérieurs coups de coeur pour le compte de mes clients particuliers et professionnels. Je suis lyonnaise d\'origine et fan de gastronomie, cela va de pair me direz-vous ? Du coup concevoir des cuisines à la fois esthétiques et fonctionnelles est devenu une passion ! Tout doit être pensé dans les moindres détails ! Comptez sur moi pour concevoir avec vous des projets aux petits oignons !"',
             image: 'images/lyon/Projet 1.jpg', // Grande image de cuisine
             avatar: 'images/lyon/Bénédicte.jpg' // Petit avatar
         },
@@ -25,7 +25,7 @@
         {
             name: 'Jessica',
             projectsCount: 156,
-            description: 'Expert en design d\'intérieur, Jessica transforme vos idées en espaces élégants et harmonieux, en alliant esthétique contemporaine et fonctionnalité.',
+            description: '"Décoratrice et architecte d\'intérieur, je conçois et vous accompagne dans la réalisation de projets qui vous ressemblent. Après 10 ans dans le médico-social, j\'ai choisi de suivre ma passion pour créer des intérieurs pensés avec écoute, rigueur et créativité. Partenaire Plum Living depuis 3 ans, j\'imagine des aménagements sur mesure adaptés à chaque lieu et à chaque besoin."',
             image: 'images/lyon/Projet 3.jpg', // Grande image de cuisine
             avatar: 'images/lyon/PP_Jessica.jpg' // Petit avatar
         }

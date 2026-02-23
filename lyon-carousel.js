@@ -302,7 +302,7 @@
         // Textes selon la catégorie
         const categoryTexts = {
             architectes: 'Cuisine, dressing ou banquette : ces architectes et décorateurs d\'intérieur connaissent notre concept sur le bout des doigts. À vous de choisir le profil parfait pour donner vie à vos envies.',
-            boutiques: 'Que vous soyez à la recherche d\'un œil expert pour concevoir votre intérieur, de matériaux pour sublimer vos idées, ou d\'artisans de confiance pour en assurer la pose, ce city guide est pensé pour vous.',
+            boutiques: 'Que vous soyez à la recherche d\'un œil expert pour concevoir votre intérieur, de matériaux pour sublimer vos idées, ou d\'artisans de confiance pour en assurer la pose, ce carnet d\'adresses est pensé pour vous.',
             poseurs: 'Notre secret le mieux gardé. Les artisans poseurs à qui nos clients et concepteurs ont déjà confié l\'installation de leurs projets, et qu\'ils recommandent les yeux fermés.'
         };
 
